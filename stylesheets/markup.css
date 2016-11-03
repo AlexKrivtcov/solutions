@@ -1226,7 +1226,7 @@ p {
   font-size: 16px;
   font-weight: 300;
   line-height: 1.4; }
-  @media (min-width: 769px) {
+  @media (min-width: 880px) {
     .lead {
       font-size: 21px; } }
 
@@ -1514,7 +1514,7 @@ pre {
     display: table; }
   .container:after {
     clear: both; }
-  @media (min-width: 769px) {
+  @media (min-width: 880px) {
     .container {
       width: 798px; } }
   @media (min-width: 1210px) {
@@ -1706,7 +1706,7 @@ pre {
 .col-xs-offset-12 {
   margin-left: 100%; }
 
-@media (min-width: 769px) {
+@media (min-width: 880px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left; }
 
@@ -2336,7 +2336,7 @@ table th[class*="col-"] {
 .table-responsive {
   overflow-x: auto;
   min-height: 0.01%; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 879px) {
     .table-responsive {
       width: 100%;
       margin-bottom: 15px;
@@ -2780,7 +2780,7 @@ select[multiple].input-lg,
   margin-bottom: 10px;
   color: #737373; }
 
-@media (min-width: 769px) {
+@media (min-width: 880px) {
   .form-inline .form-group {
     display: inline-block;
     margin-bottom: 0;
@@ -2837,18 +2837,18 @@ select[multiple].input-lg,
     display: table; }
   .form-horizontal .form-group:after {
     clear: both; }
-@media (min-width: 769px) {
+@media (min-width: 880px) {
   .form-horizontal .control-label {
     text-align: right;
     margin-bottom: 0;
     padding-top: 7px; } }
 .form-horizontal .has-feedback .form-control-feedback {
   right: 15px; }
-@media (min-width: 769px) {
+@media (min-width: 880px) {
   .form-horizontal .form-group-lg .control-label {
     padding-top: 11px;
     font-size: 18px; } }
-@media (min-width: 769px) {
+@media (min-width: 880px) {
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px;
     font-size: 12px; } }
@@ -3615,7 +3615,7 @@ tbody.collapse.in {
   .nav-justified > .dropdown .dropdown-menu {
     top: auto;
     left: auto; }
-  @media (min-width: 769px) {
+  @media (min-width: 880px) {
     .nav-justified > li, .nav-tabs.nav-justified > li {
       display: table-cell;
       width: 1%; }
@@ -3633,7 +3633,7 @@ tbody.collapse.in {
   .nav-tabs-justified > .active > a:focus,
   .nav-tabs.nav-justified > .active > a:focus {
     border: 1px solid #ddd; }
-  @media (min-width: 769px) {
+  @media (min-width: 880px) {
     .nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a {
       border-bottom: 1px solid #ddd;
       border-radius: 4px 4px 0 0; }
@@ -3835,7 +3835,7 @@ tbody.collapse.in {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   margin-top: 8px;
   margin-bottom: 8px; }
-  @media (min-width: 769px) {
+  @media (min-width: 880px) {
     .navbar-form .form-group {
       display: inline-block;
       margin-bottom: 0;
@@ -4287,7 +4287,7 @@ a.badge:hover, a.badge:focus {
     padding-right: 15px; }
   .jumbotron .container {
     max-width: 100%; }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 880px) {
     .jumbotron {
       padding-top: 48px;
       padding-bottom: 48px; }
@@ -5123,7 +5123,7 @@ button.close {
   height: 50px;
   overflow: scroll; }
 
-@media (min-width: 769px) {
+@media (min-width: 880px) {
   .modal-dialog {
     width: 600px;
     margin: 30px auto; }
@@ -5517,7 +5517,7 @@ button.close {
   .carousel-caption .btn {
     text-shadow: none; }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 880px) {
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .glyphicon-chevron-right,
   .carousel-control .icon-prev,
@@ -5607,7 +5607,7 @@ button.close {
 .visible-lg-inline-block {
   display: none !important; }
 
-@media (max-width: 768px) {
+@media (max-width: 879px) {
   .visible-xs {
     display: block !important; }
 
@@ -5620,19 +5620,19 @@ button.close {
   th.visible-xs,
   td.visible-xs {
     display: table-cell !important; } }
-@media (max-width: 768px) {
+@media (max-width: 879px) {
   .visible-xs-block {
     display: block !important; } }
 
-@media (max-width: 768px) {
+@media (max-width: 879px) {
   .visible-xs-inline {
     display: inline !important; } }
 
-@media (max-width: 768px) {
+@media (max-width: 879px) {
   .visible-xs-inline-block {
     display: inline-block !important; } }
 
-@media (min-width: 769px) and (max-width: 1209px) {
+@media (min-width: 880px) and (max-width: 1209px) {
   .visible-sm {
     display: block !important; }
 
@@ -5645,15 +5645,15 @@ button.close {
   th.visible-sm,
   td.visible-sm {
     display: table-cell !important; } }
-@media (min-width: 769px) and (max-width: 1209px) {
+@media (min-width: 880px) and (max-width: 1209px) {
   .visible-sm-block {
     display: block !important; } }
 
-@media (min-width: 769px) and (max-width: 1209px) {
+@media (min-width: 880px) and (max-width: 1209px) {
   .visible-sm-inline {
     display: inline !important; } }
 
-@media (min-width: 769px) and (max-width: 1209px) {
+@media (min-width: 880px) and (max-width: 1209px) {
   .visible-sm-inline-block {
     display: inline-block !important; } }
 
@@ -5707,10 +5707,10 @@ button.close {
   .visible-lg-inline-block {
     display: inline-block !important; } }
 
-@media (max-width: 768px) {
+@media (max-width: 879px) {
   .hidden-xs {
     display: none !important; } }
-@media (min-width: 769px) and (max-width: 1209px) {
+@media (min-width: 880px) and (max-width: 1209px) {
   .hidden-sm {
     display: none !important; } }
 @media (min-width: 1210px) and (max-width: 1399px) {
@@ -6035,9 +6035,9 @@ h3 {
   font-family: "RobotoBold";
   margin-bottom: 10px; }
 
-@media (max-width: 769px) {
-  .container {
-    width: 100%; } }
+@media (max-width: 880px) {
+  html body .container {
+    width: 90%; } }
 input.wb-checkbox, input.wb-radio {
   display: none; }
   input.wb-checkbox ~ label .tick, input.wb-radio ~ label .tick {
@@ -6127,7 +6127,7 @@ input.wb-checkbox, input.wb-radio {
     font: 11px/13px "TrebuchetMSBold";
     letter-spacing: 1px; }
 
-@media (max-width: 769px) {
+@media (max-width: 880px) {
   html body main {
     padding-top: 0;
     padding-bottom: 30px; }
@@ -6255,7 +6255,7 @@ main .two-columns-form .left-column {
 .radio {
   margin: 0; }
 
-@media (max-width: 769px) {
+@media (max-width: 880px) {
   #import-questionnaire-form .selection-box {
     margin-right: 0;
     margin-bottom: 15px; } }
@@ -6348,7 +6348,7 @@ input.wb-checkbox, input.wb-radio {
     font: 11px/13px "TrebuchetMSBold";
     letter-spacing: 1px; }
 
-@media (max-width: 769px) {
+@media (max-width: 880px) {
   html body main {
     padding-top: 0;
     padding-bottom: 30px; }
@@ -6415,7 +6415,7 @@ input.wb-checkbox, input.wb-radio {
       background-image: url("../img/headquarter_logo-retina.png");
       background-size: 269px 96px; } }
 
-@media (max-width: 769px) {
+@media (max-width: 880px) {
   .left-column #log-in {
     text-align: center; }
 
