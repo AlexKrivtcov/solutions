@@ -6387,6 +6387,7 @@ input.wb-checkbox, input.wb-radio {
   margin: 0 0 0 5px;
   background-color: white; }
 .navbar .help {
+  margin-top: 20px;
   float: right;
   padding: 5px 15px;
   background-color: #efefef;
