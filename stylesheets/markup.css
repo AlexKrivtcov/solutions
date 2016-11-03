@@ -5800,7 +5800,6 @@ html {
   position: relative;
   min-height: 100%; }
   html body {
-    height: 100%;
     margin-bottom: 60px;
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -6036,6 +6035,9 @@ h3 {
   font-family: "RobotoBold";
   margin-bottom: 10px; }
 
+@media (max-width: 769px) {
+  .container {
+    width: 100%; } }
 input.wb-checkbox, input.wb-radio {
   display: none; }
   input.wb-checkbox ~ label .tick, input.wb-radio ~ label .tick {
