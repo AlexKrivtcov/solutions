@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-questionnaires</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon-precomposed' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon-precomposed' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/markup.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $("#hide").click(function(){
+              $("div.form-error").hide();
+          });
+          $("#show").click(function(){
+              $("div.form-error").show();
+          });
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+          $("#hide2").click(function(){
+              $("div.page-title").show();
+              $("div.two-columns-form").show();
+              $("div.maintenance-mode").hide();
+          });
+          $("#show2").click(function(){
+              $("div.page-title").hide();
+              $("div.two-columns-form").hide();
+              $("div.maintenance-mode").show();
+          });
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".navbar-toggle").click(function () {
+          $(".navbar-collapse").fadeToggle();
+          $(".navbar-collapse").animate({height: '100%'}, 0);
+          $(".top-menu").toggleClass("top-animate");
+          $(".mid-menu").toggleClass("mid-animate");
+          $(".bottom-menu").toggleClass("bottom-animate");
+        });
+      });
+    </script> 
+</head>
+<body>
+  <header>
+    <div class="container-fluid">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid ">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="#" class="active-page">Questionnaires</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">                
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar top-menu"></span>
+              <span class="icon-bar mid-menu"></span>
+              <span class="icon-bar bottom-menu"></span>
+            </button>
+            <a href="#" class="badge badge_nav">42</a>
+            <a class="navbar-brand" href="#">
+              <div class="retina logo">Survey Solutions</div>
+            </a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#" title="Headquarter">Headquarter</a></li>
+              <li><a href="#" title="Teams">Teams</a></li>
+              <li><a href="#" title="Interviews">Interviews</a></li>
+              <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+              <li><a href="#" title="Data Export">Data Export</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" title="Notifactions"><span class="badge badge_nav">42</span>Notifactions</a></li>
+              <li><a href="#" title="Help">Help</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3"><span class="caret"></span>Supervisorr-3</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="#">Manage account</a></li>
+                  <li><a href="#">Logoff</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-9 page-header">
+          <ol class="breadcrumb">
+            <li><a href="">Questionnaire</a></li>
+          </ol>
+          <div class="page-title">
+            Use your Survey Solutions Designer credentials to get access to your questionnaires.        
+          </div>
+          <div class="maintenance-mode">
+            Unabile to import new questionnaire:
+            <div class="message-try-again">
+              Survey Solutions Designer website is in the maintenance mode, please try again later 
+            </div>
+          </div>
+          <a href="#" class="back-link">Back to questionnaires</a>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row two-columns-form">
+        <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 col-sm-6 col-xs-12 left-column">
+          <div class="centered-box-table">
+            <div class="centered-box-table-cell">
+              <img src="img/designer-logo.png" alt="Survey Solutions Designer"/>
+              <p>
+                This is free tool for creating questionnaires for The World Bank’s CAPI platform. It could be found at 
+                <a href="http://solutions.worldbank.org" target="_blank">solutions.worldbank.org</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 right-column">
+          <div class="centered-box-table">
+            <div class="centered-box-table-cell">
+              <form action="#" id="import-log-in" class="log-in">
+                <div class="form-error">
+                  <p>User is not authorized. <br/>
+                    Please check your login and password.</p>
+                  <p>Please sign in with credentials you normally use to access your questionnaires at the Designer site and in the Tester app</p>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Login" type="text"/>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Password" type="password"/>
+                </div>
+                <div class="form-group">
+                  <input class="wb-checkbox" id="cb-stay-logged-in" type="checkbox"/>
+                  <label for="cb-stay-logged-in">
+                    <span class="tick"></span>Stay logged in
+                  </label><br>
+                </div>
+                <div class="form-actions">
+                  <input class="btn btn-success btn-lg" type="submit" value="Log in" />
+                </div>
+              </form>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </main> 
+	<footer class="footer">
+    <div class="container-fluid">
+      <div class="text-left">
+        &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+      </div>
+      <div class="text-left">
+        5.12.0 (build 13156) 
+        <span>|</span>
+        <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+       </div>
+    </div>
+    <button id="hide">Hide error message</button>
+    <button id="show">Show error message</button>
+    <button id="hide2">Hide maintenance mode</button>
+    <button id="show2">Show maintenance mode</button>
+	</footer>
+</body>
+</html>
