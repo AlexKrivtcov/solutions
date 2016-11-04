@@ -5931,7 +5931,8 @@ html {
     padding: 0 2% 0 4%; }
 
   html body main {
-    padding-bottom: 45px; }
+    padding-bottom: 45px;
+    padding-top: 35px; }
 
   .active-page {
     display: inline-block; }
@@ -6037,7 +6038,11 @@ h3 {
 
 @media (max-width: 880px) {
   html body .container {
-    width: 90%; } }
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto; } }
 input.wb-checkbox, input.wb-radio {
   display: none; }
   input.wb-checkbox ~ label .tick, input.wb-radio ~ label .tick {
@@ -6128,20 +6133,17 @@ input.wb-checkbox, input.wb-radio {
     letter-spacing: 1px; }
 
 @media (max-width: 880px) {
-  html body main {
-    padding-top: 0;
-    padding-bottom: 30px; }
-    html body main .flex-row, html body main .two-columns-form {
-      display: block;
-      margin-top: 30px; }
-      html body main .flex-row .right-column, html body main .two-columns-form .right-column {
-        padding: 10px 3% 10px 9%;
-        border: none; }
-      html body main .flex-row .log-in .form-group .form-control, html body main .two-columns-form .log-in .form-group .form-control {
-        width: 75%;
-        display: inline-block; }
-    html body main .centered-box-table {
-      text-align: center; } }
+  html body main .flex-row, html body main .two-columns-form {
+    display: block;
+    margin-top: 30px; }
+    html body main .flex-row .right-column, html body main .two-columns-form .right-column {
+      padding: 10px 3% 10px 9%;
+      border: none; }
+    html body main .flex-row .log-in .form-group .form-control, html body main .two-columns-form .log-in .form-group .form-control {
+      width: 75%;
+      display: inline-block; }
+  html body main .centered-box-table {
+    text-align: center; } }
 .radio input.wb-radio {
   display: none; }
   .radio input.wb-radio ~ label .tick {
@@ -6210,7 +6212,8 @@ main .two-columns-form .left-column {
 #import-questionnaire-form .selection-box {
   background-color: #efefef;
   border-radius: 5px;
-  padding: 30px; }
+  padding: 30px;
+  margin-right: -15px; }
   #import-questionnaire-form .selection-box h3 {
     margin-top: 0; }
   #import-questionnaire-form .selection-box p {
@@ -6349,20 +6352,17 @@ input.wb-checkbox, input.wb-radio {
     letter-spacing: 1px; }
 
 @media (max-width: 880px) {
-  html body main {
-    padding-top: 0;
-    padding-bottom: 30px; }
-    html body main .flex-row, html body main .two-columns-form {
-      display: block;
-      margin-top: 30px; }
-      html body main .flex-row .right-column, html body main .two-columns-form .right-column {
-        padding: 10px 3% 10px 9%;
-        border: none; }
-      html body main .flex-row .log-in .form-group .form-control, html body main .two-columns-form .log-in .form-group .form-control {
-        width: 75%;
-        display: inline-block; }
-    html body main .centered-box-table {
-      text-align: center; } }
+  html body main .flex-row, html body main .two-columns-form {
+    display: block;
+    margin-top: 30px; }
+    html body main .flex-row .right-column, html body main .two-columns-form .right-column {
+      padding: 10px 3% 10px 9%;
+      border: none; }
+    html body main .flex-row .log-in .form-group .form-control, html body main .two-columns-form .log-in .form-group .form-control {
+      width: 75%;
+      display: inline-block; }
+  html body main .centered-box-table {
+    text-align: center; } }
 .left-column #log-in {
   text-align: left; }
 
