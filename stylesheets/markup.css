@@ -5768,6 +5768,11 @@ input.wb-checkbox ~ label .tick, input.wb-radio ~ label .tick, .radio input.wb-r
   background: transparent url("../img/pretty-checkable-sprites.png") no-repeat;
   vertical-align: middle; }
 
+.selection-box .btn, .selection-box a {
+  font: 12px/14px "TrebuchetMSBold";
+  text-transform: uppercase;
+  letter-spacing: 0.5px; }
+
 @font-face {
   font-family: "RobotoRegular";
   src: url("../fonts/RobotoRegular.eot");
@@ -5796,6 +5801,11 @@ input.wb-checkbox ~ label .tick, input.wb-radio ~ label .tick, .radio input.wb-r
   font-family: "TrebuchetMS";
   src: url("../fonts/TrebuchetMS.eot");
   src: url("../fonts/TrebuchetMS.eot") format("embedded-opentype"), url("../fonts/TrebuchetMS.woff2") format("woff2"), url("../fonts/TrebuchetMS.woff") format("woff"), url("../fonts/TrebuchetMS.ttf") format("truetype"), url("../fonts/TrebuchetMS.svg#TrebuchetMS") format("svg"); }
+a {
+  color: #2a81cb; }
+  a:hover, a:focus {
+    color: #2a81cb; }
+
 html {
   position: relative;
   min-height: 100%; }
@@ -5824,7 +5834,7 @@ html {
       line-height: 16px;
       font-family: inherit;
       height: 60px;
-      padding: 0 45px 0 88px; }
+      padding: 0 45px 0 75px; }
       html body .footer a {
         color: #b0b0b0;
         text-decoration: underline; }
@@ -6072,7 +6082,7 @@ input.wb-checkbox, input.wb-radio {
 .two-columns-form {
   margin-top: 115px; }
   .two-columns-form .left-column {
-    padding: 10px 3%; }
+    padding: 10px 3% 10px 8%; }
     .two-columns-form .left-column img {
       margin-bottom: 25px; }
   .two-columns-form .right-column {
@@ -6137,13 +6147,36 @@ input.wb-checkbox, input.wb-radio {
   html body main .flex-row, html body main .two-columns-form {
     display: block;
     margin-top: 30px; }
-    html body main .flex-row .right-column, html body main .two-columns-form .right-column {
+    html body main .flex-row .right-column, html body main .flex-row .left-column, html body main .two-columns-form .right-column, html body main .two-columns-form .left-column {
+      padding: 10px 3%;
       border: none; }
     html body main .flex-row .log-in .form-group .form-control, html body main .two-columns-form .log-in .form-group .form-control {
       width: 75%;
       display: inline-block; }
   html body main .centered-box-table {
     text-align: center; } }
+.selection-box {
+  background-color: #efefef;
+  border-radius: 5px;
+  padding: 30px;
+  margin-right: 20px;
+  margin-left: -30px; }
+  .selection-box h3 {
+    margin-top: 0; }
+  .selection-box p {
+    font: 13px/15px "RobotoRegular";
+    margin-bottom: 0; }
+  .selection-box .block {
+    margin-bottom: 25px; }
+
+@media (max-width: 1210px) {
+  .selection-box {
+    margin-left: 0;
+    margin-right: -15px; } }
+@media (max-width: 880px) {
+  .selection-box {
+    margin-right: 0;
+    margin-bottom: 15px; } }
 .radio input.wb-radio {
   display: none; }
   .radio input.wb-radio ~ label .tick {
@@ -6171,7 +6204,6 @@ main .page-header {
     main .page-header .maintenance-mode .message-try-again {
       color: #e74924; }
   main .page-header .back-link {
-    color: #2a81cb;
     text-transform: uppercase;
     font: 12.5px/14px "TrebuchetMSBold"; }
 main .two-columns-form .left-column {
@@ -6199,7 +6231,6 @@ main .two-columns-form .left-column {
     .questionnaire-statistics ul li {
       margin-bottom: 6px; }
       .questionnaire-statistics ul li a {
-        color: #2a81cb;
         font-style: italic;
         text-decoration: underline; }
         .questionnaire-statistics ul li a:hover, .questionnaire-statistics ul li a:focus {
@@ -6209,20 +6240,6 @@ main .two-columns-form .left-column {
       margin-right: 10px;
       margin-bottom: 0; }
 
-#import-questionnaire-form .selection-box {
-  background-color: #efefef;
-  border-radius: 5px;
-  padding: 30px;
-  margin-right: -15px; }
-  #import-questionnaire-form .selection-box h3 {
-    margin-top: 0; }
-  #import-questionnaire-form .selection-box p {
-    font: 13px/14px "RobotoRegular";
-    margin-bottom: 25px; }
-  #import-questionnaire-form .selection-box .btn {
-    font: 12px/14px "TrebuchetMSBold";
-    text-transform: uppercase;
-    letter-spacing: 1px; }
 #import-questionnaire-form .form-group {
   margin-bottom: 0; }
 #import-questionnaire-form .questionnaire-versioning {
@@ -6258,10 +6275,6 @@ main .two-columns-form .left-column {
 .radio {
   margin: 0; }
 
-@media (max-width: 880px) {
-  #import-questionnaire-form .selection-box {
-    margin-right: 0;
-    margin-bottom: 15px; } }
 input.wb-checkbox, input.wb-radio {
   display: none; }
   input.wb-checkbox ~ label .tick, input.wb-radio ~ label .tick {
@@ -6291,7 +6304,7 @@ input.wb-checkbox, input.wb-radio {
 .two-columns-form {
   margin-top: 115px; }
   .two-columns-form .left-column {
-    padding: 10px 3%; }
+    padding: 10px 3% 10px 8%; }
     .two-columns-form .left-column img {
       margin-bottom: 25px; }
   .two-columns-form .right-column {
@@ -6356,7 +6369,8 @@ input.wb-checkbox, input.wb-radio {
   html body main .flex-row, html body main .two-columns-form {
     display: block;
     margin-top: 30px; }
-    html body main .flex-row .right-column, html body main .two-columns-form .right-column {
+    html body main .flex-row .right-column, html body main .flex-row .left-column, html body main .two-columns-form .right-column, html body main .two-columns-form .left-column {
+      padding: 10px 3%;
       border: none; }
     html body main .flex-row .log-in .form-group .form-control, html body main .two-columns-form .log-in .form-group .form-control {
       width: 75%;
@@ -6428,3 +6442,23 @@ input.wb-checkbox, input.wb-radio {
   .navbar .retina-world-bank {
     width: 135px;
     height: 26.5px; } }
+.text-page, .prefilled-data-info {
+  font: 14px/16px "RobotoRegular"; }
+
+.prefilled-data-info {
+  margin-bottom: 60px; }
+  .prefilled-data-info p {
+    margin-bottom: 20px; }
+  .prefilled-data-info a.list-required-prefilled-data {
+    display: block;
+    margin-top: 30px; }
+
+.selection-box a {
+  display: block;
+  margin-top: 40px; }
+
+.btn-file input {
+  display: none; }
+
+main .flex-row {
+  margin-bottom: 40px; }
