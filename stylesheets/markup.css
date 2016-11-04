@@ -6072,7 +6072,7 @@ input.wb-checkbox, input.wb-radio {
 .two-columns-form {
   margin-top: 115px; }
   .two-columns-form .left-column {
-    padding: 10px 3% 10px 8%; }
+    padding: 10px 3%; }
     .two-columns-form .left-column img {
       margin-bottom: 25px; }
   .two-columns-form .right-column {
@@ -6137,8 +6137,7 @@ input.wb-checkbox, input.wb-radio {
   html body main .flex-row, html body main .two-columns-form {
     display: block;
     margin-top: 30px; }
-    html body main .flex-row .right-column, html body main .flex-row .left-column, html body main .two-columns-form .right-column, html body main .two-columns-form .left-column {
-      padding: 10px 3%;
+    html body main .flex-row .right-column, html body main .two-columns-form .right-column {
       border: none; }
     html body main .flex-row .log-in .form-group .form-control, html body main .two-columns-form .log-in .form-group .form-control {
       width: 75%;
@@ -6292,7 +6291,7 @@ input.wb-checkbox, input.wb-radio {
 .two-columns-form {
   margin-top: 115px; }
   .two-columns-form .left-column {
-    padding: 10px 3% 10px 8%; }
+    padding: 10px 3%; }
     .two-columns-form .left-column img {
       margin-bottom: 25px; }
   .two-columns-form .right-column {
@@ -6357,8 +6356,7 @@ input.wb-checkbox, input.wb-radio {
   html body main .flex-row, html body main .two-columns-form {
     display: block;
     margin-top: 30px; }
-    html body main .flex-row .right-column, html body main .flex-row .left-column, html body main .two-columns-form .right-column, html body main .two-columns-form .left-column {
-      padding: 10px 3%;
+    html body main .flex-row .right-column, html body main .two-columns-form .right-column {
       border: none; }
     html body main .flex-row .log-in .form-group .form-control, html body main .two-columns-form .log-in .form-group .form-control {
       width: 75%;
