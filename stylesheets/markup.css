@@ -7074,6 +7074,8 @@ input.checkbox-filter {
           top: 0; }
         .export-types .data .table-data .cell-data.format-data.stata:before {
           left: 45%; }
+      .export-types .data .table-data .cell-data .progress-information {
+        display: inline-block; }
 
   .filters.hidden-filters .filters-container, .filters.hidden-filters .preset-filters-container {
     width: 250px; } }
