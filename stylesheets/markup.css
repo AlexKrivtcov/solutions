@@ -6860,12 +6860,15 @@ input.checkbox-filter {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
-    transform: rotate(45deg); }
+    transform: rotate(45deg);
+    position: relative; }
   .export-types .data .table-data .btn.cancel:after {
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
-    transform: rotate(-45deg); }
+    transform: rotate(-45deg);
+    left: -1px;
+    top: -2px; }
 
 .progress-information.queued > span {
   color: #a6a8a9; }
