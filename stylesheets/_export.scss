@@ -1,0 +1,638 @@
+.hold-transition *{
+ -webkit-transition: none !important;
+ -moz-transition: none !important;
+ -ms-transition: none !important;
+ -o-transition: none !important;
+} 
+h4{
+	font: 22px/24px "RobotoLight";
+	margin-bottom: 22px;
+}
+h5{
+	@include font(14px, 16px);
+	margin-bottom: 15px;
+	font-weight: bold;
+} 
+main.export{
+	padding-left: 45px;
+	padding-top: 10px;
+	color: $gray_text;
+}
+.filters{
+	@include transition(left, 0.3s); 
+	top: 70px;
+	left: 0;
+	bottom: 0;
+	overflow: auto;
+	position: fixed;
+	width: 360px;
+	border-right: 3px solid $gray-super-light;
+	padding: 50px 15px 0;
+	margin-left: 12px;
+	background-color: #fff;
+	z-index: 1;
+}
+.foldback-button{
+	@include square(50px);
+	cursor: pointer;
+	@include absolute(0, 0, null, null);
+	margin: 10px;
+	border-radius: 4px;
+	z-index: 2;
+	@include transition(all, 0.5s, linear, 0.2s);
+	span{
+		display: block;
+		@include size(25px, 2px); 
+		margin: 15px 10px;
+		background-color: $gray_text;
+		@include rotate(45deg);
+		&:first-of-type{
+			@include rotate(-45deg);
+		}
+	}
+}
+input.checkbox-filter{
+  	display: none;
+  	& ~ label{
+  		position: relative;
+  		padding-left: 35px;
+  	}
+  	& ~ label .tick {
+	    @extend %tick;
+	    @include absolute(0, null, null, 0);
+	    height: 25px;
+	    background: transparent url("../img/chekboxes.png") no-repeat;
+	    background-size: 66px 198px;
+	    background-position: 0px 2px;
+	    margin-right: 10px;
+		@include image-2x("../img/chekboxes2k.png", 66px, 198px);
+  	}
+  	& ~ label:hover .tick,
+  	& ~ label:focus .tick{
+    	background-position: 0px -34px;
+  	}
+  	&:checked ~ label .tick {
+    	background-position: 0px -70px;
+  	}
+  	&:checked ~ label:hover .tick,
+  	&:checked ~ label:focus .tick {
+    	background-position: 0px -106px;
+  	}
+  	&:disabled ~ label .tick,
+  	&:checked:disabled ~ label .tick {
+    	background-position: 0px -142px;
+  	}
+  	&:disabled ~ label:hover .tick,
+  	&:checked:disabled ~ label:hover .tick,
+  	&:disabled ~ label:focus .tick,
+  	&:checked:disabled ~ label:focus .tick {
+    	background-position: 0px -178px;
+  	}
+}
+.filters-container {
+	color: $gray_text;
+	border-bottom: 3px solid $gray-super-light;
+	padding-bottom: 20px;
+	   
+	.block-filter{
+		margin-bottom: 30px;
+		select{
+			border-color: $gray_form;
+			max-width: 90%;
+			option{
+				width: 200px;
+			}
+		}
+		.form-group{
+			margin-bottom: 5px;
+			label{
+				font-size: 14px;
+			    line-height: 20px;
+			    font-family: inherit;
+			    font-weight: normal;
+			    margin: 0;
+			}
+		}
+		.form-date{
+			margin-bottom: 15px;
+			max-width: 275px;
+			.input-group.date{
+				label{
+					display: table-cell;
+					vertical-align: middle;
+					font-size: 14px;
+					line-height: 16px;
+					width: 50px;
+					font-weight: normal;
+				}
+				.form-control{
+					border-right: none;
+					border-color: $gray_form;
+					border-bottom-left-radius: 4px;
+					border-top-left-radius: 4px;
+				}
+				.input-group-addon{
+					background-color: transparent;
+					border-left: none;
+					border-color: $gray_form;
+					padding: 3px 10px; 
+					.calendar{
+						@include size(21px, 20px); 
+						display: inline-block;
+						background: url("../img/calendar.png") no-repeat;
+						@include image-2x("../img/calendar2k.png", 21px, 20px);
+					}
+				}
+			}
+		}
+	}
+}
+.preset-filters-container{
+	padding: 30px 0;
+	a{
+		@extend h5;
+		color: $blue;
+		display: block;
+	}
+}
+
+.btn-input {
+   display: block;
+   .dropdown-toggle{
+   		background-color: transparent;
+   		box-shadow: none;
+   		border: 1px solid $gray_form;
+   		border-radius: 4px;
+   		width: 295px;
+   		text-align: left;
+   		&:hover, &:focus{
+   			box-shadow: none;
+   		}
+   		span:first-child {
+		   left: 10px;
+		   overflow: hidden;
+		   position: absolute;
+		   right: 30px;
+		}
+		.caret-large {
+		    margin-top: -1px;
+		    position: absolute;
+		    right: 10px;
+		    top: 35%;
+		    @include size(0, 0); 
+		    display: block;
+		    border-top: 12px solid $gray-text;
+		    border-right: 7px solid transparent;
+		    border-left: 7px solid transparent;
+		}
+		
+   }
+   .dropdown-menu > li{	
+   		&> a{
+	   		white-space: pre-wrap;
+	   		padding: 7px 10px;
+	   		color: $gray_text;
+			&:hover, &:focus{
+	   			background-color: $gray-super-light;
+   			}
+  		}
+   }
+   &.open > .dropdown-menu {
+	    display: block;
+	    width: 295px;
+	    padding: 5px;
+   		border: 1px solid $gray_form;
+   		overflow: auto;
+    	max-height: 300px;
+    	border-radius: 4px;
+	} 
+}
+.export-types{
+	padding: 40px 30px;
+	position: relative;
+	margin-left: 335px;
+	max-width: 900px;
+	@include transition(margin, 0.3s);
+	background-color: #fff;
+
+	h2{
+		margin-bottom: 45px;
+	}
+	.data{
+		width: 100%;
+		margin-bottom: 30px;
+		p{
+			font-size: 14px;
+			line-height: 16px;
+			margin-bottom: 0;
+			span{
+				display: block;
+			}
+			a{
+				color: $gray-text;
+				text-decoration: underline;
+				&:hover, &:focus{
+					text-decoration: none;
+				}
+			}
+		}
+		.table-data-header{
+			padding-left: 18px;
+			@extend %gray-uppercase;
+			overflow: hidden;
+			width: 100%;
+			display: table;
+
+			div{
+				float: right;
+				padding: 5px 20px 13px;
+			}
+		}
+		.table-data{
+			padding-left: 18px;
+			display: table;
+			@include size(100%, 60px); 
+			.cell-data{
+				display: table-cell;
+				vertical-align: middle;
+				padding: 0 20px;
+
+				.not-generated{
+					display: inline-block;
+				}
+				&.download-block{
+					padding: 0 5px;
+				}
+			}
+			.min-view{
+				display: none;
+			}
+			&:nth-of-type(2n){
+				background-color: $gray-super-light;
+			}
+			.format-data{
+				@include font(14px, 16px);
+				font-weight: bold;
+				width: 34%;
+				position: relative;
+				padding-left: 80px;
+				&:before{
+					display: block;
+					@include absolute(19%, null, null, 0);
+					@include size(63px, 41px);
+					content: "";
+					background: url("../img/data-image.png") no-repeat;
+					background-size: 63px 234px;
+					@include image-2x("../img/data-image2k.png", 63px, 234px);
+    				background-position: 0px -200px;
+				}
+				&.separated-data:before{
+    				background-position: 0px -120px;
+				}
+				&.xlsx:before{
+    				background-position: 0px -78px;
+				}
+				&.stata:before{
+    				background-position: 0px 4px;
+				}
+				&.spss:before{
+    				background-position: 0px -38px;
+				}
+				&.zip:before{
+    				background-position: 0px -165px;
+				}
+				span{
+					color: $blue;
+				}
+			}
+			.btn{
+				margin: 5px;
+				padding: 8px 0;
+				width: 86px;
+				@extend %uppercase-font;
+			}
+			.not-generated{
+				@extend %uppercase-font;
+				color: $gray_light;
+				padding: 0 20px; 
+			}
+		}
+		.size, .last-generated, .min-view{
+			color: $gray_light;
+			font: 12px/14px "TrebuchetMSBold";
+		}
+		.size{
+			width: 16%; 
+		}
+		.last-generated{
+			width: 19%; 
+			border-left: 1px solid #f2f4f4;
+			border-right: 1px solid #f2f4f4;
+		}
+	}
+}
+.progress-information{
+	max-width: 300px;
+	position: relative;
+	@extend %uppercase-font;
+	&>span{
+		display: block;
+		margin-bottom: 6px;
+		color: $green-btn;
+	}
+	.progress{
+		margin-bottom: 0;
+		height: 10px;
+		max-width: 300px;
+		background-color: $green-progress;
+		.progress-bar{
+			border-radius: 4px;
+		}
+	}
+}
+.export-types .data .table-data .btn.cancel{
+	outline: none;
+	background-color: transparent;
+	@include square(25px);
+	@include absolute(null, -45px, -6px, null);
+	padding: 0;
+	margin: 0;
+	&:before, &:after{
+		display: block;
+		content: "";
+		@include size(100%, 2px);
+		background-color: $gray_light;
+		@include rotate(45deg);
+	}
+	&:after{
+		@include rotate(-45deg);
+	}
+}
+.progress-information.queued{
+	&>span{
+		color: $gray_light;
+	}
+	.progress{
+		background-color: $gray-super-light;
+		.progress-bar{
+			background-color: $gray_light;
+		}
+	}
+}
+.filters.hidden-filters{
+	left: -400px;
+	overflow: visible;
+
+	.foldback-button{
+		right: -100px;
+		top: 0;
+		background-color: $gray_form;
+	    border-top-right-radius: 4px;
+	    border-bottom-right-radius: 4px;
+		span{
+			margin-left: 13px;
+	    	margin-right: 13px;
+			@include rotate(-45deg);
+			&:first-of-type{
+				@include rotate(45deg);
+			}
+		}
+	}
+}
+.export-types.fulsscreen{
+	margin-left: 0;
+	padding-left: 45px;
+}
+@media (max-width: $screen-md-min){
+	html body main.export{
+		padding-right: 2%;
+		padding-left: 4%;
+	}
+	.filters{
+		top: 60px;
+		width: 300px;
+		padding-top: 50px;
+		padding-left: 20px;
+		.dropdown-toggle{
+			width: 250px; 
+		}
+		.open > .dropdown-menu{
+			width: 250px;	
+		}
+		&.hidden-filters{
+			left: -330px;
+			position: absolute;
+			.foldback-button{
+				right: -90px;
+			}
+		}
+	}
+  	.export-types{
+  		margin-left: 265px;
+  		.size, .last-generated{
+  			display: none;
+  		}
+	  	.data .table-data {
+	  		.min-view{
+	  			display: table-cell;
+	  			width: 35%;
+	  			padding: 0 5px;
+	  			div{
+	  				padding: 8px 0;
+	  			}
+	  		}
+	  		.size, .last-generated{
+	  			display: none;
+	  		}
+	  		.format-data{
+		  		width: 35%;
+		  		padding-left: 75px;
+/* 		  		&.separated-data:before{
+		  			top: 21%;
+				}
+				&.stata:before{
+					top: 21px;
+				}
+				&.spss:before{
+					top: 19px;
+				} */
+		  	}
+		  	.not-generated{
+		  		padding: 0 10px;
+		  	}
+	  	}
+	  	.data p{
+	  		margin-bottom: 15px;
+	  	}
+  	}
+  	.export-types.fulsscreen{
+  		padding-left: 0;
+  		width: 100%;
+  		.size, .last-generated{
+  			display: table-cell;
+  		}
+	  	.data .table-data {
+	  		.min-view{
+	  			display: none;
+	  			width: 40%;
+	  			padding: 0 5px;
+	  			div{
+	  				padding: 8px 0;
+	  			}
+	  		}
+	  		.size, .last-generated{
+	  			display: table-cell;
+	  		}
+	  		.format-data{
+		  		width: 34%;
+		  		padding-left: 75px;
+		  	}
+		  	.last-generated{
+		  		width: 19%;
+		  	}
+		  	.not-generated{
+		  		padding: 0 10px;
+		  	}
+	  	}
+	  	.data p{
+	  		margin-bottom: 15px;
+	  	}
+  	}
+}
+@media (max-width: $screen-sm-min){
+	.filters{
+		@include absolute(60px, null, null, -330px);
+	   	border: none;
+	   	padding: 30px 0 0;
+	   	overflow: visible;
+	   	@include transition(background-color);
+	   	.filters-container, .preset-filters-container{
+	   		display: none;
+	   		border-color: transparent;
+	   		opacity: 0;
+	   		visibility: hidden;
+	   		@include transition(opacity);
+
+	   	}
+    	.dropdown-toggle, .input-group-addon{
+	   		background-color: #fff !important;
+	   	}
+	   	.foldback-button{
+    		right: -86px;
+	    	background-color: $gray_form;
+	    	@include transition(none);
+	    	span{
+	   			position: relative;
+	   			@include rotate(-45deg);
+	   			&:first-of-type{
+	   				@include rotate(45deg);
+    			}
+	    	}
+	    }
+	   	&.hidden-filters{
+	   		left: 0;
+		    width: 100%;
+		    background-color: $gray-super-light;
+		    z-index: 1;
+		    margin: 0;
+		    .foldback-button{
+			    left: auto;
+			   	right: 0;
+			   	span{
+			   		top: -6px;
+			   		&:first-of-type{
+		   				top: 10px;
+		   			}
+		    	}
+		    }
+	    	.filters-container, .preset-filters-container{
+		   		display: block;
+		   		width: 300px;
+		   		margin: 0 auto;
+		   		border-color: $gray_form;
+		   		opacity: 1;
+		    visibility: visible;
+		    }
+	    }
+	}
+	.export-types{
+		margin-left: 0;
+		padding: 50px 5px 20px;
+		h2{
+			margin-bottom: 25px;
+			@include font(24px, 26px);
+		}
+		.data .table-data {
+			padding: 0 10px;
+			.cell-data, .not-generated{
+				padding: 0 5px;
+				&.format-data{
+					padding-left: 75px;
+				}
+			}
+			.progress-information{
+				width: 60%;
+			}
+		}
+	}
+}
+@media (max-width: $screen-xs-min){
+	.export-types{
+		.data{
+			.table-data{
+				padding: 10px;
+				display: block;
+				height: auto;
+				
+				.cell-data{
+					text-align: center;
+					display: block;
+					margin-bottom: 15px;
+					.not-generated{
+			  			margin-top: 15px;
+			  		}
+					&.size, &.last-generated{
+			  			display: none;
+			  		}
+			  		&.format-data, &.min-view{
+			  			width: 100%;
+			  		}
+			  		&.format-data{
+			  			padding: 50px 0 0;
+			  			
+			  			&:before{
+			  				left: 41%;
+			  				top: 0;
+			  			}
+						&.stata:before{
+							left: 45%;
+						}
+			  		}
+			  		.progress-information{
+
+			  		}
+				}
+			}
+		}
+	}
+	.filters.hidden-filters{
+		.filters-container, .preset-filters-container{
+			width: 250px;
+		}
+	}
+}
+.export-types .data .table-data.not-generated-data .cell-data {
+	.download, &.last-generated, &.size, &.min-view, &.progress-block{
+		@extend %inactive;
+	}
+}
+.export-types .data .table-data.generated-data .cell-data{
+	&.progress-block, .not-generated{
+		@extend %inactive;
+	}
+}
+.export-types .data .table-data.generation-in-progress .cell-data{
+	&.download-block, &.last-generated, &.size, &.min-view, .not-generated{
+		@extend %inactive;
+	}
+}
