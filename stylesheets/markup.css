@@ -6243,7 +6243,7 @@ input.wb-checkbox {
   .login main {
     height: 100%; }
 
-@media (max-height: 700px) {
+@media (max-height: 800px) {
   .two-columns-form {
     margin-top: 30px;
     width: auto;
@@ -6474,7 +6474,7 @@ input.wb-checkbox {
   .login main {
     height: 100%; }
 
-@media (max-height: 700px) {
+@media (max-height: 800px) {
   .two-columns-form {
     margin-top: 30px;
     width: auto;
