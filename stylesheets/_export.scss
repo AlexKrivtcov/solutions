@@ -1,18 +1,3 @@
-.hold-transition *{
- -webkit-transition: none !important;
- -moz-transition: none !important;
- -ms-transition: none !important;
- -o-transition: none !important;
-} 
-h4{
-	font: 22px/24px "RobotoLight";
-	margin-bottom: 22px;
-}
-h5{
-	@include font(14px, 16px);
-	margin-bottom: 15px;
-	font-weight: bold;
-} 
 main.export{
 	padding-left: 45px;
 	padding-top: 10px;
@@ -309,7 +294,6 @@ input.checkbox-filter{
 				margin: 5px;
 				padding: 8px 0;
 				width: 86px;
-				@extend %uppercase-font;
 			}
 			.not-generated{
 				@extend %uppercase-font;
@@ -342,12 +326,8 @@ input.checkbox-filter{
 	}
 	.progress{
 		margin-bottom: 0;
-		height: 10px;
 		max-width: 300px;
-		background-color: $green-progress;
-		.progress-bar{
-			border-radius: 4px;
-		}
+		background-color: $green-progress;	
 	}
 }
 .export-types .data .table-data .btn.cancel{

@@ -61,6 +61,10 @@
     background-size: $width $height;
     }
 }
+@mixin colorful-span($color){
+  display: block;
+  color: $color;
+}
 %instructions{
     font: 26px/28px "RobotoLight";
     color: $gray_text;
@@ -87,4 +91,14 @@
 %inactive{
   opacity: 0; 
   display: none;
+}
+%clean-btn{
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  &:hover, &:focus{
+    border: none;
+    background-color: transparent;
+  }
 }

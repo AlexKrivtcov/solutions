@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-questionnaires</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon-precomposed' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon-precomposed' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/markup.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".navbar-toggle").click(function () {
+          $(".navbar-collapse").fadeToggle();
+          $(".navbar-collapse").animate({height: '100%'}, 0);
+          $(".top-menu").toggleClass("top-animate");
+          $(".mid-menu").toggleClass("mid-animate");
+          $(".bottom-menu").toggleClass("bottom-animate");
+        });
+      });
+    </script> 
+    <script>
+      $(document).ready(function(){
+        $("#generate-status").click(function(){
+            var length = $(".action-block").length;
+            var previousSelected = $(".action-block").index($('.action-block.active-preloading'));
+            var nextSelected = (previousSelected + 1) % length + 1;
+            $(".action-block").removeClass("active-preloading");
+            var next = $('.action-block:nth-of-type('+nextSelected+')').addClass('active-preloading');
+        });
+      });
+    </script>
+</head>
+<body>
+  <header>
+    <div class="container-fluid">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+       <div class="container-fluid ">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="#" class="active-page">Questionnaires</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar top-menu"></span>
+              <span class="icon-bar mid-menu"></span>
+              <span class="icon-bar bottom-menu"></span>
+            </button>
+            <a href="#" class="badge badge_nav">42</a>
+            <a class="navbar-brand" href="#">
+              <div class="retina logo">Survey Solutions</div>
+            </a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#" title="Headquarter">Headquarter</a></li>
+              <li><a href="#" title="Teams">Teams</a></li>
+              <li><a href="#" title="Interviews">Interviews</a></li>
+              <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+              <li><a href="#" title="Data Export">Data Export</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" title="Notifactions"><span class="badge badge_nav">42</span>Notifactions</a></li>
+              <li><a href="#" title="Help">Help</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3"><span class="caret"></span>Supervisorr-3</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="#">Manage account</a></li>
+                  <li><a href="#">Logoff</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>  
+    </div>
+  </header> 
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8 page-header">
+          <ol class="breadcrumb">
+            <li><a href="">Questionnaires</a></li>
+            <li><a href="">creating multiple interviews</a></li>
+          </ol>
+          <div class="page-title">
+            Creating multiple interviews by batch upload
+          </div> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-7">
+          <h3>Importing information from interviews-pilot-2016-ok-2.zip for Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-7 col-xs-12 action-block uploading-verifying active-preloading">
+            <h4>Uploading and verifying</h4> 
+            <div class="float-box">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                </div>
+                <button class="btn cancel-uploading" type="button">cancel</button>
+            </div>  
+        </div>
+        <div class="col-sm-7 col-xs-12 action-block verification-failed">
+            <h4><span class="error-text">Verification failed</span> Interviews can not be created</h4> 
+            <div class="error-block">
+                <h5 class="error-text"><span>[01]</span>: Wrong file format</h5>
+                <p>interviews-pilot-2016-ok-2.zip / Data / household.dat</p>
+                <p>File is not recognized as dat format</p>
+            </div>
+            <div class="error-block">
+                <h5 class="error-text"><span>[23]</span>: Dependency error</h5>
+                <p>interviews-pilot-2016-ok-2.zip / list.tab</p>
+                <p>Variable &#8242;char&#8242; not found (string 231, row 2)</p>
+            </div>  
+            <div class="error-block">
+                <h5 class="error-text"><span>[04]</span>: File not found</h5>
+                <p>interviews-pilot-2016-ok-2.zip / list.tab</p>
+                <p>file &#8242;data/list.tab&#8242; not found (string 2)</p>
+            </div> 
+            <a href="#" class="back-link">Back to import</a>   
+        </div>
+        <div class="col-sm-7 col-xs-12 action-block verification-complete">
+            <h4><span class="success-text">Verification complete</span>Information for 105 interviews found <span>Assigned to 8 supervisors and 13 enumerators</span></h4> 
+            <div class="float-box">
+                <button type="button" class="btn btn-success btn-lg">create interviews</button>
+                <a href="#" class="back-link">Back to import</a>  
+            </div>  
+        </div>
+        <div class="col-sm-7 col-xs-12 action-block verification-complete-choose-supervisor">
+            <h4><span class="success-text">Verification complete</span>Information for 105 interviews found </h4> 
+            <h5>Select supervisor to assign this interview to</h5>
+            <div class="btn-group btn-input clearfix">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                    <span data-bind="label">Select </span>&nbsp;<span class="caret-large"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Vasya</a></li>
+                        <li><a href="#">Zina</a></li>
+                        <li><a href="#">Zina 12</a></li>
+                        <li><a href="#">Livestock</a></li>
+                        <li><a href="#">Field</a></li>
+                        <li><a href="#">This is a</a></li>
+                      </ul>
+                    </div>
+            <div class="float-box">
+                <button type="button" class="btn btn-success btn-lg" disabled="disabled">create interviews</button>
+                <a href="#" class="back-link">Back to import</a>  
+            </div>  
+        </div>
+        <div class="col-sm-7 col-xs-12 action-block processing-interview">
+            <h4>Processing interview 26 of 105 ... <span class="success-text">25 interviews created</span><span class="default-text">None failed</span></h4> 
+            <div class="float-box">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                </div>
+                <button class="btn cancel-uploading" type="button">abort import</button>
+            </div>  
+        </div>
+        <div class="col-sm-7 col-xs-12 action-block preloading-done">
+            <h4>Done: <span class="success-text">105 interviews created</span><span class="default-text">None failed</span></h4> 
+            <div class="float-box">
+                <button type="button" class="btn btn-primary btn-lg">interviews</button>
+                <button type="button" class="btn btn-primary btn-lg">questionnaires</button>
+                <a href="#" class="back-link">Back to import</a>
+            </div>  
+        </div>
+        <div class="col-sm-7 col-xs-12 action-block preloading-done-with-errors">
+            <h4>Done: <span class="success-text">103 interviews created</span><span class="error-text">2 interviews failed to be created</span></h4> 
+            <a href="#">Download data assosiated with failed interviews</a>
+            <div class="float-box">
+                <button type="button" class="btn btn-primary btn-lg">interviews</button>
+                <button type="button" class="btn btn-primary btn-lg">questionnaires</button>
+                <a href="#" class="back-link">Back to import</a>
+            </div>  
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="text-left">
+        &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+      </div>
+      <div class="text-left">
+        5.12.0 (build 13156) 
+        <span>|</span>
+        <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+       </div>
+    </div>
+    <button type="button" class="btn btn-default" id="generate-status">Generate status</button>
+  </footer>
+    <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+        var $target = $( event.currentTarget );
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+    });
+    </script>
+</body>
+</html>
