@@ -10,7 +10,7 @@
 }
 @mixin gradient($first_color, $second_color, $first_color2, $second_color2){
 		@if $first_color2==null and $second_color2==null{
-				background: $first_color;
+				background-color: $first_color;
 		-webkit-background: linear-gradient(0deg, $first_color, $second_color) no-repeat 0 0;
 		   -moz-background: linear-gradient(0deg, $first_color, $second_color) no-repeat 0 0;
 		  	-ms-background: linear-gradient(0deg, $first_color, $second_color) no-repeat 0 0;
@@ -18,7 +18,7 @@
 		  		background: linear-gradient(0deg, $first_color, $second_color) no-repeat 0 0;
 		}	
 		@else {
-			background: $first_color;
+			background-color: $first_color;
 	background: -webkit-linear-gradient(90deg, $first_color, $second_color) no-repeat 0 0,
 				-webkit-linear-gradient(90deg, $first_color2, $second_color2) no-repeat 0 0;
 	   background: -moz-linear-gradient(90deg, $first_color, $second_color) no-repeat 0 0,
@@ -61,9 +61,44 @@
     background-size: $width $height;
     }
 }
-@mixin colorful-span($color){
-  display: block;
-  color: $color;
+@mixin accordion($initial-padding){
+    $padding : 30px;
+    $cummulativePadding: $initial-padding;
+    @include paccordion($cummulativePadding);
+        $cummulativePadding: $cummulativePadding + $padding;
+    & .panel-default{
+        @include paccordion($cummulativePadding);
+        $cummulativePadding: $cummulativePadding + $padding;
+        & .panel-default{
+            @include paccordion($cummulativePadding);
+            $cummulativePadding: $cummulativePadding + $padding;
+            & .panel-default{
+                @include paccordion($cummulativePadding);
+                $cummulativePadding: $cummulativePadding + $padding;
+                & .panel-default{
+                    @include paccordion($cummulativePadding);
+                    $cummulativePadding: $cummulativePadding + $padding;
+                    & .panel-default{
+                        @include paccordion($cummulativePadding);
+                        $cummulativePadding: $cummulativePadding + $padding;
+                        & .panel-default{
+                            @include paccordion($cummulativePadding);
+                            $cummulativePadding: $cummulativePadding + $padding;
+                            & .panel-default{
+                                @include paccordion($cummulativePadding);
+                                $cummulativePadding: $cummulativePadding + $padding;
+                            } 
+                        } 
+                    } 
+                } 
+            } 
+        } 
+    }
+}
+@mixin paccordion($cummulativePadding){
+  & > .panel-heading h3 a{
+        margin-left: $cummulativePadding;
+  }
 }
 %instructions{
     font: 26px/28px "RobotoLight";
@@ -101,4 +136,29 @@
     border: none;
     background-color: transparent;
   }
+}
+%aside{
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+  position: fixed;
+  background-color: #fff;
+  z-index: 1;
+  @include transition(left, 0.3s);
+}
+%flag{
+    @include absolute(0, null, null, 5px);
+    display: block;
+    content: "";
+    @include size(20px, 22px); 
+    @include image-2x("../img/flags2k.png", 75px, 22px);
+    background: transparent url("../img/flags.png") no-repeat;
+    background-size: 75px 22px;
+    background-position: -37px 0;  
+}
+%form{
+    border: 2px solid $gray-form;
+    background-color: $white;
+    border-radius: 5px;
 }

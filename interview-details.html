@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-questionnaires</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon-precomposed' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon-precomposed' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/markup.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sticky-kit.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".unit-title").stick_in_parent({offset_top: 70});
+        });
+    </script> 
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+            $(".navbar-collapse").fadeToggle();
+            $(".navbar-collapse").animate({height: '100%'}, 0);
+            $(".top-menu").toggleClass("top-animate");
+            $(".mid-menu").toggleClass("mid-animate");
+            $(".bottom-menu").toggleClass("bottom-animate");
+            });
+        });
+    </script> 
+    <script>
+        $(document).ready(function () {
+            $(".foldback-button").click(function () {
+                $(".filters").toggleClass("hidden-filters");
+                $(".export-types").toggleClass("fulsscreen");
+            });
+            $("body").removeClass("hold-transition");
+        });
+    </script>
+    <script>
+        $(function() {
+            $(".button-flag").click(function() {  
+                $(this).parents('.question').toggleClass("with-flag");
+            });
+        });
+    </script>
+</head>
+<body class="hold-transition">
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container-fluid ">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a href="#" class="active-page">Questionnaires</a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar top-menu"></span>
+                          <span class="icon-bar mid-menu"></span>
+                          <span class="icon-bar bottom-menu"></span>
+                        </button>
+                        <a href="#" class="badge badge_nav">42</a>
+                        <a class="navbar-brand" href="#">
+                          <div class="retina logo">Survey Solutions</div>
+                        </a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav">
+                          <li><a href="#" title="Headquarter">Headquarter</a></li>
+                          <li><a href="#" title="Teams">Teams</a></li>
+                          <li><a href="#" title="Interviews">Interviews</a></li>
+                          <li><a href="#" title="Questionnaires">Questionnaires</a></li>
+                          <li class="active"><a href="#" title="Data Export">Data Export</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#" title="Notifactions"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                            <li><a href="#" title="Help">Help</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3"><span class="caret"></span>Supervisorr-3</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Settings</a></li>
+                                    <li><a href="#">Manage account</a></li>
+                                    <li><a href="#">Logoff</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>  
+        </div>
+    </header> 
+    <main class="details-interview">
+        <div class="container-fluid">
+            <div class="row">
+                <aside class="filters">
+                    <div class="foldback-button">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="filters-container">
+                        <h4>Filter Questions</h4> 
+                        <div class="block-filter separate-filters-group flagged-questions">
+                            <a href="#" class="flag"><b>No flagged questions</b></a>
+                            <!-- <a href="#" class="flag flagged"><b>3 flagged questions</b></a> --> 
+                        </div>
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="Invalid" type="checkbox"/>
+                                <label for="Invalid" class="error-text inactive">
+                                    <span class="tick"></span>Invalid <span class="quotes">(</span><b>5</b><span class="quotes">)</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="valid" type="checkbox" checked/>
+                                <label for="valid">
+                                    <span class="tick"></span>Valid (3'120)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="with-comments" type="checkbox"/>
+                                <label for="with-comments" class="pink-text">
+                                    <span class="tick"></span>With comments <span class="quotes">(</span><b>59</b><span class="quotes">)</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="without-comments" type="checkbox"/>
+                                <label for="without-comments">
+                                    <span class="tick"></span>Without comments (3'066)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="answered" type="checkbox" checked="" />
+                                <label for="answered">
+                                    <span class="tick"></span>Answered (3'124)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="unanswered" type="checkbox" checked="" />
+                                <label for="unanswered">
+                                    <span class="tick"></span>Unanswered (45)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="for-supervisor" type="checkbox" checked="" />
+                                <label for="for-supervisor" class="light-blue-text">
+                                    <span class="tick"></span>For supervisor <span class="quotes">(</span><b>3</b><span class="quotes">)</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="hidden-service-data" type="checkbox"/>
+                                <label for="hidden-service-data" class="inactive">
+                                    <span class="tick"></span>Hidden, service data (5)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter reset-filters">
+                            <a href="#">View all (reset all filters)</a>
+                        </div>
+                    </div>
+                    <div class="preset-filters-container">
+                        <h4>Preview settings</h4> 
+                        <div class="block-filter">
+                            <h5>Set of shown questions</h5>
+                            <div class="btn-group btn-input clearfix">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                  <span data-bind="label">All question</span>&nbsp;<span class="caret-large"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Shortlist (23 questions)</a></li>
+                                  <li><a href="#" class="flag flagged">Flagged questions</a></li>
+                                  <li><a href="#">Changed since my last descision</a></li>
+                                  <li><a href="#">All questions</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                        <div class="block-filter">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="all-answer-options" type="checkbox"/>
+                                <label for="all-answer-options">
+                                    <span class="tick"></span>Show all answer options</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="disabled-questions" type="checkbox"/>
+                                <label for="disabled-questions">
+                                    <span class="tick"></span>Show disabled questions
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <h5>Survey language</h5>
+                            <div class="btn-group btn-input clearfix">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                  <span data-bind="label">ENG &mdash; English</span>&nbsp;<span class="caret-large"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">ENG &mdash; English</a></li>
+                                  <li><a href="#">UA &mdash; Ukrainian</a></li>
+                                  <li><a href="#">RU &mdash; Russian</a></li>
+                                  <li><a href="#">FR &mdash; French</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> 
+                </aside>
+                <aside class="content">
+                    <div class="questionnaire-content">
+                            <ol class="breadcrumb">
+                                <li><a href="">Interviews</a></li>
+                            </ol>
+                            <div>
+                                <h2>23-44-13-46-10</h2>
+                                <button type="button" class="btn btn-danger reject">Reject</button>
+                                <button type="button" class="btn btn-success approve">Approve</button>
+                            </div> 
+                    </div>
+                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title group complete">
+                                    <a href="#">Cover page, interview info</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-1">
+                                <h3 class="panel-title complete">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+                                        Section B: food consumption overview
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-1">
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title group complete">
+                                                <a href="#">Cover page, interview info</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-2">
+                                <h3 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
+                                        Section C: Consumption of food over past week
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
+                                <div class="panel-body">
+                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-2-1">
+                                                <h3 class="panel-title complete">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"  href="#collapse-2-1" aria-expanded="false" aria-controls="collapse-2-1">
+                                                        Yearly consumption
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-2-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2-1">
+                                                <div class="panel-body">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title group complete">
+                                                                <a href="#">Cover page, interview info</a>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-2-2">
+                                                <h3 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" href="#collapse-2-2" aria-expanded="false" aria-controls="collapse-2-2">
+                                                        Consumption per week
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-2-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1">
+                                                <div class="panel-body">
+                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="heading-2-2-1">
+                                                                <h3 class="panel-title">
+                                                                    <a role="button" data-toggle="collapse" href="#collapse-2-2-1" aria-expanded="false" aria-controls="collapse-2-2-1">
+                                                                        Cereals and cereals products
+                                                                    </a>
+                                                                </h3>
+                                                            </div>
+                                                            <div id="collapse-2-2-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1">
+                                                                <div class="panel-body">
+                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                        <div class="panel panel-default">
+                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1">
+                                                                                <h3 class="panel-title active">
+                                                                                    <a role="button" data-toggle="collapse" href="#collapse-2-2-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1">
+                                                                                        During the last 12 months, did you or any members of your household receive any of the following Sources?
+                                                                                    </a>
+                                                                                </h3>
+                                                                            </div>
+                                                                            <div id="collapse-2-2-1-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1-1">
+                                                                                <div class="panel-body">
+                                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                                        <div class="panel panel-default">
+                                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1-1">
+                                                                                                <h3 class="panel-title">
+                                                                                                    <a role="button" data-toggle="collapse" href="#collapse-2-2-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1">
+                                                                                                        Did your household own or rent any farm implevents, machinery and/or structures, such as hand hoe, panga knife, treadle pump, ox cart, tractor, plough, generator, chicken house, storage house, barn, etc... in the last 12 months?
+                                                                                                    </a>
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                            <div id="collapse-2-2-1-1-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1-1-1">
+                                                                                                <div class="panel-body">
+                                                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                                                        <div class="panel panel-default">
+                                                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1-1-1">
+                                                                                                                <h3 class="panel-title">
+                                                                                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2-2-1-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1-1">
+                                                                                                                        Cereals and cereals products
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+                                                                                                            <div id="collapse-2-2-1-1-1-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2-2-1-1-1-1">
+                                                                                                                <div class="panel-body">
+                                                                                                                    <div class="panel panel-default">
+                                                                                                                        <div class="panel-heading">
+                                                                                                                            <h3  class="panel-title group">
+                                                                                                                                <a href="#">Yearly consumption</a>
+                                                                                                                            </h3>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-3">
+                                <h3 class="panel-title contains-error">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion-content-main" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                                        Section D: Healthcare
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title group contains-error">
+                                                <a href="#">Cover page, interview info</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3  class="panel-title group complete">
+                                    <a href="#">Yearly consumption</a>
+                                </h3>
+                           </div>
+                        </div>
+                    </div>
+                </aside>
+                <section class="questionnaire">
+                    <div class="unit-section">
+                        <div class="unit-title">
+                            <ol class="breadcrumb">
+                                <li><a href="">Section C: Consumption of food over past week</a></li>
+                                <li><a href="">cereals and cereals products</a></li>
+                                <li><a href="">rice (paddy)</a></li>
+                            </ol>
+                            <h3>During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</h3>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-content">
+                                <h5> 
+                                    <button type="button" class="button-flag"></button>
+                                    What is your relations status to the household head
+                                </h5>
+                                <div class="comment instruction"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                      <div class="radio">
+                                        <input class="wb-radio" type="radio" name="relations" id="son" checked />
+                                        <label for="son">
+                                          <span class="tick"></span>Son
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <input class="wb-radio" type="radio" name="relations" id="brother" value="current-version" />
+                                        <label for="brother">
+                                          <span class="tick"></span>Brother
+                                        </label>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="comment enumerators"></div>
+                            </div>
+                        </div>
+                        <div class="question disabled">
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-content">
+                                <h5> 
+                                    <button type="button" class="button-flag"></button>
+                                    What is your sex
+                                </h5>
+                                <div class="comment instructions"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                      <div class="radio">
+                                        <input class="wb-radio" type="radio" name="sex" id="Male" value="new-version"/>
+                                        <label for="Male">
+                                          <span class="tick"></span>Male
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <input class="wb-radio" type="radio" name="sex" id="Female" value="current-version"/>
+                                        <label for="Female">
+                                          <span class="tick"></span>Female
+                                        </label>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="comment enumerators"></div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-content">
+                                <h5> 
+                                    <button type="button" class="button-flag"></button>
+                                    What farm inputs and/or implements did your or any member of the household buy in the last 12 months?
+                                </h5>
+                                <div class="comment instruction"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="form-group">
+                                            <input class="checkbox-filter" id="Seeds" type="checkbox" checked />
+                                            <label for="Seeds">
+                                                <span class="tick"></span>Seeds
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="checkbox-filter" id="Poultry" type="checkbox"/>
+                                            <label for="Poultry">
+                                                <span class="tick"></span>Poultry/ animal feed or fodder
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="checkbox-filter" id="Veterinary" type="checkbox"/>
+                                            <label for="Veterinary">
+                                                <span class="tick"></span>Veterinary costs
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="checkbox-filter" id="supers" type="checkbox" checked />
+                                            <label for="supers">
+                                                <span class="tick"></span>Double supers
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment enumerators"></div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-content">
+                                <h5> 
+                                    <button type="button" class="button-flag"></button>
+                                    Do you smoke?
+                                </h5>
+                                <div class="comment instruction"></div>
+                                <div class="question-unit non-answered">
+                                    <div class="options-group">
+                                      <div class="radio">
+                                        <input class="wb-radio" type="radio" name="smoke" id="Yes-smoke"/>
+                                        <label for="Yes-smoke">
+                                          <span class="tick"></span>Yes
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <input class="wb-radio" type="radio" name="smoke" id="no-smoke" value="current-version" />
+                                        <label for="no-smoke">
+                                          <span class="tick"></span>No
+                                        </label>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="comment enumerators"></div>
+                            </div>
+                        </div>
+                        <div class="question with-flag">
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-content">
+                                <h5> 
+                                    <button type="button" class="button-flag"></button>
+                                    Specify units
+                                </h5>
+                                <div class="comment instruction"></div>
+                                <div class="question-unit non-answered">
+                                    <div class="options-group">
+                                      <div class="radio">
+                                        <input class="wb-radio" type="radio" name="units" id="Hundreds"/>
+                                        <label for="Hundreds">
+                                          <span class="tick"></span>Hundreds
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <input class="wb-radio" type="radio" name="units" id="Thousands" value="current-version" />
+                                        <label for="Thousands">
+                                          <span class="tick"></span>Thousands
+                                        </label>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="comment enumerators">
+                                    <h6>Enumerator's comment:</h6>
+                                    <p>For this household quantity was measured in tens of hundreds but i could not find such option. What should I do?</p>
+                                </div>
+                                <div class="comment">
+                                    <h6>Your comment</h6>
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                              <input type="text" class="form-control"/>
+                                            </div>
+                                          </div>
+                                          <button type="submit" class="btn btn-default">Post</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="unit-section contains-error">
+                        <div class="unit-title">
+                            <ol class="breadcrumb">
+                                <li><a href="">Section C: Consumption of food over past week</a></li>
+                                <li><a href="">cereals and cereals products</a></li>
+                                <li><a href="">rice (paddy)</a></li>
+                            </ol>
+                            <h3>Current group name</h3>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-content">
+                                <h5> 
+                                    <button type="button" class="button-flag"></button>
+                                    List the members of the household who usually live and eat in this household.
+                                </h5>
+                                <div class="comment instruction">
+                                    <h6>Instruction</h6>
+                                    <p>Include usual members who are temporarily absent.</p>
+                                    <p>Exclude those in Lesotho if away for more than six months and those outside the country continuously for more than three years, except for students studying abroad.</p>
+                                </div>
+                                <div class="question-unit non-answered">
+                                    <div class="options-group">
+                                      <div class="form-group">
+                                        <input type="text" class="form-input" />
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="comment enumerators"></div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-content">
+                                <h5> 
+                                    <button type="button" class="button-flag"></button>
+                                    How much quantity in total did your household consume in the past 7 days?
+                                </h5>
+                                <div class="comment instruction"></div>
+                                <div class="question-unit contains-error">
+                                    <div class="options-group">
+                                      <div class="form-group">
+                                        <input type="text" class="form-input" value="6" />
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="comment errors">
+                                    <h6>Invalid answer</h6>
+                                    <p>Value of quantity of household consumption must be grater than 10 (and less than 99)</p>
+                                </div>
+                                <div class="comment enumerators"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="text-right">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-right">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+            var $target = $( event.currentTarget );
+            $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+        });
+    </script>
+</body>
+</html>

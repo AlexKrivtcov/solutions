@@ -25,8 +25,14 @@
           $("#show").click(function(){
               $("div.form-error").show();
           });
+
+          $("<img/>")     
+        .on('error', function () { 
+            $("img#placeholder").parent().addClass("no-logo"); 
+        })        
+        .attr("src", $("img#placeholder").attr("src"))      
       });
-    </script>
+    </script>   
 </head>
 <body>
     <header>
@@ -88,7 +94,8 @@
                 <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 right-column">
                     <div class="centered-box-table">
                         <div class="centered-box-table-cell">
-                            <img src="img/HQ-login-3_05.png" id="placeholder" alt="placeholder"/>
+                            <img src="#" id="placeholder" alt="survey management"/>
+                            <div class="default-logo"></div>
                         </div>
                     </div>            
                 </div>

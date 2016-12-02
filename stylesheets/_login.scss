@@ -1,29 +1,36 @@
 @import "two-column-form";
+
 .left-column{
     #log-in{
         text-align: left;
     }
 }
-img#placeholder{
+
+img#placeholder {
     max-width: 365px;
     font-size: 0;
     line-height: 0;
     position: relative;
     display: block;
+}
 
-    &:after {  
-        content: " ";
+.default-logo {
+    display: none;
+}
+
+.no-logo {
+    .default-logo {
+        @include size(365px, 329px);
         display: block;
-        position: absolute;
-        z-index: 2;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
         background: #fff url("../img/HQ-login-3_05.png") no-repeat;
         background-size: 365px 329px;
     }
+    & #placeholder
+    {
+        display: none;
+    }
 }
+ 
 .navbar{
     .retina-world-bank{
         @include size(270px, 53px);
@@ -65,7 +72,7 @@ img#placeholder{
             text-align: center;
         }
     }
-    img#placeholder{
+    img#placeholder, .no-logo .default-logo{
         display: none;
     }
     .retina.headquarter{

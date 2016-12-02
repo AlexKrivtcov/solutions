@@ -5,6 +5,7 @@
 @include fontface(TrebuchetMSBold);
 @include fontface(ufonts_com_lucidaconsole);
 @include fontface(TrebuchetMS);
+@include fontface(RobotoMedium);
 a{
 	color: $blue;
 	&:hover, &:focus{
@@ -251,6 +252,22 @@ html {
 		margin: 6px 15px 6px 0;
 	}
 }
+@media (max-width: $screen-sm){
+	html body .container{
+		width: auto;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media (max-width: $screen-xs-min){
+	.breadcrumb li a, .breadcrumb > li + li:before{
+			padding: 0 2px;
+			font-size: 8px;
+			line-height: 10px;
+	}	
+}
 h2{
 	font: 26px/28px "RobotoLight";
 	font-weight: normal;
@@ -260,15 +277,6 @@ h2{
 h3{
 	@include font(19px, 21px, "RobotoBold");
 	margin-top: 0;
-}
-@media (max-width: $screen-sm){
-	html body .container{
-		width: auto;
-		padding-left: 15px;
-		padding-right: 15px;
-		margin-left: auto;
-		margin-right: auto;
-	}
 }
 h4{
 	font: 22px/24px "RobotoLight";
@@ -297,7 +305,7 @@ h5{
     letter-spacing: 0.5px;
     display: inline-block;
 }
-.btn-success, .btn-primary{
+.btn-success, .btn-primary, .btn-danger, .btn-default{
     font: 12px/14px "TrebuchetMSBold";
     outline: none;
     text-transform: uppercase;
@@ -318,10 +326,55 @@ h5{
 		}
 	}
 }
-@media (max-width: $screen-xs-min){
-	.breadcrumb li a, .breadcrumb > li + li:before{
-			padding: 0 2px;
-			font-size: 8px;
-			line-height: 10px;
-	}	
+.breadcrumb{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  	& > li + li:before{
+  		display: none;
+  	}
+  	& > li:after{
+  		content: "/ ";
+	    padding: 0 5px;
+	    color: #ccc;
+	    line-height: 75%;
+	    font-size: 75%;
+  	}
+    li a{
+        @extend %gray-uppercase;
+    } 
+}
+
+.error-text{
+	color: $red_error;
+}
+.success-text{
+	color: $green_btn;
+}
+.default-text{
+	color: $gray_form;
+}
+.radio{
+    input.wb-radio{
+        display: none;
+        & ~ label .tick {
+        	@include size(15px, 15px); 
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            background: transparent url("../img/radio.png") no-repeat;
+            background-position: -25px 0;
+        } 
+        &:checked ~ label{
+            .tick {
+                background-position: 0px 0;
+            }
+        } 
+        &:disabled ~ label .tick {
+            background-position: -50px 0;
+        } 
+        &:checked:disabled ~ label .tick {
+            background-position: -50px 0;
+        } 
+    }
 }
