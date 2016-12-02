@@ -184,9 +184,13 @@ main{
         font-style: italic;
         border-bottom: 2px solid #ddd;
         tr{
+            border-bottom: 1px solid #ddd;
             &:hover, &:focus{
                 background-color: $blue-super-light;
                 td {
+                    &:first-child a{
+                        color: #000;
+                    }
                     &.shared-with{
                         color: $gray_text;
                     }
@@ -199,6 +203,7 @@ main{
                 }
             }
             td{
+                border: none;
                 height: 35px;
                 &.shared-with{
                     color: $gray_form;
@@ -215,8 +220,7 @@ main{
                 &:first-child{
                     width: 44%; 
                     padding-left: 20px;
-                    font-size: 17px;
-                    line-height: 19px;
+                    font: 18px/20px "RobotoRegular";
                     font-style: normal;
                     
                     a{
@@ -283,7 +287,7 @@ main{
                     opacity: 1;
                     visibility: visible;
                     width: 300px;
-                    background-color: $blue-super-light;
+                    background-color: #f7fbff;
                 }
             }
             input{
@@ -305,44 +309,45 @@ main{
 .dataTables_wrapper {
     .dataTables_info{
         clear: both;
-        float: left;
+        float: right;
         padding-top: 0.755em;
         font-size: 13px;
         line-height: 15px;
         padding-left: 20px;
+        text-align: right;
     }
     .dataTables_paginate{
-        margin-bottom: 40px;
-        font-size: 13px;
-        line-height: 15px;
-        float: right;
-        text-align: right;
-        padding-top: 0.25em;
+        float: left;
+        position: relative;
+        padding: 40px 0 0 10px;
+        overflow: hidden;
+        @extend %uppercase-font;
+        font-size: 14px;
+        line-height: 16px;
+        &>span{
+            display: block;
+            @include absolute(10px, null, null, 8px);
+        }
         .paginate_button{
-            padding: 10px 15px;
-            margin-left: 2px;
-            text-align: center;
-            text-decoration: none !important;
+            padding: 6px 12px;
             cursor: pointer;
-            color: $gray_text;
-            border: 1px solid transparent;
-            border-radius: 4px;
             &:hover{
-                color: white;
-                border: 1px solid $gray_text;
-                @include gradient($gray_info, $gray_text, null, null);
             }
             &.disabled, &.disabled:hover, &.disabled:active{
-                color: $gray_info;
-                border: 1px solid transparent;
-                background: transparent;
-                cursor: default;
+                color: $gray_light;
+                text-decoration: none;
+                cursor: not-allowed;
             }
             &.current, &.current:hover{
-                color: $gray_text !important;
-                border: 1px solid $gray_text;
-                @include gradient($gray_form, white, null, null);
+                color: $gray_light !important;
+
             }
+        }
+        &>.paginate_button{
+            float: left;
+            color: $green;
+            padding: 5px 12px;
+
         }
     }
 }
@@ -388,6 +393,9 @@ main{
     .table thead th.padding-left-lide:first-child{
         padding-left: 315px;
     }
+    .dataTables_paginate{
+        margin-bottom: 30px;
+    }
 }
 @media (max-width: $screen-sm-min){
     .shared-with{
@@ -400,7 +408,6 @@ main{
         padding: 0 3%;
     }
     .signed-name{
-        text-align: center;
         margin-bottom: 20px;
     }
 }
@@ -435,8 +442,7 @@ main{
     .dataTables_wrapper {
         .dataTables_info{
             float: none;
-            margin-bottom: 30px;
-            text-align: center;
+            margin-bottom: 15px;
         }
         .dataTables_paginate{
             float: none;
