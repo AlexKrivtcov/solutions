@@ -41,7 +41,6 @@ main{
         font: 14px/16px "TrebuchetMS";
         list-style: none;
         padding: 0;
-        color: $gray_info;
         overflow: hidden;
         li{
             margin-bottom: 6px;
@@ -81,17 +80,6 @@ main{
 }
 .radio{
     margin: 0;
-    label{
-        color: $gray_light;
-        font-weight: normal;
-        padding: 7px 0;
-    }
-    input.wb-radio {
-        &:checked ~ label{
-            color:  $gray_text;
-            font-weight: bold;
-        }
-    }
 }
 .import-wrapper{
     padding-right: 35px;
@@ -284,16 +272,14 @@ main{
                 }
                 input{
                     border: 1px solid $gray_form;
-                    opacity: 1;
-                    visibility: visible;
+                    @extend %visibility-visible;
                     width: 300px;
                     background-color: #f7fbff;
                 }
             }
             input{
                 @include transition(all, 0.2s);
-                opacity: 0;
-                visibility: hidden;
+                @extend %visibility-hidden;
                 width: 0;
                 margin-left: 45px;
                 font-size: 13px;
@@ -340,14 +326,12 @@ main{
             }
             &.current, &.current:hover{
                 color: $gray_light !important;
-
             }
         }
         &>.paginate_button{
             float: left;
             color: $green;
             padding: 5px 12px;
-
         }
     }
 }
@@ -437,7 +421,6 @@ main{
     }
     .table-title h2{
         margin-bottom: 10px;
-        text-align: center;
     }
     .dataTables_wrapper {
         .dataTables_info{
@@ -446,7 +429,6 @@ main{
         }
         .dataTables_paginate{
             float: none;
-            text-align: center;
         }
     }
     #DataTables_Table_0_wrapper #DataTables_Table_0_filter {

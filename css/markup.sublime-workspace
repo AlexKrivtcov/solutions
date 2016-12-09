@@ -1,0 +1,893 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text-",
+				"text-transform"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"zoom",
+				"zoomImg"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"last",
+				"last-of-type"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"g",
+				"gray-super-light"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"dis",
+				"disabled"
+			],
+			[
+				"disa",
+				"disabled-hide"
+			],
+			[
+				"gr",
+				"gray_text"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"blo",
+				"block-with-data"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"v",
+				"value"
+			],
+			[
+				"fie",
+				"field-to-fill"
+			],
+			[
+				"gra",
+				"gray_form"
+			],
+			[
+				"fo",
+				"form-group"
+			],
+			[
+				"action",
+				"action-btn"
+			],
+			[
+				"border-co",
+				"border-color"
+			],
+			[
+				"paddi",
+				"padding-right"
+			],
+			[
+				"le",
+				"left"
+			],
+			[
+				"bo",
+				"border-bottom"
+			],
+			[
+				"padi",
+				"padding-left"
+			],
+			[
+				"borde",
+				"border-width"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"pad",
+				"padding-left"
+			],
+			[
+				"ble",
+				"blue"
+			],
+			[
+				"gray_",
+				"gray_text"
+			],
+			[
+				"gt",
+				"gray_light"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"con",
+				"contains-error"
+			],
+			[
+				"w",
+				"white"
+			],
+			[
+				"gray-",
+				"gray-form"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"coll",
+				"collapsed"
+			],
+			[
+				"pan",
+				"panel-heading"
+			],
+			[
+				"h",
+				"h3\tTag"
+			],
+			[
+				"panel",
+				"panel-default"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"border-",
+				"border-bottom"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"fl",
+				"flagged"
+			],
+			[
+				"min-",
+				"min-height"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"d",
+				"div\tTag"
+			],
+			[
+				"generation",
+				"generation-in-progress"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"border-bo",
+				"border-bottom-right-radius"
+			],
+			[
+				"border-t",
+				"border-top-right-radius"
+			],
+			[
+				"ta",
+				"table-cell"
+			],
+			[
+				"border-ra",
+				"border-radius"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"firs",
+				"first-of-type"
+			],
+			[
+				"table-c",
+				"table-cell"
+			],
+			[
+				"tabl",
+				"table-cell"
+			],
+			[
+				"ac",
+				"action-block"
+			],
+			[
+				"p",
+				"pre-wrap"
+			],
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
+				"padding-",
+				"padding-top"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"border-to",
+				"border-top-left-radius"
+			],
+			[
+				"l",
+				"label\tTag"
+			],
+			[
+				"th",
+				"thead\tTag"
+			],
+			[
+				"cont",
+				"container-fluid"
+			],
+			[
+				"u",
+				"url()"
+			],
+			[
+				"lo",
+				"logo-retina"
+			],
+			[
+				"tran",
+				"transition"
+			],
+			[
+				"box-",
+				"box-table-cell"
+			],
+			[
+				"head",
+				"header\tTag"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"tra",
+				"transition"
+			],
+			[
+				"for",
+				"form"
+			],
+			[
+				"Ro",
+				"RobotoLight"
+			],
+			[
+				"ro",
+				"RobotoBold"
+			],
+			[
+				"backgro",
+				"background"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"Roboto",
+				"RobotoRegular"
+			],
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"border-rad",
+				"border-radius"
+			],
+			[
+				"bod",
+				"border-collapse"
+			],
+			[
+				"Robo",
+				"RobotoBold"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"an",
+				"animDuration"
+			],
+			[
+				"trans",
+				"transform"
+			],
+			[
+				"al",
+				"alt\tAttr"
+			],
+			[
+				"bre",
+				"word-break"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"i",
+				"italic"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 150.0,
+		"last_filter": "package control: in",
+		"selected_items":
+		[
+			[
+				"package control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: scss",
+				"Package Control: Satisfy Dependencies"
+			],
+			[
+				"Package Control: Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Install Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Sas",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"Package Control:",
+				"Package Control: Upgrade Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/css/markup.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/batch_upload.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/batch_upload_comix.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/data-export.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/import.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/import2.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/interview-details.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/login.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/login_import.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/css/markup.css",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/css/markup.css.map",
+		"/C/Users/Survey Solutions/solutions/stylesheets/_login.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/js/zoom.js",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_filters.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_export.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_common.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_vendor-prefixes.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_mixins.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_variables.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_image.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_interview-details.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_center-block.scss",
+		"/C/Users/Survey Solutions/Downloads/zoom.js-master/css/zoom.css",
+		"/C/Users/Survey Solutions/Desktop/Support/support_portal.css",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_import-questionnaires.scss",
+		"/C/Users/Survey Solutions/Desktop/Support/support_portal_with_google-fonts.css",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/index.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_two-column-form.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_login.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_reset-filter.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_reset-text.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_resize.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_size.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_responsive-visibility.scss",
+		"/C/Users/Survey Solutions/solutions/interview-details.html",
+		"/C/Users/Survey Solutions/solutions/index.html",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_login.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_batch-upload.scss",
+		"/C/Users/Survey Solutions/Downloads/api_instructions.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_opacity.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_grid-framework.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_pagination.scss",
+		"/C/Users/Survey Solutions/Downloads/dropdown-effects/dropdown-effects/js/tutorial.js",
+		"/C/Users/Survey Solutions/Downloads/dropdown-effects/dropdown-effects/README.md",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/js/sticky-kit.js",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/markup.css",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_two-column-form.scss",
+		"/C/Users/Survey Solutions/Downloads/sticky-kit-master/Makefile",
+		"/C/Users/Survey Solutions/Downloads/sticky-kit-master/site/example.scss",
+		"/C/Users/Survey Solutions/Downloads/sticky-kit-master/site/index.html",
+		"/C/Users/Survey Solutions/Downloads/sticky-kit-master/dist/sticky-kit.js",
+		"/C/Users/Survey Solutions/Downloads/ScrollToFixed-master/README.md",
+		"/C/Users/Survey Solutions/Downloads/perfect-scrollbar/js/perfect-scrollbar.jquery.js",
+		"/C/Users/Survey Solutions/Downloads/malihu-custom-scrollbar-plugin-3.1.5/jquery.mCustomScrollbar.css",
+		"/C/Users/Survey Solutions/Downloads/perfect-scrollbar/css/perfect-scrollbar.css",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/js/bootstrap-sprockets.js",
+		"/C/Users/Survey Solutions/Downloads/malihu-custom-scrollbar-plugin-3.1.5/js/uncompressed/jquery.mCustomScrollbar.js",
+		"/C/Users/Survey Solutions/Downloads/jQuery-slimScroll-1.3.8/.gitignore",
+		"/C/Users/Survey Solutions/Downloads/jQuery-slimScroll-1.3.8/README.md",
+		"/C/Users/Survey Solutions/Downloads/jquery-custom-scrollbar-0.5.5/jquery.custom-scrollbar.css",
+		"/C/Users/Survey Solutions/Downloads/perfect-scrollbar/css/perfect-scrollbar.min.css",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_buttons.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_clearfix.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_forms.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_grid.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_gradients.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_text-overflow.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_text-emphasis.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_table-row.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_hide-text.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_labels.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_nav-divider.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_list-group.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_nav-vertical-align.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_panels.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_progress-bar.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_tab-focus.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_alerts.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_background-variant.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/mixins/_border-radius.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_add-interviews.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/markup.scss",
+		"/C/Users/Survey Solutions/Desktop/article example.html",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_filters.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_export.scss",
+		"/C/Users/Survey Solutions/solutions/stylesheets/_export.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/data-export.html",
+		"/C/Users/Survey Solutions/solutions/data-export.html",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/markup.css",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_batch-upload.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/markup.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_variables.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_mixins.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_import-questionnaires.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_common.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/_add-interviews.scss",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/batch_upload.html",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/import.html",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/login.html",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/login_import.html",
+		"/C/Users/Survey Solutions/Downloads/mojotech-stickymojo-v1.0.2-0-ga5c74ea/mojotech-stickymojo-a5c74ea/stickyMojo.js",
+		"/C/Users/Survey Solutions/Downloads/bootstrap-select-1.11.2/js/bootstrap-select.js",
+		"/C/Users/Survey Solutions/Downloads/bootstrap-select-1.11.2/.github/ISSUE_TEMPLATE.md",
+		"/C/Users/Survey Solutions/Downloads/bootstrap-select-1.11.2/docs/docs/css/custom.css",
+		"/C/Users/Survey Solutions/Downloads/bootstrap-select-1.11.2/README.md",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/custop-bootsstrap.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/_mixins.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/js/bootstrap-datepicker.min.js",
+		"/C/Users/Survey Solutions/Downloads/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.js",
+		"/C/Users/Survey Solutions/Downloads/moment-develop/package.js",
+		"/C/Users/Survey Solutions/Downloads/moment-develop/scripts/locales.js",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/en-au.js",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/js/moment.js",
+		"/C/Users/Survey Solutions/Downloads/moment-develop/README.md",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap-datepicker3.min.css",
+		"/C/Users/Survey Solutions/Dropbox/The World Bank Design/HQ/Headuarter/stylesheets/bootstrap/bootstrap/_variables.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/_variables.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/_vars.scss",
+		"/C/Users/Survey Solutions/sursolpages/index.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/index.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/catalog.html",
+		"/C/Users/Survey Solutions/surveysolutionsexample.github.io/index.html",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/_navbar.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/_grid.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/_responsive-utilities.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/bootstrap/_responsive-embed.scss",
+		"/C/Users/Survey Solutions/Dropbox/Headuarter/stylesheets/bootstrap/_bootstrap.scss",
+		"/C/Users/Survey Solutions/Desktop/Headuarter/stylesheets/_common.scss"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".custom-photo-wrapper",
+			".custom-photo-wrapper img",
+			".multimedia-question .custom-photo-wrapper img",
+			"modal",
+			"myModal",
+			"zoomImg",
+			"myImg",
+			"cancel",
+			"img",
+			"335px",
+			"250px",
+			"-400",
+			"360px",
+			"445px",
+			"unit-section",
+			"white",
+			".unit-section.hidden-by-filter .unit-title",
+			"border-bo",
+			"Robotho",
+			"RobotoThin",
+			"RobotoRegular",
+			"RobotoBold",
+			"Roboto",
+			"RobotoBold",
+			"RobotoThin",
+			"RobotoRegular",
+			"RobotoThin",
+			"RobotoBold",
+			".unit-title",
+			".unit-section",
+			"disabled",
+			"hidden-question",
+			"httpss",
+			"http",
+			"https",
+			"#support-main .dashboard .topic ul li",
+			"centered-box-table",
+			"question",
+			"disabled",
+			"INVALID ANSWER",
+			"comment",
+			"disa",
+			"class=\"information-block comment\"",
+			"\"information-block comment\"",
+			"$gray-highlight-font",
+			"$gray_info",
+			"aria-labelledby=\"dLabel\"",
+			"comment",
+			"class=\"comment",
+			"comment",
+			"<div class=\"comment errors\"",
+			"<div class=\"comment errors\"></div>",
+			"coordinates",
+			"Please capture gps using the tablet",
+			"additional-information",
+			"Please capture gps using the tablet",
+			"coordinates",
+			"padding: 10px 15px;",
+			"How much quantity in total did your household consume in the past 7 days?",
+			"dropdown-toggle",
+			"gray-text",
+			"What crops were planted",
+			"visible",
+			"How much quantit",
+			"answered",
+			"bold",
+			"checked ~ label",
+			".radio input.wb-radio:checked ~ label",
+			"h5",
+			"label",
+			"border",
+			"border: 2px",
+			"form-group",
+			"checkbox-filter",
+			"contains-error",
+			"con",
+			"cancel",
+			".dropdown-menu",
+			" .unit-title",
+			".questionnaire .unit-title",
+			"dropdown-toggle",
+			"z-index: 0",
+			"dropdown-toggle",
+			"question-content",
+			"non-answered",
+			"}\n",
+			"non-answered",
+			"size",
+			"clea",
+			"<span>Kb</span>",
+			"$blue-super-light",
+			"others",
+			"class=\"current-user\">you</td>",
+			"today",
+			"backgground-size",
+			"bord",
+			"<span>none</span>",
+			"#support-main .question .form-notic",
+			"question-body",
+			"footer",
+			"pagina",
+			"body",
+			"script",
+			"questionnaire",
+			"unit-section",
+			"unit",
+			"form",
+			"2px",
+			"instruction",
+			"enumerators-comment",
+			"flag",
+			"flagged",
+			"z-index",
+			"{\n",
+			"                                        Dropdown trigger",
+			"%tick",
+			"default-skin",
+			"960px",
+			"details-interview",
+			"questionnaire",
+			".ps-container > .ps-scrollbar-y-rail",
+			".ps-container .ps-scrollbar-y-rail",
+			".ps-scrollbar-y-rail",
+			".ps-container:hover > .ps-scrollbar-y-rail:hover",
+			".ps-container.ps-active-y > .ps-scrollbar-y-rail",
+			".ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail",
+			"group",
+			"absol"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "markup.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
