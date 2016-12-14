@@ -20,10 +20,10 @@
         <script>
       $(document).ready(function(){
           $("#hide").click(function(){
-              $("div.form-error").hide();
+              $("div.alert-danger").hide();
           });
           $("#show").click(function(){
-              $("div.form-error").show();
+              $("div.alert-danger").show();
           });
 
           $("<img/>")     
@@ -69,7 +69,7 @@
                         <div class="centered-box-table-cell">
                             <form action="#" id="log-in" class="log-in">
                                 <div class="retina headquarter">Survey Solutions Headquarters</div>
-                                <div class="form-error">
+                                <div class="alert alert-danger">
                                   <p>User is not authorized. <br/>
                                   Please check your login and password.</p>
                                 </div>
@@ -102,7 +102,10 @@
             </div>
             <div class="row">
                 <div class="interviewer-app">
-                    <a href="#" class="get-interviewer-app"></a>
+                    <a href="#" class="get-interviewer-app">
+                        <span>Download recent interviewer app for android</span>
+                        <span class="version">Version 123.456</span>
+                    </a> 
                     <a href="#">Installation instruction</a>
                 </div>  
             </div>

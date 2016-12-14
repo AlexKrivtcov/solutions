@@ -38,10 +38,17 @@
         });
     </script> 
     <script>
-        $(document).ready(function () {
-            $(".foldback-button").click(function () {
+        $(document).ready(function () 
+        {
+            $("#hide-filters").click(function () {
                 $(".filters").toggleClass("hidden-filters");
-                $(".export-types").toggleClass("fulsscreen");
+                $(this).parents('.row').toggleClass("fullscreen-hidden-filters");
+                /*$(".export-types").toggleClass("fulsscreen");*/
+            });
+            $("#hide-content").click(function () {
+                $(".filters").toggleClass("hidden-content");
+                $(this).parents('.row').toggleClass("fullscreen-hidden-content");
+                /*$(".export-types").toggleClass("fulsscreen");*/
             });
             $("body").removeClass("hold-transition");
         });
@@ -55,7 +62,7 @@
     </script>
     <script>
         $(function() {
-            $(".cancel").click(function() {  
+            $(".close").click(function() {  
                 $(this).parent().find("input").prop('checked', false);
             });
         });
@@ -75,7 +82,7 @@
                         $(this).parent(".field").removeClass("answered");
                     }
                 });
-                $(this).parent().children(".cancel").click(function() {  
+                $(this).parent().children(".close").click(function() {  
                     $(this).parent().removeClass("answered");
                     $(this).parent().find("input").val('');
                 });             
@@ -94,7 +101,7 @@
                         $(this).parent(".field").addClass("answered");
                     } 
                 });
-                $(this).parent().children(".cancel").click(function() {  
+                $(this).parent().children(".close").click(function() {  
                     $(this).parent().removeClass("answered");
                     $(this).parent().find("input").val('');
                 });             
@@ -114,9 +121,9 @@
     <script>
         $(function() {
             $(".zoomImg").click(function(e) { 
-                var modal = $(this).parent('.custom-photo-wrapper').find(".modal");
-                var caption = $(this).parent('.custom-photo-wrapper').find(".caption");
-                var close = $(this).parent('.custom-photo-wrapper').find(".close-zoomming-img");
+                var modal = $(this).parent('.image-zoom-box').find(".modal");
+                var caption = $(this).parent('.image-zoom-box').find(".caption");
+                var close = $(this).parent('.image-zoom-box').find(".close-zoomming-img");
                 modal.show();
                 modal.find("img").attr("src", $(e.target).attr("src"));
                 caption.text($(e.target).attr("alt"));
@@ -131,35 +138,52 @@
     <header>
         <div class="container-fluid">
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <div class="container-fluid ">
+               <div class="container-fluid ">
                   <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <a href="#" class="active-page">Questionnaires</a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="icon-bar top-menu"></span>
-                          <span class="icon-bar mid-menu"></span>
-                          <span class="icon-bar bottom-menu"></span>
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar top-menu"></span>
+                            <span class="icon-bar mid-menu"></span>
+                            <span class="icon-bar bottom-menu"></span>
                         </button>
                         <a href="#" class="badge badge_nav">42</a>
+                        <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                            <i class="glyphicon glyphicon-cloud-upload"></i>
+                            <span class="sync-queue-size">16287</span>
+                        </a>
                         <a class="navbar-brand" href="#">
-                          <div class="retina logo">Survey Solutions</div>
+                            <div class="retina logo">Survey Solutions</div>
+                            <div class="brand-name" title="Headquarter">Headquarter</div>
                         </a>
                     </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
+                      <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="nav navbar-nav">
-                          <li><a href="#" title="Headquarter">Headquarter</a></li>
-                          <li><a href="#" title="Teams">Teams</a></li>
-                          <li class="active"><a href="#" title="Interviews">Interviews</a></li>
-                          <li><a href="#" title="Questionnaires">Questionnaires</a></li>
-                          <li><a href="#" title="Data Export">Data Export</a></li>
+                            <li class="dropdown">
+                                <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="active"><a href="#">Settings</a></li>
+                                    <li><a href="#">Manage account</a></li>
+                                    <li><a href="#">Logoff</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="#" title="Interviews">Interviews</a></li>
+                            <li><a href="#" title="Questionnaires">Questionnaires</a></li>
+                            <li><a href="#" title="Data Export">Data Export</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#" title="Notifactions"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                            <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                    <i class="glyphicon glyphicon-cloud-upload"></i>
+                                    <span class="sync-queue-size">16287</span>
+                                </a>
+                            </li>
+                            <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
                             <li><a href="#" title="Help">Help</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3"><span class="caret"></span>Supervisorr-3</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Settings</a></li>
                                     <li><a href="#">Manage account</a></li>
@@ -171,14 +195,15 @@
                 </div><!-- /.container-fluid -->
             </nav>  
         </div>
-    </header> 
+    </header>  
     <main class="details-interview">
         <div class="container-fluid">
             <div class="row">
                 <aside class="filters">
-                    <div class="foldback-button">
-                        <span></span>
-                        <span></span>
+                    <div class="foldback-button" id="hide-filters">
+                        <span class="arrow"></span>
+                        <span class="arrow"></span>
+                        <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                     </div>
                     <div class="filters-container">
                         <h4>Filter Questions</h4> 
@@ -291,6 +316,11 @@
                     </div> 
                 </aside>
                 <aside class="content">
+                    <div class="foldback-button" id="hide-content">
+                        <span class="arrow"></span>
+                        <span class="arrow"></span>
+                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                    </div>
                     <div class="questionnaire-content">
                             <ol class="breadcrumb">
                                 <li><a href="">Interviews</a></li>
@@ -510,7 +540,7 @@
                                                 <label for="Yes-smoke">
                                                     <span class="tick"></span>Yes
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -519,7 +549,7 @@
                                                 <label for="no-smoke">
                                                     <span class="tick"></span>No
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                       </div>
                                     </div>
@@ -568,7 +598,7 @@
                                                 <label for="son">
                                                   <span class="tick"></span>Son
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div> 
                                         </div>
                                         <div class="radio">
@@ -577,7 +607,7 @@
                                                 <label for="brother">
                                                   <span class="tick"></span>Brother
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -626,7 +656,7 @@
                                                 <label for="Hundreds">
                                                     <span class="tick"></span>Hundreds
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -635,7 +665,7 @@
                                                 <label for="Thousands">
                                                     <span class="tick"></span>Thousands
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -687,7 +717,7 @@
                                                 <label for="Male">
                                                     <span class="tick"></span>Male
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -696,7 +726,7 @@
                                                 <label for="Female">
                                                     <span class="tick"></span>Female
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -753,7 +783,7 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -810,7 +840,7 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                             
                                         </div>
@@ -1063,7 +1093,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Centralized water supply</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1078,7 +1108,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>hot running water</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1093,7 +1123,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Sewage</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1108,7 +1138,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Septic tank</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -1164,7 +1194,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Kitchen</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1179,7 +1209,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Electricity</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1194,7 +1224,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Internet Connection</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1209,7 +1239,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Bathtub or shower</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -1265,7 +1295,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>English</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                                 <span class="index-number">199</span>
                                             </div>
                                         </div>
@@ -1281,7 +1311,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>ukrainian</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                                 <span class="index-number">10</span>
                                             </div>
                                         </div>
@@ -1297,7 +1327,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>russian</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                                 <span class="index-number">59</span>
                                             </div>
                                         </div>
@@ -1313,7 +1343,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>french</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                                 <span class="index-number">67</span>
                                             </div>
                                         </div>
@@ -1372,7 +1402,7 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="text" class="field-to-fill" placeholder="Tap to enter new item"/>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       </div>
                                     </div>
@@ -1421,19 +1451,19 @@
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item"  value="Jenifer" />
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item"  value="John" />
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item" />
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -1479,7 +1509,7 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="number" class="field-to-fill" placeholder="Tap to enter number" value="6" />
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       </div>
                                     </div>
@@ -1536,7 +1566,7 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="number" class="field-to-fill" placeholder="Tap to enter number" />
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       </div>
                                     </div>
@@ -1580,9 +1610,9 @@
                                 <div class="question-unit">
                                     <div class="options-group">
                                         <div class="field answered">
-                                            <div id="map"></div>
+                                            <div class="map" id="map"></div>
                                             <div class="block-with-data">-25.363, 131.044</div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                         <div class="action-btn-holder gps-question">
                                             <button type="button" class="btn action-btn">Tap to record GPS</button>
@@ -1632,9 +1662,9 @@
                                 
                                     <div class="options-group">
                                         <div class="field">
-                                            <div id="map2"></div>
+                                            <div class="map"></div>
                                             <div class="block-with-data"></div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                         <div class="action-btn-holder gps-question">
                                             <button type="button" class="btn action-btn">Tap to record GPS</button>
@@ -1682,7 +1712,7 @@
                                     <div class="options-group">
                                     <div class="field">
                                             <div class="block-with-data"></div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       <div class="action-btn-holder time-question">
                                             <button type="button" class="btn action-btn">Tap to record current time</button>
@@ -1730,7 +1760,7 @@
                                     <div class="options-group">
                                         <div class="field answered">
                                             <div class="block-with-data">12/1/2016 5:54:03PM</div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       <div class="action-btn-holder time-question">
                                             <button type="button" class="btn action-btn">Tap to record current time</button>
@@ -1821,15 +1851,15 @@
                                 <div class="question-unit">
                                     <div class="options-group">
                                         <div class="field answered">
-                                            <div class="custom-photo-wrapper">
+                                            <div class="image-zoom-box image-wrapper">
                                                 <img src="img/o-HAPPINESS-facebook.jpg" alt="custom photo" class="zoomImg" />
                                                 <div class="modal">
                                                   <span class="close-zoomming-img">&times;</span>
-                                                  <img class="modal-content"/>
+                                                  <img class="modal-content" src=""  alt="" />
                                                   <span class="caption"></span>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       <div class="action-btn-holder photo-question">
                                             <button type="button" class="btn action-btn">Tap to take a photo</button>
@@ -1877,7 +1907,7 @@
                                     <div class="options-group">
                                         <div class="field">
                                             <div class="block-with-data"></div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       <div class="action-btn-holder barcode-question">
                                             <button type="button" class="btn action-btn">Tap to take barcode</button>
@@ -1950,7 +1980,7 @@
                                     <div class="options-group">
                                         <div class="field answered">
                                             <div class="block-with-data">http://www.worldbank.org/capi</div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                         <div class="action-btn-holder barcode-question">
                                             <button type="button" class="btn action-btn">Tap to take barcode</button>
@@ -2004,7 +2034,7 @@
                                                     $('#datetimepicker4').datetimepicker();
                                                 });
                                             </script>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       </div>
                                     </div>
@@ -2062,7 +2092,7 @@
                                                     });
                                                 });
                                             </script>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       </div>
                                     </div>
@@ -2123,7 +2153,7 @@
                                                     <label for="Male2">
                                                         <span class="tick"></span>Male
                                                     </label>
-                                                    <button type="submit" class="btn cancel"></button>
+                                                    <button type="submit" class="close"></button>
                                                 </div>
                                             </div>
                                             <div class="radio">
@@ -2132,7 +2162,7 @@
                                                     <label for="Female2">
                                                         <span class="tick"></span>Female
                                                     </label>
-                                                    <button type="submit" class="btn cancel"></button>
+                                                    <button type="submit" class="close"></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -2225,7 +2255,7 @@
                                           <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter number" value="Selling groceries" />
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                           </div>
                                         </div>
@@ -2252,7 +2282,14 @@
                                 <h5> 
                                     <button type="button" class="button-flag"></button>
                                     Some static text
-                                    <span class="static-text-image"> <img src="img/download.jpg" alt="static-text-image"/> </span> 
+                                    <span class="image-zoom-box static-text-image"> 
+                                        <img src="img/download.jpg" alt="static-text-image" class="zoomImg" /> 
+                                        <span class="modal">
+                                            <span class="close-zoomming-img">&times;</span>
+                                            <img class="modal-content" src="" alt="" />
+                                            <span class="caption"></span>
+                                        </span>
+                                    </span> 
                                 </h5>
                                 <div class="information-block errors"></div>
                                 <div class="information-block comments-block">
@@ -2299,7 +2336,7 @@
                                                         $('#datetimepicker423').datetimepicker();
                                                     });
                                                 </script>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                           </div>
                                         </div>
@@ -2356,19 +2393,19 @@
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item"  value="Jenifer" />
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item"  value="John" />
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item" />
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -2414,7 +2451,7 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="number" class="field-to-fill" placeholder="Tap to enter number" value="6" />
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       </div>
                                     </div>
@@ -2467,9 +2504,9 @@
                                 
                                     <div class="options-group">
                                         <div class="field">
-                                            <div id="map2"></div>
+                                            <div class="map"></div>
                                             <div class="block-with-data"></div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                         <div class="action-btn-holder gps-question">
                                             <button type="button" class="btn action-btn">Tap to record GPS</button>
@@ -2516,10 +2553,15 @@
                                 <div class="question-unit">
                                     <div class="options-group">
                                         <div class="field answered">
-                                            <div class="custom-photo-wrapper">
-                                                <img src="img/o-HAPPINESS-facebook.jpg" alt="custom photo"/>
+                                            <div class="image-zoom-box image-wrapper">
+                                                <img src="img/o-HAPPINESS-facebook.jpg" alt="custom photo" class="zoomImg" />
+                                                <div class="modal">
+                                                  <span class="close-zoomming-img">&times;</span>
+                                                  <img class="modal-content" src="" alt="" />
+                                                  <span class="caption"></span>
+                                                </div>
                                             </div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       <div class="action-btn-holder photo-question">
                                             <button type="button" class="btn action-btn">Tap to take a photo</button>
@@ -2567,7 +2609,7 @@
                                     <div class="options-group">
                                         <div class="field answered">
                                             <div class="block-with-data">http://www.worldbank.org/capi</div>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                         <div class="action-btn-holder barcode-question">
                                             <button type="button" class="btn action-btn">Tap to take barcode</button>
@@ -2628,7 +2670,7 @@
                                                     });
                                                 });
                                             </script>
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       </div>
                                     </div>
@@ -2690,7 +2732,7 @@
                                                 <label for="Male53">
                                                     <span class="tick"></span>Male
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -2699,7 +2741,7 @@
                                                 <label for="Female53">
                                                     <span class="tick"></span>Female
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -2756,7 +2798,7 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -2813,7 +2855,7 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                             
                                         </div>
@@ -2872,7 +2914,7 @@
                                                 <label for="son1">
                                                   <span class="tick"></span>Son
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div> 
                                         </div>
                                         <div class="radio">
@@ -2881,7 +2923,7 @@
                                                 <label for="brother1">
                                                   <span class="tick"></span>Brother
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -2930,7 +2972,7 @@
                                                 <label for="Male1">
                                                     <span class="tick"></span>Male
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -2939,7 +2981,7 @@
                                                 <label for="Female1">
                                                     <span class="tick"></span>Female
                                                 </label>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -2996,7 +3038,7 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                             
                                         </div>
@@ -3222,7 +3264,7 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="text" class="field-to-fill" placeholder="Tap to enter number" value="Selling groceries" />
-                                            <button type="submit" class="btn cancel"></button>
+                                            <button type="submit" class="close"></button>
                                         </div>
                                       </div>
                                     </div>
@@ -3278,7 +3320,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Kitchen</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3293,7 +3335,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Electricity</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3308,7 +3350,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Internet Connection</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3323,7 +3365,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Bathtub or shower</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -3350,7 +3392,14 @@
                                 <h5> 
                                     <button type="button" class="button-flag"></button>
                                     Some static text with image
-                                    <span class="static-text-image"> <img src="img/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image"/> </span> 
+                                    <div class="image-zoom-box static-text-image"> 
+                                        <img src="img/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image" class="zoomImg" /> 
+                                        <div class="modal">
+                                            <span class="close-zoomming-img">&times;</span>
+                                            <img class="modal-content" src="" alt="" />
+                                            <span class="caption"></span>
+                                        </div>
+                                    </div> 
                                 </h5>
                                 <div class="information-block errors"></div>
                                 <div class="information-block comments-block">
@@ -3402,7 +3451,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>English</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                                 <span class="index-number">199</span>
                                             </div>
                                         </div>
@@ -3418,7 +3467,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>ukrainian</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                                 <span class="index-number">10</span>
                                             </div>
                                         </div>
@@ -3434,7 +3483,7 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>russian</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                                 <span class="index-number">59</span>
                                             </div>
                                         </div>
@@ -3450,8 +3499,72 @@
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>french</span>
-                                                <button type="submit" class="btn cancel"></button>
+                                                <button type="submit" class="close"></button>
                                                 <span class="index-number">67</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="information-block errors"></div>
+                                <div class="information-block enumerators"></div>
+                                <div class="information-block comments-block">
+                                    <div class="comment">
+                                        <h6>Your comment</h6>
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                </div>
+                                              </div>
+                                              <button type="submit" class="btn btn-default">Post</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor img-single-select-question answered">
+                                <h5> 
+                                    <button type="button" class="button-flag"></button>
+                                    Choose some picture
+                                </h5>
+                                <div class="information-block instruction"></div>
+                                <div class="question-unit">
+                                    <div class="options-group"> 
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="img-single-select" id="img11" checked />
+                                                <label for="img11">
+                                                    <span class="tick"></span>
+                                                    <div class="image-option">
+                                                        <img src="img/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image"/> 
+                                                    </div>
+                                                </label>
+                                                <button type="submit" class="close"></button>
+                                            </div> 
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="img-single-select" id="img12" value="current-version" />
+                                                <label for="img12">
+                                                    <span class="tick"></span>
+                                                    <div class="image-option">
+                                                        <img src="img/download.jpg" alt="static-text-image"/> 
+                                                    </div>
+                                                </label>
+                                                <button type="submit" class="close"></button>
                                             </div>
                                         </div>
                                     </div>

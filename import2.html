@@ -56,734 +56,751 @@
     });
     </script>
 <body>
-  <header>
-    <div class="container-fluid">
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid ">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <a href="#" class="active-page">Questionnaires</a>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">                
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar top-menu"></span>
-              <span class="icon-bar mid-menu"></span>
-              <span class="icon-bar bottom-menu"></span>
-            </button>
-            <a href="#" class="badge badge_nav">42</a>
-            <a class="navbar-brand" href="#">
-              <div class="retina logo">Survey Solutions</div>
-            </a>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">
-              <li><a href="#" title="Headquarter">Headquarter</a></li>
-              <li><a href="#" title="Teams">Teams</a></li>
-              <li><a href="#" title="Interviews">Interviews</a></li>
-              <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
-              <li><a href="#" title="Data Export">Data Export</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#" title="Notifactions"><span class="badge badge_nav">42</span>Notifactions</a></li>
-              <li><a href="#" title="Help">Help</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3"><span class="caret"></span>Supervisorr-3</a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Settings</a></li>
-                  <li><a href="#">Manage account</a></li>
-                  <li><a href="#">Logoff</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-    </div>
-  </header>
-  <main class="import-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="signed-name">
-                <div>You are signed in on Designer as <span>Uername</span> <a href="#">sign&nbsp;out</a>
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+               <div class="container-fluid ">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a href="#" class="active-page">Questionnaires</a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar top-menu"></span>
+                            <span class="icon-bar mid-menu"></span>
+                            <span class="icon-bar bottom-menu"></span>
+                        </button>
+                        <a href="#" class="badge badge_nav">42</a>
+                        <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                            <i class="glyphicon glyphicon-cloud-upload"></i>
+                            <span class="sync-queue-size">16287</span>
+                        </a>
+                        <a class="navbar-brand" href="#">
+                            <div class="retina logo">Survey Solutions</div>
+                            <div class="brand-name" title="Headquarter">Headquarter</div>
+                        </a>
+                    </div>
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="active"><a href="#">Settings</a></li>
+                                    <li><a href="#">Manage account</a></li>
+                                    <li><a href="#">Logoff</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" title="Interviews">Interviews</a></li>
+                            <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                            <li><a href="#" title="Data Export">Data Export</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                    <i class="glyphicon glyphicon-cloud-upload"></i>
+                                    <span class="sync-queue-size">16287</span>
+                                </a>
+                            </li>
+                            <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                            <li><a href="#" title="Help">Help</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Settings</a></li>
+                                    <li><a href="#">Manage account</a></li>
+                                    <li><a href="#">Logoff</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>  
+        </div>
+    </header> 
+    <main class="import-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="signed-name">
+                    <div>You are signed in on Designer as <span>Uername</span> <a href="#">sign&nbsp;out</a>
+                    </div>
+                </div>
+                <div class="table-title">
+                    <ol class="breadcrumb">
+                        <li><a href="">Questionnaires</a></li>
+                    </ol>
+                    <h2>Select Questionnaire for import (125 avalaible)  </h2>
                 </div>
             </div>
-            <div class="table-title">
-                <ol class="breadcrumb">
-                    <li><a href="">Questionnaires</a></li>
-                </ol>
-                <h2>Select Questionnaire for import (125 avalaible)  </h2>
-            </div>
         </div>
-    </div>
-    <div class="container-fluid">
-      <div class="row">
-      <table class="table import-interview">
-        <thead>
-          <tr>
-            <th class="column-questionnaire-title">title</th>
-            <th>last modified</th>
-            <th class="modified-by">last modified by</th>
-            <th class="parameters">volume</th>
-            <th class="parameters size">size</th>
-            <th class="created-by">created by</th>
-            <th class="shared-with">shared with</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
-            <td class="changed-recently">Today at 12:43</td>
-            <td class="modified-by">ll2nguyen</td>
-            <td class="parameters">1242 <span>questions</span></td>
-            <td class="parameters size">7263&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>a.smith <span>and</span> <a href="#">2&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Workplace</a></td>
-            <td class="changed-recently">Yesterday, 20:18</td>
-            <td class="modified-by">alekskrivtsov</td>
-            <td class="parameters">4323 <span>questions</span></td>
-            <td class="parameters size">263&nbsp;<span>Kb</span></td>
-            <td class="created-by">alekskrivtsov</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio ECV 2013 - 2014 Nacional</a></td>
-            <td>10 Jan, 09:03</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">914 <span>question</span></td>
-            <td class="parameters size">458&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with"><span>j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999</a></td>
-            <td>09 Jan, 11:42</td>
-            <td class="modified-by modified-by">a.amith</td>
-            <td class="parameters">23 <span>question</span></td>
-            <td class="parameters size">865&nbsp;<span>Kb</span></td>
-            <td class="created-by">a.amith</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
-            <td>09 Jan, 11:40</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">2114 <span>question</span></td>
-            <td class="parameters size">6547&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
-            <td>09 Jan, 11:30</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">2658 <span>question</span></td>
-            <td class="parameters size">1235&nbsp;<span>Kb</span></td>
-            <td class="created-by">a.amith</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Workplace)</a></td>
-            <td>09 Jan, 08:00</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">4242 <span>question</span></td>
-            <td class="parameters size">21355&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>ll2nguyen <span>and</span> <a href="#">4&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio Ethiopia Nacional</a></td>
-            <td>09 Jan, 03:12</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">223 <span>question</span></td>
-            <td class="parameters size">7854&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999 </a></td>
-            <td>07 Jan, 22:24</td>
-            <td class="modified-by">s.slandersson</td>
-            <td class="parameters">514 <span>question</span></td>
-            <td class="parameters size">7452&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>ll2nguyen, j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Mayotte Avec Réunion</a></td>
-            <td>03 Jan, 14:34</td>
-            <td class="modified-by">ll2nguyen</td>
-            <td class="parameters">730 <span>question</span></td>
-            <td class="parameters size">785&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Democratic Republic of the Congo Household and Questionnaire 2014</a></td>
-            <td>02 Jan, 22:24</td>
-            <td class="modified-by">alekskrivtsov </td>
-            <td class="parameters">93 <span>question</span></td>
-            <td class="parameters size">1233&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">São Tomé and Príncipe 2012/2013 Immigration </a></td>
-            <td>29 Dec, 2013</td>
-            <td class="modified-by">alekskrivtsov </td>
-            <td class="parameters">114 <span>question</span></td>
-            <td class="parameters size">456&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio ECV 2012 - 2013 Nacional </a></td>
-            <td>29 Dec, 2013</td>
-            <td class="modified-by">shimagm</td>
-            <td class="parameters">242 <span>question</span></td>
-            <td class="parameters size">865&nbsp;<span>Kb</span></td>
-            <td class="created-by">y.ono</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Saint Helena, Ascension and Tristan da Cunha</a></td>
-            <td>22 Dec, 2013</td>
-            <td class="modified-by">arthurshaw2002 </td>
-            <td class="parameters">1323 <span>question</span></td>
-            <td class="parameters size">677&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Mauritania and Morocco</a></td>
-            <td>21 Dec, 2013</td>
-            <td class="modified-by">arthurshaw2002 </td>
-            <td class="parameters">14 <span>question</span></td>
-            <td class="parameters size">7545&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Togo 2014</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">y.ono</td>
-            <td class="parameters">30 <span>question</span></td>
-            <td class="parameters size">121&nbsp;<span>Kb</span></td>
-            <td class="created-by">y.ono</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">New Tanzania NPS 2012/2013 Workplace</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">m.ondaatje</td>
-            <td class="parameters">1223 <span>question</span></td>
-            <td class="parameters size">11765&nbsp;<span>Kb</span></td>
-            <td class="created-by">m.ondaatje</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio Ethiopia Nacional</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">2114 <span>question</span></td>
-            <td class="parameters size">679&nbsp;<span>Kb</span></td>
-            <td class="created-by">m.ondaatje</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Nigeria Presidental Election Exitpool</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">7242 <span>question</span></td>
-            <td class="parameters size">1298&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
-            <td>15 Dec, 2013</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">3223 <span>question</span></td>
-            <td class="parameters size">1487&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999</a></td>
-            <td>19 Nov, 2013</td>
-            <td class="modified-by">a.amith</td>
-            <td class="parameters">1514 <span>question</span></td>
-            <td class="parameters size">2534&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with"><span>m.ondaatje <span>and</span> <a href="#">29&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</a></td>
-            <td>18 Nov, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">1730 <span>question</span></td>
-            <td class="parameters size">853&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with"><span>l.wang</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
-            <td>18 Nov, 2013</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">993 <span>question</span></td>
-            <td class="parameters size">56&nbsp;<span>Kb</span></td>
-            <td class="created-by">l.wang</td>
-            <td class="shared-with"><span>j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Equatorial Guinea May 2013</a></td>
-            <td>09 Nov, 2013</td>
-            <td class="modified-by">l.wang</td>
-            <td class="parameters">214 <span>question</span></td>
-            <td class="parameters size">920&nbsp;<span>Kb</span></td>
-            <td class="created-by">l.wang</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
-            <td class="changed-recently">Today at 12:43</td>
-            <td class="modified-by">ll2nguyen</td>
-            <td class="parameters">1242 <span>questions</span></td>
-            <td class="parameters size">7263&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>a.smith <span>and</span> <a href="#">2&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Workplace</a></td>
-            <td class="changed-recently">Yesterday, 20:18</td>
-            <td class="modified-by">alekskrivtsov</td>
-            <td class="parameters">4323 <span>questions</span></td>
-            <td class="parameters size">263&nbsp;<span>Kb</span></td>
-            <td class="created-by">alekskrivtsov</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio ECV 2013 - 2014 Nacional</a></td>
-            <td>10 Jan, 09:03</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">914 <span>question</span></td>
-            <td class="parameters size">458&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with"><span>j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999</a></td>
-            <td>09 Jan, 11:42</td>
-            <td class="modified-by modified-by">a.amith</td>
-            <td class="parameters">23 <span>question</span></td>
-            <td class="parameters size">865&nbsp;<span>Kb</span></td>
-            <td class="created-by">a.amith</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
-            <td>09 Jan, 11:40</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">2114 <span>question</span></td>
-            <td class="parameters size">6547&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
-            <td>09 Jan, 11:30</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">2658 <span>question</span></td>
-            <td class="parameters size">1235&nbsp;<span>Kb</span></td>
-            <td class="created-by">a.amith</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Workplace)</a></td>
-            <td>09 Jan, 08:00</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">4242 <span>question</span></td>
-            <td class="parameters size">21355&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>ll2nguyen <span>and</span> <a href="#">4&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio Ethiopia Nacional</a></td>
-            <td>09 Jan, 03:12</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">223 <span>question</span></td>
-            <td class="parameters size">7854&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999 </a></td>
-            <td>07 Jan, 22:24</td>
-            <td class="modified-by">s.slandersson</td>
-            <td class="parameters">514 <span>question</span></td>
-            <td class="parameters size">7452&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>ll2nguyen, j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Mayotte Avec Réunion</a></td>
-            <td>03 Jan, 14:34</td>
-            <td class="modified-by">ll2nguyen</td>
-            <td class="parameters">730 <span>question</span></td>
-            <td class="parameters size">785&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Democratic Republic of the Congo Household and Questionnaire 2014</a></td>
-            <td>02 Jan, 22:24</td>
-            <td class="modified-by">alekskrivtsov </td>
-            <td class="parameters">93 <span>question</span></td>
-            <td class="parameters size">1233&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">São Tomé and Príncipe 2012/2013 Immigration </a></td>
-            <td>29 Dec, 2013</td>
-            <td class="modified-by">alekskrivtsov </td>
-            <td class="parameters">114 <span>question</span></td>
-            <td class="parameters size">456&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio ECV 2012 - 2013 Nacional </a></td>
-            <td>29 Dec, 2013</td>
-            <td class="modified-by">shimagm</td>
-            <td class="parameters">242 <span>question</span></td>
-            <td class="parameters size">865&nbsp;<span>Kb</span></td>
-            <td class="created-by">y.ono</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Saint Helena, Ascension and Tristan da Cunha</a></td>
-            <td>22 Dec, 2013</td>
-            <td class="modified-by">arthurshaw2002 </td>
-            <td class="parameters">1323 <span>question</span></td>
-            <td class="parameters size">677&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Mauritania and Morocco</a></td>
-            <td>21 Dec, 2013</td>
-            <td class="modified-by">arthurshaw2002 </td>
-            <td class="parameters">14 <span>question</span></td>
-            <td class="parameters size">7545&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Togo 2014</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">y.ono</td>
-            <td class="parameters">30 <span>question</span></td>
-            <td class="parameters size">121&nbsp;<span>Kb</span></td>
-            <td class="created-by">y.ono</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">New Tanzania NPS 2012/2013 Workplace</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">m.ondaatje</td>
-            <td class="parameters">1223 <span>question</span></td>
-            <td class="parameters size">11765&nbsp;<span>Kb</span></td>
-            <td class="created-by">m.ondaatje</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio Ethiopia Nacional</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">2114 <span>question</span></td>
-            <td class="parameters size">679&nbsp;<span>Kb</span></td>
-            <td class="created-by">m.ondaatje</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Nigeria Presidental Election Exitpool</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">7242 <span>question</span></td>
-            <td class="parameters size">1298&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
-            <td>15 Dec, 2013</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">3223 <span>question</span></td>
-            <td class="parameters size">1487&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999</a></td>
-            <td>19 Nov, 2013</td>
-            <td class="modified-by">a.amith</td>
-            <td class="parameters">1514 <span>question</span></td>
-            <td class="parameters size">2534&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with"><span>m.ondaatje <span>and</span> <a href="#">29&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</a></td>
-            <td>18 Nov, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">1730 <span>question</span></td>
-            <td class="parameters size">853&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with"><span>l.wang</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
-            <td>18 Nov, 2013</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">993 <span>question</span></td>
-            <td class="parameters size">56&nbsp;<span>Kb</span></td>
-            <td class="created-by">l.wang</td>
-            <td class="shared-with"><span>j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Equatorial Guinea May 2013</a></td>
-            <td>09 Nov, 2013</td>
-            <td class="modified-by">l.wang</td>
-            <td class="parameters">214 <span>question</span></td>
-            <td class="parameters size">920&nbsp;<span>Kb</span></td>
-            <td class="created-by">l.wang</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
-            <td class="changed-recently">Today at 12:43</td>
-            <td class="modified-by">ll2nguyen</td>
-            <td class="parameters">1242 <span>questions</span></td>
-            <td class="parameters size">7263&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>a.smith <span>and</span> <a href="#">2&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Workplace</a></td>
-            <td class="changed-recently">Yesterday, 20:18</td>
-            <td class="modified-by">alekskrivtsov</td>
-            <td class="parameters">4323 <span>questions</span></td>
-            <td class="parameters size">263&nbsp;<span>Kb</span></td>
-            <td class="created-by">alekskrivtsov</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio ECV 2013 - 2014 Nacional</a></td>
-            <td>10 Jan, 09:03</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">914 <span>question</span></td>
-            <td class="parameters size">458&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with"><span>j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999</a></td>
-            <td>09 Jan, 11:42</td>
-            <td class="modified-by modified-by">a.amith</td>
-            <td class="parameters">23 <span>question</span></td>
-            <td class="parameters size">865&nbsp;<span>Kb</span></td>
-            <td class="created-by">a.amith</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
-            <td>09 Jan, 11:40</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">2114 <span>question</span></td>
-            <td class="parameters size">6547&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
-            <td>09 Jan, 11:30</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">2658 <span>question</span></td>
-            <td class="parameters size">1235&nbsp;<span>Kb</span></td>
-            <td class="created-by">a.amith</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Tanzania NPS 2012/2013 Workplace)</a></td>
-            <td>09 Jan, 08:00</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">4242 <span>question</span></td>
-            <td class="parameters size">21355&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>ll2nguyen <span>and</span> <a href="#">4&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio Ethiopia Nacional</a></td>
-            <td>09 Jan, 03:12</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">223 <span>question</span></td>
-            <td class="parameters size">7854&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999 </a></td>
-            <td>07 Jan, 22:24</td>
-            <td class="modified-by">s.slandersson</td>
-            <td class="parameters">514 <span>question</span></td>
-            <td class="parameters size">7452&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with"><span>ll2nguyen, j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Mayotte Avec Réunion</a></td>
-            <td>03 Jan, 14:34</td>
-            <td class="modified-by">ll2nguyen</td>
-            <td class="parameters">730 <span>question</span></td>
-            <td class="parameters size">785&nbsp;<span>Kb</span></td>
-            <td class="created-by">ll2nguyen</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Democratic Republic of the Congo Household and Questionnaire 2014</a></td>
-            <td>02 Jan, 22:24</td>
-            <td class="modified-by">alekskrivtsov </td>
-            <td class="parameters">93 <span>question</span></td>
-            <td class="parameters size">1233&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">São Tomé and Príncipe 2012/2013 Immigration </a></td>
-            <td>29 Dec, 2013</td>
-            <td class="modified-by">alekskrivtsov </td>
-            <td class="parameters">114 <span>question</span></td>
-            <td class="parameters size">456&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio ECV 2012 - 2013 Nacional </a></td>
-            <td>29 Dec, 2013</td>
-            <td class="modified-by">shimagm</td>
-            <td class="parameters">242 <span>question</span></td>
-            <td class="parameters size">865&nbsp;<span>Kb</span></td>
-            <td class="created-by">y.ono</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Saint Helena, Ascension and Tristan da Cunha</a></td>
-            <td>22 Dec, 2013</td>
-            <td class="modified-by">arthurshaw2002 </td>
-            <td class="parameters">1323 <span>question</span></td>
-            <td class="parameters size">677&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Mauritania and Morocco</a></td>
-            <td>21 Dec, 2013</td>
-            <td class="modified-by">arthurshaw2002 </td>
-            <td class="parameters">14 <span>question</span></td>
-            <td class="parameters size">7545&nbsp;<span>Kb</span></td>
-            <td class="created-by">arthurshaw2002</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Togo 2014</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">y.ono</td>
-            <td class="parameters">30 <span>question</span></td>
-            <td class="parameters size">121&nbsp;<span>Kb</span></td>
-            <td class="created-by">y.ono</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">New Tanzania NPS 2012/2013 Workplace</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">m.ondaatje</td>
-            <td class="parameters">1223 <span>question</span></td>
-            <td class="parameters size">11765&nbsp;<span>Kb</span></td>
-            <td class="created-by">m.ondaatje</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Formulacio Ethiopia Nacional</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">2114 <span>question</span></td>
-            <td class="parameters size">679&nbsp;<span>Kb</span></td>
-            <td class="created-by">m.ondaatje</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Nigeria Presidental Election Exitpool</a></td>
-            <td>20 Dec, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">7242 <span>question</span></td>
-            <td class="parameters size">1298&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
-            <td>15 Dec, 2013</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">3223 <span>question</span></td>
-            <td class="parameters size">1487&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with">none</td>
-          </tr>
-          <tr>
-            <td><a href="#">Kenya population census 1999</a></td>
-            <td>19 Nov, 2013</td>
-            <td class="modified-by">a.amith</td>
-            <td class="parameters">1514 <span>question</span></td>
-            <td class="parameters size">2534&nbsp;<span>Kb</span></td>
-            <td class="current-user created-by">you</td>
-            <td class="shared-with"><span>m.ondaatje <span>and</span> <a href="#">29&nbsp;others</a></span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</a></td>
-            <td>18 Nov, 2013</td>
-            <td class="modified-by">j.berger</td>
-            <td class="parameters">1730 <span>question</span></td>
-            <td class="parameters size">853&nbsp;<span>Kb</span></td>
-            <td class="created-by">j.berger</td>
-            <td class="shared-with"><span>l.wang</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
-            <td>18 Nov, 2013</td>
-            <td class="current-user modified-by">you</td>
-            <td class="parameters">993 <span>question</span></td>
-            <td class="parameters size">56&nbsp;<span>Kb</span></td>
-            <td class="created-by">l.wang</td>
-            <td class="shared-with"><span>j.berger</span></td>
-          </tr>
-          <tr>
-            <td><a href="#">Equatorial Guinea May 2013</a></td>
-            <td>09 Nov, 2013</td>
-            <td class="modified-by">l.wang</td>
-            <td class="parameters">214 <span>question</span></td>
-            <td class="parameters size">920&nbsp;<span>Kb</span></td>
-            <td class="created-by">l.wang</td>
-            <td class="shared-with">none</td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
-  </main> 
-	<footer class="footer">
+        <div class="container-fluid">
+          <div class="row">
+          <table class="table import-interview">
+            <thead>
+              <tr>
+                <th class="column-questionnaire-title">title</th>
+                <th>last modified</th>
+                <th class="modified-by">last modified by</th>
+                <th class="parameters">volume</th>
+                <th class="parameters size">size</th>
+                <th class="created-by">created by</th>
+                <th class="shared-with">shared with</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
+                <td class="changed-recently">Today at 12:43</td>
+                <td class="modified-by">ll2nguyen</td>
+                <td class="parameters">1242 <span>questions</span></td>
+                <td class="parameters size">7263&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>a.smith <span>and</span> <a href="#">2&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Workplace</a></td>
+                <td class="changed-recently">Yesterday, 20:18</td>
+                <td class="modified-by">alekskrivtsov</td>
+                <td class="parameters">4323 <span>questions</span></td>
+                <td class="parameters size">263&nbsp;<span>Kb</span></td>
+                <td class="created-by">alekskrivtsov</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio ECV 2013 - 2014 Nacional</a></td>
+                <td>10 Jan, 09:03</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">914 <span>question</span></td>
+                <td class="parameters size">458&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with"><span>j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999</a></td>
+                <td>09 Jan, 11:42</td>
+                <td class="modified-by modified-by">a.amith</td>
+                <td class="parameters">23 <span>question</span></td>
+                <td class="parameters size">865&nbsp;<span>Kb</span></td>
+                <td class="created-by">a.amith</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
+                <td>09 Jan, 11:40</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">2114 <span>question</span></td>
+                <td class="parameters size">6547&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
+                <td>09 Jan, 11:30</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">2658 <span>question</span></td>
+                <td class="parameters size">1235&nbsp;<span>Kb</span></td>
+                <td class="created-by">a.amith</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Workplace)</a></td>
+                <td>09 Jan, 08:00</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">4242 <span>question</span></td>
+                <td class="parameters size">21355&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>ll2nguyen <span>and</span> <a href="#">4&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio Ethiopia Nacional</a></td>
+                <td>09 Jan, 03:12</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">223 <span>question</span></td>
+                <td class="parameters size">7854&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999 </a></td>
+                <td>07 Jan, 22:24</td>
+                <td class="modified-by">s.slandersson</td>
+                <td class="parameters">514 <span>question</span></td>
+                <td class="parameters size">7452&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>ll2nguyen, j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Mayotte Avec Réunion</a></td>
+                <td>03 Jan, 14:34</td>
+                <td class="modified-by">ll2nguyen</td>
+                <td class="parameters">730 <span>question</span></td>
+                <td class="parameters size">785&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Democratic Republic of the Congo Household and Questionnaire 2014</a></td>
+                <td>02 Jan, 22:24</td>
+                <td class="modified-by">alekskrivtsov </td>
+                <td class="parameters">93 <span>question</span></td>
+                <td class="parameters size">1233&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">São Tomé and Príncipe 2012/2013 Immigration </a></td>
+                <td>29 Dec, 2013</td>
+                <td class="modified-by">alekskrivtsov </td>
+                <td class="parameters">114 <span>question</span></td>
+                <td class="parameters size">456&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio ECV 2012 - 2013 Nacional </a></td>
+                <td>29 Dec, 2013</td>
+                <td class="modified-by">shimagm</td>
+                <td class="parameters">242 <span>question</span></td>
+                <td class="parameters size">865&nbsp;<span>Kb</span></td>
+                <td class="created-by">y.ono</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Saint Helena, Ascension and Tristan da Cunha</a></td>
+                <td>22 Dec, 2013</td>
+                <td class="modified-by">arthurshaw2002 </td>
+                <td class="parameters">1323 <span>question</span></td>
+                <td class="parameters size">677&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Mauritania and Morocco</a></td>
+                <td>21 Dec, 2013</td>
+                <td class="modified-by">arthurshaw2002 </td>
+                <td class="parameters">14 <span>question</span></td>
+                <td class="parameters size">7545&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Togo 2014</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">y.ono</td>
+                <td class="parameters">30 <span>question</span></td>
+                <td class="parameters size">121&nbsp;<span>Kb</span></td>
+                <td class="created-by">y.ono</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">New Tanzania NPS 2012/2013 Workplace</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">m.ondaatje</td>
+                <td class="parameters">1223 <span>question</span></td>
+                <td class="parameters size">11765&nbsp;<span>Kb</span></td>
+                <td class="created-by">m.ondaatje</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio Ethiopia Nacional</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">2114 <span>question</span></td>
+                <td class="parameters size">679&nbsp;<span>Kb</span></td>
+                <td class="created-by">m.ondaatje</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Nigeria Presidental Election Exitpool</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">7242 <span>question</span></td>
+                <td class="parameters size">1298&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
+                <td>15 Dec, 2013</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">3223 <span>question</span></td>
+                <td class="parameters size">1487&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999</a></td>
+                <td>19 Nov, 2013</td>
+                <td class="modified-by">a.amith</td>
+                <td class="parameters">1514 <span>question</span></td>
+                <td class="parameters size">2534&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with"><span>m.ondaatje <span>and</span> <a href="#">29&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</a></td>
+                <td>18 Nov, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">1730 <span>question</span></td>
+                <td class="parameters size">853&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with"><span>l.wang</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
+                <td>18 Nov, 2013</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">993 <span>question</span></td>
+                <td class="parameters size">56&nbsp;<span>Kb</span></td>
+                <td class="created-by">l.wang</td>
+                <td class="shared-with"><span>j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Equatorial Guinea May 2013</a></td>
+                <td>09 Nov, 2013</td>
+                <td class="modified-by">l.wang</td>
+                <td class="parameters">214 <span>question</span></td>
+                <td class="parameters size">920&nbsp;<span>Kb</span></td>
+                <td class="created-by">l.wang</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
+                <td class="changed-recently">Today at 12:43</td>
+                <td class="modified-by">ll2nguyen</td>
+                <td class="parameters">1242 <span>questions</span></td>
+                <td class="parameters size">7263&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>a.smith <span>and</span> <a href="#">2&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Workplace</a></td>
+                <td class="changed-recently">Yesterday, 20:18</td>
+                <td class="modified-by">alekskrivtsov</td>
+                <td class="parameters">4323 <span>questions</span></td>
+                <td class="parameters size">263&nbsp;<span>Kb</span></td>
+                <td class="created-by">alekskrivtsov</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio ECV 2013 - 2014 Nacional</a></td>
+                <td>10 Jan, 09:03</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">914 <span>question</span></td>
+                <td class="parameters size">458&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with"><span>j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999</a></td>
+                <td>09 Jan, 11:42</td>
+                <td class="modified-by modified-by">a.amith</td>
+                <td class="parameters">23 <span>question</span></td>
+                <td class="parameters size">865&nbsp;<span>Kb</span></td>
+                <td class="created-by">a.amith</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
+                <td>09 Jan, 11:40</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">2114 <span>question</span></td>
+                <td class="parameters size">6547&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
+                <td>09 Jan, 11:30</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">2658 <span>question</span></td>
+                <td class="parameters size">1235&nbsp;<span>Kb</span></td>
+                <td class="created-by">a.amith</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Workplace)</a></td>
+                <td>09 Jan, 08:00</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">4242 <span>question</span></td>
+                <td class="parameters size">21355&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>ll2nguyen <span>and</span> <a href="#">4&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio Ethiopia Nacional</a></td>
+                <td>09 Jan, 03:12</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">223 <span>question</span></td>
+                <td class="parameters size">7854&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999 </a></td>
+                <td>07 Jan, 22:24</td>
+                <td class="modified-by">s.slandersson</td>
+                <td class="parameters">514 <span>question</span></td>
+                <td class="parameters size">7452&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>ll2nguyen, j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Mayotte Avec Réunion</a></td>
+                <td>03 Jan, 14:34</td>
+                <td class="modified-by">ll2nguyen</td>
+                <td class="parameters">730 <span>question</span></td>
+                <td class="parameters size">785&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Democratic Republic of the Congo Household and Questionnaire 2014</a></td>
+                <td>02 Jan, 22:24</td>
+                <td class="modified-by">alekskrivtsov </td>
+                <td class="parameters">93 <span>question</span></td>
+                <td class="parameters size">1233&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">São Tomé and Príncipe 2012/2013 Immigration </a></td>
+                <td>29 Dec, 2013</td>
+                <td class="modified-by">alekskrivtsov </td>
+                <td class="parameters">114 <span>question</span></td>
+                <td class="parameters size">456&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio ECV 2012 - 2013 Nacional </a></td>
+                <td>29 Dec, 2013</td>
+                <td class="modified-by">shimagm</td>
+                <td class="parameters">242 <span>question</span></td>
+                <td class="parameters size">865&nbsp;<span>Kb</span></td>
+                <td class="created-by">y.ono</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Saint Helena, Ascension and Tristan da Cunha</a></td>
+                <td>22 Dec, 2013</td>
+                <td class="modified-by">arthurshaw2002 </td>
+                <td class="parameters">1323 <span>question</span></td>
+                <td class="parameters size">677&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Mauritania and Morocco</a></td>
+                <td>21 Dec, 2013</td>
+                <td class="modified-by">arthurshaw2002 </td>
+                <td class="parameters">14 <span>question</span></td>
+                <td class="parameters size">7545&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Togo 2014</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">y.ono</td>
+                <td class="parameters">30 <span>question</span></td>
+                <td class="parameters size">121&nbsp;<span>Kb</span></td>
+                <td class="created-by">y.ono</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">New Tanzania NPS 2012/2013 Workplace</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">m.ondaatje</td>
+                <td class="parameters">1223 <span>question</span></td>
+                <td class="parameters size">11765&nbsp;<span>Kb</span></td>
+                <td class="created-by">m.ondaatje</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio Ethiopia Nacional</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">2114 <span>question</span></td>
+                <td class="parameters size">679&nbsp;<span>Kb</span></td>
+                <td class="created-by">m.ondaatje</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Nigeria Presidental Election Exitpool</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">7242 <span>question</span></td>
+                <td class="parameters size">1298&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
+                <td>15 Dec, 2013</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">3223 <span>question</span></td>
+                <td class="parameters size">1487&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999</a></td>
+                <td>19 Nov, 2013</td>
+                <td class="modified-by">a.amith</td>
+                <td class="parameters">1514 <span>question</span></td>
+                <td class="parameters size">2534&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with"><span>m.ondaatje <span>and</span> <a href="#">29&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</a></td>
+                <td>18 Nov, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">1730 <span>question</span></td>
+                <td class="parameters size">853&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with"><span>l.wang</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
+                <td>18 Nov, 2013</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">993 <span>question</span></td>
+                <td class="parameters size">56&nbsp;<span>Kb</span></td>
+                <td class="created-by">l.wang</td>
+                <td class="shared-with"><span>j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Equatorial Guinea May 2013</a></td>
+                <td>09 Nov, 2013</td>
+                <td class="modified-by">l.wang</td>
+                <td class="parameters">214 <span>question</span></td>
+                <td class="parameters size">920&nbsp;<span>Kb</span></td>
+                <td class="created-by">l.wang</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
+                <td class="changed-recently">Today at 12:43</td>
+                <td class="modified-by">ll2nguyen</td>
+                <td class="parameters">1242 <span>questions</span></td>
+                <td class="parameters size">7263&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>a.smith <span>and</span> <a href="#">2&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Workplace</a></td>
+                <td class="changed-recently">Yesterday, 20:18</td>
+                <td class="modified-by">alekskrivtsov</td>
+                <td class="parameters">4323 <span>questions</span></td>
+                <td class="parameters size">263&nbsp;<span>Kb</span></td>
+                <td class="created-by">alekskrivtsov</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio ECV 2013 - 2014 Nacional</a></td>
+                <td>10 Jan, 09:03</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">914 <span>question</span></td>
+                <td class="parameters size">458&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with"><span>j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999</a></td>
+                <td>09 Jan, 11:42</td>
+                <td class="modified-by modified-by">a.amith</td>
+                <td class="parameters">23 <span>question</span></td>
+                <td class="parameters size">865&nbsp;<span>Kb</span></td>
+                <td class="created-by">a.amith</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
+                <td>09 Jan, 11:40</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">2114 <span>question</span></td>
+                <td class="parameters size">6547&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
+                <td>09 Jan, 11:30</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">2658 <span>question</span></td>
+                <td class="parameters size">1235&nbsp;<span>Kb</span></td>
+                <td class="created-by">a.amith</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Tanzania NPS 2012/2013 Workplace)</a></td>
+                <td>09 Jan, 08:00</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">4242 <span>question</span></td>
+                <td class="parameters size">21355&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>ll2nguyen <span>and</span> <a href="#">4&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio Ethiopia Nacional</a></td>
+                <td>09 Jan, 03:12</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">223 <span>question</span></td>
+                <td class="parameters size">7854&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999 </a></td>
+                <td>07 Jan, 22:24</td>
+                <td class="modified-by">s.slandersson</td>
+                <td class="parameters">514 <span>question</span></td>
+                <td class="parameters size">7452&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with"><span>ll2nguyen, j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Mayotte Avec Réunion</a></td>
+                <td>03 Jan, 14:34</td>
+                <td class="modified-by">ll2nguyen</td>
+                <td class="parameters">730 <span>question</span></td>
+                <td class="parameters size">785&nbsp;<span>Kb</span></td>
+                <td class="created-by">ll2nguyen</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Democratic Republic of the Congo Household and Questionnaire 2014</a></td>
+                <td>02 Jan, 22:24</td>
+                <td class="modified-by">alekskrivtsov </td>
+                <td class="parameters">93 <span>question</span></td>
+                <td class="parameters size">1233&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">São Tomé and Príncipe 2012/2013 Immigration </a></td>
+                <td>29 Dec, 2013</td>
+                <td class="modified-by">alekskrivtsov </td>
+                <td class="parameters">114 <span>question</span></td>
+                <td class="parameters size">456&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio ECV 2012 - 2013 Nacional </a></td>
+                <td>29 Dec, 2013</td>
+                <td class="modified-by">shimagm</td>
+                <td class="parameters">242 <span>question</span></td>
+                <td class="parameters size">865&nbsp;<span>Kb</span></td>
+                <td class="created-by">y.ono</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Saint Helena, Ascension and Tristan da Cunha</a></td>
+                <td>22 Dec, 2013</td>
+                <td class="modified-by">arthurshaw2002 </td>
+                <td class="parameters">1323 <span>question</span></td>
+                <td class="parameters size">677&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Mauritania and Morocco</a></td>
+                <td>21 Dec, 2013</td>
+                <td class="modified-by">arthurshaw2002 </td>
+                <td class="parameters">14 <span>question</span></td>
+                <td class="parameters size">7545&nbsp;<span>Kb</span></td>
+                <td class="created-by">arthurshaw2002</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Togo 2014</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">y.ono</td>
+                <td class="parameters">30 <span>question</span></td>
+                <td class="parameters size">121&nbsp;<span>Kb</span></td>
+                <td class="created-by">y.ono</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">New Tanzania NPS 2012/2013 Workplace</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">m.ondaatje</td>
+                <td class="parameters">1223 <span>question</span></td>
+                <td class="parameters size">11765&nbsp;<span>Kb</span></td>
+                <td class="created-by">m.ondaatje</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Formulacio Ethiopia Nacional</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">2114 <span>question</span></td>
+                <td class="parameters size">679&nbsp;<span>Kb</span></td>
+                <td class="created-by">m.ondaatje</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Nigeria Presidental Election Exitpool</a></td>
+                <td>20 Dec, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">7242 <span>question</span></td>
+                <td class="parameters size">1298&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Questionnaire Menage (Arabe) - Morocco</a></td>
+                <td>15 Dec, 2013</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">3223 <span>question</span></td>
+                <td class="parameters size">1487&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with">none</td>
+              </tr>
+              <tr>
+                <td><a href="#">Kenya population census 1999</a></td>
+                <td>19 Nov, 2013</td>
+                <td class="modified-by">a.amith</td>
+                <td class="parameters">1514 <span>question</span></td>
+                <td class="parameters size">2534&nbsp;<span>Kb</span></td>
+                <td class="current-user created-by">you</td>
+                <td class="shared-with"><span>m.ondaatje <span>and</span> <a href="#">29&nbsp;others</a></span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</a></td>
+                <td>18 Nov, 2013</td>
+                <td class="modified-by">j.berger</td>
+                <td class="parameters">1730 <span>question</span></td>
+                <td class="parameters size">853&nbsp;<span>Kb</span></td>
+                <td class="created-by">j.berger</td>
+                <td class="shared-with"><span>l.wang</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Eritrea 1982 Household Questionnaire</a></td>
+                <td>18 Nov, 2013</td>
+                <td class="current-user modified-by">you</td>
+                <td class="parameters">993 <span>question</span></td>
+                <td class="parameters size">56&nbsp;<span>Kb</span></td>
+                <td class="created-by">l.wang</td>
+                <td class="shared-with"><span>j.berger</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Equatorial Guinea May 2013</a></td>
+                <td>09 Nov, 2013</td>
+                <td class="modified-by">l.wang</td>
+                <td class="parameters">214 <span>question</span></td>
+                <td class="parameters size">920&nbsp;<span>Kb</span></td>
+                <td class="created-by">l.wang</td>
+                <td class="shared-with">none</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+    </main> 
+    <footer class="footer">
     <div class="container-fluid">
       <div class="text-left">
         &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
@@ -794,6 +811,6 @@
         <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
        </div>
     </div>
-	</footer>
+    </footer>
 </body>
 </html>

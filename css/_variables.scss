@@ -34,9 +34,16 @@ $red-super-light: #f6d6d0;
 $pink: #ed45aa;
 
 $width-question-editor: 445px;
+
 $filter-width: 360px;
-$hidden-filters: -400px;
-$filter-small: 300px;
-$hidden-filter-small:-330px;
-$export-types-margin: 335px;
-$small-export-types-margin: 265px;
+$filter-small-width: 270px;
+$hidden-filters-indent: -400px;
+$hidden-filter-small-indent:-300px;
+
+$export-types-margin-left: 335px;
+$small-export-types-margin-left: 235px;
+
+$content-width: 570px;
+$content-width-small: 330px;
+
+$questionnaire-min-width: 555px;

@@ -1,13 +1,13 @@
 @import "filters";
 main.export{
 	padding-left: 45px;
-	padding-top: 10px;
 	color: $gray_text;
 }
 .export-types{
-	padding: 40px 30px;
+	padding: 30px;
+	padding-top: 25px;
 	position: relative;
-	margin-left: $export-types-margin;
+	margin-left: $export-types-margin-left;
 	max-width: 900px;
 	@include transition(margin, 0.3s);
 	background-color: #fff;
@@ -142,8 +142,8 @@ main.export{
 		background-color: $green-progress;	
 	}
 }
-.export-types .data .table-data .btn.cancel{
-	@include cancel(20px, null, -45px, -14px, null);
+.export-types .data .table-data .close{
+	@include close(20px, null, -45px, -14px, null);
 }
 .progress-information.queued{
 	&>span{
@@ -156,7 +156,7 @@ main.export{
 		}
 	}
 }
-.export-types.fulsscreen{
+.fullscreen .export-types{
 	margin-left: 0;
 	padding-left: 45px;
 }
@@ -166,7 +166,8 @@ main.export{
 		padding-left: 4%;
 	}
   	.export-types{
-  		margin-left: $small-export-types-margin;
+  		padding: 30px 0 30px 25px;
+  		margin-left: $small-export-types-margin-left;
   		.size, .last-generated{
   			display: none;
   		}
@@ -197,7 +198,8 @@ main.export{
 	  		margin-bottom: 15px;
 	  	}
   	}
-  	.export-types.fulsscreen{
+  	.fullscreen .export-types{
+  		padding-top: 40px;
   		padding-left: 0;
   		width: 100%;
   		.size, .last-generated{
@@ -235,7 +237,7 @@ main.export{
 @media (max-width: $screen-sm-min){
 	.export-types{
 		margin-left: 0;
-		padding: 50px 5px 20px;
+		padding: 35px 5px 0;
 		h2{
 			margin-bottom: 25px;
 			@include font(24px, 26px);

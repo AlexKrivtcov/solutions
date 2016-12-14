@@ -76,18 +76,30 @@ img#placeholder {
         }        
     }
     .get-interviewer-app{
-        @include size(248px, 79px);
-        background:  url("../img/HQ-login-mobile-get-button-itself.png") no-repeat;
-        background-size: 100%;
+        width: 248px;
+        background: #000  url("../img/HQ-login-mobile-get-button-logo.png") no-repeat;
+        background-size: 55px;
         margin-bottom: 25px;
+        @extend %uppercase-font;
+        letter-spacing: 1.5px;
+        text-decoration: none;
+        color: rgba(255,255,255, 0.9);
+        background-position: 15px 10px;
+        text-decoration: none;
+        padding: 10px 27px 10px 85px;
+        text-align: left;
+        border-radius: 10px;
+        span{
+            display: block;
+            &.version{
+                text-transform: none;
+                margin-top: 5px;
+                color: rgba(255,255,255, 0.5);
+            }
+        }
     }
 }
 @media (max-width: $screen-sm-min){
-    .left-column{
-        #log-in{
-            text-align: center;
-        }
-    }
     img#placeholder, .no-logo .default-logo{
         display: none;
     }
@@ -100,18 +112,9 @@ img#placeholder {
     .interviewer-app{
         display: block;
     }
-    .left-column{
-        #log-in{
-            text-align: left;
-        }
-    }
     html body {
         main .two-columns-form .log-in .form-group .form-control{
-            width: 95%;
+            width: 100%;
         }
-        }    
-}
-
-@media (max-width: $screen-xs-min){
-    
+    }    
 }
