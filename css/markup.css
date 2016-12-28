@@ -8680,7 +8680,6 @@ label.inactive {
     margin: 0; }
 
 .content {
-  overflow: scroll;
   border-right: 3px solid #ececec;
   left: 372px;
   width: 570px;
@@ -9077,6 +9076,15 @@ label.inactive {
   .fullscreen-hidden-filters.fullscreen-hidden-content .questionnaire .question {
     padding-left: 85px; }
 
+.footer.footer-adaptive-content.footer-adaptive-filters {
+  padding-left: 930px; }
+
+.footer.footer-adaptive-content {
+  padding-left: 570px; }
+
+.footer.footer-adaptive-filters {
+  padding-left: 360px; }
+
 @media only screen and (max-width: 1525px) {
   .details-interview .filters {
     top: 60px;
@@ -9117,7 +9125,16 @@ label.inactive {
     left: -330px; }
 
   .questionnaire {
-    margin-left: 612px; } }
+    margin-left: 612px; }
+
+  .footer.footer-adaptive-content.footer-adaptive-filters {
+    padding-left: 600px; }
+
+  .footer.footer-adaptive-content {
+    padding-left: 330px; }
+
+  .footer.footer-adaptive-filters {
+    padding-left: 270px; } }
 @media (max-width: 1210px) {
   .content {
     top: 60px; }
@@ -9278,12 +9295,22 @@ label.inactive {
     .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .questionnaire .button-flag, .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .questionnaire .flag:before {
       left: -20px; }
   .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .filters {
+    box-shadow: none;
     left: -282px; }
     .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .filters .foldback-button {
       display: none; }
 
   .modal-img {
-    top: 60px; } }
+    top: 60px; }
+
+  .footer.footer-adaptive-content.footer-adaptive-filters {
+    padding-left: 0; }
+
+  .footer.footer-adaptive-content {
+    padding-left: 270px; }
+
+  .footer.footer-adaptive-filters {
+    padding-left: 330px; } }
 @media (max-width: 880px) {
   .details-interview .questionnaire .unit-title.is_stuck {
     width: 100% !important; }
@@ -9335,5 +9362,7 @@ label.inactive {
     max-width: 60% !important; }
   .details-interview .aside-menu {
     right: 20px; } }
+.content, .filters {
+  -webkit-overflow-scrolling: touch !important; }
 
 /*# sourceMappingURL=markup.css.map */

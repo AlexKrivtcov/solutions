@@ -46,14 +46,15 @@
             $("#hide-filters").click(function () {
                 $(".filters").toggleClass("hidden-filters");
                 $(this).parents('.row').toggleClass("fullscreen-hidden-filters");
-                /*$(".export-types").toggleClass("fulsscreen");*/
+                $("footer").toggleClass("footer-adaptive-filters");
             });
             $("#hide-content").click(function () {
                 $(".filters").toggleClass("hidden-content");
                 $(this).parents('.row').toggleClass("fullscreen-hidden-content");
-                /*$(".export-types").toggleClass("fulsscreen");*/
+                $("footer").toggleClass("footer-adaptive-content");
             });
             $("main").removeClass("hold-transition");
+            $("footer").removeClass("hold-transition");
         });
     </script>
     <script>
@@ -3647,12 +3648,12 @@
             </div>
         </div>
     </main>
-    <footer class="footer">
+    <footer class="footer hold-transition footer-adaptive-content footer-adaptive-filters">
         <div class="container-fluid">
-            <div class="text-right">
+            <div class="text-left">
             &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
             </div>
-            <div class="text-right">
+            <div class="text-left">
             5.12.0 (build 13156) 
                 <span>|</span>
                 <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>

@@ -93,7 +93,6 @@ label.inactive{
 	}	
 }
 .content{
-	overflow: scroll;
 	@extend %aside;
 	border-right: 3px solid $gray-super-light;
 	left: $filter-width + 12px;
@@ -578,6 +577,15 @@ label.inactive{
 		}
 	}
 }
+.footer.footer-adaptive-content.footer-adaptive-filters{
+	padding-left: $filter-width + $content-width;
+}
+.footer.footer-adaptive-content{
+	padding-left: $content-width;
+}
+.footer.footer-adaptive-filters{
+	padding-left: $filter-width;
+}
 @media only screen and (max-width: 1525px){
 	.details-interview{
 		@include tight-filters-aside();
@@ -622,6 +630,15 @@ label.inactive{
 	}
 	.questionnaire{
 		margin-left: $filter-small-width + 12px + $content-width-small;
+	}
+	.footer.footer-adaptive-content.footer-adaptive-filters{
+	padding-left: $filter-small-width + $content-width-small;
+	}
+	.footer.footer-adaptive-content{
+		padding-left: $content-width-small;
+	}
+	.footer.footer-adaptive-filters{
+		padding-left: $filter-small-width;
 	}
 }
 @media (max-width: $screen-md-min){
@@ -738,6 +755,7 @@ label.inactive{
 				}
 			}
 			.filters{
+				box-shadow: none;
 				left: ((-$filter-small-width)-12px);
 				.foldback-button{
 					display: none;
@@ -747,6 +765,15 @@ label.inactive{
 	}
 	.modal-img{
 		top: 60px;
+	}
+	.footer.footer-adaptive-content.footer-adaptive-filters{
+	padding-left: 0;
+	}
+	.footer.footer-adaptive-content{
+		padding-left: $filter-small-width;
+	}
+	.footer.footer-adaptive-filters{
+		padding-left: $content-width-small;
 	}
 }
 @media (max-width: $screen-sm-min){
@@ -823,4 +850,7 @@ label.inactive{
 			right: 20px;
 		}
 	}
+}
+.content, .filters{
+	-webkit-overflow-scrolling: touch !important;
 }
