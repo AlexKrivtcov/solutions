@@ -93,6 +93,7 @@ label.inactive{
 	}	
 }
 .content{
+	overflow: scroll;
 	@extend %aside;
 	border-right: 3px solid $gray-super-light;
 	left: $filter-width + 12px;
@@ -743,6 +744,9 @@ label.inactive{
 				}
 			}
 		}
+	}
+	.modal-img{
+		top: 60px;
 	}
 }
 @media (max-width: $screen-sm-min){

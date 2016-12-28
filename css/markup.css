@@ -8680,6 +8680,7 @@ label.inactive {
     margin: 0; }
 
 .content {
+  overflow: scroll;
   border-right: 3px solid #ececec;
   left: 372px;
   width: 570px;
@@ -9279,7 +9280,10 @@ label.inactive {
   .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .filters {
     left: -282px; }
     .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .filters .foldback-button {
-      display: none; } }
+      display: none; }
+
+  .modal-img {
+    top: 60px; } }
 @media (max-width: 880px) {
   .details-interview .questionnaire .unit-title.is_stuck {
     width: 100% !important; }
