@@ -8681,7 +8681,6 @@ label.inactive {
 
 .content {
   height: 100%;
-  overflow-y: scroll;
   border-right: 3px solid #ececec;
   left: 372px;
   width: 570px;
@@ -9198,6 +9197,8 @@ label.inactive {
     .details-interview .questionnaire .question {
       padding-left: 75px; }
   .details-interview .fullscreen-hidden-content .content {
+    height: 100%;
+    overflow-y: scroll;
     left: 12px;
     box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2); }
     .details-interview .fullscreen-hidden-content .content .foldback-button {
