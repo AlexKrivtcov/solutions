@@ -9363,6 +9363,6 @@ label.inactive {
   .details-interview .aside-menu {
     right: 20px; } }
 .content, .filters {
-  -webkit-overflow-scrolling: touch !important; }
+  overflow: scroll !important; }
 
 /*# sourceMappingURL=markup.css.map */
