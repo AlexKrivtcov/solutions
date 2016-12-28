@@ -1,0 +1,140 @@
+.btn{
+	font: 12px/14px "TrebuchetMSBold";
+	text-transform: uppercase;
+    letter-spacing: 0.13em;
+    outline: none;
+	&:disabled{
+		background: $gray-super-light repeating-linear-gradient(-45deg, #d7d7d7, #d7d7d7 3px, $gray_light 2px, $gray_light 6px); 
+		border-color: transparent;	
+		&:hover, &:focus{
+			border-color: $gray-super-light;
+		}
+	}
+}
+.btn-link{
+	@extend %gray-uppercase;
+	&:hover, &:focus{
+		outline: none;
+		text-decoration: none;
+		color: darken($gray_light, 25%);
+	}
+}
+.foldback-button{
+	@include size($width-foldback-button, 46px);
+	cursor: pointer;
+	@include absolute(5px, 0, null, null);
+	border-radius: 4px;
+	z-index: 2;
+	@include transition(all, 0.2s);
+	&:hover, &:focus{
+	    span.arrow{
+	    	background-color: rgba(0, 0, 0, 1);
+	    }
+	    .glyphicon{
+	    	color: rgba(0, 0, 0, 1);
+		}
+	}
+	span.arrow{
+		display: inline-block;
+		@include size(20px, 2px); 
+		margin: 15px 10px;
+		background-color: rgba(0, 0, 0, 0.5);
+		@include absolute(0, 0);
+		@include rotate(-45deg);
+		&:first-of-type{
+			@include rotate(45deg);
+			top: 13px;
+		}
+	}
+	.glyphicon{
+		display: none;
+		color: rgba(0, 0, 0, 0.5);
+		font-size: 18px;
+		top: 14px;
+		left: 10px;
+	}
+}
+.btn-default.btn-gray{
+	color: $white;
+	padding: 12px;
+	background-color: darken($gray_form, 10%);
+	border: none;
+	&:hover, &:focus{
+		outline: none;
+		border: none;
+		background-color: darken($gray_form, 20%);
+	}
+}
+.back-link{
+    text-transform: uppercase;
+    font: 12.5px/14px "TrebuchetMSBold";
+    letter-spacing: 0.13em;
+    display: inline-block;
+}
+#hidden-links{
+    display: none;
+}
+.cancel{
+	border: none;
+	outline: none;
+}
+.button-flag{
+	display: inline-block;
+    @include size(20px, 22px); 
+    @include image-2x("../img/flags2k.png", 75px, 22px);
+    background: transparent url("../img/flags.png") no-repeat;
+    background-size: 75px 22px;
+    background-position: -37px 0;  
+	border: none;
+	&:hover, &:focus{
+		background-position: -56px 0;
+		outline: none;
+	}
+	&.flagged, &:active{
+    	background-position: 1px 0;
+    	outline: none;
+    	&:hover, &:focus{
+    		background-position: -18px 0;
+    	}
+	}
+}
+.reject{
+	border-width: 1px;
+	box-shadow: inset 2px 2px 0 $red, inset -2px -2px 0 $red;
+	border-color: $red;
+	background-color: transparent;
+	color: $red;
+	&:focus,
+	&.focus,
+	&:hover {
+	    color: darken($red, 10%);
+	    border-color: darken($red, 10%);
+	}
+}
+.btn-clear{
+	&:hover, &:active:focus, &:focus, &:active{
+		outline: none;
+	}
+	span{
+		@include cancel(18px);
+	}
+	@include absolute(0, 0);
+	@include transition(all, 0.2s);
+	@extend %visibility-hidden;
+}
+.btn-action-questionnaire{
+	background-color: $white;
+	border-color: transparent;
+	color: $gray_light;
+	border-radius: 5px;
+	outline: none;
+	text-transform: none;
+	letter-spacing: 0.5px;
+	font: 14px/18px Arial;
+	font-style: italic;
+	&:hover, &:focus, &:active{
+		background-color: $gray-super-light;
+		border-color: darken($gray_light, 10%);
+		color: darken($gray_light, 20%);
+	}
+}

@@ -15,8 +15,15 @@
                 <link rel='apple-touch-icon-precomposed' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
                 <link rel='apple-touch-icon-precomposed' href='img/identity/favicon-hq.png'>
     <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="vendor/pnotify/dist/pnotify.css">
+    <link rel="stylesheet" type="text/css" href="vendor/pnotify/dist/pnotify.buttons.css">
+    <link rel="stylesheet" type="text/css" href="vendor/pnotify/dist/pnotify.mobile.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/pnotify/dist/pnotify.js"></script>
+    <script type="text/javascript" src="vendor/pnotify/dist/pnotify.confirm.js"></script>
+    <script type="text/javascript" src="vendor/pnotify/dist/pnotify.buttons.js"></script>
+    <script type="text/javascript" src="vendor/pnotify/dist/pnotify.mobile.js"></script>
     <script>
       $(document).ready(function () {
         $(".navbar-toggle").click(function () {
@@ -25,6 +32,7 @@
           $(".top-menu").toggleClass("top-animate");
           $(".mid-menu").toggleClass("mid-animate");
           $(".bottom-menu").toggleClass("bottom-animate");
+          $("main").toggleClass("hidden");
         });
       });
     </script> 
@@ -42,77 +50,74 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-               <div class="container-fluid ">
-                  <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <a href="#" class="active-page">Questionnaires</a>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar top-menu"></span>
-                            <span class="icon-bar mid-menu"></span>
-                            <span class="icon-bar bottom-menu"></span>
-                        </button>
-                        <a href="#" class="badge badge_nav">42</a>
-                        <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
-                            <i class="glyphicon glyphicon-cloud-upload"></i>
-                            <span class="sync-queue-size">16287</span>
-                        </a>
-                        <a class="navbar-brand" href="#">
-                            <div class="retina logo">Survey Solutions</div>
-                            <div class="brand-name" title="Headquarter">Headquarter</div>
-                        </a>
-                    </div>
-                      <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="active"><a href="#">Settings</a></li>
-                                    <li><a href="#">Manage account</a></li>
-                                    <li><a href="#">Logoff</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" title="Interviews">Interviews</a></li>
-                            <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
-                            <li><a href="#" title="Data Export">Data Export</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
-                                <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
-                                    <i class="glyphicon glyphicon-cloud-upload"></i>
-                                    <span class="sync-queue-size">16287</span>
-                                </a>
-                            </li>
-                            <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
-                            <li><a href="#" title="Help">Help</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Settings</a></li>
-                                    <li><a href="#">Manage account</a></li>
-                                    <li><a href="#">Logoff</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>  
-        </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                        <div class="brand-name" title="Headquarters">Headquarters</div>
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
     </header> 
     <main>
         <div class="container">
           <div class="row">
-            <div class="col-md-8 col-sm-8 page-header">
+            <div class="page-header">
               <ol class="breadcrumb">
                 <li><a href="">Questionnaires</a></li>
                 <li><a href="">creating multiple interviews</a></li>
               </ol>
-              <div class="page-title">
+              <h1>
                 Creating multiple interviews by batch upload
-              </div> 
+              </h1> 
             </div>
           </div>
           <div class="row">
@@ -122,18 +127,23 @@
           </div>
           <div class="row">
             <div class="col-sm-7 col-xs-12 action-block uploading-verifying active-preloading">
-                <h4>Uploading and verifying</h4> 
-                <div class="float-box">
+                <div class="import-progress">
+                    <p>Uploading and verifying</p>
+                </div> 
+                <div class="cancelable-progress">
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
                             <span class="sr-only">60% Complete</span>
                         </div>
                     </div>
-                    <button class="btn cancel-uploading" type="button">cancel</button>
+                    <button class="btn  btn-link" type="button">cancel</button>
                 </div>  
             </div>
             <div class="col-sm-7 col-xs-12 action-block verification-failed">
-                <h4><span class="error-text">Verification failed</span> Interviews can not be created</h4> 
+                <div class="import-progress">
+                    <p class="error-text">Verification failed</p> 
+                    <p>Interviews can not be created</p>
+                </div> 
                 <div class="error-block">
                     <h5 class="error-text"><span>[01]</span>: Wrong file format</h5>
                     <p>interviews-pilot-2016-ok-2.zip / Data / household.dat</p>
@@ -149,61 +159,89 @@
                     <p>interviews-pilot-2016-ok-2.zip / list.tab</p>
                     <p>file &#8242;data/list.tab&#8242; not found (string 2)</p>
                 </div> 
-                <a href="#" class="back-link">Back to import</a>   
+				<div class="action-buttons">
+					<a href="#" class="back-link">Back to import</a> 
+				</div>  				
             </div>
             <div class="col-sm-7 col-xs-12 action-block verification-complete">
-                <h4><span class="success-text">Verification complete</span>Information for 105 interviews found <span>Assigned to 8 supervisors and 13 enumerators</span></h4> 
-                <div class="float-box">
-                    <button type="button" class="btn btn-success btn-lg">create interviews</button>
+                <div class="import-progress">
+                    <p class="success-text">Verification complete</p>
+                    <p>Information for 105 interviews found</p>
+                    <p>Assigned to 8 supervisors and 13 enumerators</p>
+                </div> 
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-success ">create interviews</a>
                     <a href="#" class="back-link">Back to import</a>  
                 </div>  
             </div>
             <div class="col-sm-7 col-xs-12 action-block verification-complete-choose-supervisor">
-                <h4><span class="success-text">Verification complete</span>Information for 105 interviews found </h4> 
-                <h5>Select supervisor to assign this interview to</h5>
-                <div class="btn-group btn-input clearfix">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                        <span data-bind="label">Select </span>&nbsp;<span class="caret-large"></span>
-                          </button>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Vasya</a></li>
-                            <li><a href="#">Zina</a></li>
-                            <li><a href="#">Zina 12</a></li>
-                            <li><a href="#">Livestock</a></li>
-                            <li><a href="#">Field</a></li>
-                            <li><a href="#">This is a</a></li>
-                          </ul>
+                <div class="import-progress">
+                    <p class="success-text">Verification complete</p>
+                    <p>Information for 105 interviews found</p>
+                </div>
+                <div class="alert alert-danger">
+                    <div class="validation-summary-errors">
+                        <ul class="list-unstyled">
+                            <li>Import interviews is in progress. Wait until current operation is finished.</li>
+                            <li>Some error</li>
+                        </ul>
+                    </div>
+                </div>
+                    <form action="/Headquarters/HQ/InterviewImportConfirmation/795cc397c9f84b55a61a1bca275c7700?questionnaireId=d5fb8d57-7321-494d-b2a8-5c300b7619b9&amp;version=2" method="post">
+                        <div class="form-group has-error">
+                            <label class="control-label">Select supervisor to assign this interview to</label>
+                            <div class="input-group">
+                                <input class="form-control" data-bind="typeahead: selectedResponsible, typeaheadOptions: {source: responsibles, displayText: function(item){return item.UserName}}, valueupdate:'afterkeydown'" type="text" maxlength="256">
+                                <span data-bind="spinner: isResponsiblesLoading, spinnerOptions: { 'left': 1, 'right': '50px' }" style="display: none;"></span>
+                                <div class="input-group-btn" data-bind="click: function(){ selectedResponsible(undefined); }">
+                                    <div class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+                                </div>
+                            </div>
+                            <span class="field-validation-error help-block" data-valmsg-for="SupervisorId" data-valmsg-replace="true">Description must be supplied.</span>
                         </div>
-                <div class="float-box">
-                    <button type="button" class="btn btn-success btn-lg" disabled="disabled">create interviews</button>
-                    <a href="#" class="back-link">Back to import</a>  
-                </div>  
-            </div>
+                        <div class="action-buttons">
+                            <button type="submit" class="btn btn-success ">create interviews</button>
+                            <a href="/Headquarters/HQ/BatchUpload/d5fb8d57-7321-494d-b2a8-5c300b7619b9?version=2" class="back-link">Back to import</a>
+                        </div>
+                    </form>            
+                </div>
             <div class="col-sm-7 col-xs-12 action-block processing-interview">
-                <h4>Processing interview 26 of 105 ... <span class="success-text">25 interviews created</span><span class="default-text">None failed</span></h4> 
-                <div class="float-box">
+                <div class="import-progress">
+                    <p>Processing interview 26 of 105 ... </p>
+                    <p class="success-text">25 interviews created</p>
+                    <p class="default-text">None failed</p>
+                </div> 
+                <div class="cancelable-progress">
                     <div class="progress">
                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
                             <span class="sr-only">60% Complete</span>
                         </div>
                     </div>
-                    <button class="btn cancel-uploading" type="button">abort import</button>
+                    <button class="btn  btn-link" type="button">abort import</button>
                 </div>  
             </div>
             <div class="col-sm-7 col-xs-12 action-block preloading-done">
-                <h4>Done: <span class="success-text">105 interviews created</span><span class="default-text">None failed</span></h4> 
-                <div class="float-box">
-                    <button type="button" class="btn btn-primary btn-lg">interviews</button>
-                    <button type="button" class="btn btn-primary btn-lg">questionnaires</button>
+                <div class="import-progress">
+                    <p>Done: </p>
+                    <p class="success-text">105 interviews created</p>
+                    <p class="default-text">None failed</p>
+                </div> 
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-primary ">interviews</a>
+                    <a href="#" class="btn btn-primary ">questionnaires</a>
                     <a href="#" class="back-link">Back to import</a>
                 </div>  
             </div>
             <div class="col-sm-7 col-xs-12 action-block preloading-done-with-errors">
-                <h4>Done: <span class="success-text">103 interviews created</span><span class="error-text">2 interviews failed to be created</span></h4> 
+                <div class="import-progress">
+                    <p>Done: </p>
+                    <p class="success-text">103 interviews created</p>
+                    <p class="error-text">2 interviews failed to be created</p>
+                </div> 
                 <a href="#">Download data assosiated with failed interviews</a>
-                <div class="float-box">
-                    <button type="button" class="btn btn-primary btn-lg">interviews</button>
-                    <button type="button" class="btn btn-primary btn-lg">questionnaires</button>
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-primary ">interviews</a>
+                    <a href="#" class="btn btn-primary ">questionnaires</a>
                     <a href="#" class="back-link">Back to import</a>
                 </div>  
             </div>
@@ -233,5 +271,6 @@
             return false;
         });
     </script>
+    <div class="ui-pnotify ui-pnotify-fade-normal ui-pnotify-mobile-able ui-pnotify-in ui-pnotify-fade-in ui-pnotify-move" aria-live="assertive" aria-role="alertdialog" style="display: none; width: 300px; right: 36px; top: 36px; cursor: auto;"><div class="alert ui-pnotify-container alert-warning ui-pnotify-shadow" role="alert" style="min-height: 16px;"><div class="ui-pnotify-closer" aria-role="button" tabindex="0" title="Close" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-remove"></span></div><div class="ui-pnotify-sticker" aria-role="button" aria-pressed="false" tabindex="0" title="Unstick" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-play" aria-pressed="true"></span></div><div class="ui-pnotify-icon"><span class="glyphicon glyphicon-exclamation-sign"></span></div><h4 class="ui-pnotify-title">Hello1</h4><div class="ui-pnotify-text" aria-role="alert">World1</div><div class="ui-pnotify-action-bar" style="margin-top: 5px; clear: both; text-align: right; display: none;"></div></div></div>
 </body>
 </html>

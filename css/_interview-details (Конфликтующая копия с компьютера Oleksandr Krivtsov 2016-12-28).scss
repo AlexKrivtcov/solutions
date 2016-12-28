@@ -130,10 +130,8 @@ label.inactive{
 	@include transition(margin, 0.3s);
 	margin-left: $filter-width + $content-width + 12px;
 	.unit-title{
-		&.is_stuck{
-			z-index: 2;
-		}
 		position: relative;
+		z-index: 2;
 		background-color: $blue;
 		padding: 15px 20px 10px 80px;
 		color: $white;
@@ -348,7 +346,7 @@ label.inactive{
 			}
 			.dropdown-toggle {
 				@extend .field-to-fill;
-				padding: 11px 38px 11px 15px;
+				padding: 11px 15px;
 				span{
 					position: static;
 					font: 14px/18px Arial;
@@ -386,9 +384,7 @@ label.inactive{
 		margin: 0;
 		.static-text-image{
 			margin-top: 10px;
-			max-width: $width-question-editor;
-			height: auto;
-			/* @include size($width-question-editor, auto); */
+			@include size($width-question-editor, auto);
 		}
 	}
 	&.invalid{
@@ -429,8 +425,6 @@ label.inactive{
 	@include absolute(0, null, null, -40px);
 	line-height: 42px;
 	text-align: right;
-	font-size: 14px;
-	font-weight: bold;
 	width: 25px;
 	color: $blue !important;
 }
@@ -438,16 +432,15 @@ label.inactive{
 	.yes-no-mark{
 		color: $blue;
 		margin: 15px 0 0 17px;
-		b{
+		span{
 			color: $gray_light;
 			font-size: 18px;
 			line-height: 20px;
 			padding: 0 5px;
-			font-weight: normal;
 		}
 	}
 	.options-group .radio .field{
-		@include clearfix();
+		overflow: hidden;
 		label{
 			padding-left: 0;
 			padding-right: 5px;
@@ -463,27 +456,25 @@ label.inactive{
 				margin-right: 0;
 			}
 		}
-		b{
-			float: left;
-			color: $gray_light;
-			font-size: 18px;
-			line-height: 20px;
-			padding: 11px 5px;
-			font-weight: normal;
-		}
 		&>span{
-			padding: 11px 38px 11px 5px;
+			padding: 11px 5px;
 			color: $gray_light;
 			font-weight: normal;
 			font-size: 14px;
 			line-height: 18px;
 			margin: 0;
 			float: left;
-			width: 75%;
+			&:last-of-type{
+				width: 75%;
+			}
 		}
 		input.wb-radio:checked ~ span{
 		    color:  $gray_text;
 		    font-weight: bold;
+		    &:first-of-type{
+				color: $gray_light;
+			    font-weight: normal;
+		    }
 		}
 	}
 }
@@ -503,9 +494,7 @@ label.inactive{
 }
 .multimedia-question{
 	.image-wrapper{
-		max-width: 90%;
-		max-height: 200px;
-		/* @include size(385px, 200px); */
+		@include size(385px, 200px);
 	}
 }
 .qr-question, .current-time-question{
@@ -514,10 +503,6 @@ label.inactive{
 			font-size: 12px;
 			line-height: 14px;
 			margin-bottom: 10px;
-			padding-right: 38px;
-			word-break: break-all;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
 		}
 	}
 }
@@ -582,6 +567,9 @@ label.inactive{
 		@include tight-filters-aside();
 		.filters{
 			top: 70px;
+			&.hidden-filters{
+				position: fixed;
+			}
 		}
 	}
 	.content{
@@ -623,7 +611,7 @@ label.inactive{
 		margin-left: $filter-small-width + 12px + $content-width-small;
 	}
 }
-@media (max-width: $screen-md-min){
+@media (max-width: $screen-md-max){
 	.content{
         top: 60px;
     }
@@ -636,10 +624,8 @@ label.inactive{
 			left: ((-$filter-small-width)-12px);
 			@include hidden-foldback-button();
 			overflow: visible;
-			box-shadow: none;
 		}
 		.content{
-			box-shadow: none;
 			left: -$content-width-small;
 			@include hidden-foldback-button();
 			overflow: visible;
@@ -748,45 +734,6 @@ label.inactive{
 @media (max-width: $screen-sm-min){
 	.details-interview{
 		.questionnaire {
-			.unit-title.is_stuck{
-				width: 100% !important;
-			}
-			.comment .form-inline .form-group{
-				display: inline-block;
-				margin-bottom: 0;
-				vertical-align: middle;
-			}
-		}
-		.fullscreen-hidden-filters{
-			.content, .questionnaire{
-				display: none;
-			}
-			.filters{
-				@include absolute(60px, 0, 0, 0);
-				width: 100%;
-			}
-		}
-		.fullscreen-hidden-content{
-			.filter, .questionnaire{
-				display: none;
-			}
-			.content{
-				@include absolute(60px, 0, 0, 0);
-				width: 100%;
-				border: none;
-				.foldback-button{
-			   		right: 10px;
-			   	}
-			}
-		}
-	}
-}
-@media only screen and (max-width: 615px){
-	.details-interview{
-		.questionnaire {
-			.comment .form-inline .form-group{
-				margin-bottom: 15px;
-			}
 			.question{
 				padding-left: 40px;
 			}
@@ -802,21 +749,11 @@ label.inactive{
 			.comments-block .comment .form-inline .form-control{
 				width: (285px-20px);
 			}
-			.yes-no-question .question-unit .options-group .radio .field > span{
-				width: 71%;
-			}
-			.gps-question.answered .map, .gps-question.contains-error .map{
-				width: 225px;
-			}
-			.multimedia-question .image-wrapper{
-				width: 225px;
-			}
-			.modal-img .modal-img-content{
-				max-width: 60% !important;
-			}
 		}
 		.aside-menu{
 			right: 20px;
 		}
 	}
+	
+
 }

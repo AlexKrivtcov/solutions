@@ -21,6 +21,8 @@
     <script type="text/javascript" src="js/sticky-kit.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+            <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script>
         $(document).ready(function () {
             $(".unit-title").stick_in_parent({offset_top: 70});
@@ -34,6 +36,7 @@
             $(".top-menu").toggleClass("top-animate");
             $(".mid-menu").toggleClass("mid-animate");
             $(".bottom-menu").toggleClass("bottom-animate");
+            $("main").toggleClass("hidden");
             });
         });
     </script> 
@@ -50,7 +53,7 @@
                 $(this).parents('.row').toggleClass("fullscreen-hidden-content");
                 /*$(".export-types").toggleClass("fulsscreen");*/
             });
-            $("body").removeClass("hold-transition");
+            $("main").removeClass("hold-transition");
         });
     </script>
     <script>
@@ -62,7 +65,7 @@
     </script>
     <script>
         $(function() {
-            $(".close").click(function() {  
+            $(".btn-clear").click(function() {  
                 $(this).parent().find("input").prop('checked', false);
             });
         });
@@ -82,7 +85,7 @@
                         $(this).parent(".field").removeClass("answered");
                     }
                 });
-                $(this).parent().children(".close").click(function() {  
+                $(this).parent().children(".btn-clear").click(function() {  
                     $(this).parent().removeClass("answered");
                     $(this).parent().find("input").val('');
                 });             
@@ -101,7 +104,7 @@
                         $(this).parent(".field").addClass("answered");
                     } 
                 });
-                $(this).parent().children(".close").click(function() {  
+                $(this).parent().children(".btn-clear").click(function() {  
                     $(this).parent().removeClass("answered");
                     $(this).parent().find("input").val('');
                 });             
@@ -121,7 +124,7 @@
     <script>
         $(function() {
             $(".zoomImg").click(function(e) { 
-                var modal = $(this).parent('.image-zoom-box').find(".modal");
+                var modal = $(this).parent('.image-zoom-box').find(".modal-img");
                 var caption = $(this).parent('.image-zoom-box').find(".caption");
                 var close = $(this).parent('.image-zoom-box').find(".close-zoomming-img");
                 modal.show();
@@ -134,69 +137,66 @@
         });
     </script>
 </head>
-<body class="hold-transition">
+<body>
     <header>
-        <div class="container-fluid">
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-               <div class="container-fluid ">
-                  <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <a href="#" class="active-page">Questionnaires</a>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar top-menu"></span>
-                            <span class="icon-bar mid-menu"></span>
-                            <span class="icon-bar bottom-menu"></span>
-                        </button>
-                        <a href="#" class="badge badge_nav">42</a>
-                        <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
-                            <i class="glyphicon glyphicon-cloud-upload"></i>
-                            <span class="sync-queue-size">16287</span>
-                        </a>
-                        <a class="navbar-brand" href="#">
-                            <div class="retina logo">Survey Solutions</div>
-                            <div class="brand-name" title="Headquarter">Headquarter</div>
-                        </a>
-                    </div>
-                      <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="active"><a href="#">Settings</a></li>
-                                    <li><a href="#">Manage account</a></li>
-                                    <li><a href="#">Logoff</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="#" title="Interviews">Interviews</a></li>
-                            <li><a href="#" title="Questionnaires">Questionnaires</a></li>
-                            <li><a href="#" title="Data Export">Data Export</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
-                                <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
-                                    <i class="glyphicon glyphicon-cloud-upload"></i>
-                                    <span class="sync-queue-size">16287</span>
-                                </a>
-                            </li>
-                            <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
-                            <li><a href="#" title="Help">Help</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Settings</a></li>
-                                    <li><a href="#">Manage account</a></li>
-                                    <li><a href="#">Logoff</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>  
-        </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                        <div class="brand-name" title="Headquarter">Headquarter</div>
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
     </header>  
-    <main class="details-interview">
+    <main class="details-interview hold-transition">
         <div class="container-fluid">
             <div class="row">
                 <aside class="filters">
@@ -208,8 +208,7 @@
                     <div class="filters-container">
                         <h4>Filter Questions</h4> 
                         <div class="block-filter separate-filters-group flagged-questions">
-                            <a href="#" class="flag"><b>No flagged questions</b></a>
-                            <!-- <a href="#" class="flag flagged"><b>3 flagged questions</b></a> --> 
+                            <a href="#" class="flag">No flagged questions</a>
                         </div>
                         <div class="block-filter separate-filters-group">
                             <div class="form-group">
@@ -273,7 +272,13 @@
                         <h4>Preview settings</h4> 
                         <div class="block-filter">
                             <h5>Set of shown questions</h5>
-                            <div class="btn-group btn-input clearfix">
+                            <select class="selectpicker">
+                                <option>Shortlist (23 questions)</option>
+                                <option class="flag flagged">Flagged questions</option>
+                                <option>Changed since my last descision</option>
+                                <option selected>All questions</option>
+                            </select>
+                            <!-- <div class="btn-group btn-input clearfix">
                                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
                                   <span data-bind="label">All question</span>&nbsp;<span class="caret-large"></span>
                                 </button>
@@ -283,7 +288,7 @@
                                   <li><a href="#">Changed since my last descision</a></li>
                                   <li><a href="#">All questions</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div> 
                         <div class="block-filter">
                             <div class="form-group">
@@ -301,7 +306,13 @@
                         </div>
                         <div class="block-filter">
                             <h5>Survey language</h5>
-                            <div class="btn-group btn-input clearfix">
+                            <select class="selectpicker">
+                                <option>ENG &mdash; English</option>
+                                <option>UA &mdash; Ukrainian</option>
+                                <option>RU &mdash; Russian</option>
+                                <option>FR &mdash; French</option>
+                            </select>
+<!--                             <div class="btn-group btn-input clearfix">
                                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
                                   <span data-bind="label">ENG &mdash; English</span>&nbsp;<span class="caret-large"></span>
                                 </button>
@@ -311,7 +322,7 @@
                                   <li><a href="#">RU &mdash; Russian</a></li>
                                   <li><a href="#">FR &mdash; French</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div> 
                 </aside>
@@ -327,11 +338,11 @@
                             </ol>
                             <div>
                                 <h2>23-44-13-46-10</h2>
-                                <button type="button" class="btn btn-danger reject">Reject</button>
-                                <button type="button" class="btn btn-success approve">Approve</button>
+                                <button type="button" class="btn btn-default reject">Reject</button>
+                                <button type="button" class="btn btn-success">Approve</button>
                             </div> 
                     </div>
-                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                    <div class="panel-group structured-content" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title group complete">
@@ -511,13 +522,11 @@
                                 <li><a href="">cereals and cereals products</a></li>
                                 <li><a href="">rice (paddy)</a></li>
                             </ol>
-                            <h3>During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</h3>
+                            <h3>During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeksDuring the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</h3>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -528,7 +537,7 @@
                             </div>
                             <div class="question-editor single-select-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Do you smoke?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -540,7 +549,9 @@
                                                 <label for="Yes-smoke">
                                                     <span class="tick"></span>Yes
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -549,7 +560,9 @@
                                                 <label for="no-smoke">
                                                     <span class="tick"></span>No
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                       </div>
                                     </div>
@@ -565,17 +578,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -586,7 +597,7 @@
                             </div>
                             <div class="question-editor single-select-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your relations status to the household head
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -598,7 +609,9 @@
                                                 <label for="son">
                                                   <span class="tick"></span>Son
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div> 
                                         </div>
                                         <div class="radio">
@@ -607,7 +620,9 @@
                                                 <label for="brother">
                                                   <span class="tick"></span>Brother
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -623,17 +638,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question with-flag">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -644,7 +657,7 @@
                             </div>
                             <div class="question-editor single-select-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Specify units
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -656,7 +669,9 @@
                                                 <label for="Hundreds">
                                                     <span class="tick"></span>Hundreds
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -665,7 +680,9 @@
                                                 <label for="Thousands">
                                                     <span class="tick"></span>Thousands
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -684,17 +701,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question hidden-question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -705,7 +720,7 @@
                             </div>
                             <div class="question-editor single-select-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your sex
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -717,7 +732,9 @@
                                                 <label for="Male">
                                                     <span class="tick"></span>Male
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -726,7 +743,9 @@
                                                 <label for="Female">
                                                     <span class="tick"></span>Female
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -742,17 +761,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -763,13 +780,14 @@
                             </div>
                             <div class="question-editor cascading-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
                                 <div class="question-unit">
                                     <div class="options-group">
                                         <div class="form-group">
+
                                             <div class="field">
                                                 <div class="btn-group btn-input clearfix">
                                                     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
@@ -783,7 +801,9 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -799,17 +819,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -820,7 +838,7 @@
                             </div>
                             <div class="question-editor cascading-question  answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -840,7 +858,9 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                             
                                         </div>
@@ -857,17 +877,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -878,7 +896,7 @@
                             </div>
                             <div class="question-editor multiselect-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What farm inputs and/or implements did your or any member of the household buy in the last 12 months?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -921,17 +939,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -942,7 +958,7 @@
                             </div>
                             <div class="question-editor multiselect-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What type of heat source do you use to heat your house?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -985,17 +1001,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1006,7 +1020,7 @@
                             </div>
                             <div class="question-editor ordered-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What crops were planted on your parcel during last year?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1015,28 +1029,28 @@
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Maize" type="checkbox"  checked/>
                                             <label for="Maize">
-                                                <span class="index-number">1</span>
+                                                <div class="index-number">1</div>
                                                 <span class="tick"></span>Maize
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Tobaco" type="checkbox"/>
                                             <label for="Tobaco">
-                                                <span class="index-number">45</span>
+                                                <div class="index-number">45</div>
                                                 <span class="tick"></span>Tobaco
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Ctoundnut" type="checkbox" checked/>
                                             <label for="Ctoundnut">
-                                                <span class="index-number">99</span>
+                                                <div class="index-number">99</div>
                                                 <span class="tick"></span>Ctoundnut
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Rice" type="checkbox" checked />
                                             <label for="Rice">
-                                                <span class="index-number">200</span>
+                                                <div class="index-number">200</div>
                                                 <span class="tick"></span>Rice
                                             </label>
                                         </div>
@@ -1053,17 +1067,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1074,12 +1086,12 @@
                             </div>
                             <div class="question-editor yes-no-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
                                 <div class="information-block instruction"></div>
                                 <div class="question-unit">
-                                    <div class="yes-no-mark">Yes <span>/</span> No</div>
+                                    <div class="yes-no-mark">Yes <b>/</b> No</div>
                                     <div class="options-group">
                                         <div class="radio">
                                             <div class="field">
@@ -1087,13 +1099,15 @@
                                                 <label for="water-supply-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="water-supply" id="water-supply-no"/>
                                                 <label for="water-supply-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Centralized water supply</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1102,13 +1116,15 @@
                                                 <label for="hot-water-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="hot-water" id="hot-water-no"/>
                                                 <label for="hot-water-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>hot running water</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1117,13 +1133,15 @@
                                                 <label for="Sewage-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="Sewage" id="Sewage-no"/>
                                                 <label for="Sewage-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Sewage</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1132,13 +1150,15 @@
                                                 <label for="septic-tank-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="septic-tank" id="septic-tank-no"/>
                                                 <label for="septic-tank-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Septic tank</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1154,17 +1174,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1175,12 +1193,12 @@
                             </div>
                             <div class="question-editor yes-no-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
                                 <div class="information-block instruction"></div>
                                 <div class="question-unit">
-                                    <div class="yes-no-mark">Yes <span>/</span> No</div>
+                                    <div class="yes-no-mark">Yes <b>/</b> No</div>
                                     <div class="options-group">
                                         <div class="radio">
                                             <div class="field">
@@ -1188,13 +1206,15 @@
                                                 <label for="Kitchen-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="Kitchen" id="Kitchen-no"/>
                                                 <label for="Kitchen-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Kitchen</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1203,13 +1223,15 @@
                                                 <label for="Electricity-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="Electricity" id="Electricity-no"/>
                                                 <label for="Electricity-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Electricity</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1218,13 +1240,15 @@
                                                 <label for="Internet-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="Internet" id="Internet-no" checked/>
                                                 <label for="Internet-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Internet Connection</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1233,13 +1257,15 @@
                                                 <label for="bathtub-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="bathtub" id="bathtub-no" checked />
                                                 <label for="bathtub-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Bathtub or shower</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1255,17 +1281,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1276,12 +1300,12 @@
                             </div>
                             <div class="question-editor yes-no-question ordered answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What languages do you know?
                                 </h5>
                                 <div class="information-block instruction"></div>
                                 <div class="question-unit">
-                                    <div class="yes-no-mark">Yes <span>/</span> No</div>
+                                    <div class="yes-no-mark">Yes <b>/</b> No</div>
                                     <div class="options-group">
                                         <div class="radio">
                                             <div class="field">
@@ -1289,14 +1313,16 @@
                                                 <label for="English-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="English" id="English-no"/>
                                                 <label for="English-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>English</span>
-                                                <button type="submit" class="close"></button>
-                                                <span class="index-number">199</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="index-number">199</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1305,14 +1331,16 @@
                                                 <label for="ukrainian-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="ukrainian" id="ukrainian-no"/>
                                                 <label for="ukrainian-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>ukrainian</span>
-                                                <button type="submit" class="close"></button>
-                                                <span class="index-number">10</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="index-number">10</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1321,14 +1349,16 @@
                                                 <label for="russian-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="russian" id="russian-no" checked/>
                                                 <label for="russian-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>russian</span>
-                                                <button type="submit" class="close"></button>
-                                                <span class="index-number">59</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="index-number">59</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1337,14 +1367,16 @@
                                                 <label for="french-yes">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="french" id="french-no" checked />
                                                 <label for="french-no">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>french</span>
-                                                <button type="submit" class="close"></button>
-                                                <span class="index-number">67</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="index-number">67</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1360,14 +1392,14 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="unit-section contains-error">
+                    <div class="unit-section section-with-error">
                         <div class="unit-title">
                             <ol class="breadcrumb">
                                 <li><a href="">Section C: Consumption of food over past week</a></li>
@@ -1375,10 +1407,8 @@
                             <h3>Current group name</h3>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1389,7 +1419,7 @@
                             </div>
                             <div class="question-editor list-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     List the members of the household who usually live and eat in this household.
                                 </h5>
                                 <div class="information-block instruction">
@@ -1402,7 +1432,9 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="text" class="field-to-fill" placeholder="Tap to enter new item"/>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       </div>
                                     </div>
@@ -1418,17 +1450,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1439,7 +1469,7 @@
                             </div>
                             <div class="question-editor list-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     List the members of the household who usually live and eat in this household.
                                 </h5>
                                 <div class="information-block instruction">
@@ -1451,19 +1481,25 @@
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item"  value="Jenifer" />
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item"  value="John" />
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item" />
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1479,17 +1515,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question with-flag">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1500,7 +1534,7 @@
                             </div>
                             <div class="question-editor numeric-question contains-error">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     How much quantity in total did your household consume in the past 7 days?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1509,7 +1543,9 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="number" class="field-to-fill" placeholder="Tap to enter number" value="6" />
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       </div>
                                     </div>
@@ -1533,17 +1569,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1554,7 +1588,7 @@
                             </div>
                             <div class="question-editor numeric-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     How old are you?
                                 </h5>
                                 <div class="information-block instruction">
@@ -1566,7 +1600,9 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="number" class="field-to-fill" placeholder="Tap to enter number" />
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       </div>
                                     </div>
@@ -1582,17 +1618,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question with-flag">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1603,7 +1637,7 @@
                             </div>
                             <div class="question-editor gps-question contains-error">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Please capture gps using the tablet
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1612,10 +1646,12 @@
                                         <div class="field answered">
                                             <div class="map" id="map"></div>
                                             <div class="block-with-data">-25.363, 131.044</div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                         <div class="action-btn-holder gps-question">
-                                            <button type="button" class="btn action-btn">Tap to record GPS</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to record GPS</button>
                                          </div>
                                     </div>
                                 </div>
@@ -1633,17 +1669,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1654,7 +1688,7 @@
                             </div>
                             <div class="question-editor gps-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Location of the household:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1664,10 +1698,12 @@
                                         <div class="field">
                                             <div class="map"></div>
                                             <div class="block-with-data"></div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                         <div class="action-btn-holder gps-question">
-                                            <button type="button" class="btn action-btn">Tap to record GPS</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to record GPS</button>
                                          </div>
                                     </div>
                                 </div>
@@ -1683,17 +1719,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1704,7 +1738,7 @@
                             </div>
                             <div class="question-editor current-time-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Record current time
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1712,10 +1746,12 @@
                                     <div class="options-group">
                                     <div class="field">
                                             <div class="block-with-data"></div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       <div class="action-btn-holder time-question">
-                                            <button type="button" class="btn action-btn">Tap to record current time</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to record current time</button>
                                       </div>
                                     </div>
                                 </div>
@@ -1731,17 +1767,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1752,7 +1786,7 @@
                             </div>
                             <div class="question-editor current-time-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Record current time
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1760,10 +1794,12 @@
                                     <div class="options-group">
                                         <div class="field answered">
                                             <div class="block-with-data">12/1/2016 5:54:03PM</div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       <div class="action-btn-holder time-question">
-                                            <button type="button" class="btn action-btn">Tap to record current time</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to record current time</button>
                                       </div>
                                     </div>
                                 </div>
@@ -1779,17 +1815,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1800,14 +1834,14 @@
                             </div>
                             <div class="question-editor multimedia-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Tap to take a photo
                                 </h5>
                                 <div class="information-block instruction"></div>
                                 <div class="question-unit">
                                     <div class="options-group">
                                       <div class="action-btn-holder photo-question">
-                                            <button type="button" class="btn action-btn">Tap to take a photo</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to take a photo</button>
                                       </div>
                                     </div>
                                 </div>
@@ -1823,17 +1857,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1844,7 +1876,7 @@
                             </div>
                             <div class="question-editor multimedia-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Tap to take a photo
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1852,17 +1884,19 @@
                                     <div class="options-group">
                                         <div class="field answered">
                                             <div class="image-zoom-box image-wrapper">
-                                                <img src="img/o-HAPPINESS-facebook.jpg" alt="custom photo" class="zoomImg" />
-                                                <div class="modal">
+                                                <img src="img-example/o-HAPPINESS-facebook.jpg" alt="custom photo" class="zoomImg" />
+                                                <div class="modal-img">
                                                   <span class="close-zoomming-img">&times;</span>
-                                                  <img class="modal-content" src=""  alt="" />
+                                                  <img class="modal-img-content" src=""  alt="" />
                                                   <span class="caption"></span>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       <div class="action-btn-holder photo-question">
-                                            <button type="button" class="btn action-btn">Tap to take a photo</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to take a photo</button>
                                       </div>
                                     </div>
                                 </div>
@@ -1878,17 +1912,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1899,7 +1931,7 @@
                             </div>
                             <div class="question-editor qr-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Barcode
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1907,10 +1939,12 @@
                                     <div class="options-group">
                                         <div class="field">
                                             <div class="block-with-data"></div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       <div class="action-btn-holder barcode-question">
-                                            <button type="button" class="btn action-btn">Tap to take barcode</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to take barcode</button>
                                       </div>
                                     </div>
                                 </div>
@@ -1926,7 +1960,7 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
@@ -1935,7 +1969,7 @@
                         <div class="question static-text invalid">
                             <div class="question-editor">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Some static text
                                 </h5>
                                 <div class="information-block errors">
@@ -1951,17 +1985,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -1972,7 +2004,7 @@
                             </div>
                             <div class="question-editor qr-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Barcode
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1980,10 +2012,12 @@
                                     <div class="options-group">
                                         <div class="field answered">
                                             <div class="block-with-data">http://www.worldbank.org/capi</div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                         <div class="action-btn-holder barcode-question">
-                                            <button type="button" class="btn action-btn">Tap to take barcode</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to take barcode</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1999,17 +2033,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2020,7 +2052,7 @@
                             </div>
                             <div class="question-editor time-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Date of the interview:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2034,7 +2066,9 @@
                                                     $('#datetimepicker4').datetimepicker();
                                                 });
                                             </script>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       </div>
                                     </div>
@@ -2050,17 +2084,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question with-flag">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2071,7 +2103,7 @@
                             </div>
                             <div class="question-editor time-question contains-error">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Date of the interview:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2092,7 +2124,9 @@
                                                     });
                                                 });
                                             </script>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       </div>
                                     </div>
@@ -2111,14 +2145,14 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="unit-section hidden-by-filter filled">
+                    <div class="unit-section hidden-by-filter complete-section">
                         <div class="unit-title">
                             <ol class="breadcrumb">
                                 <li><a href="">Section C: Consumption of food over past week</a></li>
@@ -2127,10 +2161,8 @@
                             <h3> group</h3>
                         </div>
                         <div class="question hidden-question">
-                                <div class="dropdown">
-                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span></span>
-                                        <span></span>
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                         <span></span>
                                     </button>
                                     <ul class="dropdown-menu" >
@@ -2141,7 +2173,7 @@
                                 </div>
                                 <div class="question-editor single-select-question">
                                     <h5> 
-                                        <button type="button" class="button-flag"></button>
+                                        <button type="button" class="btn-link button-flag"></button>
                                         What is your sex
                                     </h5>
                                     <div class="information-block instructions"></div>
@@ -2153,7 +2185,9 @@
                                                     <label for="Male2">
                                                         <span class="tick"></span>Male
                                                     </label>
-                                                    <button type="submit" class="close"></button>
+                                                    <button type="submit" class="btn btn-link btn-clear">
+                                                        <span></span>
+                                                    </button>
                                                 </div>
                                             </div>
                                             <div class="radio">
@@ -2162,7 +2196,9 @@
                                                     <label for="Female2">
                                                         <span class="tick"></span>Female
                                                     </label>
-                                                    <button type="submit" class="close"></button>
+                                                    <button type="submit" class="btn btn-link btn-clear">
+                                                        <span></span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -2178,7 +2214,7 @@
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                     </div>
                                                   </div>
-                                                  <button type="submit" class="btn btn-default">Post</button>
+                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                             </form>
                                         </div>
                                     </div>
@@ -2187,7 +2223,7 @@
                         <div class="question static-text">
                                 <div class="question-editor">
                                     <h5> 
-                                        <button type="button" class="button-flag"></button>
+                                        <button type="button" class="btn-link button-flag"></button>
                                         Some static text
                                     </h5>
                                     <div class="information-block errors"></div>
@@ -2200,7 +2236,7 @@
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                     </div>
                                                   </div>
-                                                  <button type="submit" class="btn btn-default">Post</button>
+                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                             </form>
                                         </div>
                                     </div>
@@ -2209,7 +2245,7 @@
                         <div class="question static-text">
                                 <div class="question-editor">
                                     <h5> 
-                                        <button type="button" class="button-flag"></button>
+                                        <button type="button" class="btn-link button-flag"></button>
                                         Variable_name: <span>expression</span>
                                     </h5>
                                     <div class="information-block errors"></div>
@@ -2222,17 +2258,15 @@
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                     </div>
                                                   </div>
-                                                  <button type="submit" class="btn btn-default">Post</button>
+                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                         </div>
                         <div class="question">
-                                <div class="dropdown">
-                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span></span>
-                                        <span></span>
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                         <span></span>
                                     </button>
                                     <ul class="dropdown-menu" >
@@ -2243,7 +2277,7 @@
                                 </div>
                                 <div class="question-editor text-question">
                                     <h5> 
-                                        <button type="button" class="button-flag"></button>
+                                        <button type="button" class="btn-link button-flag"></button>
                                         What is the main idea of your business?
                                     </h5>
                                     <div class="information-block instruction">
@@ -2255,7 +2289,9 @@
                                           <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter number" value="Selling groceries" />
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                           </div>
                                         </div>
@@ -2271,7 +2307,7 @@
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                     </div>
                                                   </div>
-                                                  <button type="submit" class="btn btn-default">Post</button>
+                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                             </form>
                                         </div>
                                     </div>
@@ -2280,13 +2316,13 @@
                         <div class="question static-text">
                             <div class="question-editor">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Some static text
                                     <span class="image-zoom-box static-text-image"> 
-                                        <img src="img/download.jpg" alt="static-text-image" class="zoomImg" /> 
-                                        <span class="modal">
+                                        <img src="img-example/download.jpg" alt="static-text-image" class="zoomImg" /> 
+                                        <span class="modal-img">
                                             <span class="close-zoomming-img">&times;</span>
-                                            <img class="modal-content" src="" alt="" />
+                                            <img class="modal-img-content" src="" alt="" />
                                             <span class="caption"></span>
                                         </span>
                                     </span> 
@@ -2301,17 +2337,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                                <div class="dropdown">
-                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span></span>
-                                        <span></span>
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                         <span></span>
                                     </button>
                                     <ul class="dropdown-menu" >
@@ -2322,7 +2356,7 @@
                                 </div>
                                 <div class="question-editor time-question">
                                     <h5> 
-                                        <button type="button" class="button-flag"></button>
+                                        <button type="button" class="btn-link button-flag"></button>
                                         Date of the interview:
                                     </h5>
                                     <div class="information-block instruction"></div>
@@ -2336,7 +2370,9 @@
                                                         $('#datetimepicker423').datetimepicker();
                                                     });
                                                 </script>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                           </div>
                                         </div>
@@ -2352,14 +2388,14 @@
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                     </div>
                                                   </div>
-                                                  <button type="submit" class="btn btn-default">Post</button>
+                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                         </div>
                     </div>
-                    <div class="unit-section contains-error hidden-by-filter">
+                    <div class="unit-section section-with-error hidden-by-filter">
                         <div class="unit-title">
                             <ol class="breadcrumb">
                                 <li><a href="">Section C: Consumption of food over past week</a></li>
@@ -2367,10 +2403,8 @@
                             <h3>Current group name</h3>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2381,7 +2415,7 @@
                             </div>
                             <div class="question-editor list-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     List the members of the household who usually live and eat in this household.
                                 </h5>
                                 <div class="information-block instruction">
@@ -2393,19 +2427,25 @@
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item"  value="Jenifer" />
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item"  value="John" />
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field">
                                                 <input type="text" class="field-to-fill" placeholder="Tap to enter new item" />
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -2421,17 +2461,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question with-flag">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2442,7 +2480,7 @@
                             </div>
                             <div class="question-editor numeric-question contains-error">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     How much quantity in total did your household consume in the past 7 days?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2451,7 +2489,9 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="number" class="field-to-fill" placeholder="Tap to enter number" value="6" />
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       </div>
                                     </div>
@@ -2475,17 +2515,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2496,7 +2534,7 @@
                             </div>
                             <div class="question-editor gps-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Location of the household:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2506,10 +2544,12 @@
                                         <div class="field">
                                             <div class="map"></div>
                                             <div class="block-with-data"></div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                         <div class="action-btn-holder gps-question">
-                                            <button type="button" class="btn action-btn">Tap to record GPS</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to record GPS</button>
                                          </div>
                                     </div>
                                 </div>
@@ -2525,17 +2565,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2546,7 +2584,7 @@
                             </div>
                             <div class="question-editor multimedia-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Tap to take a photo
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2554,17 +2592,19 @@
                                     <div class="options-group">
                                         <div class="field answered">
                                             <div class="image-zoom-box image-wrapper">
-                                                <img src="img/o-HAPPINESS-facebook.jpg" alt="custom photo" class="zoomImg" />
-                                                <div class="modal">
+                                                <img src="img-example/o-HAPPINESS-facebook.jpg" alt="custom photo" class="zoomImg" />
+                                                <div class="modal-img">
                                                   <span class="close-zoomming-img">&times;</span>
-                                                  <img class="modal-content" src="" alt="" />
+                                                  <img class="modal-img-content" src="" alt="" />
                                                   <span class="caption"></span>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       <div class="action-btn-holder photo-question">
-                                            <button type="button" class="btn action-btn">Tap to take a photo</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to take a photo</button>
                                       </div>
                                     </div>
                                 </div>
@@ -2580,17 +2620,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2601,7 +2639,7 @@
                             </div>
                             <div class="question-editor qr-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Barcode
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2609,10 +2647,12 @@
                                     <div class="options-group">
                                         <div class="field answered">
                                             <div class="block-with-data">http://www.worldbank.org/capi</div>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                         <div class="action-btn-holder barcode-question">
-                                            <button type="button" class="btn action-btn">Tap to take barcode</button>
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Tap to take barcode</button>
                                         </div>
                                     </div>
                                 </div>
@@ -2628,17 +2668,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question with-flag">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2649,7 +2687,7 @@
                             </div>
                             <div class="question-editor time-question contains-error">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Date of the interview:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2670,7 +2708,9 @@
                                                     });
                                                 });
                                             </script>
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       </div>
                                     </div>
@@ -2689,7 +2729,7 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
@@ -2706,10 +2746,8 @@
                             <h3>During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</h3>
                         </div>
                         <div class="question hidden-question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2720,7 +2758,7 @@
                             </div>
                             <div class="question-editor single-select-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your sex
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -2732,7 +2770,9 @@
                                                 <label for="Male53">
                                                     <span class="tick"></span>Male
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -2741,7 +2781,9 @@
                                                 <label for="Female53">
                                                     <span class="tick"></span>Female
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -2757,17 +2799,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2778,7 +2818,7 @@
                             </div>
                             <div class="question-editor cascading-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -2798,7 +2838,9 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -2814,17 +2856,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2835,7 +2875,7 @@
                             </div>
                             <div class="question-editor cascading-question  answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -2855,7 +2895,9 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                             
                                         </div>
@@ -2872,14 +2914,14 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="unit-section filled">
+                    <div class="unit-section complete-section">
                         <div class="unit-title">
                             <ol class="breadcrumb">
                                 <li><a href="">Section C: Consumption of food over past week</a></li>
@@ -2888,10 +2930,8 @@
                             <h3>Next group</h3>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2902,7 +2942,7 @@
                             </div>
                             <div class="question-editor single-select-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your relations status to the household head
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2914,7 +2954,9 @@
                                                 <label for="son1">
                                                   <span class="tick"></span>Son
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div> 
                                         </div>
                                         <div class="radio">
@@ -2923,7 +2965,9 @@
                                                 <label for="brother1">
                                                   <span class="tick"></span>Brother
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -2939,17 +2983,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question hidden-question hidden-by-filter">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -2960,7 +3002,7 @@
                             </div>
                             <div class="question-editor single-select-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your sex.
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -2972,7 +3014,9 @@
                                                 <label for="Male1">
                                                     <span class="tick"></span>Male
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -2981,7 +3025,9 @@
                                                 <label for="Female1">
                                                     <span class="tick"></span>Female
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -2997,17 +3043,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question hidden-question hidden-by-filter">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -3018,7 +3062,7 @@
                             </div>
                             <div class="question-editor cascading-question  answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -3038,7 +3082,9 @@
                                                         <li><a href="#">Pail (large)</a></li>
                                                     </ul>
                                                 </div>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                             
                                         </div>
@@ -3055,17 +3101,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question hidden-by-filter">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -3076,7 +3120,7 @@
                             </div>
                             <div class="question-editor multiselect-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What farm inputs and/or implements did your or any member of the household buy in the last 12 months?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -3119,7 +3163,7 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
@@ -3128,7 +3172,7 @@
                         <div class="question static-text">
                             <div class="question-editor">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Some static text
                                 </h5>
                                 <div class="information-block errors"></div>
@@ -3141,17 +3185,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -3162,7 +3204,7 @@
                             </div>
                             <div class="question-editor ordered-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What crops were planted on your parcel during last year?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -3171,28 +3213,28 @@
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Maize1" type="checkbox"  checked/>
                                             <label for="Maize1">
-                                                <span class="index-number">1</span>
+                                                <div class="index-number">1</div>
                                                 <span class="tick"></span>Maize
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Tobaco1" type="checkbox"/>
                                             <label for="Tobaco1">
-                                                <span class="index-number">45</span>
+                                                <div class="index-number">45</div>
                                                 <span class="tick"></span>Tobaco
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Ctoundnut1" type="checkbox" checked/>
                                             <label for="Ctoundnut1">
-                                                <span class="index-number">99</span>
+                                                <div class="index-number">99</div>
                                                 <span class="tick"></span>Ctoundnut
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Rice1" type="checkbox" checked />
                                             <label for="Rice1">
-                                                <span class="index-number">200</span>
+                                                <div class="index-number">200</div>
                                                 <span class="tick"></span>Rice
                                             </label>
                                         </div>
@@ -3209,7 +3251,7 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
@@ -3218,7 +3260,7 @@
                         <div class="question variable">
                             <div class="question-editor">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Variable_name: <span>expression</span>
                                 </h5>
                                 <div class="information-block errors"></div>
@@ -3231,17 +3273,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -3252,7 +3292,7 @@
                             </div>
                             <div class="question-editor text-question">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What is the main idea of your business?
                                 </h5>
                                 <div class="information-block instruction">
@@ -3264,7 +3304,9 @@
                                       <div class="form-group">
                                         <div class="field">
                                             <input type="text" class="field-to-fill" placeholder="Tap to enter number" value="Selling groceries" />
-                                            <button type="submit" class="close"></button>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
                                         </div>
                                       </div>
                                     </div>
@@ -3280,17 +3322,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -3301,12 +3341,12 @@
                             </div>
                             <div class="question-editor yes-no-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
                                 <div class="information-block instruction"></div>
                                 <div class="question-unit">
-                                    <div class="yes-no-mark">Yes <span>/</span> No</div>
+                                    <div class="yes-no-mark">Yes <b>/</b> No</div>
                                     <div class="options-group">
                                         <div class="radio">
                                             <div class="field">
@@ -3314,13 +3354,15 @@
                                                 <label for="Kitchen-yes1">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="Kitchen1" id="Kitchen-no1"/>
                                                 <label for="Kitchen-no1">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Kitchen</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3329,13 +3371,15 @@
                                                 <label for="Electricity-yes1">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="Electricity1" id="Electricity-no1"/>
                                                 <label for="Electricity-no1">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Electricity</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3344,13 +3388,15 @@
                                                 <label for="Internet-yes1">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="Internet1" id="Internet-no1" checked/>
                                                 <label for="Internet-no1">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Internet Connection</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3359,13 +3405,15 @@
                                                 <label for="bathtub-yes1">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="bathtub1" id="bathtub-no1" checked />
                                                 <label for="bathtub-no1">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Bathtub or shower</span>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -3381,7 +3429,7 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
@@ -3390,13 +3438,13 @@
                         <div class="question static-text">
                             <div class="question-editor">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Some static text with image
                                     <div class="image-zoom-box static-text-image"> 
-                                        <img src="img/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image" class="zoomImg" /> 
-                                        <div class="modal">
+                                        <img src="img-example/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image" class="zoomImg" /> 
+                                        <div class="modal-img">
                                             <span class="close-zoomming-img">&times;</span>
-                                            <img class="modal-content" src="" alt="" />
+                                            <img class="modal-img-content" src="" alt="" />
                                             <span class="caption"></span>
                                         </div>
                                     </div> 
@@ -3411,17 +3459,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -3432,12 +3478,12 @@
                             </div>
                             <div class="question-editor yes-no-question ordered answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     What languages do you know?
                                 </h5>
                                 <div class="information-block instruction"></div>
                                 <div class="question-unit">
-                                    <div class="yes-no-mark">Yes <span>/</span> No</div>
+                                    <div class="yes-no-mark">Yes <b>/</b> No</div>
                                     <div class="options-group">
                                         <div class="radio">
                                             <div class="field">
@@ -3445,14 +3491,16 @@
                                                 <label for="English-yes1">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="English1" id="English-no1"/>
                                                 <label for="English-no1">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>English</span>
-                                                <button type="submit" class="close"></button>
-                                                <span class="index-number">199</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="index-number">199</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3461,14 +3509,16 @@
                                                 <label for="ukrainian-yes1">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="ukrainian1" id="ukrainian-no1" checked/>
                                                 <label for="ukrainian-no1">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>ukrainian</span>
-                                                <button type="submit" class="close"></button>
-                                                <span class="index-number">10</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="index-number">10</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3477,14 +3527,16 @@
                                                 <label for="russian-yes1">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="russian1" id="russian-no1"/>
                                                 <label for="russian-no1">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>russian</span>
-                                                <button type="submit" class="close"></button>
-                                                <span class="index-number">59</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="index-number">59</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3493,14 +3545,16 @@
                                                 <label for="french-yes1">
                                                     <span class="tick"></span>
                                                 </label>
-                                                <span>/</span>
+                                                <b>/</b>
                                                 <input class="wb-radio" type="radio" name="french1" id="french-no1"/>
                                                 <label for="french-no1">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>french</span>
-                                                <button type="submit" class="close"></button>
-                                                <span class="index-number">67</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="index-number">67</div>
                                             </div>
                                         </div>
                                     </div>
@@ -3516,17 +3570,15 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="question">
-                            <div class="dropdown">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span></span>
-                                    <span></span>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu" >
@@ -3537,7 +3589,7 @@
                             </div>
                             <div class="question-editor img-single-select-question answered">
                                 <h5> 
-                                    <button type="button" class="button-flag"></button>
+                                    <button type="button" class="btn-link button-flag"></button>
                                     Choose some picture
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -3549,10 +3601,12 @@
                                                 <label for="img11">
                                                     <span class="tick"></span>
                                                     <div class="image-option">
-                                                        <img src="img/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image"/> 
+                                                        <img src="img-example/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image"/> 
                                                     </div>
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div> 
                                         </div>
                                         <div class="radio">
@@ -3561,10 +3615,12 @@
                                                 <label for="img12">
                                                     <span class="tick"></span>
                                                     <div class="image-option">
-                                                        <img src="img/download.jpg" alt="static-text-image"/> 
+                                                        <img src="img-example/download.jpg" alt="static-text-image"/> 
                                                     </div>
                                                 </label>
-                                                <button type="submit" class="close"></button>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -3580,7 +3636,7 @@
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
                                                 </div>
                                               </div>
-                                              <button type="submit" class="btn btn-default">Post</button>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
                                         </form>
                                     </div>
                                 </div>

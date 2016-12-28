@@ -25,96 +25,127 @@
           $(".top-menu").toggleClass("top-animate");
           $(".mid-menu").toggleClass("mid-animate");
           $(".bottom-menu").toggleClass("bottom-animate");
+          $("main").toggleClass("hidden");
         });
       });
     </script> 
+        <script>
+        $(function() {
+            $(".list-required-prefilled-data").click(function() {  
+                $(this).hide();
+                $(this).parents(".row").find(".hide-list-of-required-prefilled-data").css( "display", "block")
+                $(this).parents(".row").find(".prefilled-data").css( "display", "block")
+            });
+            $(".hide-list-of-required-prefilled-data").click(function() {  
+                $(this).hide();
+                $(this).parents(".row").find(".list-required-prefilled-data").css( "display", "block")
+                $(this).parents(".row").find(".prefilled-data").hide();
+                
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-               <div class="container-fluid ">
-                  <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <a href="#" class="active-page">Questionnaires</a>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar top-menu"></span>
-                            <span class="icon-bar mid-menu"></span>
-                            <span class="icon-bar bottom-menu"></span>
-                        </button>
-                        <a href="#" class="badge badge_nav">42</a>
-                        <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
-				            <i class="glyphicon glyphicon-cloud-upload"></i>
-				            <span class="sync-queue-size">16287</span>
-				        </a>
-                        <a class="navbar-brand" href="#">
-                            <div class="retina logo">Survey Solutions</div>
-                            <div class="brand-name" title="Headquarter">Headquarter</div>
-                        </a>
-                    </div>
-                      <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="active"><a href="#">Settings</a></li>
-                                    <li><a href="#">Manage account</a></li>
-                                    <li><a href="#">Logoff</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" title="Interviews">Interviews</a></li>
-                            <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
-                            <li><a href="#" title="Data Export">Data Export</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                        	<li class="glow-animate"  id="IncomingPackagesQueueIndicator">
-						        <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
-						            <i class="glyphicon glyphicon-cloud-upload"></i>
-						            <span class="sync-queue-size">16287</span>
-						        </a>
-						    </li>
-                            <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
-                            <li><a href="#" title="Help">Help</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Settings</a></li>
-                                    <li><a href="#">Manage account</a></li>
-                                    <li><a href="#">Logoff</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>  
-        </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                        <div class="brand-name" title="Headquarters">Headquarters</div>
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
     </header> 
     <main>
         <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-sm-9 page-header">
-              <ol class="breadcrumb">
-                <li><a href="">Questionnaire</a></li>
-              </ol>
-              <div class="page-title">
-                Creating multiple interviews by batch upload
-              </div> 
+            <div class="row">
+                <div class="page-header">
+                  <ol class="breadcrumb">
+                    <li><a href="">Questionnaire</a></li>
+                  </ol>
+                  <h1>
+                    Creating multiple interviews by batch upload
+                  </h1> 
+                </div>
             </div>
-          </div>
           <div class="row">
             <div class="col-sm-8">
-              <h2>Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</h2>  
+              <h2>Malawi IHS4 Household and Agriculture Questionnaire (Cross Sectional Version)</h2>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6 col-xs-10 prefilled-data-info">
+            <div class="col-sm-7 col-xs-10 prefilled-data-info">
               <p>Create set of interviews by uploading file with all required prefilled data.<br/>
               You can optionaly addign interviews to supervisors (and enumerators) by their usernames.
               <a href="#">Read more</a></p>  
               <p>If supervisor is not set in uploaded file you will be required to assign one for all interviews on the last stage of import.</p>
-              <a href="#" class="list-required-prefilled-data">View list of required prefilled data</a>  
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7 col-xs-10 prefilled-data-info">
+                <h3>Prefield data required for this questionnire</h3>
+                <p>List of data fields which are required for creating interview assigment you can download <a href="#" class="underline-link">tab. teplate for this questionnire</a></p>
+                <ul class="list-unstyled prefilled-data">
+                    <li>Enumeration area</li>
+                    <li>City</li>
+                    <li>Address</li>
+                    <li>Household</li>
+                    <li>Contact info</li>
+                    <li>Bank used</li>
+                    <li>Latitude</li>
+                    <li>Number of LEO invoved</li>
+                </ul>
+                <a href="#" class="hide-list-of-required-prefilled-data">Hide list of required prefilled data</a>
+                <a href="#" class="list-required-prefilled-data">View list of required prefilled data</a>
+                
             </div>
           </div>
           <div class="row flex-row">
@@ -123,9 +154,9 @@
                 <div class="block">
                   <h3>Just prefilled data (single file)</h3>
                   <p>Upload tab separated data table which all nececary prefilled data and Assignees (optionaly)</p>
-                  <a href="#">Download .tab template for this questionnaire</a>
                 </div>
                 <div>
+                  <a href="#">Download .tab template for this questionnaire</a>
                   <label class="btn btn-success btn-file">
                       Upload .tab file <input type="file"/>
                   </label>
@@ -138,9 +169,9 @@
                   <h3>Prefilled and collected data (archive)</h3>
                   <p>Upload archive with prefilled tab file and collected data. 
                     You can use files generated by "Data export"</p>
-                  <a href="#">Download .zip template for this questionnaire</a>
                 </div>
                 <div>
+                  <a href="#">Download .zip template for this questionnaire</a>
                   <label class="btn btn-success btn-file">
                       Upload .zip file <input type="file"/>
                   </label>
@@ -155,7 +186,7 @@
           </div>
         </div>
     </main>
-	<footer class="footer">
+    <footer class="footer">
     <div class="container-fluid">
       <div class="text-left">
         &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
@@ -166,6 +197,6 @@
         <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
        </div>
     </div>
-	</footer>
+    </footer>
 </body>
 </html>
