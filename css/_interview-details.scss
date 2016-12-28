@@ -852,5 +852,5 @@ label.inactive{
 	}
 }
 .content, .filters{
-	-webkit-overflow-scrolling: touch !important;
+	overflow: scroll !important;
 }
