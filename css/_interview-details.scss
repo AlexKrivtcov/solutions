@@ -850,6 +850,15 @@ label.inactive{
 			right: 20px;
 		}
 	}
+	.footer.footer-adaptive-content.footer-adaptive-filters{
+	padding-left: 0;
+	}
+	.footer.footer-adaptive-content{
+		display: none;
+	}
+	.footer.footer-adaptive-filters{
+		display: none;
+	}
 }
 .content, .filters{
 	overflow: inherit;
