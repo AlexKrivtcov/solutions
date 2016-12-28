@@ -208,6 +208,7 @@
     display: none;
 }
 %aside{
+    height: 100%;
     top: 70px;
     left: 0;
     bottom: 0;
@@ -217,7 +218,6 @@
     z-index: 4;
     @include transition(left, 0.3s);
 }
-
 %form{
     border: 1px solid $gray-form;
     background-color: $white;

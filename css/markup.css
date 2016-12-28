@@ -5864,6 +5864,7 @@ input.checkbox-filter ~ label .tick {
   display: none; }
 
 .filters, .content {
+  height: 100%;
   top: 70px;
   left: 0;
   bottom: 0;
@@ -8680,7 +8681,6 @@ label.inactive {
     margin: 0; }
 
 .content {
-  height: 100%;
   border-right: 3px solid #ececec;
   left: 372px;
   width: 570px;
@@ -9197,9 +9197,8 @@ label.inactive {
     .details-interview .questionnaire .question {
       padding-left: 75px; }
   .details-interview .fullscreen-hidden-content .content {
-    height: 100%;
-    overflow-y: scroll;
     left: 12px;
+    overflow: auto;
     box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2); }
     .details-interview .fullscreen-hidden-content .content .foldback-button {
       right: 5px;
@@ -9233,6 +9232,7 @@ label.inactive {
   .details-interview .fullscreen-hidden-content .filters .foldback-button {
     display: none; }
   .details-interview .fullscreen-hidden-filters .filters {
+    overflow: auto;
     left: 0;
     box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2); }
     .details-interview .fullscreen-hidden-filters .filters .foldback-button {

@@ -94,7 +94,6 @@ label.inactive{
 }
 .content{
 	@extend %aside;
-	height: 100%;
 	border-right: 3px solid $gray-super-light;
 	left: $filter-width + 12px;
 	width: $content-width;
@@ -674,9 +673,8 @@ label.inactive{
 		}
 		.fullscreen-hidden-content{	
 			.content{
-						height: 100%;
-		overflow-y: scroll;
 				left: 12px;
+				overflow: auto;
 				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
 				@include visible-foldback-button();
 				.foldback-button{
@@ -707,6 +705,7 @@ label.inactive{
 		}
 		.fullscreen-hidden-filters{
 			.filters{
+				overflow: auto;
 				left: 0;
 				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
 				@include visible-foldback-button();
