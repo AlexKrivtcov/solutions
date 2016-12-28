@@ -97,7 +97,6 @@ label.inactive{
 	border-right: 3px solid $gray-super-light;
 	left: $filter-width + 12px;
 	width: $content-width;
-	padding-bottom: 40px;
 	@include box-shadow(20px 0px 40px 0px rgba(0, 0, 0, 0.2));
 	z-index: 3;
 	.questionnaire-content{
@@ -583,14 +582,11 @@ label.inactive{
 .footer.footer-adaptive-content{
 	padding-left: $content-width;
 }
-.footer.footer-adaptive-filters{
-	padding-left: $filter-width;
-}
 @media only screen and (max-width: 1525px){
 	.details-interview{
 		@include tight-filters-aside();
 		.filters{
-			top: 70px;
+			margin-top: 70px;
 		}
 	}
 	.content{
@@ -643,14 +639,14 @@ label.inactive{
 }
 @media (max-width: $screen-md-min){
 	.content{
-        top: 60px;
+        margin-top: 60px;
     }
     .unit-title.is_stuck{
         top: 60px !important;
     }
 	.details-interview{ 
 		.filters{
-			top: 60px;
+			margin-top: 60px;
 			left: ((-$filter-small-width)-12px);
 			@include hidden-foldback-button();
 			overflow: visible;

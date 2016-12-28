@@ -5865,9 +5865,11 @@ input.checkbox-filter ~ label .tick {
 
 .filters, .content {
   height: 100%;
-  top: 70px;
+  top: 0;
   left: 0;
   bottom: 0;
+  margin-top: 70px;
+  padding-bottom: 100px;
   overflow: auto;
   position: fixed;
   background-color: #fff;
@@ -8150,7 +8152,7 @@ main .flex-row {
 .filters {
   width: 360px;
   border-right: 3px solid #ececec;
-  padding: 45px 12px 0 33px;
+  padding: 45px 12px 100px 33px;
   margin-left: 12px; }
 
 input.checkbox-filter {
@@ -8269,7 +8271,7 @@ input.checkbox-filter {
 
 @media (max-width: 1210px) {
   .filters {
-    top: 60px;
+    margin-top: 60px;
     width: 270px;
     padding-top: 45px;
     padding-left: 12px; }
@@ -8283,7 +8285,7 @@ input.checkbox-filter {
         right: -50px; } }
 @media (max-width: 880px) {
   .filters {
-    top: 60px;
+    margin-top: 60px;
     left: -282px;
     overflow: visible; }
     .filters .foldback-button {
@@ -8684,7 +8686,6 @@ label.inactive {
   border-right: 3px solid #ececec;
   left: 372px;
   width: 570px;
-  padding-bottom: 40px;
   -webkit-box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
   z-index: 3; }
@@ -9083,12 +9084,9 @@ label.inactive {
 .footer.footer-adaptive-content {
   padding-left: 570px; }
 
-.footer.footer-adaptive-filters {
-  padding-left: 360px; }
-
 @media only screen and (max-width: 1525px) {
   .details-interview .filters {
-    top: 60px;
+    margin-top: 60px;
     width: 270px;
     padding-top: 45px;
     padding-left: 12px; }
@@ -9101,7 +9099,7 @@ label.inactive {
       .details-interview .filters.hidden-filters .foldback-button {
         right: -50px; }
   .details-interview .filters {
-    top: 70px; }
+    margin-top: 70px; }
 
   .content {
     width: 330px;
@@ -9138,13 +9136,13 @@ label.inactive {
     padding-left: 270px; } }
 @media (max-width: 1210px) {
   .content {
-    top: 60px; }
+    margin-top: 60px; }
 
   .unit-title.is_stuck {
     top: 60px !important; }
 
   .details-interview .filters {
-    top: 60px;
+    margin-top: 60px;
     left: -282px;
     overflow: visible;
     box-shadow: none; }

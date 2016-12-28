@@ -209,9 +209,11 @@
 }
 %aside{
     height: 100%;
-    top: 70px;
+    top: 0;
     left: 0;
     bottom: 0;
+    margin-top: 70px;
+    padding-bottom: 100px;
     overflow: auto;
     position: fixed;
     background-color: #fff;
@@ -281,7 +283,7 @@
 }
 @mixin tight-filters-aside(){
     .filters{
-        top: 60px;
+        margin-top: 60px;
         width: $filter-small-width;
         padding-top: 45px;
         padding-left: 12px;
