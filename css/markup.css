@@ -8680,6 +8680,8 @@ label.inactive {
     margin: 0; }
 
 .content {
+  height: 100%;
+  overflow-y: scroll;
   border-right: 3px solid #ececec;
   left: 372px;
   width: 570px;
@@ -9361,6 +9363,13 @@ label.inactive {
   .details-interview .questionnaire .modal-img .modal-img-content {
     max-width: 60% !important; }
   .details-interview .aside-menu {
-    right: 20px; } }
-.content, .filters {
-  overflow: inherit; }
+    right: 20px; }
+
+  .footer.footer-adaptive-content.footer-adaptive-filters {
+    padding-left: 0; }
+
+  .footer.footer-adaptive-content {
+    display: none; }
+
+  .footer.footer-adaptive-filters {
+    display: none; } }
