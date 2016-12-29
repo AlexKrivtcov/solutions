@@ -140,7 +140,7 @@
 }
 .footer{
 	@include transition(padding, 0.3s);
-	&.footer-adaptive-filters{
+	&.footer-adaptive{
 		padding-left: $filter-width - $margin-container + 12px +30px;
 	}
 }
@@ -222,7 +222,7 @@
 	  	}
   	}
   	.footer{
-		&.footer-adaptive-filters{
+		&.footer-adaptive{
 			padding-left: $filter-small-width - $margin-container-md-screen + 12px +30px;
 		}
 	}
@@ -249,7 +249,7 @@
 		}
 	}
 	.footer{
-		&.footer-adaptive-filters{
+		&.footer-adaptive{
 			padding-left: 0;
 		}
 	}

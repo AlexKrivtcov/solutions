@@ -2,7 +2,7 @@
 	@extend %aside;
 	width: $filter-width;
 	border-right: 3px solid $gray-super-light;
-	padding: 45px 12px 100px 33px;
+	padding: 115px 12px 50px 33px;
 	margin-left: 12px;
 }
 input.checkbox-filter{
@@ -124,7 +124,7 @@ input.checkbox-filter{
 }
 @media (max-width: $screen-sm-min){
 	.filters{
-		margin-top: 60px;
+		padding-top: 60px;
 		left: ((-$filter-small-width)-12px);
 		@include hidden-foldback-button();
 		overflow: visible;
@@ -133,7 +133,7 @@ input.checkbox-filter{
 		.filters{
 			border: none;
 			margin: 0;
-			@include absolute(60px, 0, 0, 0);
+			@include absolute(0px, 0, 0, 0);
 			width: 100%;
 		   	@include visible-foldback-button();
 		   	.foldback-button{

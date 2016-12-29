@@ -567,7 +567,7 @@ label.inactive{
 }
 .fullscreen-hidden-filters.fullscreen-hidden-content{
 	.content .foldback-button{
-		top: 60px;
+		top: 130px;
 	}
 	.questionnaire{
 		margin-left: 12px;
@@ -582,11 +582,17 @@ label.inactive{
 .footer.footer-adaptive-content{
 	padding-left: $content-width;
 }
+.footer.footer-adaptive-filters{
+	padding-left: $filter-width;
+}
 @media only screen and (max-width: 1525px){
 	.details-interview{
 		@include tight-filters-aside();
 		.filters{
-			margin-top: 70px;
+			padding-top: 115px;
+			.foldback-button{
+	            top: 75px;
+	        }
 		}
 	}
 	.content{
@@ -639,18 +645,21 @@ label.inactive{
 }
 @media (max-width: $screen-md-min){
 	.content{
-        margin-top: 60px;
+        padding-top: 60px;
     }
     .unit-title.is_stuck{
         top: 60px !important;
     }
 	.details-interview{ 
 		.filters{
-			margin-top: 60px;
+			padding-top: 105px;
 			left: ((-$filter-small-width)-12px);
 			@include hidden-foldback-button();
 			overflow: visible;
 			box-shadow: none;
+			.foldback-button{
+				top: 65px;
+			}
 		}
 		.content{
 			box-shadow: none;
@@ -658,7 +667,7 @@ label.inactive{
 			@include hidden-foldback-button();
 			overflow: visible;
 			.foldback-button{
-				top: 60px;
+				top: 120px;
 			}
 		}
 		.questionnaire{
@@ -674,7 +683,7 @@ label.inactive{
 				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
 				@include visible-foldback-button();
 				.foldback-button{
-					top: 5px;
+					top: 65px;
 				}
 				.questionnaire-content{
 					padding-left: 50px;
@@ -721,7 +730,7 @@ label.inactive{
 			}
 			.content{
 				.foldback-button{
-					top: 5px;
+					top: 65px;
 				}
 				z-index: 4;
 				box-shadow: none;
@@ -732,9 +741,6 @@ label.inactive{
 				left: 12px;
 				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
 				@include visible-foldback-button();
-				.foldback-button{
-					top: 5px;
-				}
 				.questionnaire-content{
 					padding-left: 50px;
 				}
@@ -791,7 +797,7 @@ label.inactive{
 				display: none;
 			}
 			.filters{
-				@include absolute(60px, 0, 0, 0);
+				@include absolute(0, 0, 0, 0);
 				width: 100%;
 			}
 		}
@@ -800,7 +806,7 @@ label.inactive{
 				display: none;
 			}
 			.content{
-				@include absolute(60px, 0, 0, 0);
+				@include absolute(0, 0, 0, 0);
 				width: 100%;
 				border: none;
 				.foldback-button{

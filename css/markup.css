@@ -5868,8 +5868,8 @@ input.checkbox-filter ~ label .tick {
   top: 0;
   left: 0;
   bottom: 0;
-  margin-top: 70px;
-  padding-bottom: 100px;
+  padding-top: 70px;
+  padding-bottom: 50px;
   overflow: auto;
   position: fixed;
   background-color: #fff;
@@ -6233,7 +6233,7 @@ input.wb-checkbox ~ label .tick, .radio input.wb-radio ~ label .tick {
   height: 46px;
   cursor: pointer;
   position: absolute;
-  top: 5px;
+  top: 75px;
   right: 0;
   border-radius: 4px;
   z-index: 2;
@@ -8152,7 +8152,7 @@ main .flex-row {
 .filters {
   width: 360px;
   border-right: 3px solid #ececec;
-  padding: 45px 12px 100px 33px;
+  padding: 115px 12px 50px 33px;
   margin-left: 12px; }
 
 input.checkbox-filter {
@@ -8271,21 +8271,22 @@ input.checkbox-filter {
 
 @media (max-width: 1210px) {
   .filters {
-    margin-top: 60px;
+    padding-top: 105px;
     width: 270px;
-    padding-top: 45px;
     padding-left: 12px; }
     .filters .bootstrap-select.btn-group {
       width: 100% !important; }
     .filters .open > .dropdown-menu {
       width: 100%; }
+    .filters .foldback-button {
+      top: 65px; }
     .filters.hidden-filters {
       left: -282px; }
       .filters.hidden-filters .foldback-button {
         right: -50px; } }
 @media (max-width: 880px) {
   .filters {
-    margin-top: 60px;
+    padding-top: 60px;
     left: -282px;
     overflow: visible; }
     .filters .foldback-button {
@@ -8312,7 +8313,7 @@ input.checkbox-filter {
     border: none;
     margin: 0;
     position: absolute;
-    top: 60px;
+    top: 0px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -8502,7 +8503,7 @@ input.checkbox-filter {
   -ms-transition: padding 0.3s linear 0s;
   -o-transition: padding 0.3s linear 0s;
   transition: padding 0.3s linear 0s; }
-  .footer.footer-adaptive-filters {
+  .footer.footer-adaptive {
     padding-left: 312px; }
 
 @media (max-width: 1210px) {
@@ -8558,7 +8559,7 @@ input.checkbox-filter {
     .fullscreen-hidden-filters .export-types .data p {
       margin-bottom: 15px; }
 
-  .footer.footer-adaptive-filters {
+  .footer.footer-adaptive {
     padding-left: 277px; } }
 @media (max-width: 880px) {
   .export-types {
@@ -8578,7 +8579,7 @@ input.checkbox-filter {
       .export-types .data .table-data .progress-information {
         width: 60%; }
 
-  .footer.footer-adaptive-filters {
+  .footer.footer-adaptive {
     padding-left: 0; } }
 @media (max-width: 481px) {
   .export-types .data .table-data {
@@ -9072,7 +9073,7 @@ label.inactive {
     width: auto !important; }
 
 .fullscreen-hidden-filters.fullscreen-hidden-content .content .foldback-button {
-  top: 60px; }
+  top: 130px; }
 .fullscreen-hidden-filters.fullscreen-hidden-content .questionnaire {
   margin-left: 12px; }
   .fullscreen-hidden-filters.fullscreen-hidden-content .questionnaire .question {
@@ -9084,22 +9085,28 @@ label.inactive {
 .footer.footer-adaptive-content {
   padding-left: 570px; }
 
+.footer.footer-adaptive-filters {
+  padding-left: 360px; }
+
 @media only screen and (max-width: 1525px) {
   .details-interview .filters {
-    margin-top: 60px;
+    padding-top: 105px;
     width: 270px;
-    padding-top: 45px;
     padding-left: 12px; }
     .details-interview .filters .bootstrap-select.btn-group {
       width: 100% !important; }
     .details-interview .filters .open > .dropdown-menu {
       width: 100%; }
+    .details-interview .filters .foldback-button {
+      top: 65px; }
     .details-interview .filters.hidden-filters {
       left: -282px; }
       .details-interview .filters.hidden-filters .foldback-button {
         right: -50px; }
   .details-interview .filters {
-    margin-top: 70px; }
+    padding-top: 115px; }
+    .details-interview .filters .foldback-button {
+      top: 75px; }
 
   .content {
     width: 330px;
@@ -9136,13 +9143,13 @@ label.inactive {
     padding-left: 270px; } }
 @media (max-width: 1210px) {
   .content {
-    margin-top: 60px; }
+    padding-top: 60px; }
 
   .unit-title.is_stuck {
     top: 60px !important; }
 
   .details-interview .filters {
-    margin-top: 60px;
+    padding-top: 105px;
     left: -282px;
     overflow: visible;
     box-shadow: none; }
@@ -9165,6 +9172,8 @@ label.inactive {
           transform: rotate(-45deg); }
       .details-interview .filters .foldback-button .glyphicon {
         display: inline-block; }
+    .details-interview .filters .foldback-button {
+      top: 65px; }
   .details-interview .content {
     box-shadow: none;
     left: -330px;
@@ -9189,7 +9198,7 @@ label.inactive {
       .details-interview .content .foldback-button .glyphicon {
         display: inline-block; }
     .details-interview .content .foldback-button {
-      top: 60px; }
+      top: 120px; }
   .details-interview .questionnaire {
     margin-left: 12px; }
     .details-interview .questionnaire .question {
@@ -9215,7 +9224,7 @@ label.inactive {
       .details-interview .fullscreen-hidden-content .content .foldback-button .glyphicon {
         display: none; }
     .details-interview .fullscreen-hidden-content .content .foldback-button {
-      top: 5px; }
+      top: 65px; }
     .details-interview .fullscreen-hidden-content .content .questionnaire-content {
       padding-left: 50px; }
   .details-interview .fullscreen-hidden-content .questionnaire {
@@ -9262,7 +9271,7 @@ label.inactive {
     z-index: 4;
     box-shadow: none; }
     .details-interview .fullscreen-hidden-filters .content .foldback-button {
-      top: 5px; }
+      top: 65px; }
   .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .content {
     left: 12px;
     box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2); }
@@ -9282,8 +9291,6 @@ label.inactive {
           transform: rotate(45deg); }
       .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .content .foldback-button .glyphicon {
         display: none; }
-    .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .content .foldback-button {
-      top: 5px; }
     .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .content .questionnaire-content {
       padding-left: 50px; }
   .details-interview .fullscreen-hidden-filters.fullscreen-hidden-content .questionnaire {
@@ -9323,7 +9330,7 @@ label.inactive {
     display: none; }
   .details-interview .fullscreen-hidden-filters .filters {
     position: absolute;
-    top: 60px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
@@ -9332,7 +9339,7 @@ label.inactive {
     display: none; }
   .details-interview .fullscreen-hidden-content .content {
     position: absolute;
-    top: 60px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;

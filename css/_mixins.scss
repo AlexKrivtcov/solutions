@@ -212,8 +212,8 @@
     top: 0;
     left: 0;
     bottom: 0;
-    margin-top: 70px;
-    padding-bottom: 100px;
+    padding-top: 70px;
+    padding-bottom: 50px;
     overflow: auto;
     position: fixed;
     background-color: #fff;
@@ -283,15 +283,17 @@
 }
 @mixin tight-filters-aside(){
     .filters{
-        margin-top: 60px;
+        padding-top: 105px;
         width: $filter-small-width;
-        padding-top: 45px;
         padding-left: 12px;
         .bootstrap-select.btn-group{
             width: 100% !important;   
         } 
         .open > .dropdown-menu{
             width: 100%;    
+        }
+        .foldback-button{
+            top: 65px;
         }
         &.hidden-filters{
             left: - $filter-small-width - 12px;
