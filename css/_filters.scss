@@ -108,7 +108,7 @@ input.checkbox-filter{
 }
 .preset-filters-container{
 	padding-top: 30px;
-	a{
+	a, .export-queue{
 		@extend h5;
 		color: $blue;
 		display: block;
@@ -124,7 +124,6 @@ input.checkbox-filter{
 }
 @media (max-width: $screen-sm-min){
 	.filters{
-		padding-top: 60px;
 		left: ((-$filter-small-width)-12px);
 		@include hidden-foldback-button();
 		overflow: visible;

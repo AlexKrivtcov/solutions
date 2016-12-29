@@ -8,7 +8,7 @@
 	.flagged-questions{
 		padding-top: 0;
 	}
-	.block-filter{
+	.separate-filters-group{
 		margin: 0;
 	}
 	.reset-filters{
@@ -82,11 +82,12 @@ label.inactive{
 	.block-filter{
 		margin-bottom: 20px;
 		.form-group label{
-		font-size: 14px;
-		line-height: 20px;
-		font-weight: normal;
-		margin: 0;
+			font-size: 14px;
+			line-height: 20px;
+			font-weight: normal;
+			margin: 0;
 		}
+		
 		.dropdown-menu li a{
 			margin: 0;
 		}
@@ -785,6 +786,7 @@ label.inactive{
 		.questionnaire {
 			.unit-title.is_stuck{
 				width: 100% !important;
+				bottom: auto !important;
 			}
 			.comment .form-inline .form-group{
 				display: inline-block;

@@ -170,7 +170,7 @@ h5{
 }
 body > .ui-pnotify
 {
-    z-index: 100050;;
+    z-index: 100050;
 }
 .ui-pnotify-modal-overlay{
     background-color: rgba(0,0,0,.2);
@@ -233,5 +233,18 @@ body > .ui-pnotify
 .default-text{
 	color: $gray_form;
 }
+.info-block{
+    @extend .text-page;
+ margin-bottom: 20px;
 
+    p{
+  margin-bottom: 20px;
+        &:last-of-type{
+            margin-bottom: 0px;
+        }
+        &:only-of-type{
+            margin-bottom: 20px;
+        }
+ 	}
+}
 
