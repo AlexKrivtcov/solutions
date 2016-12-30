@@ -128,10 +128,12 @@ label.inactive{
 }
 .questionnaire{
 	@include transition(margin, 0.3s);
-	margin-left: $filter-width + $content-width + 12px;
+	@include width-questionnaire(($filter-width + $content-width + 12px));
+
 	.unit-title{
-		&.is_stuck{
+		 &.is_stuck{
 			z-index: 2;
+			top: 70px !important;
 		}
 		position: relative;
 		background-color: $blue;
@@ -388,7 +390,6 @@ label.inactive{
 			margin-top: 10px;
 			max-width: $width-question-editor;
 			height: auto;
-			/* @include size($width-question-editor, auto); */
 		}
 	}
 	&.invalid{
@@ -505,7 +506,6 @@ label.inactive{
 	.image-wrapper{
 		max-width: 90%;
 		max-height: 200px;
-		/* @include size(385px, 200px); */
 	}
 }
 .qr-question, .current-time-question{
@@ -536,10 +536,7 @@ label.inactive{
 }
 .fullscreen-hidden-filters {
 	.questionnaire{
-		margin-left: $content-width + 12px;
-		.unit-title.is_stuck{
-			width: auto !important;
-		}
+		@include width-questionnaire($content-width + 12px);	
 	}
 	.content{
 		left: 12px;
@@ -560,10 +557,7 @@ label.inactive{
 		z-index: 3;
 	}
 	.questionnaire{
-		margin-left: $filter-width + 12px;
-		.unit-title.is_stuck{
-			width: auto !important;
-		}
+		@include width-questionnaire($filter-width + 12px);
 	}
 }
 .fullscreen-hidden-filters.fullscreen-hidden-content{
@@ -571,7 +565,8 @@ label.inactive{
 		top: 130px;
 	}
 	.questionnaire{
-		margin-left: 12px;
+		@include width-questionnaire(12px);
+
 		.question{
 			padding-left: 85px;
 		}
@@ -608,34 +603,29 @@ label.inactive{
 		}
 	}
 	.questionnaire{
-		margin-left: 12px + $content-width-small + $filter-small-width;
+		@include width-questionnaire(12px + $content-width-small + $filter-small-width);
 		.unit-title{
 			width: auto;
 		} 
 	}
 	.fullscreen-hidden-filters {
 		.questionnaire{
-			margin-left: $content-width-small + 12px;
-		}
-	}
-    .fullscreen-hidden-filters {
-		.questionnaire{
-			margin-left: 12px + $content-width-small;
+			@include width-questionnaire($content-width-small + 12px);
 		}
 	}
 	.fullscreen-hidden-content{
 		.questionnaire{
-			margin-left: 12px + $filter-small-width;
+			@include width-questionnaire(12px + $filter-small-width);
 		}
 		.content{
 			left: -$content-width-small;
 		}
 	}
 	.questionnaire{
-		margin-left: $filter-small-width + 12px + $content-width-small;
+		@include width-questionnaire($filter-small-width + 12px + $content-width-small);
 	}
 	.footer.footer-adaptive-content.footer-adaptive-filters{
-	padding-left: $filter-small-width + $content-width-small;
+		padding-left: $filter-small-width + $content-width-small;
 	}
 	.footer.footer-adaptive-content{
 		padding-left: $content-width-small;
@@ -647,9 +637,6 @@ label.inactive{
 @media (max-width: $screen-md-min){
 	.content{
         padding-top: 60px;
-    }
-    .unit-title.is_stuck{
-        top: 60px !important;
     }
 	.details-interview{ 
 		.filters{
@@ -672,10 +659,13 @@ label.inactive{
 			}
 		}
 		.questionnaire{
-			margin-left: 12px;
+			@include width-questionnaire(12px);
 			.question{
 				padding-left: 75px;
 			}
+			.unit-title.is_stuck{
+		        top: 60px !important;
+		    } 
 		}
 		.fullscreen-hidden-content{	
 			.content{
@@ -691,13 +681,9 @@ label.inactive{
 				}
 			}
 			.questionnaire{
-				margin-left: $content-width-small +12px;
+				@include width-questionnaire($content-width-small +12px);
 				.question{
 					padding-left: 40px;
-				}
-				.unit-title.is_stuck{
-					padding-left: 50px;
-					width: auto !important;
 				}
 				.button-flag{
 					left: -20px;
@@ -717,14 +703,13 @@ label.inactive{
 				@include visible-foldback-button();
 			}
 			.questionnaire{
-				margin-left: $filter-small-width +12px;
+				@include width-questionnaire($filter-small-width +12px);
 				.question{
 					padding-left: 40px;
 				}
-				.unit-title.is_stuck{
+				.unit-title{
 					padding-left: 50px;
-					width: auto !important;
-				}
+				} 
 				.button-flag{
 					left: -20px;
 				}
@@ -747,13 +732,9 @@ label.inactive{
 				}
 			}
 			.questionnaire{
-				margin-left: $content-width-small +12px;
+				@include width-questionnaire($content-width-small +12px);
 				.question{
 					padding-left: 40px;
-				}
-				.unit-title.is_stuck{
-					padding-left: 50px;
-					width: auto !important;
 				}
 				.button-flag{
 					left: -20px;
@@ -784,10 +765,6 @@ label.inactive{
 @media (max-width: $screen-sm-min){
 	.details-interview{
 		.questionnaire {
-			.unit-title.is_stuck{
-				width: 100% !important;
-				bottom: auto !important;
-			}
 			.comment .form-inline .form-group{
 				display: inline-block;
 				margin-bottom: 0;

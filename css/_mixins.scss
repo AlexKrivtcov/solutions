@@ -289,6 +289,9 @@
         .bootstrap-select.btn-group{
             width: 100% !important;   
         } 
+        .input-group{
+            width: 100%;
+        }
         .open > .dropdown-menu{
             width: 100%;    
         }
@@ -318,4 +321,8 @@
             display: none;
         }
     }
+}
+@mixin width-questionnaire($margin-left){
+    margin-left: $margin-left;
+    width: calc(100% - #{$margin-left});
 }

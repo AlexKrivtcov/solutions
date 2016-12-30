@@ -25,7 +25,7 @@
             <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script>
         $(document).ready(function () {
-            $(".unit-title").stick_in_parent({offset_top: 70});
+            $(".unit-title").stick_in_parent({recalc_every: 200 });
         });
     </script> 
     <script>
@@ -47,11 +47,13 @@
                 $(".filters").toggleClass("hidden-filters");
                 $(this).parents('.row').toggleClass("fullscreen-hidden-filters");
                 $("footer").toggleClass("footer-adaptive-filters");
+                $(document.body).trigger("sticky_kit:recalc");
             });
             $("#hide-content").click(function () {
                 $(".filters").toggleClass("hidden-content");
                 $(this).parents('.row').toggleClass("fullscreen-hidden-content");
                 $("footer").toggleClass("footer-adaptive-content");
+                $(document.body).trigger("sticky_kit:recalc");
             });
             $("main").removeClass("hold-transition");
             $("footer").removeClass("hold-transition");
