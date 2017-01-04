@@ -14,11 +14,11 @@
                 <link rel='apple-touch-icon-precomposed' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
                 <link rel='apple-touch-icon-precomposed' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
                 <link rel='apple-touch-icon-precomposed' href='img/identity/favicon-hq.png'>
-    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sticky-kit.js"></script>
+    <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
@@ -44,13 +44,11 @@
         $(document).ready(function () 
         {
             $("#hide-filters").click(function () {
-                $(".filters").toggleClass("hidden-filters");
                 $(this).parents('.row').toggleClass("fullscreen-hidden-filters");
                 $("footer").toggleClass("footer-adaptive-filters");
                 $(document.body).trigger("sticky_kit:recalc");
             });
             $("#hide-content").click(function () {
-                $(".filters").toggleClass("hidden-content");
                 $(this).parents('.row').toggleClass("fullscreen-hidden-content");
                 $("footer").toggleClass("footer-adaptive-content");
                 $(document.body).trigger("sticky_kit:recalc");
@@ -490,7 +488,7 @@
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading-3">
-                                <h3 class="panel-title contains-error">
+                                <h3 class="panel-title has-error">
                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion-content-main" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
                                         Section D: Healthcare
                                     </a>
@@ -500,7 +498,7 @@
                                 <div class="panel-body">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title group contains-error">
+                                            <h3 class="panel-title group has-error">
                                                 <a href="#">Cover page, interview info</a>
                                             </h3>
                                         </div>
@@ -539,8 +537,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Do you smoke?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -570,12 +568,13 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -599,8 +598,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your relations status to the household head
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -630,12 +629,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -645,6 +645,11 @@
                                         </form>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="progress question-progress">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                              </div>
                             </div>
                         </div>
                         <div class="question with-flag">
@@ -659,8 +664,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Specify units
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -690,15 +695,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators">
                                     <h6>Enumerator's comment:</h6>
                                     <p>For this household quantity was measured in tens of hundreds but i could not find such option. What should I do?</p>
                                 </div>
                                 <div class="information-block comments-block">
                                     <div class="comment active">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -722,8 +728,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your sex
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -753,12 +759,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -782,8 +789,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor cascading-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -811,12 +818,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -840,8 +848,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor cascading-question  answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -869,12 +877,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -898,8 +907,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor multiselect-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What farm inputs and/or implements did your or any member of the household buy in the last 12 months?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -931,12 +940,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -960,8 +970,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor multiselect-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What type of heat source do you use to heat your house?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -993,12 +1003,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1022,8 +1033,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor ordered-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What crops were planted on your parcel during last year?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1032,39 +1043,40 @@
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Maize" type="checkbox"  checked/>
                                             <label for="Maize">
-                                                <div class="index-number">1</div>
                                                 <span class="tick"></span>Maize
                                             </label>
+                                            <div class="badge">1</div>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Tobaco" type="checkbox"/>
                                             <label for="Tobaco">
-                                                <div class="index-number">45</div>
                                                 <span class="tick"></span>Tobaco
                                             </label>
+                                            <div class="badge">45</div>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Ctoundnut" type="checkbox" checked/>
                                             <label for="Ctoundnut">
-                                                <div class="index-number">99</div>
                                                 <span class="tick"></span>Ctoundnut
                                             </label>
+                                            <div class="badge">99</div>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Rice" type="checkbox" checked />
                                             <label for="Rice">
-                                                <div class="index-number">200</div>
                                                 <span class="tick"></span>Rice
                                             </label>
+                                            <div class="badge">200</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1088,8 +1100,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1166,12 +1178,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1195,8 +1208,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1273,12 +1286,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1302,8 +1316,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question ordered answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What languages do you know?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1325,7 +1339,7 @@
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
-                                                <div class="index-number">199</div>
+                                                <div class="badge">199</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1343,7 +1357,7 @@
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
-                                                <div class="index-number">10</div>
+                                                <div class="badge">10</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1361,7 +1375,7 @@
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
-                                                <div class="index-number">59</div>
+                                                <div class="badge">59</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -1379,17 +1393,18 @@
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
-                                                <div class="index-number">67</div>
+                                                <div class="badge">67</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1421,8 +1436,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor list-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     List the members of the household who usually live and eat in this household.
                                 </h5>
                                 <div class="information-block instruction">
@@ -1442,12 +1457,13 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1471,8 +1487,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor list-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     List the members of the household who usually live and eat in this household.
                                 </h5>
                                 <div class="information-block instruction">
@@ -1507,12 +1523,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1535,9 +1552,9 @@
                                     <li><a href="#">asdf</a></li>
                                 </ul>
                             </div>
-                            <div class="question-editor numeric-question contains-error">
+                            <div class="question-editor numeric-question has-error">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     How much quantity in total did your household consume in the past 7 days?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1553,20 +1570,20 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                     <h6>Answer is invalid</h6>
                                     <p>Value of quantity of household consumption must be grater than 10 (and less than 99)</p>
                                 </div>
-                                <div class="information-block errors"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
-                                <h6>Your comment</h6>
+                                    <h6>Your comment</h6>
                                     <p>Value of quantity is correct</p>
                                     <h6>Admin comment</h6>
                                     <p>Please ask about quantity in total for household</p>
                                     <div class="comment active">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1590,8 +1607,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor numeric-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     How old are you?
                                 </h5>
                                 <div class="information-block instruction">
@@ -1610,12 +1627,13 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1638,9 +1656,9 @@
                                     <li><a href="#">asdf</a></li>
                                 </ul>
                             </div>
-                            <div class="question-editor gps-question contains-error">
+                            <div class="question-editor gps-question has-error">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Please capture gps using the tablet
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1658,15 +1676,16 @@
                                          </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                     <h6>Answer is invalid</h6>
                                     <p>Some error code</p>
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1690,8 +1709,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor gps-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Location of the household:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1710,13 +1729,14 @@
                                          </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1740,8 +1760,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor current-time-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Record current time
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1758,13 +1778,14 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1788,8 +1809,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor current-time-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Record current time
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1806,13 +1827,14 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1836,8 +1858,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor multimedia-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Tap to take a photo
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1848,13 +1870,14 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1878,8 +1901,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor multimedia-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Tap to take a photo
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1903,13 +1926,14 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1933,8 +1957,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor qr-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Barcode
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -1951,13 +1975,14 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -1971,18 +1996,19 @@
                         </div>
                         <div class="question static-text invalid">
                             <div class="question-editor">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Some static text
                                 </h5>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                     <h6>Answer is invalid</h6>
                                     <p>Some error message</p>
                                 </div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2006,8 +2032,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor qr-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Barcode
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2024,13 +2050,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2054,8 +2081,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor time-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Date of the interview:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2076,12 +2103,13 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2104,9 +2132,9 @@
                                     <li><a href="#">asdf</a></li>
                                 </ul>
                             </div>
-                            <div class="question-editor time-question contains-error">
+                            <div class="question-editor time-question has-error">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Date of the interview:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2134,15 +2162,16 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 <h6>Answer is invalid</h6>
                                 <p>Date can't be earlier than 2015 year</p>
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2175,8 +2204,9 @@
                                     </ul>
                                 </div>
                                 <div class="question-editor single-select-question">
+                                    <button type="button" class="btn-link button-flag"></button>
                                     <h5> 
-                                        <button type="button" class="btn-link button-flag"></button>
+
                                         What is your sex
                                     </h5>
                                     <div class="information-block instructions"></div>
@@ -2206,12 +2236,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="information-block errors"></div>
+                                    <div class="information-block text-danger"></div>
                                     <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
                                         <div class="comment">
-                                            <h6>Your comment</h6>
+                                            
                                             <form class="form-inline">
+                                                <label>Your comment</label>
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2225,15 +2256,16 @@
                         </div>
                         <div class="question static-text">
                                 <div class="question-editor">
+                                    <button type="button" class="btn-link button-flag"></button>
                                     <h5> 
-                                        <button type="button" class="btn-link button-flag"></button>
                                         Some static text
                                     </h5>
-                                    <div class="information-block errors"></div>
+                                    <div class="information-block text-danger"></div>
                                     <div class="information-block comments-block">
                                         <div class="comment">
-                                            <h6>Your comment</h6>
+                                            
                                             <form class="form-inline">
+                                                <label>Your comment</label>
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2247,15 +2279,16 @@
                         </div>
                         <div class="question static-text">
                                 <div class="question-editor">
+                                    <button type="button" class="btn-link button-flag"></button>
                                     <h5> 
-                                        <button type="button" class="btn-link button-flag"></button>
                                         Variable_name: <span>expression</span>
                                     </h5>
-                                    <div class="information-block errors"></div>
+                                    <div class="information-block text-danger"></div>
                                     <div class="information-block comments-block">
                                         <div class="comment">
-                                            <h6>Your comment</h6>
+                                            
                                             <form class="form-inline">
+                                                <label>Your comment</label>
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2279,8 +2312,8 @@
                                     </ul>
                                 </div>
                                 <div class="question-editor text-question">
+                                    <button type="button" class="btn-link button-flag"></button>
                                     <h5> 
-                                        <button type="button" class="btn-link button-flag"></button>
                                         What is the main idea of your business?
                                     </h5>
                                     <div class="information-block instruction">
@@ -2299,12 +2332,13 @@
                                           </div>
                                         </div>
                                     </div>
-                                    <div class="information-block errors"></div>
+                                    <div class="information-block text-danger"></div>
                                     <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
                                         <div class="comment">
-                                            <h6>Your comment</h6>
+                                            
                                             <form class="form-inline">
+                                                <label>Your comment</label>
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2318,23 +2352,24 @@
                         </div>
                         <div class="question static-text">
                             <div class="question-editor">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Some static text
-                                    <span class="image-zoom-box static-text-image"> 
-                                        <img src="img-example/download.jpg" alt="static-text-image" class="zoomImg" /> 
-                                        <span class="modal-img">
-                                            <span class="close-zoomming-img">&times;</span>
-                                            <img class="modal-img-content" src="" alt="" />
-                                            <span class="caption"></span>
-                                        </span>
-                                    </span> 
                                 </h5>
-                                <div class="information-block errors"></div>
+                                <div class="image-zoom-box static-text-image"> 
+                                    <img src="img-example/download.jpg" alt="static-text-image" class="zoomImg" /> 
+                                    <div class="modal-img">
+                                        <span class="close-zoomming-img">&times;</span>
+                                        <img class="modal-img-content" src="" alt="" />
+                                        <span class="caption"></span>
+                                    </div>
+                                </div> 
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2358,8 +2393,8 @@
                                     </ul>
                                 </div>
                                 <div class="question-editor time-question">
+                                    <button type="button" class="btn-link button-flag"></button>
                                     <h5> 
-                                        <button type="button" class="btn-link button-flag"></button>
                                         Date of the interview:
                                     </h5>
                                     <div class="information-block instruction"></div>
@@ -2380,12 +2415,13 @@
                                           </div>
                                         </div>
                                     </div>
-                                    <div class="information-block errors"></div>
+                                    <div class="information-block text-danger"></div>
                                     <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
                                         <div class="comment">
-                                            <h6>Your comment</h6>
+                                            
                                             <form class="form-inline">
+                                                <label>Your comment</label>
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                       <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2417,8 +2453,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor list-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     List the members of the household who usually live and eat in this household.
                                 </h5>
                                 <div class="information-block instruction">
@@ -2453,12 +2489,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2481,9 +2518,9 @@
                                     <li><a href="#">asdf</a></li>
                                 </ul>
                             </div>
-                            <div class="question-editor numeric-question contains-error">
+                            <div class="question-editor numeric-question has-error">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     How much quantity in total did your household consume in the past 7 days?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2499,20 +2536,21 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                     <h6>Answer is invalid</h6>
                                     <p>Value of quantity of household consumption must be grater than 10 (and less than 99)</p>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
-                                <h6>Your comment</h6>
+                                    <h6>Your comment</h6>
                                     <p>Value of quantity is correct</p>
                                     <h6>Admin comment</h6>
                                     <p>Please ask about quantity in total for household</p>
                                     <div class="comment active">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2536,8 +2574,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor gps-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Location of the household:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2556,13 +2594,14 @@
                                          </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2586,8 +2625,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor multimedia-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Tap to take a photo
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2611,13 +2650,14 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2641,8 +2681,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor qr-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Barcode
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2659,13 +2699,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2688,9 +2729,9 @@
                                     <li><a href="#">asdf</a></li>
                                 </ul>
                             </div>
-                            <div class="question-editor time-question contains-error">
+                            <div class="question-editor time-question has-error">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Date of the interview:
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2698,10 +2739,10 @@
                                     <div class="options-group">
                                       <div class="form-group">
                                         <div class="field answered">
-                                            <input type='text' class="field-to-fill" id='datetimepicker41' />
+                                            <input type='text' class="field-to-fill" id='datetimepicker411' />
                                             <script type="text/javascript">
                                                  $(function () {
-                                                    $('#datetimepicker41').datetimepicker({
+                                                    $('#datetimepicker411').datetimepicker({
                                                         defaultDate: "11/1/2013",
                                                         disabledDates: [
                                                             moment("12/25/2013"),
@@ -2718,15 +2759,16 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors">
+                                <div class="information-block text-danger">
                                 <h6>Answer is invalid</h6>
                                 <p>Date can't be earlier than 2015 year</p>
                                 </div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2760,8 +2802,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your sex
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -2791,12 +2833,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2820,8 +2863,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor cascading-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -2848,12 +2891,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2877,8 +2921,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor cascading-question  answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -2906,12 +2950,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -2944,8 +2989,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your relations status to the household head
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -2975,12 +3020,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3004,8 +3050,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What is your sex.
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -3035,12 +3081,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3064,8 +3111,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor cascading-question  answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Units
                                 </h5>
                                 <div class="information-block instructions"></div>
@@ -3093,12 +3140,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3122,8 +3170,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor multiselect-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What farm inputs and/or implements did your or any member of the household buy in the last 12 months?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -3155,12 +3203,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3174,15 +3223,16 @@
                         </div>
                         <div class="question static-text">
                             <div class="question-editor">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Some static text
                                 </h5>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3206,8 +3256,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor ordered-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What crops were planted on your parcel during last year?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -3216,39 +3266,40 @@
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Maize1" type="checkbox"  checked/>
                                             <label for="Maize1">
-                                                <div class="index-number">1</div>
                                                 <span class="tick"></span>Maize
                                             </label>
+                                            <div class="badge">1</div>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Tobaco1" type="checkbox"/>
                                             <label for="Tobaco1">
-                                                <div class="index-number">45</div>
                                                 <span class="tick"></span>Tobaco
                                             </label>
+                                            <div class="badge">45</div>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Ctoundnut1" type="checkbox" checked/>
                                             <label for="Ctoundnut1">
-                                                <div class="index-number">99</div>
                                                 <span class="tick"></span>Ctoundnut
                                             </label>
+                                            <div class="badge">99</div>
                                         </div>
                                         <div class="form-group">
                                             <input class="wb-checkbox" id="Rice1" type="checkbox" checked />
                                             <label for="Rice1">
-                                                <div class="index-number">200</div>
                                                 <span class="tick"></span>Rice
                                             </label>
+                                            <div class="badge">200</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3262,15 +3313,16 @@
                         </div>
                         <div class="question variable">
                             <div class="question-editor">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Variable_name: <span>expression</span>
                                 </h5>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3294,8 +3346,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor text-question">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What is the main idea of your business?
                                 </h5>
                                 <div class="information-block instruction">
@@ -3314,12 +3366,13 @@
                                       </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3343,8 +3396,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -3421,12 +3474,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment active">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3440,23 +3494,25 @@
                         </div>
                         <div class="question static-text">
                             <div class="question-editor">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Some static text with image
-                                    <div class="image-zoom-box static-text-image"> 
-                                        <img src="img-example/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image" class="zoomImg" /> 
-                                        <div class="modal-img">
-                                            <span class="close-zoomming-img">&times;</span>
-                                            <img class="modal-img-content" src="" alt="" />
-                                            <span class="caption"></span>
-                                        </div>
-                                    </div> 
+                                    
                                 </h5>
-                                <div class="information-block errors"></div>
+                                <div class="image-zoom-box static-text-image"> 
+                                    <img src="img-example/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image" class="zoomImg" /> 
+                                    <div class="modal-img">
+                                        <span class="close-zoomming-img">&times;</span>
+                                        <img class="modal-img-content" src="" alt="" />
+                                        <span class="caption"></span>
+                                    </div>
+                                </div> 
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3480,8 +3536,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question ordered answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     What languages do you know?
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -3503,7 +3559,7 @@
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
-                                                <div class="index-number">199</div>
+                                                <div class="badge">199</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3521,7 +3577,7 @@
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
-                                                <div class="index-number">10</div>
+                                                <div class="badge">10</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3539,7 +3595,7 @@
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
-                                                <div class="index-number">59</div>
+                                                <div class="badge">59</div>
                                             </div>
                                         </div>
                                         <div class="radio">
@@ -3557,17 +3613,18 @@
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
-                                                <div class="index-number">67</div>
+                                                <div class="badge">67</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />
@@ -3591,8 +3648,8 @@
                                 </ul>
                             </div>
                             <div class="question-editor img-single-select-question answered">
+                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
-                                    <button type="button" class="btn-link button-flag"></button>
                                     Choose some picture
                                 </h5>
                                 <div class="information-block instruction"></div>
@@ -3603,9 +3660,9 @@
                                                 <input class="wb-radio" type="radio" name="img-single-select" id="img11" checked />
                                                 <label for="img11">
                                                     <span class="tick"></span>
-                                                    <div class="image-option">
+                                                    <span class="image-option">
                                                         <img src="img-example/Cute-smile-emoticon-icons-vectors-set-10.jpg" alt="static-text-image"/> 
-                                                    </div>
+                                                    </span>
                                                 </label>
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
@@ -3617,9 +3674,9 @@
                                                 <input class="wb-radio" type="radio" name="img-single-select" id="img12" value="current-version" />
                                                 <label for="img12">
                                                     <span class="tick"></span>
-                                                    <div class="image-option">
+                                                    <span class="image-option">
                                                         <img src="img-example/download.jpg" alt="static-text-image"/> 
-                                                    </div>
+                                                    </span>
                                                 </label>
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
@@ -3628,12 +3685,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="information-block errors"></div>
+                                <div class="information-block text-danger"></div>
                                 <div class="information-block enumerators"></div>
                                 <div class="information-block comments-block">
                                     <div class="comment">
-                                        <h6>Your comment</h6>
+                                        
                                         <form class="form-inline">
+                                            <label>Your comment</label>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                   <input type="text" class="form-control" placeholder="Tap to enter your comment" />

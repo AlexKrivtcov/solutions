@@ -1,0 +1,74 @@
+.main-information{
+	margin-left: $filter-width - $margin-container + 12px +15px;
+	padding: 0 15px;
+	@include transition(margin, 0.3s);
+	table{
+		thead{
+			.column-questionnaire-title{
+				width: 25% !important;
+			}
+		}
+	}
+	.page-header{
+		padding-right: 365px; 
+		h1{
+			float: left;
+			margin-right: 30px;
+		}
+		.btn{
+			float: left;
+		}
+	}
+    .panel-table{
+		left: $filter-width + 12px;
+		@include transition(left, 0.3s);
+	}
+}
+@media (max-width: $screen-md-min){
+	.main-information{
+		.page-header{
+			padding-right: 255px;
+		}
+		margin-left: $filter-small-width - $margin-container-md-screen + 15px + 12px;
+		.panel-table{
+			left: $filter-small-width+ 12px;
+		}
+	}
+	.fullscreen-hidden-filters{
+		.main-information{
+			margin-left: 12px;
+			.panel-table{
+				left: 12px;
+			}
+		}
+	}
+}
+@media (max-width: $screen-sm-min){
+	.main-information{
+		margin-left: 15px;
+		.page-header{
+			padding-right: 0;
+		}
+		.panel-table{
+			left:  12px;
+		}
+	}
+	.fullscreen-hidden-filters{
+		.main-information{
+			.panel-table{
+				z-index: 0;
+			}
+		}
+	}
+	.main-information #DataTables_Table_0_wrapper #DataTables_Table_0_filter{
+		left: 0;
+	}
+	.table-with-checkboxes thead tr th:first-child + th{
+		padding-left: 10px;
+	}
+}
+@media (max-width: $screen-xs-min){
+	.main-information{
+		margin-left: 0px;
+	}
+}

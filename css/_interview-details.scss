@@ -99,7 +99,7 @@ label.inactive{
 	left: $filter-width + 12px;
 	width: $content-width;
 	@include box-shadow(20px 0px 40px 0px rgba(0, 0, 0, 0.2));
-	z-index: 3;
+	z-index: 4;
 	.questionnaire-content{
 		padding: 25px 0 5px 30px;
 		border-bottom: 3px solid $gray-super-light;
@@ -132,9 +132,10 @@ label.inactive{
 
 	.unit-title{
 		 &.is_stuck{
-			z-index: 2;
+			z-index: 3;
 			top: 70px !important;
 		}
+		z-index: 1;
 		position: relative;
 		background-color: $blue;
 		padding: 15px 20px 10px 80px;
@@ -160,16 +161,16 @@ label.inactive{
 }
 .question{
 	position: relative;
-	padding: 18px 20px 15px 70px;
+	padding: 18px 30px 20px 70px;
 	border-bottom: 2px solid $gray-form;
-	h5 .button-flag{
+	.question-editor .button-flag{
 		@include absolute(0, null, null, -30px);
 	}
 	&.with-flag{
 		display: block;
 		@include gradient($gray-super-light, $gray-super-light, null, null);
 		background-size: 12px 100%;
-		.question-editor h5 .button-flag{
+		.question-editor .button-flag{
 			@extend .flagged;
 		}
 	}
@@ -178,7 +179,7 @@ label.inactive{
 	padding: 0 10px;
 	
 	color: $gray_light;
-	h6{
+	h6, .comment label{
 		margin-top: 20px;
 		font: 10px/12px "TrebuchetMSBold";
 		letter-spacing: 0.5px;
@@ -202,7 +203,7 @@ label.inactive{
 	&.instruction{
 		color: $blue;
 	}
-	&.errors{
+	&.text-danger{
 		color: $red_error;
 	}
 }
@@ -232,9 +233,9 @@ label.inactive{
 	h5{
 		margin: 0;
 		color: $gray_light;
-		.button-flag{
-			z-index: 0;
-		}
+	}
+	.question-editor .button-flag{
+		z-index: 0;
 	}
 	.question-unit, .information-block{
 		display: none;
@@ -286,9 +287,11 @@ label.inactive{
 	@include question_title_colors(20%, 20%, 20%);
 }
 .question-editor{
+	margin: 0 auto;
+	position: relative;
 	max-width: $width-question-editor;
 	h5{
-		padding-left: 10px;
+		padding: 0 10px;
 		margin: 0 0 10px;
 
 		position: relative;
@@ -299,7 +302,7 @@ label.inactive{
 			background-color: transparent;
 		}
 	}
-	&.contains-error .question-unit .options-group{
+	&.has-error .question-unit .options-group{
 		background-color: $red-super-light;
 		.form-group{
 			border-color: $red-super-light;
@@ -362,7 +365,7 @@ label.inactive{
 				}
 			}
 			.dropdown-menu{
-				z-index: 1;
+				z-index: 2;
 				width: 100%;
 				padding:  5px 10px;
 				li{
@@ -372,7 +375,7 @@ label.inactive{
 					}
 				}
 			}
-			&.answered, &.contains-error{
+			&.answered, &.has-error{
 				.btn-clear{
 					@extend %visibility-visible;
 				}
@@ -410,7 +413,7 @@ label.inactive{
 .ordered-question{
 	.form-group{
 		position: relative;
-		input.wb-checkbox:checked ~ label .index-number{
+		input.wb-checkbox:checked ~ label + .badge{
 			display: block;
 		}
 	}
@@ -419,13 +422,15 @@ label.inactive{
 	.radio{
 		position: relative;
 		input.wb-radio:first-of-type{
-			&:checked ~ .index-number{
+			&:checked ~ .badge{
 				display: block;
 			}
 		}
 	}
 }
-.index-number{
+.options-group .badge{
+	padding: 0;
+	background-color: transparent;
 	display: none;
 	@include absolute(0, null, null, -40px);
 	line-height: 42px;
@@ -489,12 +494,12 @@ label.inactive{
 	}
 }
 .gps-question, .qr-question, .current-time-question, .multimedia-question{
-	&.answered, &.contains-error{
+	&.answered, &.has-error{
 		@extend %action-btn;
 	}
 }
 .gps-question {
-	&.answered, &.contains-error{
+	&.answered, &.has-error{
 		.map {
 	        height: 200px;
 	        width: 385px;
@@ -509,7 +514,7 @@ label.inactive{
 	}
 }
 .qr-question, .current-time-question{
-		&.answered, &.contains-error{
+		&.answered, &.has-error{
 		.block-with-data{
 			font-size: 12px;
 			line-height: 14px;
@@ -530,11 +535,12 @@ label.inactive{
 	}
 }
 .image-option{
+	display: block;
 	margin-left: 10px;
 	max-width: 70%;
 	@extend .image-zoom-box;
 }
-.fullscreen-hidden-filters {
+/* .fullscreen-hidden-filters {
 	.questionnaire{
 		@include width-questionnaire($content-width + 12px);	
 	}
@@ -554,7 +560,7 @@ label.inactive{
 	}
 	.filters{
 		box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
-		z-index: 3;
+		z-index: 4;
 	}
 	.questionnaire{
 		@include width-questionnaire($filter-width + 12px);
@@ -571,7 +577,7 @@ label.inactive{
 			padding-left: 85px;
 		}
 	}
-}
+}*/
 .footer.footer-adaptive-content.footer-adaptive-filters{
 	padding-left: $filter-width + $content-width;
 }
@@ -580,7 +586,7 @@ label.inactive{
 }
 .footer.footer-adaptive-filters{
 	padding-left: $filter-width;
-}
+} 
 @media only screen and (max-width: 1525px){
 	.details-interview{
 		@include tight-filters-aside();
@@ -608,7 +614,7 @@ label.inactive{
 			width: auto;
 		} 
 	}
-	.fullscreen-hidden-filters {
+/* 	.fullscreen-hidden-filters {
 		.questionnaire{
 			@include width-questionnaire($content-width-small + 12px);
 		}
@@ -623,7 +629,7 @@ label.inactive{
 	}
 	.questionnaire{
 		@include width-questionnaire($filter-small-width + 12px + $content-width-small);
-	}
+	}*/
 	.footer.footer-adaptive-content.footer-adaptive-filters{
 		padding-left: $filter-small-width + $content-width-small;
 	}
@@ -632,36 +638,47 @@ label.inactive{
 	}
 	.footer.footer-adaptive-filters{
 		padding-left: $filter-small-width;
-	}
+	} 
 }
 @media (max-width: $screen-md-min){
 	.content{
         padding-top: 60px;
     }
+    .aside-menu{
+    	right: 0;
+    }
 	.details-interview{ 
 		.filters{
 			padding-top: 105px;
 			left: ((-$filter-small-width)-12px);
-			@include hidden-foldback-button();
-			overflow: visible;
+			/* @include hidden-foldback-button();
+			overflow: visible; */
 			box-shadow: none;
-			.foldback-button{
+			/* .foldback-button{
 				top: 65px;
-			}
+			} */
 		}
 		.content{
-			box-shadow: none;
+			left: 12px;
+			.foldback-button{
+				top: 65px;
+			} 
+			/* box-shadow: none;
 			left: -$content-width-small;
 			@include hidden-foldback-button();
 			overflow: visible;
 			.foldback-button{
 				top: 120px;
-			}
+			} */
 		}
 		.questionnaire{
-			@include width-questionnaire(12px);
-			.question{
+			@include width-questionnaire(12px + $content-width-small);
+			/* @include width-questionnaire(12px); */
+/* 			.question{
 				padding-left: 75px;
+			} */
+			.unit-title{
+				padding-left: 50px;
 			}
 			.unit-title.is_stuck{
 		        top: 60px !important;
@@ -669,7 +686,9 @@ label.inactive{
 		}
 		.fullscreen-hidden-content{	
 			.content{
-				left: 12px;
+				left: -$content-width-small;
+				box-shadow: none;
+				/* left: 12px;
 				overflow: auto;
 				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
 				@include visible-foldback-button();
@@ -678,21 +697,25 @@ label.inactive{
 				}
 				.questionnaire-content{
 					padding-left: 50px;
-				}
+				} */
 			}
 			.questionnaire{
-				@include width-questionnaire($content-width-small +12px);
+				@include width-questionnaire($filter-small-width +12px);
+				/* @include width-questionnaire($content-width-small +12px);
 				.question{
 					padding-left: 40px;
 				}
 				.button-flag{
 					left: -20px;
-				}
+				} */
 			}
 			.filters{
-				.foldback-button{
+				left: 0;
+				overflow: auto;
+				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
+				/* .foldback-button{
 					display: none;
-				}
+				} */
 			}
 		}
 		.fullscreen-hidden-filters{
@@ -715,16 +738,19 @@ label.inactive{
 				}
 			}
 			.content{
-				.foldback-button{
+				left: -$content-width-small;
+				box-shadow: none;
+/* 				.foldback-button{
 					top: 65px;
 				}
-				z-index: 4;
-				box-shadow: none;
+				z-index: 5;
+				box-shadow: none; */
 			}
 		} 
 		.fullscreen-hidden-filters.fullscreen-hidden-content{
 			.content{
 				left: 12px;
+				overflow: auto;
 				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
 				@include visible-foldback-button();
 				.questionnaire-content{
@@ -743,9 +769,9 @@ label.inactive{
 			.filters{
 				box-shadow: none;
 				left: ((-$filter-small-width)-12px);
-				.foldback-button{
+/* 				.foldback-button{
 					display: none;
-				}
+				} */
 			}
 		}
 	}
@@ -764,12 +790,28 @@ label.inactive{
 }
 @media (max-width: $screen-sm-min){
 	.details-interview{
+		
 		.questionnaire {
+			@include width-questionnaire(12px);
 			.comment .form-inline .form-group{
 				display: inline-block;
 				margin-bottom: 0;
 				vertical-align: middle;
 			}
+		}
+		.content{
+			box-shadow: none;
+			left: -$content-width-small;
+			@include hidden-foldback-button();
+			overflow: visible;
+			.foldback-button{
+				top: 120px;
+			} 
+		}
+		.filters{
+			.foldback-button{
+				top: 65px;
+			} 
 		}
 		.fullscreen-hidden-filters{
 			.content, .questionnaire{
@@ -781,15 +823,18 @@ label.inactive{
 			}
 		}
 		.fullscreen-hidden-content{
-			.filter, .questionnaire{
+			.filters, .questionnaire{
 				display: none;
 			}
 			.content{
+				overflow: auto;
 				@include absolute(0, 0, 0, 0);
 				width: 100%;
 				border: none;
+				@include visible-foldback-button();
 				.foldback-button{
-			   		right: 10px;
+			   		right: 5px;
+			   		top: 65px;
 			   	}
 			}
 		}
@@ -819,7 +864,7 @@ label.inactive{
 			.yes-no-question .question-unit .options-group .radio .field > span{
 				width: 71%;
 			}
-			.gps-question.answered .map, .gps-question.contains-error .map{
+			.gps-question.answered .map, .gps-question.has-error .map{
 				width: 225px;
 			}
 			.multimedia-question .image-wrapper{

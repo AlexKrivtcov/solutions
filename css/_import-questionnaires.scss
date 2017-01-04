@@ -128,11 +128,45 @@
         }  
     }
 }
+.import-wrapper{
+    .dataTables_wrapper .dataTables_paginate  > .paginate_button{
+        color: $green;
+         &.disabled, &.disabled:hover, &.disabled:active{
+            color: $gray_light;
+            text-decoration: none;
+            cursor: not-allowed;
+        }
+    }
+    .dataTables_wrapper{
+        .dataTables_paginate{
+            padding-left: 10px;
+             &>span{
+                left: 8px;
+             }
+        }
+    }
+    #DataTables_Table_0_wrapper{
+    position: relative;
+        #DataTables_Table_0_filter{
+            @include absolute(-10px, auto, null, 0);
+
+            label{
+                &:after{
+                    @include absolute(15px, auto, null, 10px);
+                }
+                input{
+                    margin-right: 0;
+                    margin-left: 40px;
+                }
+            }
+        }
+    }
+}
 @media (max-width: $screen-md-min){
     .parameters{
         display: none;
     }
-    .table{
+    .import-interview{
         tr{
             @include transition(all, 0.1s);
             height: 35px;
@@ -143,6 +177,17 @@
     }
 }
 @media (max-width: $screen-sm-min){
+    .import-wrapper{
+        #DataTables_Table_0_wrapper{
+            #DataTables_Table_0_filter{
+                position: relative;
+                top: -5px;
+                label:after{
+                    top: 10px;
+                }
+            }
+        }
+    }
     .shared-with{
         display: none;
     }
@@ -174,17 +219,6 @@
         .questionnaire-versioning, .flex-row{
             margin-bottom: 0;
         }
-    }
-}
-@media (max-width: $screen-xs-min){   
-    .import-interview{
-        thead{
-            tr th{
-                &:first-child, &.padding-left-lide:first-child{
-                    padding-left: 45px;
-                }
-            }
-        } 
     }
 }
 
