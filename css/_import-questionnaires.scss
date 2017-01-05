@@ -73,14 +73,20 @@
         }
     }
     thead{
+        tr{
+            border-bottom: 2px solid #ddd;
+        }
         th.column-questionnaire-title{
             width: 44%;
+
         }
     }
     tbody{
+        border-bottom: 2px solid #ddd;
         font: 13px/15px Georgia, Times, "Times New Roman", serif;
         font-style: italic;
         tr{
+            border-bottom: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
             &:hover, &:focus{
                 td {
@@ -99,6 +105,7 @@
                 }
             }
             td{
+                padding: 8px 10px;
                 &.shared-with{
                     color: $gray_form;
                     &>span{
@@ -145,9 +152,9 @@
              }
         }
     }
-    #DataTables_Table_0_wrapper{
+    .dataTables_wrapper{
     position: relative;
-        #DataTables_Table_0_filter{
+        .dataTables_filter{
             @include absolute(-10px, auto, null, 0);
 
             label{
@@ -178,8 +185,8 @@
 }
 @media (max-width: $screen-sm-min){
     .import-wrapper{
-        #DataTables_Table_0_wrapper{
-            #DataTables_Table_0_filter{
+        .dataTables_wrapper{
+            .dataTables_filter{
                 position: relative;
                 top: -5px;
                 label:after{

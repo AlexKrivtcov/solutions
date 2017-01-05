@@ -45,16 +45,29 @@
                     else{
                         $(this).addClass("active");
                     }
-                    $(".column-questionnaire-title").toggleClass("padding-left-slide");
                 });
             })
             .DataTable({
                 "pageLength": 50,
                 "lengthChange": false,
                 "order": [1, 'desc'],
+                "searching": false,
                 "pagingType": "full_numbers"
             });
+            $('.import-interview th .search').click(function() {
+            return false;
+            })
     });
+    </script>
+    <script>
+       $(document).ready(function(){
+             $(".btn-search").click(function () {
+                $(this).parents("th").toggleClass("active-search");
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().find("input").val('');
+                }); 
+            });
+        });
     </script>
 <body>
     <header>
@@ -95,11 +108,11 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
-                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
-                                        <i class="glyphicon glyphicon-cloud-upload"></i>
-                                        <span class="sync-queue-size">16287</span>
-                                    </a>
-                                </li>
+                            <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                <i class="glyphicon glyphicon-cloud-upload"></i>
+                                <span class="sync-queue-size">16287</span>
+                            </a>
+                        </li>
                         <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
                         <li><a href="#" title="Help">Help</a></li>
                         <li class="dropdown">
@@ -136,7 +149,15 @@
           <table class="table table-hover table-ordered import-interview">
             <thead>
               <tr>
-                <th class="column-questionnaire-title">title</th>
+                <th class="column-questionnaire-title with-search">
+                    <div class="search">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <button class="btn btn-link btn-search" type="button"></button>
+                        <button class="btn btn-link btn-clear" type="button"><span></span></button>
+                    </div>
+                    
+                    title
+                </th>
                 <th>last modified</th>
                 <th class="modified-by">last modified by</th>
                 <th class="parameters">volume</th>

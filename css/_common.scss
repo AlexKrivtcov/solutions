@@ -34,7 +34,9 @@ html {
 		font-family: Arial, sans-serif;
 		font-size: 16px;
 		line-height: 18px;
-		@include gradient($gray_form, $gray_form, null, null);
+		@include gradient-horizontal($gray_form, $gray_form);
+		background-repeat: repeat-y;
+/* 		@include gradient($gray_form, $gray_form, null, null); */
 		background-size: 12px 100%;
 		padding-top: 70px;
 		.footer {
@@ -84,7 +86,7 @@ h1{
 	font: 26px/28px "RobotoLight";
 	margin: 0;
     color: $gray_text;
-    padding: 0 0 30px;
+    padding: 0 0 15px;
 }
 h2{
 	font: 26px/28px "RobotoLight";
@@ -141,9 +143,25 @@ h5{
     margin: 0;
     border: none;
     padding-top: 40px;
+    padding-bottom: 15px;
     .maintenance-mode{
         @extend %instructions;
     }
+    h1 + .maintenance-mode{
+    	margin-top: 15px;
+    }
+    &>div{
+		h1{
+			float: left;
+			margin-right: 30px;
+		}
+		.btn{
+			float: left;
+		}	
+	}
+	p{
+		font-family: "RobotoRegular";
+	}
 }
 .row{
 	.page-header{
@@ -255,4 +273,50 @@ table.dataTable span.highlight {
   background-color: $highlight-color;
   color: $gray_text;
   border-radius: 0.28571429rem;
+}
+table{
+	tr{
+		th, td{
+			&:first-child{
+				.census-icon{
+					margin-right: 5px;
+					margin-left: 0;
+				}
+			}
+			.census-icon{
+				margin-left: 5px;
+			}
+		}
+	}
+}
+.census-icon{
+	text-transform: capitalize;
+	display: inline-block;
+    padding: 3px 5px 3px 4px;
+    border-radius: 100%;
+    background-color: $blue;
+    color: #fff !important;
+    font: 13px/13px Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+}
+.main-information{
+	margin-left: $filter-width - $margin-container + 12px +15px;
+	padding: 0 0 0 30px;
+	@include transition(margin, 0.3s);
+	.page-header div{
+		padding-right: 365px; 
+	}
+}
+@media (max-width: $screen-sm-min){
+	.main-information{
+		padding-right: 15px;
+		padding-left: 0;
+	}
+}
+@media (max-width: $screen-xs-min){
+	.main-information{
+		padding-right: 0px;
+		padding-top: 10px;
+	}
 }

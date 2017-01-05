@@ -67,6 +67,19 @@
                 "order": [2, 'desc'],
                 "pagingType": "simple_numbers"
             });
+            $('table th .search').click(function() {
+            return false;
+            })
+        });
+    </script>
+    <script>
+       $(document).ready(function(){
+             $(".btn-search").click(function () {
+                $(this).parents("th").toggleClass("active-search");
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().find("input").val('');
+                }); 
+            });
         });
     </script>
 </head>
@@ -170,8 +183,10 @@
                 </aside>
                 <div class="main-information">
                     <div class="page-header clearfix">
-                        <h1>Interviewers</h1>
-                        <button class="btn btn-success" type="button">create</button>
+                        <div>
+                            <h1>Interviewers</h1>
+                            <button class="btn btn-success" type="button">create</button>
+                        </div>
                     </div>
                     <table class="table table-striped table-ordered table-bordered table-hover table-with-checkboxes">
                         <thead>
@@ -182,7 +197,14 @@
                                         <span class="tick"></span>
                                     </label> 
                                 </th>
-                                <th>login name</th> 
+                                <th class="with-search">
+                                    <div class="search">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <button class="btn btn-link btn-search" type="button"></button>
+                                        <button class="btn btn-link btn-clear" type="button"><span></span></button>
+                                    </div>
+                                    login name
+                                </th> 
                                 <th class="for-tablets">Account creation date</th> 
                                 <th class="for-mobile-devices">Interviewer's Email</th> 
                                 <th>Supervisor</th> 
