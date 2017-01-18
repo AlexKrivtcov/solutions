@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HQ-questionnaires</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
-                <link rel='apple-touch-icon-precomposed' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
-                <link rel='apple-touch-icon-precomposed' href='img/identity/favicon-hq.png'>
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
     <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
@@ -44,12 +44,12 @@
         $(document).ready(function () 
         {
             $("#hide-filters").click(function () {
-                $(this).parents('.row').toggleClass("fullscreen-hidden-filters");
+                $('main').toggleClass("fullscreen-hidden-filters");
                 $("footer").toggleClass("footer-adaptive-filters");
                 $(document.body).trigger("sticky_kit:recalc");
             });
             $("#hide-content").click(function () {
-                $(this).parents('.row').toggleClass("fullscreen-hidden-content");
+                $('main').toggleClass("fullscreen-hidden-content");
                 $("footer").toggleClass("footer-adaptive-content");
                 $(document.body).trigger("sticky_kit:recalc");
             });
@@ -332,9 +332,9 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading-1">
                                 <h3 class="panel-title complete">
+                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1"><span></span>
+                                    </button>
                                     <a href="#">
-                                        <button class="btn btn-link btn-plus collapsed" role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1"><span></span>
-                                        </button>
                                         Section B: food consumption overview
                                     </a>
                                 </h3>
@@ -354,10 +354,9 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading-2">
                                 <h3 class="panel-title">
-                                    <a href="#">
-                                    <button class="btn btn-link btn-plus" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="true" aria-controls="collapse-2"><span></span>
+                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2"><span></span>
                                     </button>
-                                    Section C: Consumption of food over past week</a>
+                                    <a href="#">Section C: Consumption of food over past week</a>
                                 </h3>
                             </div>
                             <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
@@ -366,9 +365,9 @@
                                         <div class="panel panel-default">
                                             <div class="panel-heading" role="tab" id="heading-2-1">
                                                 <h3 class="panel-title complete">
+                                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse"  data-target="#collapse-2-1" aria-expanded="false" aria-controls="collapse-2-1"><span></span>
+                                                    </button>
                                                     <a href="#">
-                                                        <button class="btn btn-link btn-plus collapsed" role="button" data-toggle="collapse"  href="#collapse-2-1" aria-expanded="false" aria-controls="collapse-2-1"><span></span>
-                                                        </button>
                                                         Yearly consumption
                                                     </a>
                                                 </h3>
@@ -388,9 +387,9 @@
                                         <div class="panel panel-default">
                                             <div class="panel-heading" role="tab" id="heading-2-2">
                                                 <h3 class="panel-title">
-                                                    <a href="#">
-                                                        <button class="btn btn-link btn-plus" role="button" data-toggle="collapse" href="#collapse-2-2" aria-expanded="false" aria-controls="collapse-2-2"><span></span>
+                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2" aria-expanded="false" aria-controls="collapse-2-2"><span></span>
                                                         </button>
+                                                    <a href="#">
                                                         Consumption per week
                                                     </a>
                                                 </h3>
@@ -401,9 +400,9 @@
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading" role="tab" id="heading-2-2-1">
                                                                 <h3 class="panel-title">
-                                                                    <a href="#">
-                                                                        <button class="btn btn-link btn-plus" role="button" data-toggle="collapse" href="#collapse-2-2-1" aria-expanded="false" aria-controls="collapse-2-2-1"><span></span>
+                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1" aria-expanded="false" aria-controls="collapse-2-2-1"><span></span>
                                                                         </button>
+                                                                    <a href="#">
                                                                         Cereals and cereals products
                                                                     </a>
                                                                 </h3>
@@ -414,9 +413,9 @@
                                                                         <div class="panel panel-default">
                                                                             <div class="panel-heading" role="tab" id="heading-2-2-1-1">
                                                                                 <h3 class="panel-title active">
+                                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1"><span></span>
+                                                                                    </button>
                                                                                     <a href="#">
-                                                                                        <button class="btn btn-link btn-plus" role="button" data-toggle="collapse" href="#collapse-2-2-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1"><span></span>
-                                                                                        </button>
                                                                                         During the last 12 months, did you or any members of your household receive any of the following Sources?
                                                                                     </a>
                                                                                 </h3>
@@ -427,9 +426,9 @@
                                                                                         <div class="panel panel-default">
                                                                                             <div class="panel-heading" role="tab" id="heading-2-2-1-1-1">
                                                                                                 <h3 class="panel-title">
-                                                                                                    <a href="#">
-                                                                                                        <button class="btn btn-link btn-plus" role="button" data-toggle="collapse" href="#collapse-2-2-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1"><span></span>
+                                                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1"><span></span>
                                                                                                         </button>
+                                                                                                    <a href="#">
                                                                                                         Did your household own or rent any farm implevents, machinery and/or structures, such as hand hoe, panga knife, treadle pump, ox cart, tractor, plough, generator, chicken house, storage house, barn, etc... in the last 12 months?
                                                                                                     </a>
                                                                                                 </h3>
@@ -440,9 +439,9 @@
                                                                                                         <div class="panel panel-default">
                                                                                                             <div class="panel-heading" role="tab" id="heading-2-2-1-1-1-1">
                                                                                                                 <h3 class="panel-title">
+                                                                                                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1-1"><span></span>
+                                                                                                                    </button>
                                                                                                                     <a href="#">
-                                                                                                                        <button class="btn btn-link btn-plus collapsed" role="button" data-toggle="collapse" href="#collapse-2-2-1-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1-1"><span></span>
-                                                                                                                        </button>
                                                                                                                         Cereals and cereals products
                                                                                                                     </a>
                                                                                                                 </h3>
@@ -482,9 +481,9 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading-3">
                                 <h3 class="panel-title has-error">
-                                    <a href="#">
-                                        <button class="btn btn-link btn-plus collapsed" role="button" data-toggle="collapse" data-parent="#accordion-content-main" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3"><span></span>
+                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-parent="#accordion-content-main" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3"><span></span>
                                         </button>
+                                    <a href="#">
                                         Section D: Healthcare
                                     </a>
                                 </h3>
@@ -1411,6 +1410,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="action-container">
+                            <a href="#" class="btn btn-success disabled">1B. demographic characterictics. information on parental survival</a>
+                        </div>
                     </div>
                     <div class="unit-section section-with-error">
                         <div class="unit-title">
@@ -2178,6 +2180,10 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="action-container">
+                            <a href="#" class="btn btn-danger btn-back">
+                            1B. demographic characterictics. information on parental survival</a>
+                        </div>
                     </div>
                     <div class="unit-section hidden-by-filter complete-section">
                         <div class="unit-title">
@@ -2201,7 +2207,6 @@
                                 <div class="question-editor single-select-question">
                                     <button type="button" class="btn-link button-flag"></button>
                                     <h5> 
-
                                         What is your sex
                                     </h5>
                                     <div class="information-block instructions"></div>
@@ -3520,6 +3525,50 @@
                             </div>
                         </div>
                         <div class="question">
+                            <div class="question-editor roster-section-block">
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <a href="#" class="btn btn-primary btn-roster-section">household - demographic</a>
+                                    </div>
+                                    <div class="information-block roster-section-info">
+                                    Section not started</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-editor roster-section-block started">
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <a href="#" class="btn btn-primary btn-roster-section">Demographic</a>
+                                    </div>
+                                    <div class="information-block roster-section-info">
+                                    Section completted: 4 answers, no sub-cections</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-editor roster-section-block has-error">
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <a href="#" class="btn btn-danger btn-roster-section">Demographic</a>
+                                    </div>
+                                    <div class="information-block roster-section-info">
+                                    Section completted: 4 answers, no sub-cections, <span class="error-text">one error</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-editor roster-section-block answered">
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <a href="#" class="btn btn-success btn-roster-section">Demographic</a>
+                                    </div>
+                                    <div class="information-block roster-section-info">
+                                    Section completted: 4 answers, no sub-cections</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
                             <div class="dropdown aside-menu">
                                 <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
@@ -3697,6 +3746,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="action-container">
+                            <a href="#" class="btn btn-primary">1B. demographic characterictics. information on parental survival</a>
                         </div>
                     </div>
                 </section>
