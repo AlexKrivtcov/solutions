@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-questionnaires</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+            $(".navbar-collapse").fadeToggle();
+            $(".navbar-collapse").animate({height: '100%'}, 0);
+            $(".top-menu").toggleClass("top-animate");
+            $(".mid-menu").toggleClass("mid-animate");
+            $(".bottom-menu").toggleClass("bottom-animate");
+            $("main").toggleClass("hidden");
+            });
+        });
+    </script> 
+    <script>
+        $(document).ready(function () 
+        {
+            $(".humburger-foldback-button").click(function () {
+                $('main').toggleClass("fullscreen-hidden-content");
+                $("footer").toggleClass("footer-adaptive-content");
+                $(document.body).trigger("sticky_kit:recalc");
+            });
+            $("main").removeClass("hold-transition");
+            $("footer").removeClass("hold-transition");
+        });
+    </script>
+    <script>
+        $(function() {
+            $(".btn-clear").click(function() {  
+                $(this).parent().find("input").prop('checked', false);
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $.each($('.field-to-fill'), function( index, value ) {
+                if ($(this).val().length > 0) {
+                    $(this).parent(".field").addClass("answered");
+                }
+                
+                $(this).change(function() {
+                    if ($(this).val().length > 0) {
+                        $(this).parent(".field").addClass("answered");
+                    }
+                     else{
+                        $(this).parent(".field").removeClass("answered");
+                    }
+                });
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().removeClass("answered");
+                    $(this).parent().find("input").val('');
+                });             
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+            $.each($('.cascading-question'), function( index, value ) {
+                if ($(this).val().length > 0) {
+                    $(this).parent(".field").addClass("answered");
+                }
+                $(this).change(function() {
+                    if ($(this).val().length > 0) {
+                        $(this).parent(".field").addClass("answered");
+                    } 
+                });
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().removeClass("answered");
+                    $(this).parent().find("input").val('');
+                });             
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $(".zoomImg").click(function(e) { 
+                var modal = $(this).parent('.image-zoom-box').find(".modal-img");
+                var caption = $(this).parent('.image-zoom-box').find(".caption");
+                var close = $(this).parent('.image-zoom-box').find(".close-zoomming-img");
+                modal.show();
+                modal.find("img").attr("src", $(e.target).attr("src"));
+                caption.text($(e.target).attr("alt"));
+                close.click(function() { 
+                    modal.fadeOut();
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Web interview #23-44-32-12</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#" title="Web interview #23-44-32-12">Web interview #23-44-32-12</a></li>
+                        <li><a href="#" title="Restart">Restart</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="ENG">ENG<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">RUS</a></li>
+                                <li><a href="#">UA</a></li>
+                                <li><a href="#">Chinese</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header>  
+    <main class="web-interview hold-transition">
+        <div class="container-fluid">
+            <div class="row">
+                <aside class="content">
+                    <div class="humburger-foldback-button">
+                        <span></span>
+                    </div>
+                    <div class="panel-group structured-content" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title group complete">
+                                    <a href="#">Cover page, interview info</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-1">
+                                <h3 class="panel-title complete">
+                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1"><span></span>
+                                    </button>
+                                    <a href="#">
+                                        Section B: food consumption overview
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-1">
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title group complete">
+                                                <a href="#">Cover page, interview info</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-2">
+                                <h3 class="panel-title">
+                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2"><span></span>
+                                    </button>
+                                    <a href="#">Section C: Consumption of food over past week</a>
+                                </h3>
+                            </div>
+                            <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
+                                <div class="panel-body">
+                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-2-1">
+                                                <h3 class="panel-title complete">
+                                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse"  data-target="#collapse-2-1" aria-expanded="false" aria-controls="collapse-2-1"><span></span>
+                                                    </button>
+                                                    <a href="#">
+                                                        Yearly consumption
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-2-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2-1">
+                                                <div class="panel-body">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title group complete">
+                                                                <a href="#">Cover page, interview info</a>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-2-2">
+                                                <h3 class="panel-title">
+                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2" aria-expanded="false" aria-controls="collapse-2-2"><span></span>
+                                                        </button>
+                                                    <a href="#">
+                                                        Consumption per week
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-2-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1">
+                                                <div class="panel-body">
+                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="heading-2-2-1">
+                                                                <h3 class="panel-title">
+                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1" aria-expanded="false" aria-controls="collapse-2-2-1"><span></span>
+                                                                        </button>
+                                                                    <a href="#">
+                                                                        Cereals and cereals products
+                                                                    </a>
+                                                                </h3>
+                                                            </div>
+                                                            <div id="collapse-2-2-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1">
+                                                                <div class="panel-body">
+                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                        <div class="panel panel-default">
+                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1">
+                                                                                <h3 class="panel-title active">
+                                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1"><span></span>
+                                                                                    </button>
+                                                                                    <a href="#">
+                                                                                        During the last 12 months, did you or any members of your household receive any of the following Sources?
+                                                                                    </a>
+                                                                                </h3>
+                                                                            </div>
+                                                                            <div id="collapse-2-2-1-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1-1">
+                                                                                <div class="panel-body">
+                                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                                        <div class="panel panel-default">
+                                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1-1">
+                                                                                                <h3 class="panel-title">
+                                                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1"><span></span>
+                                                                                                        </button>
+                                                                                                    <a href="#">
+                                                                                                        Did your household own or rent any farm implevents, machinery and/or structures, such as hand hoe, panga knife, treadle pump, ox cart, tractor, plough, generator, chicken house, storage house, barn, etc... in the last 12 months?
+                                                                                                    </a>
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                            <div id="collapse-2-2-1-1-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1-1-1">
+                                                                                                <div class="panel-body">
+                                                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                                                        <div class="panel panel-default">
+                                                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1-1-1">
+                                                                                                                <h3 class="panel-title">
+                                                                                                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1-1"><span></span>
+                                                                                                                    </button>
+                                                                                                                    <a href="#">
+                                                                                                                        Cereals and cereals products
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+                                                                                                            <div id="collapse-2-2-1-1-1-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2-2-1-1-1-1">
+                                                                                                                <div class="panel-body">
+                                                                                                                    <div class="panel panel-default">
+                                                                                                                        <div class="panel-heading">
+                                                                                                                            <h3  class="panel-title group">
+                                                                                                                                <a href="#">Yearly consumption</a>
+                                                                                                                            </h3>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-3">
+                                <h3 class="panel-title has-error">
+                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-parent="#accordion-content-main" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3"><span></span>
+                                        </button>
+                                    <a href="#">
+                                        Section D: Healthcare
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title group has-error">
+                                                <a href="#">Cover page, interview info</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3  class="panel-title group complete">
+                                    <a href="#">Yearly consumption</a>
+                                </h3>
+                           </div>
+                        </div>
+                    </div>
+                </aside>
+                <section class="questionnaire details-interview">
+                    <div class="unit-section complete-section">
+                        <div class="unit-title">
+                            <div class="humburger-foldback-button" id="hide-content">
+                                <span></span>
+                            </div>
+                            <h3>Introduction, pre-filled questions</h3>
+                        </div>
+                        <div class="wrapper-info">
+                            <div class="container-info">
+                                <h2>Copy of Copy of Bosnia and Herzogowina <br/> Water and Sanitation Survey 2017 (Friday draft)</h2>
+                                <p><b>Please provide answers to all questions to the extent possible. Any answers you provide are sent to our system right away. If you experience a communication disruption you can return to the questionnaire by following the same link you prowided so far retained for you. You can then continue by submitting new answers or revising earlier answers.</b></p>
+                            </div>
+                            
+                        </div>
+                        <div class="wrapper-info">
+                            <div class="container-info">
+                                <p>Enumeration area code</p>
+                                <p><b>East 12</b></p>
+                            </div>
+                        </div>
+                        <div class="wrapper-info">
+                            <div class="container-info">
+                                <p>Interviewee ID</p>
+                                <p><b><a href="mailto:liam.radison@yahoo.com">liam.radison@yahoo.com</a></b></p>
+                            </div>
+                        </div> 
+                        <div class="wrapper-info">
+                            <div class="container-info">
+                                <p>Interviewee occupation industry</p>
+                                <p><b>Healthcare</b></p>
+                            </div>
+                        </div>
+                        <div class="action-container">
+                            <a href="#" class="btn btn-success">next chapter</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="footer hold-transition footer-adaptive-content">
+        <div class="container-fluid">
+            <div class="text-left">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-left">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+            var $target = $( event.currentTarget );
+            $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .removeClass("gray-text")
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+        });
+    </script>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFtRD8SCHuzfNmn1RvKCjQum3e19C1J10&callback=initMap">
+    </script>
+</body>
+</html>

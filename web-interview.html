@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HQ-questionnaires</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
-                <link rel='apple-touch-icon-precomposed' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
-                <link rel='apple-touch-icon-precomposed' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
-                <link rel='apple-touch-icon-precomposed' href='img/identity/favicon-hq.png'>
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
     <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
@@ -35,10 +36,20 @@
         });
     </script> 
     <script>
-        $(function() {
-            $(".button-flag").click(function() {  
-                $(this).parents('.question').toggleClass("with-flag");
+        $(document).ready(function () {
+            $(".unit-title").stick_in_parent({recalc_every: 200 });
+        });
+    </script> 
+    <script>
+        $(document).ready(function () 
+        {
+            $(".humburger-foldback-button").click(function () {
+                $('main').toggleClass("fullscreen-hidden-content");
+                $("footer").toggleClass("footer-adaptive-content");
+                $(document.body).trigger("sticky_kit:recalc");
             });
+            $("main").removeClass("hold-transition");
+            $("footer").removeClass("hold-transition");
         });
     </script>
     <script>
@@ -91,6 +102,16 @@
     </script>
     <script>
         $(function() {
+            $(".hidden-by-filter").dblclick(function() {
+              $(this).toggleClass('hidden-by-filter').toggleClass('open-hidden-by-filter');
+            });
+            $(".open-hidden-by-filter").dblclick(function() {
+              $(this).toggleClass('open-hidden-by-filter').toggleClass('hidden-by-filter')
+            });
+        });
+    </script>
+    <script>
+        $(function() {
             $(".zoomImg").click(function(e) { 
                 var modal = $(this).parent('.image-zoom-box').find(".modal-img");
                 var caption = $(this).parent('.image-zoom-box').find(".caption");
@@ -111,54 +132,34 @@
            <div class="container-fluid ">
               <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="#" class="active-page">Questionnaires</a>
+                    <a href="#" class="active-page">Web interview #23-44-32-12</a>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar top-menu"></span>
                         <span class="icon-bar mid-menu"></span>
                         <span class="icon-bar bottom-menu"></span>
                     </button>
-                    <a href="#" class="badge badge_nav">42</a>
-                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
-                        <i class="glyphicon glyphicon-cloud-upload"></i>
-                        <span class="sync-queue-size">16287</span>
-                    </a>
                     <a class="navbar-brand  rotate-brand" href="#">
-                        <div class="brand-name" title="Headquarter">Headquarter</div>
                     </a>
                 </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class="active"><a href="#">Settings</a></li>
-                                <li><a href="#">Manage account</a></li>
-                                <li><a href="#">Logoff</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" title="Interviews">Interviews</a></li>
-                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
-                        <li><a href="#" title="Data Export">Data Export</a></li>
+                        <li class="active"><a href="#" title="Web interview #23-44-32-12">Web interview #23-44-32-12</a></li>
+                        <li><a href="#" title="Restart">Restart</a></li>
+                        <li><a href="#" title="List of pre-filled questions">List of pre-filled questions</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
-                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
-                                        <i class="glyphicon glyphicon-cloud-upload"></i>
-                                        <span class="sync-queue-size">16287</span>
-                                    </a>
-                                </li>
-                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
-                        <li><a href="#" title="Help">Help</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="ENG">ENG<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Settings</a></li>
-                                <li><a href="#">Manage account</a></li>
-                                <li><a href="#">Logoff</a></li>
+                                <li><a href="#">RUS</a></li>
+                                <li><a href="#">UA</a></li>
+                                <li><a href="#">Chinese</a></li>
                             </ul>
                         </li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -167,8 +168,211 @@
     <main class="web-interview hold-transition">
         <div class="container-fluid">
             <div class="row">
-                <section class="questionnaire">
+                <aside class="content">
+                    <div class="humburger-foldback-button">
+                        <span></span>
+                    </div>
+                    <div class="panel-group structured-content" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title group complete">
+                                    <a href="#">Cover page, interview info</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-1">
+                                <h3 class="panel-title complete">
+                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1"><span></span>
+                                    </button>
+                                    <a href="#">
+                                        Section B: food consumption overview
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-1">
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title group complete">
+                                                <a href="#">Cover page, interview info</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-2">
+                                <h3 class="panel-title">
+                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2"><span></span>
+                                    </button>
+                                    <a href="#">Section C: Consumption of food over past week</a>
+                                </h3>
+                            </div>
+                            <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
+                                <div class="panel-body">
+                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-2-1">
+                                                <h3 class="panel-title complete">
+                                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse"  data-target="#collapse-2-1" aria-expanded="false" aria-controls="collapse-2-1"><span></span>
+                                                    </button>
+                                                    <a href="#">
+                                                        Yearly consumption
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-2-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2-1">
+                                                <div class="panel-body">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title group complete">
+                                                                <a href="#">Cover page, interview info</a>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-2-2">
+                                                <h3 class="panel-title">
+                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2" aria-expanded="false" aria-controls="collapse-2-2"><span></span>
+                                                        </button>
+                                                    <a href="#">
+                                                        Consumption per week
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-2-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1">
+                                                <div class="panel-body">
+                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="heading-2-2-1">
+                                                                <h3 class="panel-title">
+                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1" aria-expanded="false" aria-controls="collapse-2-2-1"><span></span>
+                                                                        </button>
+                                                                    <a href="#">
+                                                                        Cereals and cereals products
+                                                                    </a>
+                                                                </h3>
+                                                            </div>
+                                                            <div id="collapse-2-2-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1">
+                                                                <div class="panel-body">
+                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                        <div class="panel panel-default">
+                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1">
+                                                                                <h3 class="panel-title active">
+                                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1"><span></span>
+                                                                                    </button>
+                                                                                    <a href="#">
+                                                                                        During the last 12 months, did you or any members of your household receive any of the following Sources?
+                                                                                    </a>
+                                                                                </h3>
+                                                                            </div>
+                                                                            <div id="collapse-2-2-1-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1-1">
+                                                                                <div class="panel-body">
+                                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                                        <div class="panel panel-default">
+                                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1-1">
+                                                                                                <h3 class="panel-title">
+                                                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1"><span></span>
+                                                                                                        </button>
+                                                                                                    <a href="#">
+                                                                                                        Did your household own or rent any farm implevents, machinery and/or structures, such as hand hoe, panga knife, treadle pump, ox cart, tractor, plough, generator, chicken house, storage house, barn, etc... in the last 12 months?
+                                                                                                    </a>
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                            <div id="collapse-2-2-1-1-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1-1-1">
+                                                                                                <div class="panel-body">
+                                                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                                                        <div class="panel panel-default">
+                                                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1-1-1">
+                                                                                                                <h3 class="panel-title">
+                                                                                                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1-1"><span></span>
+                                                                                                                    </button>
+                                                                                                                    <a href="#">
+                                                                                                                        Cereals and cereals products
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+                                                                                                            <div id="collapse-2-2-1-1-1-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2-2-1-1-1-1">
+                                                                                                                <div class="panel-body">
+                                                                                                                    <div class="panel panel-default">
+                                                                                                                        <div class="panel-heading">
+                                                                                                                            <h3  class="panel-title group">
+                                                                                                                                <a href="#">Yearly consumption</a>
+                                                                                                                            </h3>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-3">
+                                <h3 class="panel-title has-error">
+                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-parent="#accordion-content-main" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3"><span></span>
+                                        </button>
+                                    <a href="#">
+                                        Section D: Healthcare
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title group has-error">
+                                                <a href="#">Cover page, interview info</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3  class="panel-title group complete">
+                                    <a href="#">Yearly consumption</a>
+                                </h3>
+                           </div>
+                        </div>
+                    </div>
+                </aside>
+                <section class="questionnaire details-interview">
                     <div class="unit-section">
+                        <div class="unit-title">
+                            <div class="humburger-foldback-button" id="hide-content">
+                                <span></span>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li><a href="">Section C: Consumption of food over past week</a></li>
+                                <li><a href="">cereals and cereals products</a></li>
+                                <li><a href="">rice (paddy)</a></li>
+                            </ol>
+                            <h3>During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeksDuring the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</h3>
+                        </div>
                         <div class="question">
                             <div class="dropdown aside-menu">
                                 <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
@@ -181,11 +385,17 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question">
-                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
                                     Do you smoke?
                                 </h5>
-                                <div class="information-block instruction"></div>
+                                <button type="button" class="btn btn-link">
+                                    show instruction
+                                </button>
+                                <div class="information-block instruction">
+                                    <h6>Instruction</h6>
+                                    <p>Include usual members who are temporarily absent.</p>
+                                    <p>Exclude those in Lesotho if away for more than six months and those outside the country continuously for more than three years, except for students studying abroad.</p>
+                                </div>
                                 <div class="question-unit">
                                     <div class="options-group">
                                         <div class="radio">
@@ -242,7 +452,6 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
                                     What is your relations status to the household head
                                 </h5>
@@ -308,7 +517,6 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question">
-                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
                                     Specify units
                                 </h5>
@@ -372,7 +580,6 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question">
-                                <button type="button" class="btn-link button-flag"></button>
                                 <h5> 
                                     What is your sex
                                 </h5>
@@ -433,7 +640,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor cascading-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Units
                                 </h5>
@@ -492,7 +699,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor cascading-question  answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Units
                                 </h5>
@@ -551,7 +758,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor multiselect-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     What farm inputs and/or implements did your or any member of the household buy in the last 12 months?
                                 </h5>
@@ -614,7 +821,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor multiselect-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     What type of heat source do you use to heat your house?
                                 </h5>
@@ -677,7 +884,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor ordered-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     What crops were planted on your parcel during last year?
                                 </h5>
@@ -744,7 +951,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
@@ -852,7 +1059,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
@@ -960,7 +1167,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question ordered answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     What languages do you know?
                                 </h5>
@@ -1072,7 +1279,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor list-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     List the members of the household who usually live and eat in this household.
                                 </h5>
@@ -1123,7 +1330,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor list-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     List the members of the household who usually live and eat in this household.
                                 </h5>
@@ -1189,7 +1396,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor numeric-question has-error">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     How much quantity in total did your household consume in the past 7 days?
                                 </h5>
@@ -1243,7 +1450,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor numeric-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     How old are you?
                                 </h5>
@@ -1293,7 +1500,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor gps-question has-error">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Please capture gps using the tablet
                                 </h5>
@@ -1345,7 +1552,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor gps-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Location of the household:
                                 </h5>
@@ -1396,7 +1603,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor current-time-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Record current time
                                 </h5>
@@ -1445,7 +1652,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor current-time-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Record current time
                                 </h5>
@@ -1494,7 +1701,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor multimedia-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Tap to take a photo
                                 </h5>
@@ -1537,7 +1744,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor multimedia-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Tap to take a photo
                                 </h5>
@@ -1593,7 +1800,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor qr-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Barcode
                                 </h5>
@@ -1632,7 +1839,7 @@
                         </div>
                         <div class="question static-text invalid">
                             <div class="question-editor">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Some static text
                                 </h5>
@@ -1668,7 +1875,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor qr-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Barcode
                                 </h5>
@@ -1717,7 +1924,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor time-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Date of the interview:
                                 </h5>
@@ -1769,7 +1976,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor time-question has-error">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Date of the interview:
                                 </h5>
@@ -1831,7 +2038,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor single-select-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     What is your relations status to the household head
                                 </h5>
@@ -1880,9 +2087,192 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="question disabled-question hidden-by-filter">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor single-select-question">
+                                
+                                <h5> 
+                                    What is your sex.
+                                </h5>
+                                <div class="information-block instructions"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="sex1" id="Male1" value="new-version"/>
+                                                <label for="Male1">
+                                                    <span class="tick"></span>Male
+                                                </label>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="sex1" id="Female1" value="current-version"/>
+                                                <label for="Female1">
+                                                    <span class="tick"></span>Female
+                                                </label>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block enumerators"></div>
+                                <div class="information-block comments-block">
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                </div>
+                                              </div>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question disabled-question hidden-by-filter">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor cascading-question  answered">
+                                
+                                <h5> 
+                                    Units
+                                </h5>
+                                <div class="information-block instructions"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="form-group">
+                                            <div class="field answered">
+                                                <div class="btn-group btn-input clearfix">
+                                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                      <span data-bind="label" class="">Kilogram</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#">Tap to enter text</a></li>
+                                                        <li><a href="#">1 Kilogram</a></li>
+                                                        <li><a href="#">5 kg bag</a></li>
+                                                        <li><a href="#">(small)</a></li>
+                                                        <li><a href="#">Pail (large)</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block enumerators"></div>
+                                <div class="information-block comments-block">
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                </div>
+                                              </div>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question hidden-by-filter">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor multiselect-question answered">
+                                
+                                <h5> 
+                                    What farm inputs and/or implements did your or any member of the household buy in the last 12 months?
+                                </h5>
+                                <div class="information-block instruction"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="form-group">
+                                            <input class="wb-checkbox" id="Seeds1" type="checkbox" checked />
+                                            <label for="Seeds1">
+                                                <span class="tick"></span>Seeds
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="wb-checkbox" id="Poultry1" type="checkbox"/>
+                                            <label for="Poultry1">
+                                                <span class="tick"></span>Poultry/ animal feed or fodder
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="wb-checkbox" id="Veterinary1" type="checkbox"/>
+                                            <label for="Veterinary1">
+                                                <span class="tick"></span>Veterinary costs
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="wb-checkbox" id="supers1" type="checkbox" checked />
+                                            <label for="supers1">
+                                                <span class="tick"></span>Double supers
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block enumerators"></div>
+                                <div class="information-block comments-block">
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                </div>
+                                              </div>
+                                              <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="question static-text">
                             <div class="question-editor">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Some static text
                                 </h5>
@@ -1915,7 +2305,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor ordered-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     What crops were planted on your parcel during last year?
                                 </h5>
@@ -1972,7 +2362,7 @@
                         </div>
                         <div class="question variable">
                             <div class="question-editor">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Variable_name: <span>expression</span>
                                 </h5>
@@ -2005,7 +2395,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor text-question">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     What is the main idea of your business?
                                 </h5>
@@ -2055,7 +2445,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Do you have any of the following housing utilities and communication means?
                                 </h5>
@@ -2153,7 +2543,7 @@
                         </div>
                         <div class="question static-text">
                             <div class="question-editor">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Some static text with image
                                     
@@ -2184,6 +2574,51 @@
                             </div>
                         </div>
                         <div class="question">
+                            <div class="question-editor roster-section-block">
+                                <div class="options-group">
+                                    <a href="#" class="btn btn-primary btn-roster-section">household - demographic</a>
+                                </div>
+                                <div class="information-block roster-section-info">
+                                    Section not started</div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-editor roster-section-block started">
+                                <div class="options-group">
+                                    <a href="#" class="btn btn-primary btn-roster-section">Demographic</a>
+                                </div>
+                                <div class="information-block roster-section-info">
+                                Section completted: 4 answers, no sub-cections</div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-editor roster-section-block has-error">
+                                <div class="options-group">
+                                     <a href="#" class="btn btn-danger btn-roster-section">Demographic</a>
+                                </div>
+                                <div class="information-block roster-section-info">
+                                    Section completted: 4 answers, no sub-cections, <span class="error-text">one error</span></div>
+                            </div>
+                        </div>
+                        <div class="question disabled-question">
+                            <div class="question-editor roster-section-block ">
+                                <div class="options-group">
+                                    <a href="#" class="btn btn-primary btn-roster-section disabled" tabindex="-1">Demog Section completted: 4 answers, no sub-cections, Section completted: 4 answers, no sub-cections, raphic</a>
+                                </div>
+                                <div class="information-block roster-section-info">
+                                    Section not started</div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-editor roster-section-block answered">
+                                <div class="options-group">
+                                    <a href="#" class="btn btn-success btn-roster-section">Demographic</a>
+                                </div>
+                                <div class="information-block roster-section-info">
+                                Section completted: 4 answers, no sub-cections</div>
+                            </div>
+                        </div>
+                        <div class="question">
                             <div class="dropdown aside-menu">
                                 <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
                                     <span></span>
@@ -2195,7 +2630,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor yes-no-question ordered answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     What languages do you know?
                                 </h5>
@@ -2307,7 +2742,7 @@
                                 </ul>
                             </div>
                             <div class="question-editor img-single-select-question answered">
-                                <button type="button" class="btn-link button-flag"></button>
+                                
                                 <h5> 
                                     Choose some picture
                                 </h5>
@@ -2362,12 +2797,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="action-container">
+                            <a href="#" class="btn btn-primary btn-lg">1B. demographic characterictics. information on parental survival</a>
+                        </div>
                     </div>
                 </section>
             </div>
         </div>
     </main>
-    <footer class="footer hold-transition footer-adaptive-content footer-adaptive-filters">
+    <footer class="footer hold-transition footer-adaptive-content">
         <div class="container-fluid">
             <div class="text-left">
             &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.

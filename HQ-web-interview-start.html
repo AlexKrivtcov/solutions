@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-web-interview-start</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon-precomposed' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon-precomposed' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon-precomposed' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".right-column .centered-box-table-cell").hide();
+        var a = $(".right-column .centered-box-table-cell").length;
+        var array = $(".right-column .centered-box-table-cell")
+        var i = 0;
+        $(".right-column").find(array[i]).show();
+        $("#next-screen").click(function () {
+            if (i < a-1) {
+                i++;
+                $(".right-column .centered-box-table-cell").hide();
+                $(".right-column").find(array[i]).show();
+                
+            } else{
+                $(".right-column .centered-box-table-cell").hide();
+                $(".right-column").find(array[0]).show();
+                i = 0;
+            };     
+        });
+      });
+    </script>  
+    <script>
+      $(document).ready(function(){
+          $("<img/>")     
+        .on('error', function () { 
+            $("img#placeholder").parent().addClass("no-logo"); 
+        })        
+        .attr("src", $("img#placeholder").attr("src"))      
+      });
+    </script>   
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar navbar-fixed-top" role="navigation">
+                <div class="container-fluid ">
+                    <div class="row flex-row">
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                        <div class="centered-box-table">
+                            <div class="centered-box-table-cell">
+                                <a class="brand" href="http://www.worldbank.org">
+                                    <div class="retina-world-bank">World Bank Group</div>
+                                </a> 
+                            </div>
+                        </div>
+                        </div>
+                    </div>          
+                </div><!-- /.container-fluid -->
+            </nav>      
+        </div>
+    </header>
+    <main class="start-web-interview">
+        <div class="container-fluid">
+            <div class="row two-columns-form">
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 col-sm-6 col-xs-12 left-column">
+                    <div class="centered-box-table">
+                        <div class="centered-box-table-cell">
+                            <img src="#" id="placeholder" alt="survey management"/>
+                            <div class="default-logo"></div>
+                            <h2>Ministry of Livestock, Fisheries and Rural Development of Vanuatu</h2>
+                            <p class="additional-info-block">Powered by <a href="#">Survey Solutions</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 right-column">
+                    <div class="centered-box-table">
+                        <div class="centered-box-table-cell">
+                            <h2>Hello and Welcome to the Survey Solutions Web Survey!</h2>
+                            <p><b>You have been invited to take part in the following survey: "Copy of Cope of Bosnia and Herzogowina Water and Sanitation Survey 2017 (friday draft)"</b></p>
+                            <div class="additional-info-block">
+                                This interview process require internet connection, no additional software needed 
+                                <ul class="list-unstyled">
+                                    <li>Interview ID: 12-30-73-31-13</li>
+                                </ul>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success btn-lg">start interview</button>
+                            </div>
+                        </div>
+                        <div class="centered-box-table-cell">
+                            <h2>Survey Solutions Web Survey</h2>
+                            <p><b>This interview has not been completed Survey: "Copy of Cope of Bosnia and Herzogowina Water and Sanitation Survey 2017 (friday draft)"</b></p>
+                            <div class="additional-info-block">
+                                This interview process require internet connection, no additional software needed
+                                <ul class="list-unstyled">
+                                    <li>Interview ID: 12-30-73-31-13</li>
+                                    <li>Interview start date: Mar 13 2017, 00:41</li>
+                                </ul>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success btn-lg">resume interview</button>
+                                <button type="submit" class="btn btn-link">restart</button>
+                            </div>
+                        </div>
+                        <div class="centered-box-table-cell">
+                            <h2>Survey Solutions Web Survey</h2>
+                            <p><b>This interview has been completed Surey "Copy of Cope of Bosnia and Herzogowina Water and Sanitation Survey 2017 (friday draft)"</b></p>
+                            <div class="additional-info-block">
+                                <ul class="list-unstyled">
+                                    <li>Interview ID: 12-30-73-31-13</li>
+                                    <li>Interview start date: Mar 13 2017, 20:41</li>
+                                    <li>Interview completion date: Mar 13 2017, 21:41</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </main> 
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="text-center">
+                &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-center">
+                5.12.0 (build 13156) 
+               <span>|</span>
+               <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+        <button id="next-screen">Next screen</button>
+    </footer>
+</body>
+</html>
