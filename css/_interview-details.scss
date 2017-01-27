@@ -1005,6 +1005,9 @@ label.inactive{
 		&.fullscreen-hidden-content.fullscreen-hidden-filters{
 			.content{
 				display: block;
+				.foldback-button{
+			   		top: 65px;
+			   	}
 			}
 		}
 		.structured-content >.panel-default:first-of-type > .panel-heading h3 > a{

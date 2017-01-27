@@ -7078,7 +7078,7 @@ input.double-checkbox-white {
         -o-transition: all 0.3s linear 0s;
         transition: all 0.3s linear 0s; }
         .structured-content .panel-default > .panel-heading h3.group a {
-          padding-left: 0; }
+          /* padding-left: 0; */ }
           .structured-content .panel-default > .panel-heading h3.group a:before, .structured-content .panel-default > .panel-heading h3.group a:after {
             display: none; }
         .structured-content .panel-default > .panel-heading h3 .btn-plus {
@@ -7119,42 +7119,6 @@ input.double-checkbox-white {
 
 @media only screen and (max-width: 1525px) {
   .structured-content .panel-default > .panel-heading h3 .btn-plus {
-    left: 0px; }
-  .structured-content .panel-default > .panel-heading h3 a {
-    margin-left: 10px; }
-  .structured-content .panel-default .panel-default > .panel-heading h3 .btn-plus {
-    left: 10px; }
-  .structured-content .panel-default .panel-default > .panel-heading h3 a {
-    margin-left: 20px; }
-  .structured-content .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
-    left: 20px; }
-  .structured-content .panel-default .panel-default .panel-default > .panel-heading h3 a {
-    margin-left: 30px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
-    left: 30px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
-    margin-left: 40px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
-    left: 40px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
-    margin-left: 50px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
-    left: 50px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
-    margin-left: 60px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
-    left: 60px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
-    margin-left: 70px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
-    left: 70px; }
-  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
-    margin-left: 80px; }
-  .structured-content .panel-default > .panel-heading h3 a {
-    font-size: 14px;
-    line-height: 16px; } }
-@media (max-width: 880px) {
-  .structured-content .panel-default > .panel-heading h3 .btn-plus {
     left: 10px; }
   .structured-content .panel-default > .panel-heading h3 a {
     margin-left: 20px; }
@@ -7185,7 +7149,46 @@ input.double-checkbox-white {
   .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
     left: 150px; }
   .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
-    margin-left: 160px; } }
+    margin-left: 160px; }
+  .structured-content .panel-default > .panel-heading h3 a {
+    font-size: 14px;
+    line-height: 16px;
+    padding-left: 20px; } }
+@media (max-width: 880px) {
+  .structured-content .panel-default > .panel-heading h3 .btn-plus {
+    left: 20px; }
+  .structured-content .panel-default > .panel-heading h3 a {
+    margin-left: 30px; }
+  .structured-content .panel-default .panel-default > .panel-heading h3 .btn-plus {
+    left: 50px; }
+  .structured-content .panel-default .panel-default > .panel-heading h3 a {
+    margin-left: 60px; }
+  .structured-content .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
+    left: 80px; }
+  .structured-content .panel-default .panel-default .panel-default > .panel-heading h3 a {
+    margin-left: 90px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
+    left: 110px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
+    margin-left: 120px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
+    left: 140px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
+    margin-left: 150px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
+    left: 170px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
+    margin-left: 180px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
+    left: 200px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
+    margin-left: 210px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 .btn-plus {
+    left: 230px; }
+  .structured-content .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default .panel-default > .panel-heading h3 a {
+    margin-left: 240px; }
+  .structured-content .panel-default > .panel-heading h3 a {
+    padding-left: 30px; } }
 .aside-menu {
   position: absolute;
   top: 10px;
@@ -8954,6 +8957,8 @@ label.inactive {
       display: block; }
   .web-interview.fullscreen-hidden-content.fullscreen-hidden-filters .content {
     display: block; }
+    .web-interview.fullscreen-hidden-content.fullscreen-hidden-filters .content .foldback-button {
+      top: 65px; }
   .web-interview .structured-content > .panel-default:first-of-type > .panel-heading h3 > a {
     margin-right: 65px; }
 
