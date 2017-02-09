@@ -1,0 +1,9 @@
+.prefield-column, .spent-time, .template, .accepted-hq, .census, .number-rejected{
+	display: none;
+
+}
+td, th{
+		&.visible{
+			display: table-cell;
+	}
+}

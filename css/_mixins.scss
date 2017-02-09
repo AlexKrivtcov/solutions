@@ -159,9 +159,10 @@
     }
 }
 @mixin btn-back-questionnaire($base-color, $arrow) {
-    background: url("#{$assetsPath}/img/#{$arrow}") no-repeat; 
-    background-size: 22.5px 33.75px;
-    background-position: 10px 10px;
+    &:before{
+        background: url("#{$assetsPath}/img/#{$arrow}") no-repeat; 
+        background-size: 22.5px 33.75px;
+    }
     color: $base-color;
     border-color: $base-color;
     &:active{
@@ -299,18 +300,17 @@
     .filters{
         padding-top: 105px;
         width: $filter-small-width;
-        padding-left: 12px;
         .bootstrap-select.btn-group{
-            width: 100% !important;   
+            width: calc(100% + 10px) !important;   
         } 
         .input-group{
-            width: 100%;
+            width: calc(100% + 10px);
         }
         .open > .dropdown-menu{
             width: 100%;    
         }
         .foldback-button{
-            top: 65px;
+            top: $indent-foldback-button;
         }
     }
 }
@@ -341,6 +341,7 @@
 @mixin focus-for-inputs(){
     display: block;
     height: 0;
+    position: absolute;
     @include opacity(0);
     & + label .tick:before{
         @extend %visibility-hidden;
@@ -350,7 +351,7 @@
         height: 26px;
         border: 2px solid $gray_form;
         position: absolute;
-        top: -6px;
+        top: -4px;
         right: -6px;
         border-radius: 5px;
         @include transition(all, 0.2s);

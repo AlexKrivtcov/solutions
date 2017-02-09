@@ -28,40 +28,6 @@
 	background-position: 0 100%; 
 	padding: 15px 0;
 }
-.flag{
-	font-size: 14px;
-	line-height: 24px;
-  	color: $gray_form;
-  	display: block;
-  	font-weight: bold;
-  	padding-left: 35px;
-  	position: relative;
-  	&:before{
-  		@extend .button-flag;
-  		content: "";
-  		@include absolute(0, null, null, 0);
-  	}
-	&.flagged{
-		color: $gray-text;
-		&:before{
-            background-position: 1px 0;
-        }
-	}
-	&:hover, &:focus{
-		color: $gray_light;
-		text-decoration: none;
-		&:before{
-			background-position: -56px 0;
-		}
-	}
-	&.flagged:hover, &.flagged:focus{
-		color: $gray-text;
-		text-decoration: none;
-		&:before{
-			background-position: -18px 0;
-		}
-	}	
-}
 .bootstrap-select .dropdown-menu > li > a.flagged{
 	padding-left: 35px;
 	&:before{
@@ -126,6 +92,30 @@ label.inactive{
 		}
 	}	
 }
+.complete-link{
+	display: block;
+	font: 16px/18px "RobotoMedium";
+	padding: 15px 20px 15px 60px;
+	border-bottom: 1px solid rgb(221, 221, 221);
+	&:hover, &:focus, &:active{
+		background-color: #ebebeb;
+		text-decoration: none;
+	}
+	&.success-text{
+		color: $green;
+		&:hover, &:focus, &:active{
+			color: $green;
+		}
+	}
+	&.error-text{
+		&:hover, &:focus, &:active{
+			color: $red_error;
+		}
+	}
+}
+.router-link-active{
+	background-color: #ebebeb;
+}
 .unit-section{
 	position: relative;
 }
@@ -135,7 +125,7 @@ label.inactive{
 	}
 }
 .questionnaire{
-	.radio {
+	/* .radio {
 		.wb-radio{
 			@include focus-for-inputs();
 			&:focus + label .tick:before{
@@ -148,7 +138,7 @@ label.inactive{
 		.wb-checkbox{
 			@include focus-for-inputs();
 		}
-	}
+	} */
 	background-color: #f8f8f8;
 	@include transition(margin, 0.3s);
 	.unit-title{
@@ -220,7 +210,7 @@ label.inactive{
 	}
 	p{
 		width: 90%;
-		
+		word-break: break-word;
 		font-style: italic;
 		p:last-of-type{
 			margin-bottom: 10px;
@@ -232,6 +222,9 @@ label.inactive{
 	}
 	&.instruction{
 		color: $blue;
+		p{
+            white-space: pre-wrap;
+        }
 	}
 	&.text-danger{
 		color: $red_error;
@@ -370,7 +363,7 @@ label.inactive{
 	h5{
 		padding: 0 10px;
 		margin: 0 0 10px;
-
+		word-break: break-word;
 		position: relative;
 		&:before{left: -25px;}
 	}
@@ -388,7 +381,20 @@ label.inactive{
 	&.has-error .form-control:focus{
 		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 	}
+	.question-unit{
+		.radio, .form-group{
+			border-color: transparent;
+		}
+	}
+	&.answered{
+		.question-unit{
+			.radio, .form-group{
+				border-color: $gray-form;
+			}
+		}
+	}
 }
+
 .question-editor{
 	.options-group{
 		padding: 10px;
@@ -420,23 +426,9 @@ label.inactive{
 			}
 		}
 		.field{
-			position: relative;
-			.field-to-fill{
-				width: 100%;
-				padding: 11px 15px;
-				border: none;
-				font-size: 14px;
-				line-height: 18px;
-				font-weight: bold;
-				padding-right: 38px;
-				border-radius: 5px;
-				&:focus{
-					outline: none;
-					box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-				}
-			}
 			.dropdown-toggle {
 				@extend .field-to-fill;
+				height: 40px;
 				padding: 11px 38px 11px 15px;
 				span{
 					position: static;
@@ -449,19 +441,19 @@ label.inactive{
 				}
 			}
 			.dropdown-menu{
-				z-index: 2;
+				z-index: 2; 
 				width: 100%;
 				padding:  5px 10px;
 				li{
+					&>input{
+						width: 100%;
+						border: none;
+						padding: 7px 10px;
+					}
 					border-bottom: 1px solid $gray_form;
 					&:last-child{
 						border: none;
 					}
-				}
-			}
-			&.answered, &.has-error{
-				.btn-clear{
-					@extend %visibility-visible;
 				}
 			}
 			input:checked ~ .btn-clear{
@@ -470,6 +462,29 @@ label.inactive{
 		}
 	}
 }
+.field{
+	position: relative;
+	.field-to-fill{
+		width: 100%;
+		padding: 11px 15px;
+		border: none;
+		font-size: 14px;
+		line-height: 18px;
+		font-weight: bold;
+		padding-right: 38px;
+		border-radius: 5px;
+		&:focus{
+			outline: none;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+		}
+	}
+	&.answered, &.has-error{
+		.btn-clear{
+			@extend %visibility-visible;
+		}
+	}
+}
+
 .multimedia-question .image-zoom-box{
 	margin: 0;
 	margin-bottom: 10px;
@@ -608,7 +623,7 @@ label.inactive{
 			line-height: 14px;
 			margin-bottom: 10px;
 			padding-right: 38px;
-			word-break: break-all;
+			word-break: break-word;
             word-wrap: break-word;
             overflow-wrap: break-word;
 		}
@@ -636,7 +651,7 @@ label.inactive{
 		left: -$content-width;
 		box-shadow: none;
 		.humburger-foldback-button{
-			top: 65px;
+			top: $indent-foldback-button;
 			left: auto;
 			right: 20px;
 			background-color: $gray_light;
@@ -661,27 +676,6 @@ label.inactive{
 	}
 } 
 
-.wrapper-info{
-	@extend .action-container;
-	border-bottom: 2px solid $gray-form;
-	.container-info{
-		max-width: 550px;
-		h2{
-			margin-top: 20px;
-		}
-		p{
-			font-size: 14px;
-			line-height: 16px;
-			margin-bottom: 15px;
-			&:last-of-type{
-				margin-bottom: 0;
-			}
-			a{
-				color: $gray-text;
-			}
-		}
-	}
-}
 .footer.footer-adaptive-content.footer-adaptive-filters{
 	padding-left: $filter-width + $content-width;
 }
@@ -710,13 +704,22 @@ label.inactive{
 		.filters{
 			padding-top: 115px;
 			.foldback-button{
-	            top: 75px;
+	            top: $indent-foldback-button-hd;
 	        }
+	        .preset-filters-container, .filters-container{
+				padding-left: 20px;
+				padding-right: 15px;
+			}
 		}
 	}
 	.content{
 		width: $content-width-small;
 		left: 12px;
+	}
+	.complete-link{
+		padding-left: 40px;
+		font-size: 14px;
+    	line-height: 16px;
 	}
 	.details-interview{
 		&.questionnaire{
@@ -847,7 +850,7 @@ label.inactive{
 		.content{
 			left: 12px;
 			.foldback-button{
-				top: 65px;
+				top: $indent-foldback-button;
 			} 
 		}
 		.questionnaire{
@@ -855,9 +858,12 @@ label.inactive{
 				@include width-questionnaire($content-width-small);
 			}
 			.unit-title{
-				padding-left: 50px;
+				padding-left: 60px;
 			}
 			 
+		}
+		.question{
+			padding-left: 50px;
 		}
 		&.fullscreen-hidden-content{	
 			.content{
@@ -867,10 +873,16 @@ label.inactive{
 			.questionnaire.details-interview{
 				@include width-questionnaire($filter-small-width);
 			}
+			.question{
+				padding-left: 50px;
+			}
 			.filters{
 				left: 0;
 				overflow: auto;
 				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
+				.foldback-button{
+					top: $indent-foldback-button;
+				} 
 			}
 		}
 		&.fullscreen-hidden-filters{
@@ -879,19 +891,22 @@ label.inactive{
 				left: 0;
 				box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
 				@include visible-foldback-button();
+				.foldback-button{
+					top: $indent-foldback-button;
+				} 
 			}
 			.questionnaire{
 				&.details-interview{
 					@include width-questionnaire($filter-small-width);
 				}
 				.question{
-					padding-left: 40px;
+					padding-left: 50px;
 				}
 				.action-container{
 					padding-left: 50px;
 				}
 				.unit-title{
-					padding-left: 50px;
+					padding-left: 60px;
 				} 
 				.button-flag{
 					left: -20px;
@@ -912,7 +927,7 @@ label.inactive{
 					padding-left: 50px;
 				}
 				.foldback-button{
-		            top: 75px;
+		            top: $indent-foldback-button;
 		        }
 			}
 			.questionnaire{
@@ -920,7 +935,7 @@ label.inactive{
 					@include width-questionnaire($content-width-small);
 				}
 				.question{
-					padding-left: 40px;
+					padding-left: 50px;
 				}
 				.action-container{
 					padding-left: 50px;
@@ -928,6 +943,9 @@ label.inactive{
 				.button-flag{
 					left: -20px;
 				}
+				.unit-title{
+					padding-left: 60px;
+				} 
 			}
 			.filters{
 				box-shadow: none;
@@ -968,11 +986,13 @@ label.inactive{
 			.foldback-button{
 				top: 120px;
 			} 
-			
+		}
+		.complete-link{
+			padding-left: 60px;
 		}
 		.filters{
 			.foldback-button{
-				top: 65px;
+				top: $indent-foldback-button;
 			} 
 		}
 		&.fullscreen-hidden-filters{
@@ -995,7 +1015,7 @@ label.inactive{
 				border: none;
 				@include visible-foldback-button();
 				.foldback-button{
-			   		top: 65px;
+			   		top: $indent-foldback-button;
 			   	}
 			   	.humburger-foldback-button{
 					display: block;
@@ -1004,9 +1024,10 @@ label.inactive{
 		}
 		&.fullscreen-hidden-content.fullscreen-hidden-filters{
 			.content{
+				left: 0;
 				display: block;
 				.foldback-button{
-			   		top: 65px;
+			   		top: $indent-foldback-button;
 			   	}
 			}
 		}
@@ -1018,6 +1039,15 @@ label.inactive{
 		.structured-content >.panel-default:first-of-type > .panel-heading h3 > a{
 	        margin-right: 0;
 	    }
+	}
+	.footer.footer-adaptive-content.footer-adaptive-filters{
+		padding-left: 0;
+	}
+	.footer.footer-adaptive-content{
+		padding-left: 0;
+	}
+	.footer.footer-adaptive-filters{
+		padding-left: 0;
 	}
 }
 @media only screen and (max-width: 615px){
@@ -1060,14 +1090,22 @@ label.inactive{
 		.aside-menu{
 			right: 20px;
 		}
+		.action-container{
+			padding-left: 50px;
+			a{
+				max-width: 265px;
+			}
+		} 
 	}
 	.footer.footer-adaptive-content.footer-adaptive-filters{
-	padding-left: 0;
+		padding-left: 0;
 	}
 	.footer.footer-adaptive-content{
-		display: none;
+		display: block;
+		padding-left: 0;
 	}
 	.footer.footer-adaptive-filters{
-		display: none;
+		display: block;
+		padding-left: 0;
 	}
 }
