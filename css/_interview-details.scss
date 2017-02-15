@@ -1074,21 +1074,30 @@ label.inactive{
 			float: none;
 		}
 		.questionnaire {
+			.humburger-foldback-button{
+				top: 20px;
+			}
 			.comment .form-inline .form-group{
 				margin-bottom: 15px;
 			}
 			.question{
-				padding-left: 40px;
+				padding-left: 15px;
+				padding-right: 10px;
 			}
 			.unit-title{
-				padding-left: 45px;
+				padding-left: 15px;
+				padding-right: 10px;				
+				.breadcrumb{
+					min-height: 42px;
+					padding-left: 45px;
+				}
 			}
 			.button-flag{
 				left: -20px;
 			}
-			.question-editor{
-				max-width: 285px;
-			}
+			// .question-editor{
+			// 	max-width: 285px;
+			// }
 			.comments-block .comment .form-inline .form-control{
 				width: (285px-20px);
 			}
@@ -1096,13 +1105,16 @@ label.inactive{
 				width: 71%;
 			}
 			.gps-question.answered .map, .gps-question.has-error .map{
-				width: 225px;
+				width: 90%;
 			}
-			.multimedia-question .image-wrapper{
-				width: 225px;
-			}
+			// .multimedia-question .image-wrapper{
+			// 	width: 225px;
+			// }
 			.modal-img .modal-img-content{
 				max-width: 60% !important;
+			}
+			.options-group .badge{
+				left: -27px;
 			}
 		}
 		.aside-menu{

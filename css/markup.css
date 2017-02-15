@@ -10754,26 +10754,31 @@ label.inactive {
 @media only screen and (max-width: 615px) {
   .web-interview .content .questionnaire-content div h2 {
     float: none; }
+  .web-interview .questionnaire .humburger-foldback-button {
+    top: 20px; }
   .web-interview .questionnaire .comment .form-inline .form-group {
     margin-bottom: 15px; }
   .web-interview .questionnaire .question {
-    padding-left: 40px; }
+    padding-left: 15px;
+    padding-right: 10px; }
   .web-interview .questionnaire .unit-title {
-    padding-left: 45px; }
+    padding-left: 15px;
+    padding-right: 10px; }
+    .web-interview .questionnaire .unit-title .breadcrumb {
+      min-height: 42px;
+      padding-left: 45px; }
   .web-interview .questionnaire .button-flag, .web-interview .questionnaire .flag:before {
     left: -20px; }
-  .web-interview .questionnaire .question-editor {
-    max-width: 285px; }
   .web-interview .questionnaire .comments-block .comment .form-inline .form-control {
     width: 265px; }
   .web-interview .questionnaire .yes-no-question .question-unit .options-group .radio .field > span {
     width: 71%; }
   .web-interview .questionnaire .gps-question.answered .map, .web-interview .questionnaire .gps-question.has-error .map {
-    width: 225px; }
-  .web-interview .questionnaire .multimedia-question .image-wrapper {
-    width: 225px; }
+    width: 90%; }
   .web-interview .questionnaire .modal-img .modal-img-content {
     max-width: 60% !important; }
+  .web-interview .questionnaire .options-group .badge {
+    left: -27px; }
   .web-interview .aside-menu {
     right: 20px; }
   .web-interview .action-container, .web-interview .wrapper-info {

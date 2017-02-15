@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>HQ-questionnaires</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
                 <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
@@ -35,7 +35,7 @@
             });
         });
     </script> 
-<!--     <script>
+     <script>
         $(document).ready(function () {
            calcWidth();
         });
@@ -50,7 +50,7 @@
            var navbar_text = navbar - brand - left_nav - right_nav - 15;
             $(".navbar-text").outerWidth(navbar_text);
         };
-    </script>  -->
+    </script>
     <script>
         $(document).ready(function () {
             $(".unit-title").stick_in_parent({recalc_every: 200 });
@@ -382,7 +382,7 @@
                 </aside>
                 <section class="questionnaire details-interview">
                     <div class="unit-section">
-                        <div class="loading">
+                        <div class="loading" style="display: none;">
                             <div>Loading, please wait.</div>
                         </div>
                         <div class="unit-title">
@@ -397,7 +397,7 @@
                             <h3>During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeksDuring the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</h3>
                         </div>
                         <div class="position-relative">
-                            <button class="section-blocker" disabled="disabled"></button>
+                            <button class="section-blocker" disabled="disabled" style="display: none;"></button>
                             <div class="question">
                                 <div class="dropdown aside-menu">
                                     <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
