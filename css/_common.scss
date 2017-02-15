@@ -230,13 +230,16 @@ h5{
 	}
 }
 .error-text{
-	color: $red_error;
+	color: $red_error !important;
 }
 .success-text{
-	color: $green_btn;
+	color: $green_btn !important;
 }
 .default-text{
-	color: $gray_form;
+	color: $gray_form !important;
+}
+.primary-text{
+	color: $blue !important;
 }
 .info-block{
     font: 14px/16px "RobotoRegular";
@@ -272,6 +275,9 @@ table{
 		}
 	}
 }
+.table tbody tr td span.census-icon{
+	color: #fff;
+}
 .census-icon{
 	text-transform: capitalize;
 	display: inline-block;
@@ -282,6 +288,9 @@ table{
     font: 13px/13px Arial, sans-serif;
     font-style: italic;
     font-weight: bold;
+	&:hover, &:focus, &:active{
+    	color: #fff !important;		
+	}
 }
 .flag{
 	font-size: 14px;
@@ -410,4 +419,31 @@ table{
 }
 .position-relative{
 	position: relative;
+}
+.empty{
+	width: 20px;
+	height: 2px;
+	background-color: $gray_light;
+	display: inline-block;
+	vertical-align: middle;
+}
+.loading{
+    @extend %loading-indicator;
+    position: fixed;
+    top: 15px;
+    z-index: 2000;
+}
+.toast{
+	.container-fluid{
+		padding: 0;
+		h1{
+			font: 24px/26px "RobotoLight";
+			color: #fff;
+			margin: 10px 0;
+		}
+		h2{
+			font: 18px/20px "RobotoLight";
+			margin-bottom: 10px;
+		}
+	}
 }

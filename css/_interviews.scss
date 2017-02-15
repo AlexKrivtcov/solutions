@@ -1,9 +1,188 @@
-.prefield-column, .spent-time, .template, .accepted-hq, .census, .number-rejected{
-	display: none;
-
+.table-wrapper{
+	position: relative;
+	.wrapper-modal-dropdown{
+	    @include absolute(-20px, 0);
+	   /*  z-index: 2; */
+	   .modal-dialog{
+	   		@include absolute(-30px, 0);
+	   }
+	   .modal.in{
+	   		position: absolute;
+	   		overflow: visible;
+	   }
+	}
 }
-td, th{
+.table-with-prefilled-column{
+	.prefield-column, .spent-time, .template, .accepted-hq, .census, .number-rejected{
+		display: none;
+
+	}
+	td, th{
 		&.visible{
 			display: table-cell;
+		}
+		&.prefield-column{
+			border-color: $gray-form !important;
+			&.enumeration-area{
+				border-left: 2px solid $blue !important;
+			}
+			&.deelling-address{
+				border-right: 2px solid $blue !important;
+			}
+		}
+	}
+	tr:last-child{
+		td.prefield-column{
+			border-bottom: 2px solid $blue !important;
+		}
+	}
+	th.prefield-column{
+		border-top: 2px solid $blue !important;
+	}
+}
+th.prefield-column{
+	font: 12px/14px "TrebuchetMS";
+	text-transform: none;
+	font-weight: normal;
+	color: $blue;
+}
+td.prefield-column{
+	font-style: italic;
+}
+.interview-id{
+	min-width: 240px !important;
+	overflow: hidden;
+	.show-prefield-btn{
+		text-transform: none;
+		float: right;
+	}
+}
+.flags .flag{
+	color: $gray_text;
+	&:before{
+        background-position: 1px 0;
+    }
+    &:hover, &:focus, &:active{
+    	&:before{
+			background-position: -18px 0;
+		}
+    }
+}
+td.errors{
+	color: $red_error;
+}
+.table tbody tr td span.interviewer{
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: normal;
+	color: $gray_text;
+	&:before{
+		display: inline-block;
+		content:"";
+		position: relative;
+		top: 2px; 
+		margin-right: 3px;
+		@include size(11px, 14px);
+		background: transparent url("#{$assetsPath}/img/icon-tablet.png") no-repeat;
+		@include image-2x("#{$assetsPath}/img/icon-tablet2k.png", 11px, 14px);
+		background-size: 11px 14px;
+	}
+}
+.table-wrapper .table td.enumerator{
+	padding-top: 10px;
+	padding-bottom: 10px;	
+}
+.table tbody tr {
+	&:hover, &:focus, &:active{
+		td.not-synced-assign
+			a{
+				color: $gray_text;
+			}
+	}
+	td.not-synced-assign{
+		font-style: italic;
+		a{
+			color: $gray_light;
+		}
+	}
+}
+.comment-icon{
+	display: block;
+    @include size(25px, 23px); 
+	background: transparent url("#{$assetsPath}/img/comments-icon-1x.png") no-repeat;
+    @include image-2x("#{$assetsPath}/img/comments-icon-2x.png", 32px, 64px);
+    background-size: 32px 64px;
+    background-position: -4px -40px; 
+    &.responded{
+    	background-position: -4px -4px; 
+    }
+}
+.supervisor{
+	color: $gray-text !important;
+	font-weight: normal;
+	&:before{
+		display: inline-block;
+		content:"";
+		position: relative;
+		top: 2px; 
+		margin-right: 3px;
+		@include size(11px, 14px);
+		background: transparent url("#{$assetsPath}/img/icon-supervisor.png") no-repeat;
+		@include image-2x("#{$assetsPath}/img/icon-supervisor2k.png", 11px, 14px);
+		background-size: 11px 14px;
+	}
+}
+.enumerator{
+	.interviewer, .supervisor{
+		&:before{
+			margin-right: 10px;
+		}
+	}
+}
+.modal{
+	%hover{
+		color: $gray-text;
+		&:hover, &:focus, &:active{
+			color: $blue;
+			text-decoration: none;
+		}
+	}
+	.template, .tetle-row{
+		font-size: 16px;
+		line-height: 18px;
+	}
+	.title-row{
+		font-size: 16px;
+		line-height: 18px;
+		margin-right: 10px; 
+		@extend %hover;
+	}
+	.interviewer{
+		margin-left: 10px;
+		@extend %hover;
+	}
+	td, th{
+		padding: 10px;
+		&:first-child{
+			min-width: 160px;
+		}
+	}
+	th{
+		border-top: none !important;
+	}
+}
+.statuses{
+	table{
+		tr:last-child td{
+		font-weight: bold !important;
+		}
+		td{
+			.comment{
+				padding-top: 10px;
+				h4{
+					margin-bottom: 5px;
+				}
+			}
+		}
 	}
 }
