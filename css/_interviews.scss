@@ -1,7 +1,8 @@
 .table-wrapper{
 	position: relative;
+	padding-top: 20px;
 	.wrapper-modal-dropdown{
-	    @include absolute(-20px, 0);
+	    @include absolute(0, 0);
 	   /*  z-index: 2; */
 	   .modal-dialog{
 	   		@include absolute(-30px, 0);
@@ -72,21 +73,7 @@ td.errors{
 	color: $red_error;
 }
 .table tbody tr td span.interviewer{
-	font-size: 14px;
-	line-height: 16px;
-	font-weight: normal;
 	color: $gray_text;
-	&:before{
-		display: inline-block;
-		content:"";
-		position: relative;
-		top: 2px; 
-		margin-right: 3px;
-		@include size(11px, 14px);
-		background: transparent url("#{$assetsPath}/img/icon-tablet.png") no-repeat;
-		@include image-2x("#{$assetsPath}/img/icon-tablet2k.png", 11px, 14px);
-		background-size: 11px 14px;
-	}
 }
 .table-wrapper .table td.enumerator{
 	padding-top: 10px;
@@ -117,21 +104,6 @@ td.errors{
     	background-position: -4px -4px; 
     }
 }
-.supervisor{
-	color: $gray-text !important;
-	font-weight: normal;
-	&:before{
-		display: inline-block;
-		content:"";
-		position: relative;
-		top: 2px; 
-		margin-right: 3px;
-		@include size(11px, 14px);
-		background: transparent url("#{$assetsPath}/img/icon-supervisor.png") no-repeat;
-		@include image-2x("#{$assetsPath}/img/icon-supervisor2k.png", 11px, 14px);
-		background-size: 11px 14px;
-	}
-}
 .enumerator{
 	.interviewer, .supervisor{
 		&:before{
@@ -139,49 +111,110 @@ td.errors{
 		}
 	}
 }
-.modal{
-	%hover{
-		color: $gray-text;
-		&:hover, &:focus, &:active{
-			color: $blue;
-			text-decoration: none;
-		}
-	}
-	.template, .tetle-row{
-		font-size: 16px;
-		line-height: 18px;
-	}
-	.title-row{
-		font-size: 16px;
-		line-height: 18px;
-		margin-right: 10px; 
-		@extend %hover;
-	}
-	.interviewer{
-		margin-left: 10px;
-		@extend %hover;
-	}
-	td, th{
-		padding: 10px;
-		&:first-child{
-			min-width: 160px;
-		}
-	}
-	th{
-		border-top: none !important;
-	}
-}
 .statuses{
 	table{
 		tr:last-child td{
 		font-weight: bold !important;
 		}
-		td{
-			.comment{
-				padding-top: 10px;
-				h4{
+	}
+}
+.screen-small-resolution{
+		display: none;
+}
+@media (max-width: $screen-sm-min){
+	.interviews-large-screen{
+		display: none;
+	}
+	.screen-small-resolution{
+		padding: 15px;
+		display: block;
+		font: 14px/16px Arial, sans-serif;
+		.row-unit{
+			padding: 20px 15px;
+			background-color: #f8f9f9;
+			border-bottom: 2px solid $gray_form;
+			&:last-of-type{
+				border-bottom: none;
+			}
+		}
+		.header-unit{
+			position: relative;
+			margin-bottom: 15px;
+			input.checkbox-filter ~ label .tick{
+				left: -5px;
+			}
+			label{
+				padding-right: 60px;
+				.title-row{
+					font-weight: normal;
+					font-size: 18px;
+					line-height: 20px;
+					display: block;
 					margin-bottom: 5px;
 				}
+			}
+			.comment-icon{
+				@include absolute(0, 50px);
+			}
+		}
+		ul{
+			margin-bottom: 15px;
+			li{
+				margin-bottom: 5px;
+			}
+		}
+		%table-min-parametrs{
+			width: 50%;
+			border-right: 3px solid #f9f9f9;
+			&:nth-child(2){
+				border-right: none;
+			}
+		}
+		.table-min-wrapper{
+			display: flex;
+			flex-direction: row;
+			align-items: stretch;
+			.table-min{
+				@extend %table-min-parametrs;
+				.table-row{
+					min-height: 45px;
+					display: flex;
+					.table-td{
+						@extend %table-min-parametrs;
+						padding: 10px 20px;
+						line-height: 24px;
+						background-color: #edeff0;
+						.flag{
+							padding-left: 25px;
+						}
+						&.table-header{
+							padding-left: 0;
+							color: $gray_light;
+							font: 11px/13px "TrebuchetMSBold";
+							letter-spacing: 1px;
+							text-transform: uppercase;
+							background-color: transparent;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: $screen-xs-min){
+	.screen-small-resolution{
+		.table-min-wrapper{
+			flex-direction: column;
+			.table-min{
+				width: 100%;
+			}
+		}
+		.header-unit{
+			.comment-icon{
+				right: 0;
+			}
+			label{
+				padding-right: 30px;
 			}
 		}
 	}

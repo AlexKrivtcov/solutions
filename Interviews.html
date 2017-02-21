@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>Interviewers</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
                 <link rel='apple-touch-icon-precomposed' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
@@ -227,7 +227,7 @@
                         <div class="block-filter">
                             <h5>Responsible</h5>
                             <div class="input-group">
-                                <input class="form-control" data-bind="typeahead: selectedResponsible, typeaheadOptions: {source: responsibles, displayText: function(item){return item.UserName}}, valueupdate:'afterkeydown'" type="text" maxlength="256">
+                                <input class="form-control" data-bind="typeahead: selectedResponsible, typeaheadOptions: {source: responsibles, displayText: function(item){return item.UserName}}, valueupdate:'afterkeydown'" type="text" maxlength="256" placeholder="Select">
                                 <span data-bind="spinner: isResponsiblesLoading, spinnerOptions: { 'left': 1, 'right': '50px' }" style="display: none;"></span>
                                 <div class="input-group-btn" data-bind="click: function(){ selectedResponsible(undefined); }">
                                     <div class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -270,342 +270,497 @@
                         <h1>List of all 143 completed interviews and issued assignments</h1>
                         <p><a href="#">2 interwiews</a> need to be assigned, <a href="#">23 interviews</a> waiting for your descision, <a href="#" class="error-text">2 interviews</a> rejected by HQ need your response.</p>
                     </div>
-                    <div class="table-wrapper">
-                        <div class="wrapper-modal-dropdown">
-                            <button type="button" class="btn btn-strips" data-toggle="modal" data-target="#modal-dropdown">
-                              <span></span>
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal" id="modal-dropdown" tabindex="-1" role="dialog">
-                                <div class="modal-dialog modal-dropdown" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-                                            <h3>Show prefield</h3>
-                                        </div>
-                                        <div class="modal-body">
-                                            <ul class="list-unstyled" >
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="has-comments1" checked/>
-                                                    <label for="has-comments1">
-                                                        <span class="tick"></span>Has comments
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="flags" checked/>
-                                                    <label for="flags">
-                                                        <span class="tick"></span>Flags
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="status" checked/>
-                                                    <label for="status">
-                                                        <span class="tick"></span>Current interview status
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="spent-time"/>
-                                                    <label for="spent-time">
-                                                        <span class="tick"></span>Time spent on this interview
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="answered-questions" checked/>
-                                                    <label for="answered-questions">
-                                                        <span class="tick"></span>Number of answered questions
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="template"/>
-                                                    <label for="template">
-                                                        <span class="tick"></span>Questionnaire template
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="accepted-hq"/>
-                                                    <label for="accepted-hq">
-                                                        <span class="tick"></span>Accepted by HQ
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="census"/>
-                                                    <label for="census">
-                                                        <span class="tick"></span>Census mode
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="last-update" checked/>
-                                                    <label for="last-update">
-                                                        <span class="tick"></span>Last update
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="download-on-device" checked/>
-                                                    <label for="download-on-device">
-                                                        <span class="tick"></span>When downloaded on device
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="enumerator" checked/>
-                                                    <label for="enumerator">
-                                                        <span class="tick"></span>Enumerator
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input class="checkbox-filter" type="checkbox" id="number-rejected"/>
-                                                    <label for="number-rejected">
-                                                        <span class="tick"></span>Number of times rejected
-                                                    </label>
-                                                </li>
-                                            </ul>
+                    <div class="interviews-info">
+                        <div class="table-wrapper interviews-large-screen">
+                            <div class="wrapper-modal-dropdown">
+                                <button type="button" class="btn btn-strips" data-toggle="modal" data-target="#modal-dropdown">
+                                <span></span>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal" id="modal-dropdown" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog modal-dropdown" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                <h3>Show prefield</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <ul class="list-unstyled" >
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="has-comments1" checked/>
+                                                        <label for="has-comments1">
+                                                            <span class="tick"></span>Has comments
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="flags" checked/>
+                                                        <label for="flags">
+                                                            <span class="tick"></span>Flags
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="status" checked/>
+                                                        <label for="status">
+                                                            <span class="tick"></span>Current interview status
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="spent-time"/>
+                                                        <label for="spent-time">
+                                                            <span class="tick"></span>Time spent on this interview
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="answered-questions" checked/>
+                                                        <label for="answered-questions">
+                                                            <span class="tick"></span>Number of answered questions
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="template"/>
+                                                        <label for="template">
+                                                            <span class="tick"></span>Questionnaire template
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="accepted-hq"/>
+                                                        <label for="accepted-hq">
+                                                            <span class="tick"></span>Accepted by HQ
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="census"/>
+                                                        <label for="census">
+                                                            <span class="tick"></span>Census mode
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="last-update" checked/>
+                                                        <label for="last-update">
+                                                            <span class="tick"></span>Last update
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="download-on-device" checked/>
+                                                        <label for="download-on-device">
+                                                            <span class="tick"></span>When downloaded on device
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="enumerator" checked/>
+                                                        <label for="enumerator">
+                                                            <span class="tick"></span>Enumerator
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="number-rejected"/>
+                                                        <label for="number-rejected">
+                                                            <span class="tick"></span>Number of times rejected
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="table-with-scroll">
+                                <table class="table table-striped table-ordered table-bordered table-hover table-with-checkboxes table-with-prefilled-column table-interviews">
+                                    <thead>
+                                        <tr>
+                                            <th class="sorting_disabled checkbox-cell">
+                                                <input class="double-checkbox" id="check-all" type="checkbox">
+                                                <label for="check-all">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </th>
+                                            <th class="sorting_disabled interview-id  title-row">Interview id
+                                                <a href="#" class="show-prefield-btn">Show prefilled</a>
+                                            </th>
+                                            <th class="prefield-column enumeration-area">Enumeration area</th>
+                                            <th class="prefield-column">Deelling ZIP</th>
+                                            <th class="prefield-column  without-break  deelling-address">Deelling address</th>
+                                            <th class="sorting_disabled has-comments"><span class="comment-icon responded"></span></th>
+                                            <th class="sorting_disabled flags">Flags</th>
+                                            <th class="sorting_disabled status">Status</th>
+                                            <th class="sorting_disabled spent-time">Spent time</th>
+                                            <th class="sorting_disabled answered-questions">answered questions</th>
+                                            <th class="sorting_disabled template">Template</th>
+                                            <th class="sorting_disabled accepted-hq">Accepted by HQ</th>
+                                            <th class="sorting_disabled census">Census mode</th>
+                                            <th class="sorting_disabled left-empty">left empty</th>
+                                            <th class="sorting_disabled errors">errors</th>
+                                            <th class="date last-update">last update</th>
+                                            <th class="sorting_disabled download-on-device">downloaded on device</th>
+                                            <th class="sorting_disabled enumerator">enumerator</th>
+                                            <th class="sorting_disabled number-rejected">Times rejected</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="selected">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts" type="checkbox" checked>
+                                                <label for="with-commeqnts">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="interview-id title-row"><a href="#">43-21-23-45-13</a></td>
+                                            <td class="prefield-column enumeration-area">North 2</td>
+                                            <td class="prefield-column">24632</td>
+                                            <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
+                                            <td class="has-comments"><span class="comment-icon"></span></td>
+                                            <td class="flags"><span class="flag">3</span></td>
+                                            <td class="status">Need your descision</td>
+                                            <td class="spent-time"> 20 min</td>
+                                            <td class="answered-questions">2048</td>
+                                            <td class="template"></td>
+                                            <td class="accepted-hq"></td>
+                                            <td class="census"></td>
+                                            <td class="left-empty">12</td>
+                                            <td class="errors">2</td>
+                                            <td class="date last-update">Feb 12, 23:55</td>
+                                            <td class="date download-on-device">Feb 12, 09:12</td>
+                                            <td class="enumerator"><span class="interviewer">interviewer-113</span></td>
+                                            <td class="number-rejected"></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts1" type="checkbox">
+                                                <label for="with-commeqnts1">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="interview-id title-row"><a href="#">54-11-23-45-21</a></td>
+                                            <td class="prefield-column enumeration-area">North 2</td>
+                                            <td class="prefield-column">24632</td>
+                                            <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
+                                            <td class="has-comments"><span class="comment-icon responded"></span></td>
+                                            <td class="flags"><span class="empty"></span></td>
+                                            <td class="status">Completed</td>
+                                            <td class="spent-time"> 20 min</td>
+                                            <td class="answered-questions">1956</td>
+                                            <td class="template"></td>
+                                            <td class="accepted-hq"></td>
+                                            <td class="census"></td>
+                                            <td class="left-empty success-text">No</td>
+                                            <td class="errors success-text">No</td>
+                                            <td class="date last-update">Feb 12, 19:55</td>
+                                            <td class="date download-on-device">Feb 1, 09:12</td>
+                                            <td class="enumerator"><span class="interviewer">i-4</span></td>
+                                            <td class="number-rejected"></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts2" type="checkbox">
+                                                <label for="with-commeqnts2">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="interview-id title-row"><a href="#">43-21-23-45-11 i2</a></td>
+                                            <td class="prefield-column enumeration-area">North 2</td>
+                                            <td class="prefield-column">24632</td>
+                                            <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
+                                            <td class="has-comments"><span class="comment-icon responded"></span></td>
+                                            <td class="flags"><span class="flag">1923</span></td>
+                                            <td class="status error-text">HQ rejected</td>
+                                            <td class="spent-time"> 20 min</td>
+                                            <td class="answered-questions error-text">No</td>
+                                            <td class="template"></td>
+                                            <td class="accepted-hq"></td>
+                                            <td class="census"></td>
+                                            <td class="left-empty">1345</td>
+                                            <td class="errors">1922</td>
+                                            <td class="date last-update">Feb 11, 22:55</td>
+                                            <td class="date download-on-device">Feb 6, 10:12</td>
+                                            <td class="enumerator"><span class="interviewer">alex-right</span></td>
+                                            <td class="number-rejected"></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts3" type="checkbox">
+                                                <label for="with-commeqnts3">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="interview-id not-synced-assign title-row"><a href="#">43-11-23-34-56</a></td>
+                                            <td class="prefield-column enumeration-area">North 2</td>
+                                            <td class="prefield-column">24632</td>
+                                            <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
+                                            <td class="has-comments"><span class="empty"></span></td>
+                                            <td class="flags"><span class="empty"></span></td>
+                                            <td class="status">Not yet synced</td>
+                                            <td class="spent-time"> 20 min</td>
+                                            <td class="answered-questions"><span class="empty"></span></td>
+                                            <td class="template"></td>
+                                            <td class="accepted-hq"></td>
+                                            <td class="census"></td>
+                                            <td class="left-empty"><span class="empty"></span></td>
+                                            <td class="errors"><span class="empty"></span></td>
+                                            <td class="date last-update">Feb 11, 22:55</td>
+                                            <td class="date download-on-device"><span class="empty"></span></td>
+                                            <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
+                                            <td class="number-rejected"></td>
+                                        </tr>
+                                        <tr class="selected">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts4" type="checkbox" checked>
+                                                <label for="with-commeqnts4">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="interview-id title-row"><a href="#">45-63-33-24-67</a></td>
+                                            <td class="prefield-column enumeration-area">North 2</td>
+                                            <td class="prefield-column">24632</td>
+                                            <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
+                                            <td class="has-comments"><span class="empty"></span></td>
+                                            <td class="flags"><span class="empty"></span></td>
+                                            <td class="status">In the field</td>
+                                            <td class="spent-time"> 20 min</td>
+                                            <td class="answered-questions"><span class="empty"></span></td>
+                                            <td class="template"></td>
+                                            <td class="accepted-hq"></td>
+                                            <td class="census"></td>
+                                            <td class="left-empty"><span class="empty"></span></td>
+                                            <td class="errors"><span class="empty"></span></td>
+                                            <td class="date last-update">Feb 11, 22:55</td>
+                                            <td class="date download-on-device">Feb 2, 12:23</td>
+                                            <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
+                                            <td class="number-rejected"></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts41" type="checkbox">
+                                                <label for="with-commeqnts41">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="interview-id title-row"><a href="#">45-22-22-34-19</a></td>
+                                            <td class="prefield-column enumeration-area">North 2</td>
+                                            <td class="prefield-column">24632</td>
+                                            <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
+                                            <td class="has-comments"><span class="comment-icon"></span></td>
+                                            <td class="flags"><span class="flag">1</span></td>
+                                            <td class="status error-text">HQ rejected</td>
+                                            <td class="spent-time"> 20 min</td>
+                                            <td class="answered-questions">1554</td>
+                                            <td class="template"></td>
+                                            <td class="accepted-hq"></td>
+                                            <td class="census"></td>
+                                            <td class="left-empty">78</td>
+                                            <td class="errors">1</td>
+                                            <td class="date last-update">Feb 5, 12:15</td>
+                                            <td class="date download-on-device">Feb 1, 10:03</td>
+                                            <td class="enumerator"><span class="interviewer">guidocallas</span></td>
+                                            <td class="number-rejected"></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts5" type="checkbox">
+                                                <label for="with-commeqnts5">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="interview-id not-synced-assign title-row"><a href="#">77-33-25-71-16</a></td>
+                                            <td class="prefield-column enumeration-area">North 2</td>
+                                            <td class="prefield-column">24632</td>
+                                            <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
+                                            <td class="has-comments"><span class="empty"></span></td>
+                                            <td class="flags"><span class="empty"></span></td>
+                                            <td class="status">Not yet assign</td>
+                                            <td class="spent-time"> 20 min</td>
+                                            <td class="answered-questions"><span class="empty"></span></td>
+                                            <td class="template"></td>
+                                            <td class="accepted-hq"></td>
+                                            <td class="census"></td>
+                                            <td class="left-empty"><span class="empty"></span></td>
+                                            <td class="errors"><span class="empty"></span></td>
+                                            <td class="date last-update">Feb 11, 22:55</td>
+                                            <td class="date download-on-device"><span class="empty"></span></td>
+                                            <td class="enumerator"><button class="btn btn-primary">Assign</button></td>
+                                            <td class="number-rejected"></td>
+                                        </tr>
+                                        <tr class="selected">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts34" type="checkbox" checked>
+                                                <label for="with-commeqnts34">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="interview-id title-row"><a href="#">43-82-94-98-95</a></td>
+                                            <td class="prefield-column enumeration-area">North 2</td>
+                                            <td class="prefield-column">24632</td>
+                                            <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
+                                            <td class="has-comments"><span class="empty"></span></td>
+                                            <td class="flags"><span class="empty"></span></td>
+                                            <td class="status">Waiting for HQ</td>
+                                            <td class="spent-time"> 20 min</td>
+                                            <td class="answered-questions">2001</span></td>
+                                            <td class="template"></td>
+                                            <td class="accepted-hq"></td>
+                                            <td class="census"></td>
+                                            <td class="left-empty success-text">No</td>
+                                            <td class="errors success-text">No</span></td>
+                                            <td class="date last-update">Feb 11, 22:55</td>
+                                            <td class="date download-on-device">Feb 8, 22:55</td>
+                                            <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
+                                            <td class="number-rejected"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="table-with-scroll">
-                            <table class="table table-striped table-ordered table-bordered table-hover table-with-checkboxes table-with-prefilled-column table-interviews">
-                                <thead>
-                                    <tr>
-                                        <th class="sorting_disabled checkbox-cell">
-                                            <input class="double-checkbox" id="check-all" type="checkbox">
-                                            <label for="check-all">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </th>
-                                        <th class="sorting_disabled interview-id  title-row">Interview id
-                                            <a href="#" class="show-prefield-btn">Show prefilled</a>
-                                        </th>
-                                        <th class="prefield-column enumeration-area">Enumeration area</th>
-                                        <th class="prefield-column">Deelling ZIP</th>
-                                        <th class="prefield-column  without-break  deelling-address">Deelling address</th>
-                                        <th class="sorting_disabled has-comments"><span class="comment-icon responded"></span></th>
-                                        <th class="sorting_disabled flags">Flags</th>
-                                        <th class="sorting_disabled status">Status</th>
-                                        <th class="sorting_disabled spent-time">Spent time</th>
-                                        <th class="sorting_disabled answered-questions">answered questions</th>
-                                        <th class="sorting_disabled template">Template</th>
-                                        <th class="sorting_disabled accepted-hq">Accepted by HQ</th>
-                                        <th class="sorting_disabled census">Census mode</th>
-                                        <th class="sorting_disabled left-empty">left empty</th>
-                                        <th class="sorting_disabled errors">errors</th>
-                                        <th class="date last-update">last update</th>
-                                        <th class="sorting_disabled download-on-device">downloaded on device</th>
-                                        <th class="sorting_disabled enumerator">enumerator</th>
-                                        <th class="sorting_disabled number-rejected">Times rejected</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="selected">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts" type="checkbox" checked>
-                                            <label for="with-commeqnts">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id title-row"><a href="#">43-21-23-45-13</a></td>
-                                        <td class="prefield-column enumeration-area">North 2</td>
-                                        <td class="prefield-column">24632</td>
-                                        <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="comment-icon"></span></td>
-                                        <td class="flags"><span class="flag">3</span></td>
-                                        <td class="status">Need your descision</td>
-                                        <td class="spent-time"> 20 min</td>
-                                        <td class="answered-questions">2048</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
-                                        <td class="left-empty">12</td>
-                                        <td class="errors">2</td>
-                                        <td class="date last-update">Feb 12, 23:55</td>
-                                        <td class="date download-on-device">Feb 12, 09:12</td>
-                                        <td class="enumerator"><span class="interviewer">interviewer-113</span></td>
-                                        <td class="number-rejected"></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts1" type="checkbox">
-                                            <label for="with-commeqnts1">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id title-row"><a href="#">54-11-23-45-21</a></td>
-                                        <td class="prefield-column enumeration-area">North 2</td>
-                                        <td class="prefield-column">24632</td>
-                                        <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="comment-icon responded"></span></td>
-                                        <td class="flags"><span class="empty"></span></td>
-                                        <td class="status">Completed</td>
-                                        <td class="spent-time"> 20 min</td>
-                                        <td class="answered-questions">1956</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
-                                        <td class="left-empty success-text">No</td>
-                                        <td class="errors success-text">No</td>
-                                        <td class="date last-update">Feb 12, 19:55</td>
-                                        <td class="date download-on-device">Feb 1, 09:12</td>
-                                        <td class="enumerator"><span class="interviewer">i-4</span></td>
-                                        <td class="number-rejected"></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts2" type="checkbox">
-                                            <label for="with-commeqnts2">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id title-row"><a href="#">43-21-23-45-11 i2</a></td>
-                                        <td class="prefield-column enumeration-area">North 2</td>
-                                        <td class="prefield-column">24632</td>
-                                        <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="comment-icon responded"></span></td>
-                                        <td class="flags"><span class="flag">1923</span></td>
-                                        <td class="status error-text">HQ rejected</td>
-                                        <td class="spent-time"> 20 min</td>
-                                        <td class="answered-questions error-text">No</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
-                                        <td class="left-empty">1345</td>
-                                        <td class="errors">1922</td>
-                                        <td class="date last-update">Feb 11, 22:55</td>
-                                        <td class="date download-on-device">Feb 6, 10:12</td>
-                                        <td class="enumerator"><span class="interviewer">alex-right</span></td>
-                                        <td class="number-rejected"></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts3" type="checkbox">
-                                            <label for="with-commeqnts3">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id not-synced-assign title-row"><a href="#">43-11-23-34-56</a></td>
-                                        <td class="prefield-column enumeration-area">North 2</td>
-                                        <td class="prefield-column">24632</td>
-                                        <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="empty"></span></td>
-                                        <td class="flags"><span class="empty"></span></td>
-                                        <td class="status">Not yet synced</td>
-                                        <td class="spent-time"> 20 min</td>
-                                        <td class="answered-questions"><span class="empty"></span></td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
-                                        <td class="left-empty"><span class="empty"></span></td>
-                                        <td class="errors"><span class="empty"></span></td>
-                                        <td class="date last-update">Feb 11, 22:55</td>
-                                        <td class="date download-on-device"><span class="empty"></span></td>
-                                        <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
-                                        <td class="number-rejected"></td>
-                                    </tr>
-                                    <tr class="selected">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts4" type="checkbox" checked>
-                                            <label for="with-commeqnts4">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id title-row"><a href="#">45-63-33-24-67</a></td>
-                                        <td class="prefield-column enumeration-area">North 2</td>
-                                        <td class="prefield-column">24632</td>
-                                        <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="empty"></span></td>
-                                        <td class="flags"><span class="empty"></span></td>
-                                        <td class="status">In the field</td>
-                                        <td class="spent-time"> 20 min</td>
-                                        <td class="answered-questions"><span class="empty"></span></td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
-                                        <td class="left-empty"><span class="empty"></span></td>
-                                        <td class="errors"><span class="empty"></span></td>
-                                        <td class="date last-update">Feb 11, 22:55</td>
-                                        <td class="date download-on-device">Feb 2, 12:23</td>
-                                        <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
-                                        <td class="number-rejected"></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts41" type="checkbox">
-                                            <label for="with-commeqnts41">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id title-row"><a href="#">45-22-22-34-19</a></td>
-                                        <td class="prefield-column enumeration-area">North 2</td>
-                                        <td class="prefield-column">24632</td>
-                                        <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="comment-icon"></span></td>
-                                        <td class="flags"><span class="flag">1</span></td>
-                                        <td class="status error-text">HQ rejected</td>
-                                        <td class="spent-time"> 20 min</td>
-                                        <td class="answered-questions">1554</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
-                                        <td class="left-empty">78</td>
-                                        <td class="errors">1</td>
-                                        <td class="date last-update">Feb 5, 12:15</td>
-                                        <td class="date download-on-device">Feb 1, 10:03</td>
-                                        <td class="enumerator"><span class="interviewer">guidocallas</span></td>
-                                        <td class="number-rejected"></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts5" type="checkbox">
-                                            <label for="with-commeqnts5">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id not-synced-assign title-row"><a href="#">77-33-25-71-16</a></td>
-                                        <td class="prefield-column enumeration-area">North 2</td>
-                                        <td class="prefield-column">24632</td>
-                                        <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="empty"></span></td>
-                                        <td class="flags"><span class="empty"></span></td>
-                                        <td class="status">Not yet assign</td>
-                                        <td class="spent-time"> 20 min</td>
-                                        <td class="answered-questions"><span class="empty"></span></td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
-                                        <td class="left-empty"><span class="empty"></span></td>
-                                        <td class="errors"><span class="empty"></span></td>
-                                        <td class="date last-update">Feb 11, 22:55</td>
-                                        <td class="date download-on-device"><span class="empty"></span></td>
-                                        <td class="enumerator"><button class="btn btn-primary">Assign</button></td>
-                                        <td class="number-rejected"></td>
-                                    </tr>
-                                    <tr class="selected">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts34" type="checkbox" checked>
-                                            <label for="with-commeqnts34">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id title-row"><a href="#">43-82-94-98-95</a></td>
-                                        <td class="prefield-column enumeration-area">North 2</td>
-                                        <td class="prefield-column">24632</td>
-                                        <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="empty"></span></td>
-                                        <td class="flags"><span class="empty"></span></td>
-                                        <td class="status">Waiting for HQ</td>
-                                        <td class="spent-time"> 20 min</td>
-                                        <td class="answered-questions">2001</span></td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
-                                        <td class="left-empty success-text">No</td>
-                                        <td class="errors success-text">No</span></td>
-                                        <td class="date last-update">Feb 11, 22:55</td>
-                                        <td class="date download-on-device">Feb 8, 22:55</td>
-                                        <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
-                                        <td class="number-rejected"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="screen-small-resolution">
+                            <div class="row-unit">
+                                <div class="header-unit">
+                                    <input class="checkbox-filter" id="with-commeqnts21" type="checkbox">
+                                    <label for="with-commeqnts21">
+                                        <span class="tick"></span>
+                                        <span class="title-row">43-21-23-45-15</span>
+                                        <span>Need your descision</span>
+                                    </label>
+                                    <span class="comment-icon"></span> 
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>Last update: Feb 12, 23:55</li>
+                                    <li>Downloaded on device: Feb 11, 09:12</li>
+                                    <li>Enumerator: <a href="#" class="interviewer">interviewer-31</a></li>
+                                </ul>
+                                <div class="table-min-wrapper clearfix">
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Flags</div>
+                                            <div class="table-td table-header">Answered questions</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td flags"><span class="flag">1</span></div>
+                                            <div class="table-td">1956</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Left empty</div>
+                                            <div class="table-td table-header">erors</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td">78</div>
+                                            <div class="table-td error-text">1</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-unit">
+                                <div class="header-unit">
+                                    <input class="checkbox-filter" id="with-commeqnts421" type="checkbox">
+                                    <label for="with-commeqnts421">
+                                        <span class="tick"></span>
+                                        <span class="title-row">54-11-23-45-13</span>
+                                        <span>Completed</span>
+                                    </label>
+                                    <span class="comment-icon"></span> 
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>Last update: Feb 12, 20:15</li>
+                                    <li>Downloaded on device: Feb 10, 05:12</li>
+                                    <li>Enumerator: <a href="#" class="interviewer">i-4</a></li>
+                                </ul>
+                                <div class="table-min-wrapper clearfix">
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Flags</div>
+                                            <div class="table-td table-header">Answered questions</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td flags"><span class="empty"></span></div>
+                                            <div class="table-td">2048</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Left empty</div>
+                                            <div class="table-td table-header">erors</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td success-text">No</div>
+                                            <div class="table-td error-text success-text">No</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-unit">
+                                <div class="header-unit">
+                                    <input class="checkbox-filter" id="with-commeqnts219" type="checkbox">
+                                    <label for="with-commeqnts219">
+                                        <span class="tick"></span>
+                                        <span class="title-row">43-21-23-45-11 i2</span>
+                                        <span class="error-text">HQ rejected</span>
+                                    </label>
+                                    <span class="comment-icon responded"></span>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>Last update: Feb 12, 20:15</li>
+                                    <li>Downloaded on device: Feb 10, 05:12</li>
+                                    <li>Enumerator: <a href="#" class="interviewer">guidocallas</a></li>
+                                </ul>
+                                <div class="table-min-wrapper clearfix">
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Flags</div>
+                                            <div class="table-td table-header">Answered questions</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td flags"><span class="flag">1923</span></div>
+                                            <div class="table-td">2048</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Left empty</div>
+                                            <div class="table-td table-header">erors</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td">1342</div>
+                                            <div class="table-td error-text">1922</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-unit">
+                                <div class="header-unit">
+                                    <input class="checkbox-filter" id="with-commeqnts216" type="checkbox">
+                                    <label for="with-commeqnts216">
+                                        <span class="tick"></span>
+                                        <span class="title-row">77-33-25-71-16</span>
+                                        <span>Not yet assign</span>
+                                    </label>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>Last update: Feb 05, 09:15</li>
+                                    <li>Downloaded on device: Feb 01, 05:12</li>
+                                    <li>Enumerator: <button class="btn btn-primary">Assign</button></li>
+                                </ul>
+                                <div class="table-min-wrapper clearfix">
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Flags</div>
+                                            <div class="table-td table-header">Answered questions</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td flags"><span class="empty"></span></div>
+                                            <div class="table-td"><span class="empty"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Left empty</div>
+                                            <div class="table-td table-header">erors</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td">2580</div>
+                                            <div class="table-td error-text"><span class="empty"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="panel panel-table">
                             <div class="panel-body">
@@ -619,7 +774,7 @@
                                 <button class="btn btn-link">move to trash</button>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -641,7 +796,7 @@
                 <p>Uploaded from device &mdash; waiting for your descision</p>
                 <h3>History of status changes</h3>
                 <div class="table-with-scroll">
-                    <table class="table table-striped">
+                    <table class="table table-striped history">
                         <tr>
                             <td class="date">Feb 09, 23:55</td>
                             <td>Issued by HQ3, assigned to <a href="#" class="supervisor">suprv5</a></td>
@@ -786,7 +941,7 @@
         return false;
     });
     </script>
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
         (function ($, window) {
             $.fn.contextMenu = function (settings) {
                 return this.each(function () {
@@ -837,20 +992,13 @@
                 alert(msg);
             }
         });
-    </script>-->
-    <script type="text/javascript">
-        var $contextMenu = $(".context-menu");
-
-        $("body").on("contextmenu", ".table-interviews tr", function(e) {
-        $contextMenu.css({
-            display: "block",
-            left: e.pageX,
-            top: e.pageY
-        });
-        return false;
-        });
-        $contextMenu.on("click", "a", function() {
-            $contextMenu.hide();
+        $(".screen-small-resolution .row-unit").contextMenu({
+            menuSelector: ".context-menu",
+            menuSelected: function (invokedOn, selectedMenu) {
+                var msg = "You selected the menu item '" + selectedMenu.text() +
+                    "' on the value '" + invokedOn.text() + "'";
+                alert(msg);
+            }
         });
     </script>
 </body>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-questionnaires</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+            <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".unit-title").stick_in_parent({recalc_every: 200 });
+        });
+    </script> 
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+            $(".navbar-collapse").fadeToggle();
+            $(".navbar-collapse").animate({height: '100%'}, 0);
+            $(".top-menu").toggleClass("top-animate");
+            $(".mid-menu").toggleClass("mid-animate");
+            $(".bottom-menu").toggleClass("bottom-animate");
+            $("main").toggleClass("hidden");
+            });
+        });
+    </script> 
+    <script>
+        $(document).ready(function () 
+        {
+            $("#hide-filters").click(function () {
+                $('main').toggleClass("fullscreen-hidden-filters");
+                $("footer").toggleClass("footer-adaptive-filters");
+                $(document.body).trigger("sticky_kit:recalc");
+            });
+            $("#hide-content").click(function () {
+                $('main').toggleClass("fullscreen-hidden-content");
+                $("footer").toggleClass("footer-adaptive-content");
+                $(document.body).trigger("sticky_kit:recalc");
+            });
+            $("main").removeClass("hold-transition");
+            $("footer").removeClass("hold-transition");
+        });
+    </script>
+    <script>
+        $(function() {
+            $(".button-flag").click(function() {  
+                $(this).parents('.question').toggleClass("with-flag");
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $(".btn-clear").click(function() {  
+                $(this).parent().find("input").prop('checked', false);
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $.each($('.field-to-fill'), function( index, value ) {
+                if ($(this).val().length > 0) {
+                    $(this).parent(".field").addClass("answered");
+                }
+                
+                $(this).change(function() {
+                    if ($(this).val().length > 0) {
+                        $(this).parent(".field").addClass("answered");
+                    }
+                     else{
+                        $(this).parent(".field").removeClass("answered");
+                    }
+                });
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().removeClass("answered");
+                    $(this).parent().find("input").val('');
+                });             
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+            $.each($('.cascading-question'), function( index, value ) {
+                if ($(this).val().length > 0) {
+                    $(this).parent(".field").addClass("answered");
+                }
+                $(this).change(function() {
+                    if ($(this).val().length > 0) {
+                        $(this).parent(".field").addClass("answered");
+                    } 
+                });
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().removeClass("answered");
+                    $(this).parent().find("input").val('');
+                });             
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $(".hidden-by-filter").dblclick(function() {
+              $(this).toggleClass('hidden-by-filter').toggleClass('open-hidden-by-filter');
+            });
+            $(".open-hidden-by-filter").dblclick(function() {
+              $(this).toggleClass('open-hidden-by-filter').toggleClass('hidden-by-filter')
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $(".zoomImg").click(function(e) { 
+                var modal = $(this).parent('.image-zoom-box').find(".modal-img");
+                var caption = $(this).parent('.image-zoom-box').find(".caption");
+                var close = $(this).parent('.image-zoom-box').find(".close-zoomming-img");
+                modal.show();
+                modal.find("img").attr("src", $(e.target).attr("src"));
+                caption.text($(e.target).attr("alt"));
+                close.click(function() { 
+                    modal.fadeOut();
+                });
+            });
+        });
+    </script>
+</head>
+<body class="gray-background">
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                        <div class="brand-name" title="Headquarter">Headquarter</div>
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header>
+    <div class="panel panel-warning view-mood">
+        <div class="panel-heading">
+            This is the content that <b>28kBa0osVU0nQqn</b> sees. <a href="#">Click to return to your account.</a>
+        </div>
+    </div>  
+    <main class="web-interview web-interview-for-supervisor hold-transition">
+        <div class="container-fluid">
+            <div class="row">
+                <aside class="filters">
+                    <div class="foldback-button" id="hide-filters">
+                        <span class="arrow"></span>
+                        <span class="arrow"></span>
+                        <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+                    </div>
+                    <div class="filters-container">
+                        <h4>Filter Questions</h4> 
+                        <div class="block-filter separate-filters-group flagged-questions">
+                            <a href="#" class="flag">No flagged questions</a>
+                        </div>
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="Invalid" type="checkbox"/>
+                                <label for="Invalid" class="error-text inactive">
+                                    <span class="tick"></span>Invalid <span class="quotes">(</span><b>5</b><span class="quotes">)</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="valid" type="checkbox" checked/>
+                                <label for="valid">
+                                    <span class="tick"></span>Valid (3'120)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="with-comments" type="checkbox"/>
+                                <label for="with-comments" class="pink-text">
+                                    <span class="tick"></span>With comments <span class="quotes">(</span><b>59</b><span class="quotes">)</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="without-comments" type="checkbox"/>
+                                <label for="without-comments">
+                                    <span class="tick"></span>Without comments (3'066)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="answered" type="checkbox" checked="" />
+                                <label for="answered">
+                                    <span class="tick"></span>Answered (3'124)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="unanswered" type="checkbox" checked="" />
+                                <label for="unanswered">
+                                    <span class="tick"></span>Unanswered (45)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="for-supervisor" type="checkbox" checked="" />
+                                <label for="for-supervisor" class="light-blue-text">
+                                    <span class="tick"></span>For supervisor <span class="quotes">(</span><b>3</b><span class="quotes">)</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="hidden-service-data" type="checkbox"/>
+                                <label for="hidden-service-data" class="inactive">
+                                    <span class="tick"></span>Hidden, service data (5)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter reset-filters">
+                            <a href="#">View all (reset all filters)</a>
+                        </div>
+                    </div>
+                    <div class="preset-filters-container">
+                        <h4>Preview settings</h4> 
+                        <div class="block-filter">
+                            <h5>Set of shown questions</h5>
+                            <select class="selectpicker">
+                                <option>Shortlist (23 questions)</option>
+                                <option class="flag flagged">Flagged questions</option>
+                                <option>Changed since my last descision</option>
+                                <option selected>All questions</option>
+                            </select>
+                        </div> 
+                        <div class="block-filter">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="all-answer-options" type="checkbox"/>
+                                <label for="all-answer-options">
+                                    <span class="tick"></span>Show all answer options
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="disabled-questions" type="checkbox"/>
+                                <label for="disabled-questions">
+                                    <span class="tick"></span>Show disabled questions
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <h5>Survey language</h5>
+                            <select class="selectpicker">
+                                <option>ENG &mdash; English</option>
+                                <option>UA &mdash; Ukrainian</option>
+                                <option>RU &mdash; Russian</option>
+                                <option>FR &mdash; French</option>
+                            </select>
+                        </div>
+                    </div> 
+                </aside>
+                <aside class="content">
+                    <div class="foldback-button" id="hide-content">
+                        <span class="arrow"></span>
+                        <span class="arrow"></span>
+                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                    </div>
+                    <div class="questionnaire-content">
+                            <ol class="breadcrumb">
+                                <li><a href="">Interviews</a></li>
+                            </ol>
+                            <div>
+                                <h2>23-44-13-46-10</h2>
+                                <button type="button" class="btn btn-default btn-lg reject">Reject</button>
+                                <button type="button" class="btn btn-success">Approve</button>
+                                <button type="button" class="btn btn-history" data-toggle="modal" data-target="#statuses"></button>
+                            </div> 
+                    </div>
+                    <div class="panel-group structured-content" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title group complete">
+                                    <a href="#">Cover page, interview info</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-1">
+                                <h3 class="panel-title complete">
+                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1"><span></span>
+                                    </button>
+                                    <a href="#">
+                                        Section B: food consumption overview
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-1">
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title group complete">
+                                                <a href="#">Cover page, interview info</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-2">
+                                <h3 class="panel-title">
+                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2"><span></span>
+                                    </button>
+                                    <a href="#">Section C: Consumption of food over past week</a>
+                                </h3>
+                            </div>
+                            <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
+                                <div class="panel-body">
+                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-2-1">
+                                                <h3 class="panel-title complete">
+                                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse"  data-target="#collapse-2-1" aria-expanded="false" aria-controls="collapse-2-1"><span></span>
+                                                    </button>
+                                                    <a href="#">
+                                                        Yearly consumption
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-2-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2-1">
+                                                <div class="panel-body">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title group complete">
+                                                                <a href="#">Cover page, interview info</a>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-2-2">
+                                                <h3 class="panel-title">
+                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2" aria-expanded="false" aria-controls="collapse-2-2"><span></span>
+                                                        </button>
+                                                    <a href="#">
+                                                        Consumption per week
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapse-2-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1">
+                                                <div class="panel-body">
+                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="heading-2-2-1">
+                                                                <h3 class="panel-title">
+                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1" aria-expanded="false" aria-controls="collapse-2-2-1"><span></span>
+                                                                        </button>
+                                                                    <a href="#">
+                                                                        Cereals and cereals products
+                                                                    </a>
+                                                                </h3>
+                                                            </div>
+                                                            <div id="collapse-2-2-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1">
+                                                                <div class="panel-body">
+                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                        <div class="panel panel-default">
+                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1">
+                                                                                <h3 class="panel-title active">
+                                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1"><span></span>
+                                                                                    </button>
+                                                                                    <a href="#">
+                                                                                        During the last 12 months, did you or any members of your household receive any of the following Sources?
+                                                                                    </a>
+                                                                                </h3>
+                                                                            </div>
+                                                                            <div id="collapse-2-2-1-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1-1">
+                                                                                <div class="panel-body">
+                                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                                        <div class="panel panel-default">
+                                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1-1">
+                                                                                                <h3 class="panel-title">
+                                                                                                    <button class="btn btn-link btn-plus" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1"><span></span>
+                                                                                                        </button>
+                                                                                                    <a href="#">
+                                                                                                        Did your household own or rent any farm implevents, machinery and/or structures, such as hand hoe, panga knife, treadle pump, ox cart, tractor, plough, generator, chicken house, storage house, barn, etc... in the last 12 months?
+                                                                                                    </a>
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                            <div id="collapse-2-2-1-1-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2-2-1-1-1">
+                                                                                                <div class="panel-body">
+                                                                                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                                                                                        <div class="panel panel-default">
+                                                                                                            <div class="panel-heading" role="tab" id="heading-2-2-1-1-1-1">
+                                                                                                                <h3 class="panel-title">
+                                                                                                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-target="#collapse-2-2-1-1-1-1" aria-expanded="false" aria-controls="collapse-2-2-1-1-1-1"><span></span>
+                                                                                                                    </button>
+                                                                                                                    <a href="#">
+                                                                                                                        Cereals and cereals products
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+                                                                                                            <div id="collapse-2-2-1-1-1-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2-2-1-1-1-1">
+                                                                                                                <div class="panel-body">
+                                                                                                                    <div class="panel panel-default">
+                                                                                                                        <div class="panel-heading">
+                                                                                                                            <h3  class="panel-title group">
+                                                                                                                                <a href="#">Yearly consumption</a>
+                                                                                                                            </h3>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-3">
+                                <h3 class="panel-title has-error">
+                                    <button class="btn btn-link btn-plus collapsed" type="button" data-toggle="collapse" data-parent="#accordion-content-main" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3"><span></span>
+                                        </button>
+                                    <a href="#">
+                                        Section D: Healthcare
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title group has-error">
+                                                <a href="#">Cover page, interview info</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3  class="panel-title group complete">
+                                    <a href="#">Yearly consumption</a>
+                                </h3>
+                           </div>
+                        </div>
+                    </div>
+                </aside>
+                <section class="questionnaire details-interview">
+                    <div class="unit-section complete-section first-last-chapter">
+                        <div class="unit-title">
+                            <h3>Cover page, status history, interview info</h3>
+                        </div>
+                        <div class="wrapper-info">
+                            <div class="container-info">
+                                <h2>Copy of Copy of Bosnia and Herzogowina <br/> Water and Sanitation Survey 2017 (Friday draft)</br> Interview 23-44-13-46</h2>
+                            </div>
+                        </div>
+                        <div class="wrapper-info">
+                            <div class="container-info">
+                                <h3>Timeline of interview status changes:</h3>
+                                <table class="table history">
+                                    <tr>
+                                        <td class="date">Feb 20, 22:22</td>
+                                        <td><span class="primary-text">Current status:</span> Uploaded from device</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">Feb 19, 12:52</td>
+                                        <td>Downloaded to device</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">Feb 17, 16:06</td>
+                                        <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">Feb 16, 18:12</td>
+                                        <td>
+                                            <span class="error-text">Rejected</span> by <a href="#" class="supervisor">suprv7 (you)</a>
+                                            <div class="comment">
+                                                <h4 class="gray-uppercase">Rejection comment (feb 13, 13:58):</h4>
+                                                <p><b><i>Household consumption data is not valid, please re-check cereals and flours quantities (you can do it by phone)</b></i></p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">Feb 16, 14:52</td>
+                                        <td>Uploaded from device</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">Feb 15, 14:42</td>
+                                        <td>Downloaded to device</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">Feb 12, 12:52</td>
+                                        <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">Feb 11, 19:52</td>
+                                        <td>Reasigned to <a href="#" class="supervisor">suprv7 (you)</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">Feb 09, 23:55</td>
+                                        <td>Issued by HQ3, assigned to <a href="#" class="supervisor">suprv5</a></td>
+                                    </tr>  
+                                </table>
+                            </div>
+                        </div>
+                        <div class="wrapper-info">
+                            <div class="container-info">
+                                <h3>Prefield data</h3>
+                                <dl>
+                                    <dd>Enumeration area code</dd>
+                                    <dt>East 12</dt>
+                                    <dd>Interviewee ID</dd>
+                                    <dt><a href="mailto:liam.radison@yahoo.com">liam.radison@yahoo.com</a></dt>
+                                    <dd>Interviewee occupation industry</dd>
+                                    <dt>Healthcare</dt>
+                                </dl>
+                                <a href="#" class="btn btn-lg btn-success">next chapter</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <div class="modal fade statuses" id="statuses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                <h3>Interview</h3>
+                <p><a href="#" class="title-row">71-06-24-88-13</a> by <a href="#" class="interviewer">interviewer-101</a></p>
+            </div>
+            <div class="modal-body">
+                <h3>Current status:</h3>
+                <p>Uploaded from device &mdash; waiting for your descision</p>
+                <h3>History of status changes</h3>
+                <div class="table-with-scroll">
+                    <table class="table table-striped">
+                        <tr>
+                            <td class="date">Feb 09, 23:55</td>
+                            <td>Issued by HQ3, assigned to <a href="#" class="supervisor">suprv5</a></td>
+                        </tr>
+                        <tr>
+                            <td class="date">Feb 11, 19:52</td>
+                            <td>Reasigned to <a href="#" class="supervisor">suprv7 (you)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="date">Feb 12, 12:52</td>
+                            <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
+                        </tr>
+                        <tr>
+                            <td class="date">Feb 15, 14:42</td>
+                            <td>Downloaded to device</td>
+                        </tr>
+                        <tr>
+                            <td class="date">Feb 16, 14:52</td>
+                            <td>Uploaded from device</td>
+                        </tr>
+                        <tr>
+                            <td class="date">Feb 16, 18:12</td>
+                            <td>
+                                <span class="error-text">Rejected</span> by <a href="#" class="supervisor">suprv7 (you)</a>
+                                <div class="comment">
+                                    <h4 class="gray-uppercase">Rejection comment (feb 13, 13:58):</h4>
+                                    <p><b><i>Household consumption data is not valid, please re-check cereals and flours quantities (you can do it by phone)</b></i></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">Feb 17, 16:06</td>
+                            <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
+                        </tr>
+                        <tr>
+                            <td class="date">Feb 19, 12:52</td>
+                            <td>Downloaded to device</td>
+                        </tr>
+                        <tr>
+                            <td class="date">Feb 20, 22:22</td>
+                            <td>Uploaded from device</td>
+                        </tr>
+                    </table>
+                </div>    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link">view interview</button>
+                <button type="button" class="btn btn-link" data-dismiss="modal">close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer hold-transition footer-adaptive-content footer-adaptive-filters">
+        <div class="container-fluid">
+            <div class="text-left">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-left">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+            var $target = $( event.currentTarget );
+            $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .removeClass("gray-text")
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+        });
+    </script>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFtRD8SCHuzfNmn1RvKCjQum3e19C1J10&callback=initMap">
+    </script>
+</body>
+</html>
