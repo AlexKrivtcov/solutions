@@ -762,62 +762,8 @@ label.inactive{
 				color: $gray_text;
 			}
 		} 
-			
 	}
 }
-// @media (max-width: 1210px) {
-// 	.wide-navbar{
-// 		.navbar-header {
-// 			float: none;
-// 		}
-// 		.navbar-left,.navbar-right {
-// 			float: none !important;
-// 		}
-// 		.navbar-toggle {
-// 			display: block;
-// 		}
-// 		.navbar-collapse {
-// 			border-top: 1px solid transparent;
-// 			box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-// 		}
-// 		.navbar-fixed-top {
-// 			top: 0;
-// 			border-width: 0 0 1px;
-// 		}
-// 		.navbar-collapse.collapse {
-// 			display: none!important;
-// 		}
-// 		.navbar-nav {
-// 			float: none!important;
-// 			margin-top: 7.5px;
-// 		}
-// 		.navbar-nav>li {
-// 			float: none;
-// 		}
-// 		.navbar-nav>li>a {
-// 			padding-top: 10px;
-// 			padding-bottom: 10px;
-// 		}
-// 		.collapse.in{
-// 			display:block !important;
-// 			height: 100% !important;
-// 		}
-// 		.navbar-nav .open .dropdown-menu {
-// 			position: static;
-// 			float: none;
-// 			width: auto;
-// 			margin-top: 0;
-// 			background-color: transparent;
-// 			border: 0;
-// 			box-shadow: none;
-// 		}
-// 		.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
-// 			color: #fff;
-// 			background-color: transparent;
-// 		}
-// 	}
-  
-// }
 @media only screen and (max-width: 1525px){
 	.web-interview-for-supervisor{
 		@include tight-filters-aside();
@@ -953,17 +899,27 @@ label.inactive{
 		}
 	}
 	.content{
-        padding-top: 60px;
+        padding-top: 70px;
 		.questionnaire-content .breadcrumb{
 			margin-right: 30px;
 		}
     }
+	.wide-navbar{
+		.content{
+			padding-top: 60px;
+		}
+		.questionnaire{
+			.unit-title.is_stuck{
+				top: 60px !important;
+			}
+		}
+	}
     .aside-menu{
     	right: 0;
     }
     .questionnaire{
     	.unit-title.is_stuck{
-	        top: 60px !important;
+	        top: 70px !important;
 	    }
     }
 	.web-interview-for-supervisor{

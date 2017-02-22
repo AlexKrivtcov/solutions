@@ -81,6 +81,9 @@ main{
 }
 @media (max-width: $screen-md-min){
 	html body {
+		padding-top: 70px;
+	}
+	html body.wide-navbar {
 		padding-top: 60px;
 	}
 	.container, .container-fluid {
@@ -89,6 +92,9 @@ main{
 }
 
 @media (max-width: $screen-sm){
+	html body {
+		padding-top: 60px;
+	}
 	main .container{
 		width: auto;
 		margin-left: auto;
@@ -370,8 +376,20 @@ table{
 	}
 }
 @media (max-width: $screen-md-min){
+	.wide-navbar{
+		.view-mood{
+			top: 60px;
+			& + main {
+				.container-fluid{
+					.content{
+						padding-top: 90px;
+					}
+				}
+			}
+		}
+	}
 	.view-mood{
-		top: 60px;
+		top: 70px;
 		& + main {
 			.container-fluid{
 				margin-top: 30px;
@@ -379,7 +397,7 @@ table{
 					padding-top: 125px;
 				}
 				.content{
-					padding-top: 90px;
+					padding-top: 100px;
 				}
 				.foldback-button{
 					top: $indent-foldback-button + 30px;
@@ -400,9 +418,11 @@ table{
 }
 @media (max-width: $screen-sm-min){
 	.view-mood{
+		top: 60px;
 		& + main {
 			.container-fluid{
 				.content{
+					padding-top: 90px;
 					.foldback-button{
 						top: 145px;
 					}
