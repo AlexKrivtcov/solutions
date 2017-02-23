@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>Enumerators</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+              $(".navbar-collapse").fadeToggle();
+              $(".navbar-collapse").animate({height: '100%'}, 0);
+              $(".top-menu").toggleClass("top-animate");
+              $(".mid-menu").toggleClass("mid-animate");
+              $(".bottom-menu").toggleClass("bottom-animate");
+              $("main").toggleClass("hidden");
+            });
+        });
+    </script> 
+    <script>
+        $(document).ready(function () 
+        {
+            $("#hide-filters").click(function () {
+                $(".filters").toggleClass("hidden-filters");
+                $(this).parents('.row').toggleClass("fullscreen-hidden-filters");
+                $("footer").toggleClass("footer-adaptive");
+            });
+            $("main").removeClass("hold-transition");
+            $("footer").removeClass("hold-transition");
+        });
+    </script>
+    <script>
+       $(document).ready(function(){
+        $('.table-ordered')
+            .on( 'init.dt', function () {
+                $('#DataTables_Table_0_filter label').on('click', function(e) {
+                    if (e.target !== this)
+                        return;
+                      if ($(this).hasClass("active"))
+                    {
+                        $(this).removeClass("active");
+                    }
+                    else{
+                        $(this).addClass("active");
+                    }
+                    $(".column-questionnaire-title").toggleClass("padding-left-slide");
+                });
+            })
+            .DataTable({
+           
+                "pageLength": 20,
+                "lengthChange": false,
+                // "searching": false,
+                "pagingType": "simple_numbers",
+                "order": [1, 'desc'],
+                "sDom": 'f<"table-with-scroll"t>ip'
+            });
+             $('table th .search').click(function() {
+            return false;
+            })
+        });
+    </script>
+    <script>
+       $(document).ready(function(){
+             $(".btn-search").click(function () {
+                $(this).parents("th").toggleClass("active-search");
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().find("input").val('');
+                }); 
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+    $(function () {
+        var headertext = [];
+        var headers = document.querySelectorAll("thead");
+        var tablebody = document.querySelectorAll("tbody");
+
+        for (var i = 0; i < headers.length; i++) {
+            headertext[i]=[];
+            for (var j = 0, headrow; headrow = headers[i].rows[0].cells[j]; j++) {
+              var current = headrow;
+              headertext[i].push(current.textContent);
+              }
+        } 
+
+        for (var h = 0, tbody; tbody = tablebody[h]; h++) {
+            for (var i = 0, row; row = tbody.rows[i]; i++) {
+              for (var j = 0, col; col = row.cells[j]; j++) {
+                col.setAttribute("data-th", headertext[h][j]);
+              } 
+            }
+        }
+        });
+    </script>
+</head>
+<body class="wide-navbar">
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                        <div class="brand-name" title="Headquarters">Headquarters</div>
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" title="Supervisor">Supervisor</a></li>
+                        <li class="active"><a href="#" title="Enumerators">Enumerators</a></li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header> 
+    <main class="hold-transition">
+        <div class="container-fluid">
+            <div class="row">
+                <aside class="filters">
+                    <div class="foldback-button" id="hide-filters">
+                        <span class="arrow"></span>
+                        <span class="arrow"></span>
+                        <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+                    </div>
+                    <div class="filters-container">
+                        <h4>Filter by status</h4> 
+                        <div class="block-filter">
+                            <h5>Assignments status</h5>
+                            <select class="selectpicker">
+                                <option>All statuses</option>
+                                <option>ApprovedByHeadquarters</option>
+                                <option>ApprovedBySupervisor</option>
+                                <option>Completed</option>
+                                <option>InterviewerAssigned</option>
+                                <option>RejectedByHeadquarters</option>
+                                <option>RejectedBySupervisor</option>
+                                <option>SupervisorAssigned</option>
+                            </select>
+                        </div>
+                        <div class="block-filter">
+                            <h5>Account status</h5>
+                            <select class="selectpicker">
+                                <option>All expect locked and frozen accounts</option>
+                                <option>ApprovedByHeadquarters</option>
+                                <option>ApprovedBySupervisor</option>
+                                <option>Completed</option>
+                                <option>InterviewerAssigned</option>
+                                <option>RejectedByHeadquarters</option>
+                                <option>RejectedBySupervisor</option>
+                                <option>SupervisorAssigned</option>
+                            </select>
+                        </div>
+                        <div class="block-filter">
+                            <h5>Device type</h5>
+                            <select class="selectpicker">
+                                <option>All statuses</option>
+                                <option>ApprovedByHeadquarters</option>
+                                <option>ApprovedBySupervisor</option>
+                                <option>Completed</option>
+                                <option>InterviewerAssigned</option>
+                                <option>RejectedByHeadquarters</option>
+                                <option>RejectedBySupervisor</option>
+                                <option>SupervisorAssigned</option>
+                            </select>
+                        </div>
+                    </div>
+                </aside>
+                <div class="main-information">
+                    <div class="page-header clearfix">
+                        <div class="row-without-padding">
+                            <h1>7 enumerators in your team</h1>
+                            <button class="btn btn-success" type="button">add new</button>
+                        </div>
+                        <div>
+                            <p><a href="#">2 enumerators</a> without assignments.</p>
+                        </div>
+                    </div>
+                    <div class="interviews-info">
+                        <div class="table-wrapper interviews-large-screen">
+                            <div class="wrapper-modal-dropdown">
+                                <button type="button" class="btn btn-strips" data-toggle="modal" data-target="#modal-dropdown">
+                                <span></span>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal" id="modal-dropdown" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog modal-dropdown" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                <h3>Show columns</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <ul class="list-unstyled" >
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="has-comments1"/>
+                                                        <label for="has-comments1">
+                                                            <span class="tick"></span>Name (last/first)
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="flags" />
+                                                        <label for="flags">
+                                                            <span class="tick"></span>Contact phone
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="status" />
+                                                        <label for="status">
+                                                            <span class="tick"></span>Contact email
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="spent-time"/>
+                                                        <label for="spent-time">
+                                                            <span class="tick"></span>Personal note
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="answered-questions" />
+                                                        <label for="answered-questions">
+                                                            <span class="tick"></span>Active device type
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="template"/>
+                                                        <label for="template">
+                                                            <span class="tick"></span>Device ID
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="accepted-hq"/>
+                                                        <label for="accepted-hq">
+                                                            <span class="tick"></span>Last seen online
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="census"/>
+                                                        <label for="census">
+                                                            <span class="tick"></span>Last sync
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="last-update" />
+                                                        <label for="last-update">
+                                                            <span class="tick"></span>Last sync speed
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="download-on-device" checked/>
+                                                        <label for="download-on-device">
+                                                            <span class="tick"></span>Assignments on device
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="enumerator" checked/>
+                                                        <label for="enumerator">
+                                                            <span class="tick"></span>Issued, not synced yet
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="number-rejected"/>
+                                                        <label for="number-rejected">
+                                                            <span class="tick"></span>Waiting for your descision
+                                                        </label>
+                                                    </li>
+                                                     <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="download-on-devicase" checked/>
+                                                        <label for="download-on-devicase">
+                                                            <span class="tick"></span>Completed, approved
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="enumeratorf" checked/>
+                                                        <label for="enumeratorf">
+                                                            <span class="tick"></span>Ever conducted
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input class="checkbox-filter" type="checkbox" id="number-rejectedasd"/>
+                                                        <label for="number-rejectedasd">
+                                                            <span class="tick"></span>Ever rejected
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                                <table class="table table-striped table-ordered table-bordered table-hover table-with-checkboxes table-with-prefilled-column table-interviews">
+                                    <thead>
+                                        <tr>
+                                            <th class="sorting_disabled checkbox-cell">
+                                                <input class="double-checkbox" id="check-all" type="checkbox">
+                                                <label for="check-all">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </th>
+                                            <th class="enumerator-id  title-row with-search">
+                                                <div class="search">
+                                                    <input type="text" class="form-control" placeholder="Search">
+                                                    <button class="btn btn-link btn-search" type="button"></button>
+                                                    <button class="btn btn-link btn-clear" type="button"><span></span></button>
+                                                </div>
+                                                enumerator id</th>
+                                            <th class="last-sync date">last sync</th>
+                                            <th class="sorting_disabled assignments-on-device">assignments on device</th>
+                                            <th class="sorting_disabled issued">issued, not synced yet</th>
+                                            <th class="sorting_disabled waiting-descision">waiting your descision</th>
+                                            <th class="sorting_disabled completed-approved">comletted, approved</th>
+                                            <th class="sorting_disabled last-seen-online">last seen online</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="selected">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts" type="checkbox" checked>
+                                                <label for="with-commeqnts">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="enumerator-id  title-row"><a class="interviewer">int-34</a></td>
+                                            <td class="last-sync">Today, 12:11</td>
+                                            <td class="sorting_disabled assignments-on-device"><a href="">3</a></td>
+                                            <td class="sorting_disabled issued"><a href="">1</a></td>
+                                            <td class="sorting_disabled waiting-descision"><a href="">1</a></td>
+                                            <td class="sorting_disabled completed-approved"><a href="">34</a></td>
+                                            <td class="sorting_disabled last-seen-online date">40 min ago</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts12" type="checkbox" >
+                                                <label for="with-commeqnts12">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="enumerator-id  title-row"><a class="interviewer">interviewer-35</a></td>
+                                            <td class="last-sync">Feb 15, 12:11</td>
+                                            <td class="sorting_disabled assignments-on-device"><a href="">3</a></td>
+                                            <td class="sorting_disabled issued"><a href="">1</a></td>
+                                            <td class="sorting_disabled waiting-descision"><span>none</span></td>
+                                            <td class="sorting_disabled completed-approved"><a href="">22</a></td>
+                                            <td class="sorting_disabled last-seen-online date on-line">on-line</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts112" type="checkbox" >
+                                                <label for="with-commeqnts112">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="enumerator-id  title-row"><span><a class="interviewer">intviewer-385</a></span></td>
+                                            <td class="last-sync"><span>not connected yet</span></td>
+                                            <td class="sorting_disabled assignments-on-device"><span class="empty"></span></td>
+                                            <td class="sorting_disabled issued"><span class="empty"></span></td>
+                                            <td class="sorting_disabled waiting-descision"><span class="empty"></span></td>
+                                            <td class="sorting_disabled completed-approved"><span class="empty"></span></td>
+                                            <td class="sorting_disabled last-seen-online date"><span class="empty"></span></td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="checkbox-cell">
+                                                <input class="checkbox-filter" id="with-commeqnts1125" type="checkbox" >
+                                                <label for="with-commeqnts1125">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                            </td>
+                                            <td class="enumerator-id  title-row"><a class="interviewer">interviewer-north</a></td>
+                                            <td class="last-sync">Yesterday, 16:55</td>
+                                            <td class="sorting_disabled assignments-on-device"><a href="">5</a></td>
+                                            <td class="sorting_disabled issued"><a href="">5</a></td>
+                                            <td class="sorting_disabled waiting-descision"><a href="">3</a></td>
+                                            <td class="sorting_disabled completed-approved"><a href="">2</a></td>
+                                            <td class="sorting_disabled last-seen-online date on-line">on-line</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                           
+                        </div>
+                        <div class="screen-small-resolution">
+                            <div class="row-unit selected">
+                                <div class="header-unit">
+                                    <input class="checkbox-filter" id="with-commeqnts21" type="checkbox" checked>
+                                    <label for="with-commeqnts21">
+                                        <span class="tick"></span>
+                                        <span class="title-row"><a class="interviewer">interviewer-north</a></span>
+                                    </label>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>Last sync: Feb 12, 23:55</li>
+                                    <li>Last seen online: Feb 11, 09:12</li>
+                                </ul>
+                                <div class="table-min-wrapper clearfix">
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Assignments on devise</div>
+                                            <div class="table-td table-header">Issued, not synced yet</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td"><a href="">3</a></div>
+                                            <div class="table-td"><a href="">3</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Waiting your descision</div>
+                                            <div class="table-td table-header">completted, approved</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td"><a href="">334</a></div>
+                                            <div class="table-td"><a href="">13</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-unit">
+                                <div class="header-unit">
+                                    <input class="checkbox-filter" id="with-commeqnts421" type="checkbox">
+                                    <label for="with-commeqnts421">
+                                        <span class="tick"></span>
+                                        <span class="title-row"><a class="interviewer">intviewer-385</a></span>
+                                    </label>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>Last sync: not connected yet</li>
+                                    <li>last seen online: <span class="empty"></span></li>
+                                </ul>
+                                <div class="table-min-wrapper clearfix">
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Assignments on device</div>
+                                            <div class="table-td table-header">Issued, not synced yet</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td flags"><span class="empty"></span></div>
+                                            <div class="table-td"><span class="empty"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="table-min">
+                                        <div class="table-row">
+                                            <div class="table-td table-header">Waiting your descision</div>
+                                            <div class="table-td table-header">Completed, approved</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-td success-text"><span class="empty"></span></div>
+                                            <div class="table-td error-text"><span class="empty"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-table">
+                            <div class="panel-body">
+                                <input class="double-checkbox-white" id="q1az" type="checkbox" checked>
+                                <label for="q1az">
+                                    <span class="tick"></span> 3 interviews from 2 enumerators selected 
+                                </label> 
+                                <button class="btn btn-lg btn-success">approve</button>
+                                <button class="btn btn-lg reject">reject</button>
+                                <button class="btn btn-lg btn-primary">reassign</button>
+                                <button class="btn btn-link">move to trash</button>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer footer-adaptive hold-transition">
+        <div class="container-fluid">
+            <div class="text-left">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-left">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+        var $target = $( event.currentTarget );
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+    });
+    </script>
+</body>
+</html>

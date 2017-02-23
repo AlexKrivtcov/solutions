@@ -753,11 +753,13 @@ label.inactive{
 	dl{
 		font-size: 14px;
 		line-height: 16px;
-		dd{
-			margin-bottom: 5px;
-		}
 		dt{
+			margin-bottom: 5px;
+			font-weight: normal;
+		}
+		dd{
 			margin-bottom: 30px;
+			font-weight: bold;
 			a{
 				color: $gray_text;
 			}
