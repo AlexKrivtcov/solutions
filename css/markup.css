@@ -8523,7 +8523,7 @@ body > .ui-pnotify {
 .ui-pnotify-modal-overlay, .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.2); }
 
-.ui-pnotify, .modal-content, .context-menu {
+.ui-pnotify, .modal-dialog, .context-menu {
   background: #fff;
   box-shadow: 9px 9px 3px rgba(0, 0, 0, 0.1), 0 0 3px #323232;
   border-radius: 0; }
@@ -8677,6 +8677,8 @@ body > .ui-pnotify {
   padding: 20px;
   padding-left: 25px;
   overflow: hidden;
+  border: none;
+  box-shadow: none;
   font-size: 14px;
   line-height: 16px; }
   .modal-content h3 {
@@ -8731,6 +8733,9 @@ body > .ui-pnotify {
           background-color: #595c5d; }
   .modal-content .modal-body {
     padding: 0; }
+    .modal-content .modal-body p:only-child {
+      margin: 0;
+      padding: 40px; }
     .modal-content .modal-body ul li {
       margin-bottom: 5px; }
       .modal-content .modal-body ul li label {
