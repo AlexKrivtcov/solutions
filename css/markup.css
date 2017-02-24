@@ -8733,9 +8733,10 @@ body > .ui-pnotify {
           background-color: #595c5d; }
   .modal-content .modal-body {
     padding: 0; }
-    .modal-content .modal-body p:only-child {
-      margin: 0;
+    .modal-content .modal-body .bootbox-body {
       padding: 40px; }
+      .modal-content .modal-body .bootbox-body p:last-child {
+        margin: 0; }
     .modal-content .modal-body ul li {
       margin-bottom: 5px; }
       .modal-content .modal-body ul li label {
@@ -9291,7 +9292,7 @@ table tr th .census-icon, table tr td .census-icon {
       flex-direction: row;
       align-items: stretch; }
       .screen-small-resolution .table-min-wrapper .table-min {
-        justify-content: flex-end;
+        justify-content: space-between;
         display: flex;
         flex-direction: column; }
         .screen-small-resolution .table-min-wrapper .table-min .table-row {

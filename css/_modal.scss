@@ -191,9 +191,11 @@ body > .ui-pnotify
 	}
 	.modal-body{
 		padding: 0;
-        p:only-child{
-            margin: 0;
+        .bootbox-body{
             padding: 40px;
+            p:last-child{
+                margin: 0;
+            }
         }
         ul li {
             margin-bottom: 5px;
