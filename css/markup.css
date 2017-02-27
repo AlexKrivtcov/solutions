@@ -7226,7 +7226,7 @@ a.disabled {
   .wide-navbar .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .wide-navbar .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #fff;
     background-color: transparent; } }
-@media (max-width: 880px) {
+@media (max-width: 879px) {
   .navbar {
     min-height: 60px; }
     .navbar .container, .navbar .container-fluid {
