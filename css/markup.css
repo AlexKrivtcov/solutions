@@ -11737,6 +11737,20 @@ a {
   display: flex;
   flex-direction: row;
   position: relative; }
+  .graphic:after, .graphic:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    width: 100%;
+    height: 15px;
+    box-shadow: inset 0px 11px 15px -6px #fff; }
+  .graphic:before {
+    top: auto;
+    bottom: 0;
+    box-shadow: inset 0px -11px 15px -6px #fff; }
 
 .day-unit {
   height: 100%;
@@ -11795,7 +11809,10 @@ a {
 .unfinished-assignments {
   border-top: 2px solid #f0f0f0;
   height: 75px;
-  display: flex; }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start; }
 
 .downloaded {
   position: relative;
@@ -11889,13 +11906,14 @@ a {
   width: 50%;
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: flex-start; }
 
 .unfinished-unit {
   width: 100%;
   height: 7px;
   display: flex;
-  background-color: red;
+  background-color: #78b2e3;
   position: relative;
   z-index: 2; }
 
@@ -11995,6 +12013,7 @@ a {
   .half-of-quarter {
     width: 100%;
     height: 50%;
+    display: flex;
     flex-direction: row; }
 
   .unfinished-unit {
