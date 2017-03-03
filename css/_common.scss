@@ -182,6 +182,16 @@ h5{
 	p{
 		font-family: "RobotoRegular";
 	}
+	ul{
+		font-size: 14px;
+		line-height: 16px;
+		li{
+			padding-bottom: 3px;
+			&::last-child{
+				padding-bottom: 0;
+			}
+		}
+	}
 }
 .row{
 	.page-header{
@@ -540,13 +550,13 @@ table{
 			}
 			label{
 				padding-right: 60px;
-				.title-row{
-					font-weight: normal;
-					font-size: 18px;
-					line-height: 20px;
-					display: block;
-					margin-bottom: 5px;
-				}
+			}
+			.title-row{
+				font-weight: normal;
+				font-size: 18px;
+				line-height: 20px;
+				display: block;
+				margin-bottom: 5px;
 			}
 			.comment-icon{
 				@include absolute(0, 50px);

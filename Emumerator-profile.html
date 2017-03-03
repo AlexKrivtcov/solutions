@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enumerators</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".navbar-toggle").click(function () {
+          $(".navbar-collapse").fadeToggle();
+          $(".navbar-collapse").animate({height: '100%'}, 0);
+          $(".top-menu").toggleClass("top-animate");
+          $(".mid-menu").toggleClass("mid-animate");
+          $(".bottom-menu").toggleClass("bottom-animate");
+          $("main").toggleClass("hidden");
+        });
+      });
+    </script> 
+    <script>
+        $(document).ready(function (){
+            var t = 1;
+            $(".detailed-statistics").click(function () {
+                 
+                if (t < 2){
+                    $(this).text("Hide detailed session statistics");
+                    t++;
+                    $(".detailed-statistics-block").fadeIn( "slow" );
+                }
+                else{
+                    $(this).text("Show detailed session statistics");
+                    t = 1;
+                    $(".detailed-statistics-block").fadeOut( "slow" );
+                }
+                
+            });
+        });
+    </script>
+    <script>
+       $(document).ready(function(){
+        $('.table-ordered')
+            .on( 'init.dt', function () {
+                $('#DataTables_Table_0_filter label').on('click', function(e) {
+                    if (e.target !== this)
+                        return;
+                      if ($(this).hasClass("active"))
+                    {
+                        $(this).removeClass("active");
+                    }
+                    else{
+                        $(this).addClass("active");
+                    }
+                });
+            })
+            .DataTable({
+                "pageLength": 20,
+                "lengthChange": false,
+                "searching": false,
+                "pagingType": "simple_numbers", 
+                "sDom": 'f<"table-with-scroll"t>ip'
+            });
+        });
+    </script>
+</head>
+<body class="wide-navbar">
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                        <div class="brand-name" title="Supervisor">Supervisor</div>
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#" title="Enumerators">Enumerators</a></li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header> 
+    <main class="enumerators">
+        <div class="container">
+            <div class="row">
+                <div class="page-header">
+                    <ol class="breadcrumb">
+                        <li><a href="">Enumerators</a></li>
+                    </ol>
+                  <h1>
+                    Enum234 (assigned to Supr34)
+                  </h1>
+                  <ul class="list-unstyled">
+                      <li>E-mail: bapiste-voom@surveylab.com</li>
+                      <li>Full name: Baptiste Voom</li>
+                      <li>Phone number: 0340235015433</li>
+                      <li><a href="#">Edit personal info</a></li>
+                  </ul> 
+                </div>
+            </div>
+          <div class="row">
+            <div class="col-sm-8">
+                <div class="interviews-information clearfix">
+                    <a href="#" class="number-information">
+                        <div class="amount-of-questionnaires">13</div>
+                        <div class="description">new assignments on device</div>
+                    </a>
+                    <a href="#" class="number-information">
+                        <div class="amount-of-questionnaires">2</div>
+                        <div class="description">rejected assignments again on device</div>
+                    </a>
+                    <a href="#" class="number-information">
+                        <div class="amount-of-questionnaires">21</div>
+                        <div class="description">waiting for approval</div>
+                    </a>
+                    <a href="#" class="number-information">
+                        <div class="amount-of-questionnaires">235</div>
+                        <div class="description">done interviews (completed and aproved by hq)</div>
+                    </a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 clearfix">
+                <h3>Recent synchronizations activity</h3>
+                <div class="graphic-wrapper clearfix">
+                    <div class="graphic">
+                        <div class="day-unit">
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                                                                                                                                                                                                            
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter"></div>
+                                    <div class="half-of-quarter"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-unit">
+                            <div class="day">
+                                mar 26
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity first-column">
+                                    <div class="downloaded"></div>
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"></div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                    <div class="successful-connection"></div>                                
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"></div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-unit">
+                            <div class="day">
+                                27
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity first-column">
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"> 
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"></div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"></div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-unit">
+                            <div class="day">
+                                28
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity first-column">
+                                    <div class="downloaded"></div>
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"> 
+                                    <div class="downloaded"></div>
+                                    <div class="downloaded"></div>
+                                    <div class="downloaded"></div>
+                                    <div class="downloaded"></div>
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                    <div class="successful-connection"></div>                                                                
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                    <div class="successful-connection"></div>                                
+                                    <div class="successful-connection"></div>                                                                
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-unit">
+                            <div class="day">
+                                29
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity first-column">
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"> 
+                                    <div class="uploaded"></div>                                
+                                    <div class="uploaded"></div>                                
+                                    <div class="uploaded"></div>
+                                    <div class="uploaded"></div>                                                                                                                                   
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                    <div class="downloaded"></div>
+                                    <div class="downloaded"></div>
+                                    <div class="uploaded"></div>                                                                                                                                                                   
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"></div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-unit">
+                            <div class="day">
+                                30
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity first-column">
+                                    <div class="successful-connection"></div>                                                                                                
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"> 
+                                    <div class="uploaded"></div>                                
+                                    <div class="uploaded"></div>                                                                                                                                                                  
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">                                                                                                                                                                 
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>                                        
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                    <div class="successful-connection"></div>                                                                                                
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-unit">
+                            <div class="day">
+                                31
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity first-column">
+
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"> 
+
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                                                                                                                                                    
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                    
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-unit">
+                            <div class="day">
+                                apr 1
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity first-column">
+                                    <div class="successful-connection"></div>
+                                    <div class="uploaded"></div>                                                                                                                                                                                                  
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter"></div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"> 
+
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter"></div>
+                                    <div class="half-of-quarter"></div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                                                                                                                                                    
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter"></div>
+                                    <div class="half-of-quarter"></div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">
+                                    <div class="downloaded"></div>
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter"></div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-unit">
+                            <div class="day">
+                                2
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity first-column">
+                                                                                                                                                                                                                            
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity"> 
+                                    <div class="successful-connection"></div>   
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quarter-of-day">
+                                <div class="recent-activity">  
+                                </div>
+                                <div class="unfinished-assignments">
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                    <div class="half-of-quarter">
+                                        <div class="unfinished-unit"></div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="graphic-explanation">
+                        <div class="recent-activity">
+                            <ul class="list-unstyled">
+                                <li><span class="downloaded"></span>Downloaded assignment</li>
+                                <li><span class="uploaded"></span>Uploaded to server for approval</li>
+                                <li><span class="successful-connection"></span>Successful connection, nothing to sync</li>
+                            </ul>
+                        </div>
+                        <div class="unfinished-assignments">
+                            <p class="primary-text">Number of infinished or unsynchronized assignments on device every given moment</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 connection-statistics">
+              <h3>Device and connection statistics</h3>
+              <ul class="list-unstyled">
+                  <li><b>Device: Galaxy Tab 8 (id 8acae1958fabd3f0)</b></li>
+                  <li><b>Interviewer App version: 13.7 &mdash; <span class="success-text">Up to date</span></b></li>
+              </ul>
+              <ul class="list-unstyled">
+                  <li>Total number of successfull synchronozations: 231</li>
+                  <li>Total number of failed synchronizations: 8</li>
+                  <li>Average synch speed: 62 Kb/s</li>
+              </ul>
+              <ul class="list-unstyled">
+                  <li>Last successful sync: Mar 10, 22:01 (22 hours ago)</li>
+                  <li>Connection speed: 87Kb/s (Type: 3G, Operator: Vodacom)</li>
+                  <li>23Mb uploaded, 3Mb downloaded</li>
+              </ul>
+              <ul class="list-unstyled">
+                  <li>Last failed sync: Feb 27, 22:01 (22 hours ago)</li>
+                  <li>Connection speed: 12Kb/s (Type: EDGE, Operator: Vodacom)</li>
+                  <li>Error code: &#0091;408&#0093; Request Timeout</li>
+              </ul>
+               <a href="#" class="detailed-statistics">Show detailed session statistics</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 detailed-statistics-block">
+                <h3>Detailed device info</h3>
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Device ID</td>
+                            <td>23464375567653</td>
+                        </tr>
+                        <tr>
+                            <td>Device model</td>
+                            <td>Galaxy Tab 8 L3</td>
+                        </tr>
+                        <tr>
+                            <td>Android version</td>
+                            <td>5.2.1 Kit Kat</td>
+                        </tr>
+                        <tr>
+                            <td>Survey Solutions version</td>
+                            <td>10.1</td>
+                        </tr>
+                        <tr>
+                            <td>Device location ot last known location</td>
+                            <td>Lagos Ikoyi</td>
+                        </tr>
+                        <tr>
+                            <td>Battery status (%)</td>
+                            <td>17%, battary saver is on</td>
+                        </tr>
+                        <tr>
+                            <td>Storage (GB-available)</td>
+                            <td>1.32</td>
+                        </tr>
+                        <tr>
+                            <td>Number of assignments that have been started, but not completed</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 detailed-statistics-block">
+                <h3>Last connection statistics</h3>
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Server timestamp of beginning of the session</td>
+                            <td>13 Mar 2017, 11:35:30 (UTC)</td>
+                        </tr>
+                        <tr>
+                            <td>Tablet timestamp of beginning of the session</td>
+                            <td>13 Mar 2017, 11:35:30 (UTC)</td>
+                        </tr>
+                        <tr>
+                            <td>Session type</td>
+                            <td>INFO</td>
+                        </tr>
+                        <tr>
+                            <td>Connection type</td>
+                            <td>Mobile EDGE</td>
+                        </tr>
+                        <tr>
+                            <td>Signal strength</td>
+                            <td>4/5</td>
+                        </tr>
+                        <tr>
+                            <td>Number of templates sent to interviewer</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>Number of assignments sent to interviewer</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>Number of completed questionnaires received from interviewer</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+             <div class="row">
+                <div class="col-sm-12">
+                <h3>Active Interviews</h3>
+                    <div class="table-wrapper interviews-large-screen">
+                        <table class="table table-striped table-ordered table-bordered table-hover table-with-checkboxes table-with-prefilled-column table-interviews">
+                            <thead>
+                                <tr>
+                                    <th class="sorting_disabled interview-id  title-row">Interview id</th>
+                                    <th class="sorting_disabled has-comments"><span class="comment-icon responded"></span></th>
+                                    <th class="sorting_disabled flags">Flags</th>
+                                    <th class="sorting_disabled status">Status</th>
+                                    <th class="sorting_disabled answered-questions">answered questions</th>
+                                    <th class="sorting_disabled left-empty">left empty</th>
+                                    <th class="sorting_disabled errors">errors</th>
+                                    <th class="date last-update">last update</th>
+                                    <th class="sorting_disabled download-on-device">downloaded on device</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <td class="interview-id title-row"><a href="#">43-21-23-45-13</a></td>
+                                    <td class="has-comments"><span class="comment-icon"></span></td>
+                                    <td class="flags"><span class="flag">3</span></td>
+                                    <td class="status">Need your descision</td>
+                                    <td class="answered-questions">2048</td>
+                                    <td class="left-empty">12</td>
+                                    <td class="errors">2</td>
+                                    <td class="date last-update">Feb 12, 23:55</td>
+                                    <td class="date download-on-device">Feb 12, 09:12</td>
+                                </tr>
+                                <tr class="">
+                                    <td class="interview-id title-row"><a href="#">54-11-23-45-21</a></td>
+                                    <td class="has-comments"><span class="comment-icon responded"></span></td>
+                                    <td class="flags"><span class="empty"></span></td>
+                                    <td class="status">Completed</td>
+                                    <td class="answered-questions">1956</td>
+                                    <td class="left-empty success-text">No</td>
+                                    <td class="errors success-text">No</td>
+                                    <td class="date last-update">Feb 12, 19:55</td>
+                                    <td class="date download-on-device">Feb 1, 09:12</td>
+                                </tr>
+                                <tr class="">
+                                    <td class="interview-id title-row"><a href="#">43-21-23-45-11 i2</a></td>
+                                    <td class="has-comments"><span class="comment-icon responded"></span></td>
+                                    <td class="flags"><span class="flag">1923</span></td>
+                                    <td class="status error-text">HQ rejected</td>
+                                    <td class="answered-questions error-text">No</td>
+                                    <td class="left-empty">1345</td>
+                                    <td class="errors">1922</td>
+                                    <td class="date last-update">Feb 11, 22:55</td>
+                                    <td class="date download-on-device">Feb 6, 10:12</td>
+                                </tr>
+                                <tr class="">
+                                    <td class="interview-id not-synced-assign title-row"><a href="#">43-11-23-34-56</a></td>
+                                    <td class="has-comments"><span class="empty"></span></td>
+                                    <td class="flags"><span class="empty"></span></td>
+                                    <td class="status">Not yet synced</td>
+                                    <td class="answered-questions"><span class="empty"></span></td>
+                                    <td class="left-empty"><span class="empty"></span></td>
+                                    <td class="errors"><span class="empty"></span></td>
+                                    <td class="date last-update">Feb 11, 22:55</td>
+                                    <td class="date download-on-device"><span class="empty"></span></td>
+                                </tr>
+                                <tr class="">
+                                    <td class="interview-id title-row"><a href="#">45-63-33-24-67</a></td>
+                                    <td class="has-comments"><span class="empty"></span></td>
+                                    <td class="flags"><span class="empty"></span></td>
+                                    <td class="status">In the field</td>
+                                    <td class="answered-questions"><span class="empty"></span></td>
+                                    <td class="left-empty"><span class="empty"></span></td>
+                                    <td class="errors"><span class="empty"></span></td>
+                                    <td class="date last-update">Feb 11, 22:55</td>
+                                    <td class="date download-on-device">Feb 2, 12:23</td>
+                                </tr>
+                                <tr class="">
+                                    <td class="interview-id title-row"><a href="#">45-22-22-34-19</a></td>
+                                    <td class="has-comments"><span class="comment-icon"></span></td>
+                                    <td class="flags"><span class="flag">1</span></td>
+                                    <td class="status error-text">HQ rejected</td>
+                                    <td class="answered-questions">1554</td>
+                                    <td class="left-empty">78</td>
+                                    <td class="errors">1</td>
+                                    <td class="date last-update">Feb 5, 12:15</td>
+                                    <td class="date download-on-device">Feb 1, 10:03</td>
+                                </tr>
+                                <tr class="">
+                                    <td class="interview-id not-synced-assign title-row"><a href="#">77-33-25-71-16</a></td>
+                                    <td class="has-comments"><span class="empty"></span></td>
+                                    <td class="flags"><span class="empty"></span></td>
+                                    <td class="status">Not yet assign</td>
+                                    <td class="answered-questions"><span class="empty"></span></td>
+                                    <td class="left-empty"><span class="empty"></span></td>
+                                    <td class="errors"><span class="empty"></span></td>
+                                    <td class="date last-update">Feb 11, 22:55</td>
+                                    <td class="date download-on-device"><span class="empty"></span></td>
+                                </tr>
+                                <tr class="">
+                                    <td class="interview-id title-row"><a href="#">43-82-94-98-95</a></td>
+                                    <td class="has-comments"><span class="empty"></span></td>
+                                    <td class="flags"><span class="empty"></span></td>
+                                    <td class="status">Waiting for HQ</td>
+                                    <td class="answered-questions">2001</td>
+                                    <td class="left-empty success-text">No</td>
+                                    <td class="errors success-text">No</td>
+                                    <td class="date last-update">Feb 11, 22:55</td>
+                                    <td class="date download-on-device">Feb 8, 22:55</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="screen-small-resolution">
+                        <div class="row-unit selected">
+                            <div class="header-unit">
+                                <span class="title-row">43-21-23-45-15</span>
+                                <b>Need your descision</b>
+                                <span class="comment-icon"></span> 
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Last update: Feb 12, 23:55</li>
+                                <li>Downloaded on device: Feb 11, 09:12</li>
+                                <li>Enumerator: <a href="#" class="interviewer">interviewer-31</a></li>
+                            </ul>
+                            <div class="table-min-wrapper clearfix">
+                                <div class="table-min">
+                                    <div class="table-row">
+                                        <div class="table-td table-header">Flags</div>
+                                        <div class="table-td table-header">Answered questions</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-td flags"><span class="flag">1</span></div>
+                                        <div class="table-td">1956</div>
+                                    </div>
+                                </div>
+                                <div class="table-min">
+                                    <div class="table-row">
+                                        <div class="table-td table-header">Left empty</div>
+                                        <div class="table-td table-header">erors</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-td">78</div>
+                                        <div class="table-td error-text">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-unit">
+                            <div class="header-unit">
+                                <span class="title-row">54-11-23-45-13</span>
+                                <b>Completed</b>
+                                <span class="comment-icon"></span> 
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Last update: Feb 12, 20:15</li>
+                                <li>Downloaded on device: Feb 10, 05:12</li>
+                                <li>Enumerator: <a href="#" class="interviewer">i-4</a></li>
+                            </ul>
+                            <div class="table-min-wrapper clearfix">
+                                <div class="table-min">
+                                    <div class="table-row">
+                                        <div class="table-td table-header">Flags</div>
+                                        <div class="table-td table-header">Answered questions</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-td flags"><span class="empty"></span></div>
+                                        <div class="table-td">2048</div>
+                                    </div>
+                                </div>
+                                <div class="table-min">
+                                    <div class="table-row">
+                                        <div class="table-td table-header">Left empty</div>
+                                        <div class="table-td table-header">erors</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-td success-text">No</div>
+                                        <div class="table-td error-text success-text">No</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-unit">
+                            <div class="header-unit">
+                                <span class="title-row">43-21-23-45-11 i2</span>
+                                <b class="error-text">HQ rejected</b>
+                                <span class="comment-icon responded"></span>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Last update: Feb 12, 20:15</li>
+                                <li>Downloaded on device: Feb 10, 05:12</li>
+                                <li>Enumerator: <a href="#" class="interviewer">guidocallas</a></li>
+                            </ul>
+                            <div class="table-min-wrapper clearfix">
+                                <div class="table-min">
+                                    <div class="table-row">
+                                        <div class="table-td table-header">Flags</div>
+                                        <div class="table-td table-header">Answered questions</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-td flags"><span class="flag">1923</span></div>
+                                        <div class="table-td">2048</div>
+                                    </div>
+                                </div>
+                                <div class="table-min">
+                                    <div class="table-row">
+                                        <div class="table-td table-header">Left empty</div>
+                                        <div class="table-td table-header">erors</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-td">1342</div>
+                                        <div class="table-td error-text">1922</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-unit">
+                            <div class="header-unit">
+                                <span class="title-row">77-33-25-71-16</span>
+                                <b>Not yet assign</b>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Last update: Feb 05, 09:15</li>
+                                <li>Downloaded on device: Feb 01, 05:12</li>
+                                <li>Enumerator: <button class="btn btn-primary">Assign</button></li>
+                            </ul>
+                            <div class="table-min-wrapper clearfix">
+                                <div class="table-min">
+                                    <div class="table-row">
+                                        <div class="table-td table-header">Flags</div>
+                                        <div class="table-td table-header">Answered questions</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-td flags"><span class="empty"></span></div>
+                                        <div class="table-td"><span class="empty"></span></div>
+                                    </div>
+                                </div>
+                                <div class="table-min">
+                                    <div class="table-row">
+                                        <div class="table-td table-header">Left empty</div>
+                                        <div class="table-td table-header">erors</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-td">2580</div>
+                                        <div class="table-td error-text"><span class="empty"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+    <div class="container-fluid">
+      <div class="text-left">
+        &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+      </div>
+      <div class="text-left">
+        5.12.0 (build 13156) 
+        <span>|</span>
+        <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+       </div>
+    </div>
+    </footer>
+</body>
+</html>

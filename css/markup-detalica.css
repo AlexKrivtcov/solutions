@@ -8902,6 +8902,13 @@ h5, .preset-filters-container a, .preset-filters-container .export-queue {
     margin-bottom: 10px; }
   .page-header p {
     font-family: "RobotoRegular"; }
+  .page-header ul {
+    font-size: 14px;
+    line-height: 16px; }
+    .page-header ul li {
+      padding-bottom: 3px; }
+      .page-header ul li::last-child {
+        padding-bottom: 0; }
 
 .row .page-header {
   padding-left: 15px; }
@@ -9207,12 +9214,12 @@ table tr th .census-icon, table tr td .census-icon {
         left: -5px; }
       .screen-small-resolution .header-unit label {
         padding-right: 60px; }
-        .screen-small-resolution .header-unit label .title-row {
-          font-weight: normal;
-          font-size: 18px;
-          line-height: 20px;
-          display: block;
-          margin-bottom: 5px; }
+      .screen-small-resolution .header-unit .title-row {
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 20px;
+        display: block;
+        margin-bottom: 5px; }
       .screen-small-resolution .header-unit .comment-icon {
         position: absolute;
         top: 0;
