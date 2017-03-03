@@ -11900,13 +11900,16 @@ a {
       margin: 10px 0 0 25px; }
 
 .half-of-quarter {
-  width: 50%; }
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
 
 .unfinished-unit {
   width: 100%;
   height: 7px;
   display: block;
-  background-color: #78b2e3;
+  background-color: red;
   position: relative;
   z-index: 2; }
 
@@ -12006,7 +12009,7 @@ a {
   .half-of-quarter {
     width: 100%;
     height: 50%;
-    display: flex; }
+    flex-direction: row; }
 
   .unfinished-unit {
     height: 100%;
