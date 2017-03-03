@@ -11737,20 +11737,6 @@ a {
   display: flex;
   flex-direction: row;
   position: relative; }
-  .graphic:after, .graphic:before {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 3;
-    width: 100%;
-    height: 15px;
-    box-shadow: inset 0px 11px 15px -6px #fff; }
-  .graphic:before {
-    top: auto;
-    bottom: 0;
-    box-shadow: inset 0px -11px 15px -6px #fff; }
 
 .day-unit {
   height: 100%;
@@ -11908,7 +11894,7 @@ a {
 .unfinished-unit {
   width: 100%;
   height: 7px;
-  display: block;
+  display: flex;
   background-color: red;
   position: relative;
   z-index: 2; }
