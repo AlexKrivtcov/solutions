@@ -36,14 +36,14 @@
             $(".detailed-statistics").click(function () {
                  
                 if (t < 2){
-                    $(this).text("Hide detailed session statistics");
+                    $(this).text("Show detailed session statistics");
                     t++;
-                    $(".detailed-statistics-block").fadeIn( "slow" );
+                    $(".detailed-statistics-block").fadeOut( "slow" );
                 }
                 else{
-                    $(this).text("Show detailed session statistics");
+                    $(this).text("Hide detailed session statistics");
                     t = 1;
-                    $(".detailed-statistics-block").fadeOut( "slow" );
+                    $(".detailed-statistics-block").fadeIn( "slow" );
                 }
                 
             });
@@ -708,7 +708,7 @@
                   <li>Connection speed: 12Kb/s (Type: EDGE, Operator: Vodacom)</li>
                   <li>Error code: &#0091;408&#0093; Request Timeout</li>
               </ul>
-               <a href="#" class="detailed-statistics">Show detailed session statistics</a>
+               <a href="#" class="detailed-statistics">Hide detailed session statistics</a>
             </div>
           </div>
           <div class="row">

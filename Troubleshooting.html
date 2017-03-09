@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-questionnaires</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".navbar-toggle").click(function () {
+          $(".navbar-collapse").fadeToggle();
+          $(".navbar-collapse").animate({height: '100%'}, 0);
+          $(".top-menu").toggleClass("top-animate");
+          $(".mid-menu").toggleClass("mid-animate");
+          $(".bottom-menu").toggleClass("bottom-animate");
+          $("main").toggleClass("hidden");
+        });
+      });
+    </script> 
+</head>
+<body class="wide-navbar">
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                        <div class="brand-name" title="Headquarters">Headquarters</div>
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header> 
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="page-header">
+                    <h1>
+                            Troubleshooting
+                    </h1> 
+                </div>
+            </div>
+        <div class="row extra-margin-bottom">
+            <div class="col-sm-7">
+                 <p>List of cummon issues and tools of resolving thev for more information check special section on <a href="http://support.mysurvey.solutions/" target="_blank">our support site</a></p>
+            </div>
+          </div>
+          <div class="row extra-margin-bottom">
+            <div class="col-sm-7">
+                <a href="#" target="_blank">
+                    <h3 class="primary-text">I need to locate census interview</h3>
+                </a>
+                <p>You will need to know enumerator and census interview template to find interview or it's status</p>
+            </div>
+          </div>
+          <div class="row extra-margin-bottom">
+            <div class="col-sm-7">
+                <a href="#" target="_blank">
+                    <h3 class="primary-text">Can't view data on collected interview</h3>
+                </a>
+                <p>You can see interview but it is impossible to open it or it contains corrupted data</p>
+            </div>
+          </div>
+          <div class="row extra-margin-bottom">
+            <div class="col-sm-7">
+                <a href="#" target="_blank">
+                    <h3 class="primary-text">You have 3 enumerators with outdated software</h3>
+                </a>
+                <p>To have accurate results it is recommended for enumerators to have latest version of interview App.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-9">
+                <a href="#" target="_blank">
+                    <h3 class="success-text">Network connection is acceptable</h3>
+                </a>
+                <ul class="list-unstyled">
+                    <li>All of your enumerators had good internet connection at least ones during last 48 hours</li>
+                    <li>Average speed between all your devices is 48KB/s</li>
+                    <li>Slowest device is used by <a href="#" target="_blank">enum-28</a> (average speed is 24Kb/s)</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+    </main>
+    <footer class="footer">
+    <div class="container-fluid">
+      <div class="text-left">
+        &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+      </div>
+      <div class="text-left">
+        5.12.0 (build 13156) 
+        <span>|</span>
+        <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+       </div>
+    </div>
+    </footer>
+</body>
+</html>

@@ -388,5 +388,17 @@ input.double-checkbox-white{
 		}
 	}
 }
- 	 
+.combo-box{
+	position: relative;
+	width: 295px;
+	@extend %combobox;
+	.dropdown-toggle span{
+		position: static !important;
+	}
+	&.selected{
+		.btn-clear{
+			@extend %visibility-visible;
+		}
+	}
+}
 

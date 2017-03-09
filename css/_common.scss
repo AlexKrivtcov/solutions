@@ -198,6 +198,9 @@ h5{
 		padding-left: 15px;
 	}
 }
+// .row div[class^="col"] .page-header{
+// 	padding-left: 0;
+// }
 .alert{
 	margin-bottom: 20px;
 	background-color: transparent;
@@ -387,6 +390,9 @@ table{
 	& + .web-interview-for-supervisor.fullscreen-hidden-filters.fullscreen-hidden-content .content .foldback-button{
 	 	top: 155px;
 	}
+}
+.extra-margin-bottom{
+	margin-bottom: 30px;
 }
 @media (max-width: $screen-md-min){
 	.wide-navbar{

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <title>Interviewers</title>
+    <title>Enumerators</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
                 <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
                 <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
@@ -64,10 +64,11 @@
                 });
             })
             .DataTable({
-                "pageLength": 50,
+                "pageLength": 20,
                 "lengthChange": false,
                 "searching": false,
                 "pagingType": "simple_numbers", 
+                "ordering": false,
                 "sDom": 'f<"table-with-scroll"t>ip'
             });
         });
@@ -196,78 +197,68 @@
                         <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                     </div>
                     <div class="filters-container">
-                        <h4>Filter by status</h4> 
+                        <h4>Filter Range</h4> 
                         <div class="block-filter">
-                            <h5>Status</h5>
+                            <h5>Enumerator</h5>
                             <select class="selectpicker">
-                                <option>All interviews</option>
-                                <option>ApprovedByHeadquarters</option>
-                                <option>ApprovedBySupervisor</option>
-                                <option>Completed</option>
-                                <option>InterviewerAssigned</option>
-                                <option>RejectedByHeadquarters</option>
-                                <option>RejectedBySupervisor</option>
-                                <option>SupervisorAssigned</option>
+                                <option selected>Any enumerator
+                                </option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
                             </select>
                         </div>
                         <div class="block-filter">
-                            <h5>Questionnaire</h5>
+                            <h5>Survey template (questionnaire version)</h5>
                             <select class="selectpicker">
-                                <option>All interviews</option>
-                                <option>ApprovedByHeadquarters</option>
-                                <option>ApprovedBySupervisor</option>
-                                <option>Completed</option>
-                                <option>InterviewerAssigned</option>
-                                <option>RejectedByHeadquarters</option>
-                                <option>RejectedBySupervisor</option>
-                                <option>SupervisorAssigned</option>
+                                <option selected>[v.12] Livestock Field Officer questionnaire blablabla blab bal
+                                </option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
                             </select>
                         </div>
                         <div class="block-filter">
-                            <h5>Responsible</h5>
-                            <div class="input-group">
-                                <input class="form-control" data-bind="typeahead: selectedResponsible, typeaheadOptions: {source: responsibles, displayText: function(item){return item.UserName}}, valueupdate:'afterkeydown'" type="text" maxlength="256" placeholder="Select">
-                                <span data-bind="spinner: isResponsiblesLoading, spinnerOptions: { 'left': 1, 'right': '50px' }" style="display: none;"></span>
-                                <div class="input-group-btn" data-bind="click: function(){ selectedResponsible(undefined); }">
-                                    <div class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                    </div>
+                            <h5>Time-period when this interview was conducted or synchronized with HQ</h5>
+                            <div class="form-date">
+                                <div class='input-group date' id='datetimepicker6'>
+                                    <label>From: </label>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-date">
+                                <div class='input-group date' id='datetimepicker7'>
+                                    <label>To: </label>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="calendar"></span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div class="block-filter flagged-questions">
-                            <a href="#" class="flag flagged">5 flagged questions</a>
+                        <div class="block-filter">
+                            <button type="button" class="btn btn-primary btn-lg">Find interviews</button>
                         </div>
                     </div>
-                    <div class="preset-filters-container">
-                        <h4>Filter by prefield data</h4> 
-                        <div class="block-filter">
-                            <h5>Field</h5>
-                            <select class="selectpicker">
-                                <option>Any</option>
-                                <option>ApprovedByHeadquarters</option>
-                                <option>ApprovedBySupervisor</option>
-                                <option>Completed</option>
-                                <option>InterviewerAssigned</option>
-                                <option>RejectedByHeadquarters</option>
-                                <option>RejectedBySupervisor</option>
-                                <option>SupervisorAssigned</option>
-                            </select>
-                        </div>
-                        <div class="block-filter">
-                            <h5>Contains</h5>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Text">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Filter</button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </div>
-                    </div> 
                 </aside>
                 <div class="main-information">
                     <div class="page-header clearfix">
-                        <h1>List of all 143 completed interviews and issued assignments</h1>
-                        <p><a href="#">2 interwiews</a> need to be assigned, <a href="#">23 interviews</a> waiting for your descision, <a href="#" class="error-text">2 interviews</a> rejected by HQ need your response.</p>
+                        <ol class="breadcrumb">
+                            <li><a href="">troubleshooting</a></li>
+                        </ol>
+                        <h1>
+                                Locating specific census inteview
+                        </h1> 
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-sm-7 ">
+                            <p>It will be useful to know enumerator, interview template and timeline. <br/> We will show if there was any errors with synchronizations during selected period.</p>
+                            <ul class="list-unstyled">
+                                <li><b>There are 3 interviews found during period</b></li>
+                                <li class="error-text"><b>2 error detected during this period</b></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="interviews-info">
                         <div class="table-wrapper interviews-large-screen">
@@ -366,242 +357,152 @@
                             <table class="table table-striped table-ordered table-bordered table-hover table-with-checkboxes table-with-prefilled-column table-interviews">
                                 <thead>
                                     <tr>
-                                        <th class="sorting_disabled checkbox-cell">
-                                            <input class="double-checkbox" id="check-all" type="checkbox">
-                                            <label for="check-all">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </th>
-                                        <th class="sorting_disabled interview-id  title-row">Interview id
+                                        <th class=" interview-id  title-row">Interview id
                                             <a href="#" class="show-prefield-btn">Show prefilled</a>
                                         </th>
                                         <th class="prefield-column enumeration-area">Enumeration area</th>
                                         <th class="prefield-column">Deelling ZIP</th>
                                         <th class="prefield-column  without-break  deelling-address">Deelling address</th>
-                                        <th class="sorting_disabled has-comments"><span class="comment-icon responded"></span></th>
-                                        <th class="sorting_disabled flags">Flags</th>
-                                        <th class="sorting_disabled status">Status</th>
-                                        <th class="sorting_disabled spent-time">Spent time</th>
-                                        <th class="sorting_disabled answered-questions">answered questions</th>
-                                        <th class="sorting_disabled template">Template</th>
-                                        <th class="sorting_disabled accepted-hq">Accepted by HQ</th>
-                                        <th class="sorting_disabled census">Census mode</th>
-                                        <th class="sorting_disabled left-empty">left empty</th>
-                                        <th class="sorting_disabled errors">errors</th>
+                                        <th class=" has-comments"><span class="comment-icon responded"></span></th>
+                                        <th class=" uploaded-to-hq">Uploaded to HQ</th>
+                                        <th class=" interview-conducted">interview conducted</th>
+                                        <th class=" flags">Flags</th>
+                                        <th class=" status">current Status</th>
+                                        <th class=" answered-questions">answered questions</th>
+                                        <th class=" left-empty">left empty</th>
+                                        <th class=" errors">errors</th>
                                         <th class="date last-update">last update</th>
-                                        <th class="sorting_disabled download-on-device">downloaded on device</th>
-                                        <th class="sorting_disabled enumerator">enumerator</th>
-                                        <th class="sorting_disabled number-rejected">Times rejected</th>
+                                        <th class=" download-on-device">downloaded on device</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="selected">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts" type="checkbox" checked>
-                                            <label for="with-commeqnts">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
+                                    <tr class="">
                                         <td class="interview-id title-row"><a href="#">43-21-23-45-13</a></td>
                                         <td class="prefield-column enumeration-area">North 2</td>
                                         <td class="prefield-column">24632</td>
                                         <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
                                         <td class="has-comments"><span class="comment-icon"></span></td>
+                                        <td class="date uploaded-to-hq">Feb 11, 09:12</td>
+                                        <td class="date interview-conducted">Feb 12, 23:44</td>
                                         <td class="flags"><span class="flag">3</span></td>
                                         <td class="status">Need&nbsp;your&nbsp;descision</td>
-                                        <td class="spent-time"> 20 min</td>
                                         <td class="answered-questions">2048</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
                                         <td class="left-empty">12</td>
                                         <td class="errors">2</td>
                                         <td class="date last-update">Feb 12, 23:55</td>
                                         <td class="date download-on-device">Feb 12, 09:12</td>
-                                        <td class="enumerator"><span class="interviewer">interviewer-113</span></td>
-                                        <td class="number-rejected"></td>
                                     </tr>
                                     <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts1" type="checkbox">
-                                            <label for="with-commeqnts1">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id title-row"><a href="#">54-11-23-45-21</a></td>
+                                        <td class="interview-id title-row"><a href="#" class=" error-text">54-11-23-45-21</a></td>
                                         <td class="prefield-column enumeration-area">North 2</td>
                                         <td class="prefield-column">24632</td>
                                         <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
-                                        <td class="has-comments"><span class="comment-icon responded"></span></td>
+                                         <td class="has-comments"><span class="comment-icon responded"></span></td>
+                                        <td class="date uploaded-to-hq error-text">Feb 11, 09:12 <div>Error: [02] corrupted data</div></td>
+                                        <td class="date interview-conducted">Feb 12, 23:44</td>
                                         <td class="flags"><span class="empty"></span></td>
                                         <td class="status">Completed</td>
-                                        <td class="spent-time"> 20 min</td>
                                         <td class="answered-questions">1956</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
                                         <td class="left-empty success-text">No</td>
                                         <td class="errors success-text">No</td>
                                         <td class="date last-update">Feb 12, 19:55</td>
                                         <td class="date download-on-device">Feb 1, 09:12</td>
-                                        <td class="enumerator"><span class="interviewer">i-4</span></td>
-                                        <td class="number-rejected"></td>
                                     </tr>
                                     <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts2" type="checkbox">
-                                            <label for="with-commeqnts2">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
                                         <td class="interview-id title-row"><a href="#">43-21-23-45-11 i2</a></td>
                                         <td class="prefield-column enumeration-area">North 2</td>
                                         <td class="prefield-column">24632</td>
                                         <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
                                         <td class="has-comments"><span class="comment-icon responded"></span></td>
+                                        <td class="date uploaded-to-hq">Feb 11, 09:12</td>
+                                        <td class="date interview-conducted">Feb 12, 23:44</td>
                                         <td class="flags"><span class="flag">1923</span></td>
                                         <td class="status error-text">HQ&nbsp;rejected</td>
-                                        <td class="spent-time"> 20 min</td>
                                         <td class="answered-questions error-text">No</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
                                         <td class="left-empty">1345</td>
                                         <td class="errors">1922</td>
                                         <td class="date last-update">Feb 11, 22:55</td>
                                         <td class="date download-on-device">Feb 6, 10:12</td>
-                                        <td class="enumerator"><span class="interviewer">alex-right</span></td>
-                                        <td class="number-rejected"></td>
                                     </tr>
                                     <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts3" type="checkbox">
-                                            <label for="with-commeqnts3">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
-                                        <td class="interview-id not-synced-assign title-row"><a href="#">43-11-23-34-56</a></td>
+                                        <td class="interview-id title-row"><a href="#" class="error-text">NA</a></td>
                                         <td class="prefield-column enumeration-area">North 2</td>
                                         <td class="prefield-column">24632</td>
                                         <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
                                         <td class="has-comments"><span class="empty"></span></td>
+                                        <td class="date uploaded-to-hq error-text">Feb 3, 09:12 <div>Error: [03] Connection time out</div></td>
+                                        <td class="date interview-conducted">Feb 12, 23:44</td>
                                         <td class="flags"><span class="empty"></span></td>
                                         <td class="status">Not&nbsp;yet&nbsp;synced</td>
-                                        <td class="spent-time"> 20 min</td>
                                         <td class="answered-questions"><span class="empty"></span></td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
                                         <td class="left-empty"><span class="empty"></span></td>
                                         <td class="errors"><span class="empty"></span></td>
                                         <td class="date last-update">Feb 11, 22:55</td>
                                         <td class="date download-on-device"><span class="empty"></span></td>
-                                        <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
-                                        <td class="number-rejected"></td>
                                     </tr>
-                                    <tr class="selected">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts4" type="checkbox" checked>
-                                            <label for="with-commeqnts4">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
+                                    <tr class="">
                                         <td class="interview-id title-row"><a href="#">45-63-33-24-67</a></td>
                                         <td class="prefield-column enumeration-area">North 2</td>
                                         <td class="prefield-column">24632</td>
                                         <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
                                         <td class="has-comments"><span class="empty"></span></td>
+                                        <td class="date uploaded-to-hq">Feb 11, 09:12</td>
+                                        <td class="date interview-conducted">Feb 12, 23:44</td>
                                         <td class="flags"><span class="empty"></span></td>
                                         <td class="status">In&nbsp;the&nbsp;field</td>
-                                        <td class="spent-time"> 20 min</td>
                                         <td class="answered-questions"><span class="empty"></span></td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
                                         <td class="left-empty"><span class="empty"></span></td>
                                         <td class="errors"><span class="empty"></span></td>
                                         <td class="date last-update">Feb 11, 22:55</td>
                                         <td class="date download-on-device">Feb 2, 12:23</td>
-                                        <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
-                                        <td class="number-rejected"></td>
                                     </tr>
                                     <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts41" type="checkbox">
-                                            <label for="with-commeqnts41">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
                                         <td class="interview-id title-row"><a href="#">45-22-22-34-19</a></td>
                                         <td class="prefield-column enumeration-area">North 2</td>
                                         <td class="prefield-column">24632</td>
                                         <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
                                         <td class="has-comments"><span class="comment-icon"></span></td>
+                                        <td class="date uploaded-to-hq">Feb 11, 09:12</td>
+                                        <td class="date interview-conducted">Feb 12, 23:44</td>
                                         <td class="flags"><span class="flag">1</span></td>
                                         <td class="status error-text">HQ&nbsp;rejected</td>
-                                        <td class="spent-time"> 20 min</td>
                                         <td class="answered-questions">1554</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
                                         <td class="left-empty">78</td>
                                         <td class="errors">1</td>
                                         <td class="date last-update">Feb 5, 12:15</td>
                                         <td class="date download-on-device">Feb 1, 10:03</td>
-                                        <td class="enumerator"><span class="interviewer">guidocallas</span></td>
-                                        <td class="number-rejected"></td>
                                     </tr>
                                     <tr class="">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts5" type="checkbox">
-                                            <label for="with-commeqnts5">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
                                         <td class="interview-id not-synced-assign title-row"><a href="#">77-33-25-71-16</a></td>
                                         <td class="prefield-column enumeration-area">North 2</td>
                                         <td class="prefield-column">24632</td>
                                         <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
                                         <td class="has-comments"><span class="empty"></span></td>
+                                        <td class="date uploaded-to-hq">Feb 11, 09:12</td>
+                                        <td class="date interview-conducted">Feb 12, 23:44</td>
                                         <td class="flags"><span class="empty"></span></td>
                                         <td class="status">Not&nbsp;yet&nbsp;assign</td>
-                                        <td class="spent-time"> 20 min</td>
                                         <td class="answered-questions"><span class="empty"></span></td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
                                         <td class="left-empty"><span class="empty"></span></td>
                                         <td class="errors"><span class="empty"></span></td>
                                         <td class="date last-update">Feb 11, 22:55</td>
                                         <td class="date download-on-device"><span class="empty"></span></td>
-                                        <td class="enumerator"><button class="btn btn-primary btn-sm">Assign</button></td>
-                                        <td class="number-rejected"></td>
                                     </tr>
-                                    <tr class="selected">
-                                        <td class="checkbox-cell">
-                                            <input class="checkbox-filter" id="with-commeqnts34" type="checkbox" checked>
-                                            <label for="with-commeqnts34">
-                                                <span class="tick"></span>
-                                            </label> 
-                                        </td>
+                                    <tr class="">
                                         <td class="interview-id title-row"><a href="#">43-82-94-98-95</a></td>
                                         <td class="prefield-column enumeration-area">North 2</td>
                                         <td class="prefield-column">24632</td>
                                         <td class="prefield-column without-break  deelling-address">1257 blane Street, Creve coeur, MC, Buildin 35 25632</td>
                                         <td class="has-comments"><span class="empty"></span></td>
+                                        <td class="date uploaded-to-hq">Feb 11, 09:12</td>
+                                        <td class="date interview-conducted">Feb 12, 23:44</td>
                                         <td class="flags"><span class="empty"></span></td>
                                         <td class="status">Waiting&nbsp;for&nbsp;HQ</td>
-                                        <td class="spent-time"> 20 min</td>
                                         <td class="answered-questions">2001</td>
-                                        <td class="template"></td>
-                                        <td class="accepted-hq"></td>
-                                        <td class="census"></td>
                                         <td class="left-empty success-text">No</td>
                                         <td class="errors success-text">No</td>
                                         <td class="date last-update">Feb 11, 22:55</td>
                                         <td class="date download-on-device">Feb 8, 22:55</td>
-                                        <td class="enumerator"><span class="interviewer">interviewer-31</span></td>
-                                        <td class="number-rejected"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -609,18 +510,15 @@
                         <div class="screen-small-resolution">
                             <div class="row-unit selected">
                                 <div class="header-unit">
-                                    <input class="checkbox-filter" id="with-commeqnts21" type="checkbox" checked>
-                                    <label for="with-commeqnts21">
-                                        <span class="tick"></span>
-                                        <span class="title-row">43-21-23-45-15</span>
-                                        <span>Need your descision</span>
-                                    </label>
+                                    <span class="tick"></span>
+                                    <span class="title-row">43-21-23-45-15</span>
+                                    <b>Need your descision</b>
                                     <span class="comment-icon"></span> 
                                 </div>
                                 <ul class="list-unstyled">
-                                    <li>Last update: Feb 12, 23:55</li>
-                                    <li>Downloaded on device: Feb 11, 09:12</li>
-                                    <li>Enumerator: <a href="#" class="interviewer">interviewer-31</a></li>
+                                    <li>Downloaded on device: Feb 12, 23:55</li>
+                                    <li>Interview conducted: Feb 11, 09:12</li>
+                                    <li>Uploaded to HQ: Feb 11, 09:12</li>
                                 </ul>
                                 <div class="table-min-wrapper clearfix">
                                     <div class="table-min">
@@ -647,18 +545,15 @@
                             </div>
                             <div class="row-unit">
                                 <div class="header-unit">
-                                    <input class="checkbox-filter" id="with-commeqnts421" type="checkbox">
-                                    <label for="with-commeqnts421">
-                                        <span class="tick"></span>
-                                        <span class="title-row">54-11-23-45-13</span>
-                                        <span>Completed</span>
-                                    </label>
+                                    <span class="tick"></span>
+                                    <span class="title-row">54-11-23-45-13</span>
+                                    <b>Completed</b>
                                     <span class="comment-icon"></span> 
                                 </div>
                                 <ul class="list-unstyled">
-                                    <li>Last update: Feb 12, 20:15</li>
-                                    <li>Downloaded on device: Feb 10, 05:12</li>
-                                    <li>Enumerator: <a href="#" class="interviewer">i-4</a></li>
+                                    <li>Downloaded on device: Feb 12, 20:15</li>
+                                    <li>Interview conducted: Feb 10, 05:12</li>
+                                    <li>Uploaded to HQ: Feb 11, 09:12</li>
                                 </ul>
                                 <div class="table-min-wrapper clearfix">
                                     <div class="table-min">
@@ -685,18 +580,14 @@
                             </div>
                             <div class="row-unit">
                                 <div class="header-unit">
-                                    <input class="checkbox-filter" id="with-commeqnts219" type="checkbox">
-                                    <label for="with-commeqnts219">
-                                        <span class="tick"></span>
-                                        <span class="title-row">43-21-23-45-11 i2</span>
-                                        <span class="error-text">HQ rejected</span>
-                                    </label>
+                                    <span class="title-row error-text">43-21-23-45-11 i2</span>
+                                    <b class="error-text">HQ rejected</b>
                                     <span class="comment-icon responded"></span>
                                 </div>
                                 <ul class="list-unstyled">
-                                    <li>Last update: Feb 12, 20:15</li>
-                                    <li>Downloaded on device: Feb 10, 05:12</li>
-                                    <li>Enumerator: <a href="#" class="interviewer">guidocallas</a></li>
+                                    <li>Downloaded on device: Feb 12, 20:15</li>
+                                    <li>Interview conducted: Feb 10, 05:12</li>
+                                    <li class="error-text">Uploaded to HQ: Feb 11, 09:12 <div>Error: [02] corrupted data</div></li>
                                 </ul>
                                 <div class="table-min-wrapper clearfix">
                                     <div class="table-min">
@@ -723,17 +614,13 @@
                             </div>
                             <div class="row-unit">
                                 <div class="header-unit">
-                                    <input class="checkbox-filter" id="with-commeqnts216" type="checkbox">
-                                    <label for="with-commeqnts216">
-                                        <span class="tick"></span>
-                                        <span class="title-row">77-33-25-71-16</span>
-                                        <span>Not yet assign</span>
-                                    </label>
+                                    <span class="title-row error-text">77-33-25-71-16</span>
+                                    <b>Not yet assign</b>
                                 </div>
                                 <ul class="list-unstyled">
-                                    <li>Last update: Feb 05, 09:15</li>
-                                    <li>Downloaded on device: Feb 01, 05:12</li>
-                                    <li>Enumerator: <button class="btn btn-primary">Assign</button></li>
+                                    <li>Downloaded on device: Feb 05, 09:15</li>
+                                    <li>Interview conducted: Feb 01, 05:12</li>
+                                    <li class="error-text">Uploaded to HQ: Feb 3, 09:12 <div>Error: [03] Connection time out</div></li>
                                 </ul>
                                 <div class="table-min-wrapper clearfix">
                                     <div class="table-min">
@@ -759,163 +646,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-table">
-                            <div class="panel-body">
-                                <input class="double-checkbox-white" id="q1az" type="checkbox" checked>
-                                <label for="q1az">
-                                    <span class="tick"></span> 3 interviews from 2 enumerators selected 
-                                </label> 
-                                <button class="btn btn-lg btn-success">approve</button>
-                                <button class="btn btn-lg reject">reject</button>
-                                <button class="btn btn-lg btn-primary">reassign</button>
-                                <button class="btn btn-link">move to trash</button>
-                            </div>
-                        </div>
                     </div> 
                 </div>
             </div>
         </div>
     </main>
-    <!-- Button trigger modal -->
-<a href="" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#statuses" style="position: absolute; bottom: 0; left: 0; z-index: 500; ">
-  Launch demo modal
-</a>
-    <div class="modal fade statuses" id="statuses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-                <h3>Interview</h3>
-                <p><a href="#" class="title-row">71-06-24-88-13</a> by <a href="#" class="interviewer">interviewer-101</a></p>
-            </div>
-            <div class="modal-body">
-                <h3>Current status:</h3>
-                <p>Uploaded from device &mdash; waiting for your descision</p>
-                <h3>History of status changes</h3>
-                <div class="table-with-scroll">
-                    <table class="table table-striped history">
-                        <tr>
-                            <td class="date">Feb 09, 23:55</td>
-                            <td>Issued by HQ3, assigned to <a href="#" class="supervisor">suprv5</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 11, 19:52</td>
-                            <td>Reasigned to <a href="#" class="supervisor">suprv7 (you)</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 12, 12:52</td>
-                            <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 15, 14:42</td>
-                            <td>Downloaded to device</td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 16, 14:52</td>
-                            <td>Uploaded from device</td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 16, 18:12</td>
-                            <td>
-                                <span class="error-text">Rejected</span> by <a href="#" class="supervisor">suprv7 (you)</a>
-                                <div class="comment">
-                                    <h4 class="gray-uppercase">Rejection comment (feb 13, 13:58):</h4>
-                                    <p><b><i>Household consumption data is not valid, please re-check cereals and flours quantities (you can do it by phone)</i></b></p>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 17, 16:06</td>
-                            <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 19, 12:52</td>
-                            <td>Downloaded to device</td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 20, 22:22</td>
-                            <td>Uploaded from device</td>
-                        </tr>
-                    </table>
-                </div>    
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-link">view interview</button>
-                <button type="button" class="btn btn-link" data-dismiss="modal">close</button>
-            </div>
-            </div>
-        </div>
-    </div>
-        <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prefield" style="position: absolute; bottom: 50px; left: 0; z-index: 500; ">
-  Launch demo modal
-</button>
-    <div class="modal fade" id="prefield" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-                <h3>Interview</h3>
-                <p><a href="#" class="title-row">71-06-24-88-13</a> by <a class="interviewer" href="#">interviewer-101</a></p>
-            </div>
-            <div class="modal-body">
-                <h3>Template</h3>
-                <p class="template">Tanzania NPS 2012/2013 Household Questionnaire</p>
-                <h3>Prefilled deta</h3>
-                <div class="table-with-scroll">
-                    <table class="table table-striped">
-                        <tr>
-                            <th class="prefield-column">Enumeration area</th>
-                            <td class="prefield-column">North 2</td>
-                        </tr>
-                        <tr>
-                            <th class="prefield-column">Delling ZIP</th>
-                            <td class="prefield-column">08204</td>
-                        </tr>
-                        <tr>
-                            <th class="prefield-column">Delling address</th>
-                            <td class="prefield-column">1918 Whiteman Street, Lower Township, Nj 08204</td>
-                        </tr>
-                        <tr>
-                            <th class="prefield-column">Location instruction</th>
-                            <td class="prefield-column">Duis aute irure dolor in reprehenderit in voluptate velit 
-                                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-                        </tr>
-                        <tr>
-                            <th class="prefield-column">Contact phone (mobile)</th>
-                            <td class="prefield-column">+245886242311</td>
-                        </tr>
-                        <tr>
-                            <th class="prefield-column">Red ID</th>
-                            <td class="prefield-column">0855436573</td>
-                        </tr>
-                    </table>
-                </div>    
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-link">view interview</button>
-                <button type="button" class="btn btn-link" data-dismiss="modal">close</button>
-            </div>
-            </div>
-        </div>
-    </div>
-    <ul  class="dropdown-menu context-menu" role="menu" style="display:none" >
-        <li><h3>View interview</h3></li>
-        <li><a href="#" tabindex="-1" data-toggle="modal" data-target="#prefield" >Information and prefiled data</a></li>
-        <li><a href="#" tabindex="-1">View all comments (12)</a>
-            <span>No comments</span>
-        </li>
-        <li><a href="#" tabindex="-1"  data-toggle="modal" data-target="#statuses" >Interview status history</a></li>       
-        <li class="divider"></li>
-        <li><a href="#" tabindex="-1" class="success-text"><b>Accept</b></a></li>
-        <li><a href="#" tabindex="-1" class="error-text"><b>Reject</b></a></li>
-        <li><a href="#" tabindex="-1" class="primary-text"><b>Reasign</b></a></li>
-        <li class="divider"></li>
-        <li><a href="#" tabindex="-1">Move to archive</a></li>
-        <li><a href="#" tabindex="-1">Dismiss</a></li>
-
-    </ul>
     <footer class="footer footer-adaptive hold-transition">
         <div class="container-fluid">
             <div class="text-left">
@@ -937,66 +672,6 @@
             .children( '.dropdown-toggle' ).dropdown( 'toggle' );
         return false;
     });
-    </script>
-    <script type="text/javascript">
-        (function ($, window) {
-            $.fn.contextMenu = function (settings) {
-                return this.each(function () {
-                    // Open context menu
-                    $(this).on("contextmenu", function (e) {
-                        // return native menu if pressing control
-                        if (e.ctrlKey) return;    
-                        //open menu
-                        var $menu = $(settings.menuSelector)
-                            .data("invokedOn", $(e.target))
-                            .show()
-                            .css({
-                                position: "absolute",
-                                left: getMenuPosition(e.clientX, 'width', 'scrollLeft'),
-                                top: getMenuPosition(e.clientY, 'height', 'scrollTop')
-                            })
-                            .off('click')
-                            .on('click', 'a', function (e) {
-                                $menu.hide();
-                                var $invokedOn = $menu.data("invokedOn");
-                                var $selectedMenu = $(e.target); 
-                                settings.menuSelected.call(this, $invokedOn, $selectedMenu);
-                            });
-                        return false;
-                    });
-                    //make sure menu closes on any click
-                    $('body').click(function () {
-                        $(settings.menuSelector).hide();
-                    });
-                });
-                function getMenuPosition(mouse, direction, scrollDir) {
-                    var win = $(window)[direction](),
-                        scroll = $(window)[scrollDir](),
-                        menu = $(settings.menuSelector)[direction](),
-                        position = mouse + scroll;               
-                    // opening menu would pass the side of the page
-                    if (mouse + menu > win && menu < mouse) 
-                        position -= menu; 
-                    return position;
-                }    
-            };
-        })(jQuery, window);
-        $(".table-interviews td").contextMenu({
-            menuSelector: ".context-menu",
-            menuSelected: function (invokedOn, selectedMenu) {
-                var msg = "You selected the menu item '" + selectedMenu.text() +
-                    "' on the value '" + invokedOn.text() + "'";
-                alert(msg);
-            }
-        });
-        $(".screen-small-resolution .row-unit").contextMenu({
-            menuSelector: ".context-menu",
-            menuSelected: function (invokedOn, selectedMenu) {
-                var msg = "You selected the menu item '" + selectedMenu.text() +
-                    "' on the value '" + invokedOn.text() + "'";
-                alert(msg);
-            }
-        });
     </script>
 </body>
 </html>
