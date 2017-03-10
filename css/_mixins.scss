@@ -411,6 +411,22 @@
         @include rotate($angle-before);
     }
 }
+@mixin connection-status($color){
+    width: 15px;
+    height: 6px;
+    position: relative;
+    &:before{
+        display: block;
+        border-radius: 3px;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 7.5px);
+        width: 13px;
+        height: 4px;
+        background-color: $color;
+    }
+}
 %field-to-fill{
     width: 100%;
     padding: 11px 12px;

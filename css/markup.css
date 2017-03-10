@@ -11763,7 +11763,7 @@ a {
     right: 0;
     z-index: 3;
     width: 100%;
-    height: 15px;
+    height: 12px;
     background-image: -webkit-linear-gradient(top, #fff 0%, rgba(255, 255, 255, 0) 80%);
     background-image: -o-linear-gradient(top, #fff 0%, rgba(255, 255, 255, 0) 80%);
     background-image: linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 80%);
@@ -11831,8 +11831,8 @@ a {
   justify-content: flex-start;
   align-items: center;
   height: 75px;
-  padding-bottom: 5px; }
-  .recent-activity .uploaded, .recent-activity .downloaded, .recent-activity .successful-connection {
+  padding-bottom: 3px; }
+  .recent-activity .uploaded, .recent-activity .downloaded, .recent-activity .successful-connection, .recent-activity .failed-connection {
     display: flex;
     flex-shrink: 0; }
 
@@ -11868,19 +11868,6 @@ a {
     -o-transform: rotate(45deg);
     transform: rotate(45deg); }
 
-.successful-connection {
-  width: 15px;
-  height: 10px; }
-  .successful-connection:before {
-    display: block;
-    border-radius: 3px;
-    content: "";
-    position: relative;
-    top: calc(50% - 2px);
-    width: 13px;
-    height: 4px;
-    background-color: #dbdfe2; }
-
 .uploaded {
   position: relative;
   width: 15px;
@@ -11906,11 +11893,63 @@ a {
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg); }
 
+.successful-connection {
+  width: 15px;
+  height: 6px;
+  position: relative; }
+  .successful-connection:before {
+    display: block;
+    border-radius: 3px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 7.5px);
+    width: 13px;
+    height: 4px;
+    background-color: #dbdfe2; }
+
+.failed-connection {
+  width: 15px;
+  height: 6px;
+  position: relative; }
+  .failed-connection:before {
+    display: block;
+    border-radius: 3px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 7.5px);
+    width: 13px;
+    height: 4px;
+    background-color: #f6d6d0; }
+
+.over-limit {
+  width: 15px;
+  height: 6px;
+  position: relative; }
+  .over-limit span, .over-limit span:before, .over-limit span:after {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #dbdfe2; }
+  .over-limit span {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 2px); }
+    .over-limit span:before, .over-limit span:after {
+      content: "";
+      position: absolute;
+      left: -5px;
+      bottom: 0; }
+    .over-limit span:after {
+      left: 5px; }
+
 .explanation {
   height: 100%;
   font-size: 12px;
   line-height: 14px; }
-  .explanation .downloaded, .explanation .uploaded, .explanation .successful-connection {
+  .explanation .downloaded, .explanation .uploaded, .explanation .successful-connection, .explanation .failed-connection {
     display: inline-block; }
 
 .graphic-explanation {
@@ -11922,7 +11961,7 @@ a {
     .graphic-explanation .recent-activity ul li {
       padding-left: 25px;
       position: relative; }
-      .graphic-explanation .recent-activity ul li .uploaded, .graphic-explanation .recent-activity ul li .downloaded, .graphic-explanation .recent-activity ul li .successful-connection {
+      .graphic-explanation .recent-activity ul li .uploaded, .graphic-explanation .recent-activity ul li .downloaded, .graphic-explanation .recent-activity ul li .successful-connection, .graphic-explanation .recent-activity ul li .failed-connection {
         position: absolute;
         top: 0;
         left: 0; }
@@ -11950,12 +11989,12 @@ a {
   .graphic {
     height: auto;
     display: block;
-    width: 200px;
+    width: 150px;
     float: left;
     margin-right: 40px; }
     .graphic:after, .graphic:before {
       height: 100%;
-      width: 15px;
+      width: 12px;
       left: 0;
       background-image: -webkit-linear-gradient(left, #fff 0%, rgba(255, 255, 255, 0) 80%);
       background-image: -o-linear-gradient(left, #fff 0%, rgba(255, 255, 255, 0) 80%);
@@ -12018,14 +12057,28 @@ a {
       top: 8px;
       left: 0; }
 
-  .successful-connection {
-    width: 10px;
+  .over-limit {
+    width: 6px;
     height: 15px; }
-    .successful-connection:before {
+    .over-limit span {
+      top: calc(50% - 2px);
+      left: 0; }
+      .over-limit span:before, .over-limit span:after {
+        left: 0;
+        bottom: -5px; }
+      .over-limit span:after {
+        left: 0;
+        top: -5px; }
+
+  .successful-connection, .failed-connection {
+    width: 6px;
+    height: 15px; }
+    .successful-connection:before, .failed-connection:before {
       width: 4px;
       height: 13px;
-      top: calc(50% - 6.5px);
-      left: calc(50% - 2px); }
+      bottom: calc(50% - 6.5px);
+      left: auto;
+      right: 0; }
 
   .unfinished-assignments {
     height: auto;
