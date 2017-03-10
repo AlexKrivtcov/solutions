@@ -451,6 +451,11 @@
             font: 14px/18px Arial, sans-serif;
             letter-spacing: normal;
             text-transform: none;
+            &.gray-text{
+				color: $gray_light;
+				font-weight: normal;
+				font-style: italic;
+			}
         }
         &:hover, &:focus, &:active {
             z-index: 0;

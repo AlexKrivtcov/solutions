@@ -5904,7 +5904,7 @@ input.wb-checkbox ~ label .tick, .radio input.wb-radio ~ label .tick {
       background-image: url("../img/questionnaire-sprite2k.png");
       background-size: 629px 18px; } }
 
-.combo-box input:checked ~ .btn-clear, .question-editor .options-group .field input:checked ~ .btn-clear, .dataTables_wrapper .dataTables_filter label.active input, .active-search .search .btn-clear, .combo-box.selected .btn-clear, .aside-menu.open > .dropdown-menu, .question.disabled-question:after, .field.answered .btn-clear, .field.has-error .btn-clear {
+.combo-box input:checked ~ .btn-clear, .question-editor .options-group .field input:checked ~ .btn-clear, .dataTables_wrapper .dataTables_filter label.active input, .active-search .search .btn-clear, .combo-box .btn-clear, .aside-menu.open > .dropdown-menu, .question.disabled-question:after, .field.answered .btn-clear, .field.has-error .btn-clear {
   visibility: visible;
   opacity: 1;
   filter: alpha(opacity=100); }
@@ -5969,6 +5969,10 @@ input.wb-checkbox ~ label .tick, .radio input.wb-radio ~ label .tick {
     font: 14px/18px Arial, sans-serif;
     letter-spacing: normal;
     text-transform: none; }
+    .combo-box .dropdown-toggle span.gray-text, .question-editor .options-group .field .dropdown-toggle span.gray-text {
+      color: #a6a8a9;
+      font-weight: normal;
+      font-style: italic; }
   .combo-box .dropdown-toggle:hover, .question-editor .options-group .field .dropdown-toggle:hover, .combo-box .dropdown-toggle:focus, .question-editor .options-group .field .dropdown-toggle:focus, .combo-box .dropdown-toggle:active, .question-editor .options-group .field .dropdown-toggle:active {
     z-index: 0; }
 .combo-box .dropdown-menu, .question-editor .options-group .field .dropdown-menu {
@@ -7868,6 +7872,9 @@ input.double-checkbox-white {
       .active-search .search .btn-search:hover {
         background-position: -60px 10px; }
 
+.block-filter .btn-group.bootstrap-select, .block-filter .combo-box {
+  margin-left: -10px !important; }
+
 .combo-box {
   position: relative;
   width: 295px; }
@@ -8324,9 +8331,6 @@ span.image-zoom-box, span.image-option {
     margin-left: -10px !important; }
   .filters .input-group.date {
     margin-left: 0 !important; }
-
-.block-filter .btn-group.bootstrap-select {
-  margin-left: -10px !important; }
 
 input.checkbox-filter {
   display: none; }
@@ -9303,6 +9307,11 @@ table tr th .census-icon, table tr td .census-icon {
 
 .screen-small-resolution {
   display: none; }
+
+.gray-text {
+  color: #a6a8a9;
+  font-weight: normal;
+  font-style: italic; }
 
 @media (max-width: 880px) {
   .interviews-large-screen {
@@ -10677,12 +10686,6 @@ label.inactive {
     height: auto; }
 .static-text.invalid h5, .invalid.variable h5, .static-text.invalid .preset-filters-container a, .preset-filters-container .static-text.invalid a, .invalid.variable .preset-filters-container a, .preset-filters-container .invalid.variable a, .static-text.invalid .preset-filters-container .export-queue, .preset-filters-container .static-text.invalid .export-queue, .invalid.variable .preset-filters-container .export-queue, .preset-filters-container .invalid.variable .export-queue {
   color: #e74924; }
-
-.question-editor .question-unit .options-group .field
-.gray-text {
-  color: #a6a8a9;
-  font-weight: normal;
-  font-style: italic; }
 
 .ordered-question .form-group {
   position: relative; }

@@ -484,12 +484,6 @@ label.inactive{
 .variable{
 	@extend .static-text;
 }
-.question-editor .question-unit .options-group .field
-.gray-text{
-	color: $gray_light;
-	font-weight: normal;
-	font-style: italic;
-}
 .ordered-question{
 	.form-group{
 		position: relative;

@@ -388,6 +388,11 @@ input.double-checkbox-white{
 		}
 	}
 }
+.block-filter {
+	.btn-group.bootstrap-select, .combo-box{
+		margin-left: -10px !important;
+	}
+} 
 .combo-box{
 	position: relative;
 	width: 295px;
@@ -395,10 +400,8 @@ input.double-checkbox-white{
 	.dropdown-toggle span{
 		position: static !important;
 	}
-	&.selected{
-		.btn-clear{
-			@extend %visibility-visible;
-		}
+	.btn-clear{
+		@extend %visibility-visible;
 	}
 }
 
