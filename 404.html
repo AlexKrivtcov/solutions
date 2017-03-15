@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HQ-questionnaires</title>
+    <title>404</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
                 <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
                 <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
@@ -17,30 +17,6 @@
     <link rel="stylesheet" type="text/css" href="css/markup.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
-    <script>
-      $(document).ready(function(){
-          $("#hide").click(function(){
-              $("div.alert-danger").hide();
-          });
-          $("#show").click(function(){
-              $("div.alert-danger").show();
-          });
-      });
-    </script>
-    <script>
-      $(document).ready(function(){
-          $("#hide2").click(function(){
-              $("div.page-title").show();
-              $("div.two-columns-form").show();
-              $("div.maintenance-mode").hide();
-          });
-          $("#show2").click(function(){
-              $("div.page-title").hide();
-              $("div.two-columns-form").hide();
-              $("div.maintenance-mode").show();
-          });
-      });
-    </script>
     <script>
       $(document).ready(function () {
         $(".navbar-toggle").click(function () {
@@ -73,7 +49,7 @@
                         <span class="sync-queue-size">16287</span>
                     </a>
                     <a class="navbar-brand  rotate-brand" href="#">
-                        <div class="brand-name" title="Headquarter">Headquarter</div>
+                        <div class="brand-name" title="Headquarters">Headquarters</div>
                     </a>
                 </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -113,71 +89,29 @@
             </div><!-- /.container-fluid -->
         </nav>  
     </header> 
-  <main>
-    <div class="container">
-      <div class="row">
-        <div class="page-header">
-          <ol class="breadcrumb">
-            <li><a href="">Questionnaire</a></li>
-          </ol>
-          <h1>
-            Use your Survey Solutions Designer credentials to get access to your questionnaires.        
-          </h1>
-          <div class="maintenance-mode">
-            Unabile to import new questionnaire:
-            <div class="alert alert-danger">
-              Survey Solutions Designer website is in the maintenance mode, please try again later 
+    <main>
+        <div class="red-line"></div>
+        <div class="container">
+            <div class="row">
+                <div class="page-header">
+                  <h1>
+                    Error 404: Page not found
+                  </h1> 
+                </div>
+            </div>
+          <div class="row">
+            <div class="col-sm-6 extra-margin-bottom">
+              <p>The page you are looking for doesn't exist. <br/> Please check URL to ensure that path is correct. <br/> Contact system administrator if this problev presists.</p>
             </div>
           </div>
-          <a href="#" class="back-link">Back to questionnaires</a>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid form-inside">
-      <div class="row two-columns-form">
-        <div class="col-md-6 col-sm-6 col-xs-12 left-column">
-          <div class="centered-box-table">
-            <div class="centered-box-table-cell">
-              <img src="img/designer-logo.png" alt="Survey Solutions Designer"/>
-              <p>
-                This is free tool for creating questionnaires for The World Bank’s CAPI platform. It could be found at 
-                <a href="http://solutions.worldbank.org" target="_blank">solutions.worldbank.org</a>
-              </p>
+          <div class="row">
+            <div class="col-sm-6">
+              <a href="#" class="back-link">back</button>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 right-column">
-          <div class="centered-box-table">
-            <div class="centered-box-table-cell">
-              <form action="#" id="import-log-in" class="log-in">
-                <div class="alert alert-danger">
-                  <p>User is not authorized. <br/>
-                    Please check your login and password.</p>
-                  <p>Please sign in with credentials you normally use to access your questionnaires at the Designer site and in the Tester app</p>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" placeholder="Login" type="text"/>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" placeholder="Password" type="password"/>
-                </div>
-                <div class="form-group">
-                  <input class="wb-checkbox" id="logged-in" type="checkbox"/>
-                  <label for="logged-in">
-                    <span class="tick"></span>Stay logged in
-                  </label>
-                </div>
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-success btn-lg">Log in</button>
-                </div>
-              </form>
-            </div>
-          </div>          
-        </div>
-      </div>
-    </div>
-  </main> 
-	<footer class="footer">
+    </main>
+    <footer class="footer">
     <div class="container-fluid">
       <div class="text-left">
         &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
@@ -188,10 +122,6 @@
         <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
        </div>
     </div>
-    <button id="hide">Hide error message</button>
-    <button id="show">Show error message</button>
-    <button id="hide2">Hide maintenance mode</button>
-    <button id="show2">Show maintenance mode</button>
-	</footer>
+    </footer>
 </body>
 </html>
