@@ -31,6 +31,27 @@
               $("main").toggleClass("hidden");
             });
         });
+    </script>
+    <script>
+        var ajustNoticeHeight = function(){
+            var height = $(".view-mode").outerHeight();
+            $('.view-mode + main').css("margin-top", height+"px");
+            $('.wrapper-view-mode').css("padding-top", height); 
+            $('.wrapper-view-mode .foldback-button').css("margin-top", height); 
+            $('.wrapper-view-mode .humburger-foldback-button').css("margin-top", height); 
+        };
+        $(document).ready(function () { 
+            $( ".view-mode + main .container-fluid .filters" ).wrapInner( "<div class='wrapper-view-mode'></div>");
+            $( ".view-mode + main .container-fluid .content" ).wrapInner( "<div class='wrapper-view-mode'></div>");
+            ajustNoticeHeight();
+
+            $('.view-mode .alerts .alert').on('closed.bs.alert', function () {
+                ajustNoticeHeight();
+            })
+        });
+        $( window ).resize(function() {
+            ajustNoticeHeight();
+        });
     </script> 
     <script>
         $(document).ready(function () 
@@ -144,9 +165,17 @@
             </div><!-- /.container-fluid -->
         </nav>  
     </header> 
-    <div class="panel panel-warning view-mood">
-        <div class="panel-heading">
+    <div class="panel view-mode">
+        <div class="panel-heading panel-warning">
             This is the content that <b>28kBa0osVU0nQqn</b> sees. <a href="#">Click to return to your account.</a>
+        </div>
+        <div class="panel-heading">
+            <div class="alerts">
+                <div class="alert alert-info alert-dismissible text-center " role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                </div>
+            </div>
         </div>
     </div>
     <main class="hold-transition">

@@ -249,6 +249,9 @@ h5{
 		&.alert-danger {
 		  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 		}
+		&.alert-dismissible{
+			padding-right: 35px;
+		}
 	}
 }
 .error-text{
@@ -301,15 +304,21 @@ table{
 	color: #fff;
 }
 .census-icon{
-	text-transform: capitalize;
 	display: inline-block;
-    padding: 3px 5px 3px 4px;
+    @include square(20px);
     border-radius: 100%;
     background-color: $blue;
-    color: #fff !important;
-    font: 13px/13px Arial, sans-serif;
-    font-style: italic;
-    font-weight: bold;
+	position: relative;
+	bottom: -2px;
+	&:after{
+		content: "C";
+		display: block;
+		font: 12px/12px Arial, sans-serif;
+		font-style: italic;
+    	font-weight: bold;
+		@include absolute(4px, 6px);
+		color: #fff !important;
+	}
 	&:hover, &:focus, &:active{
     	color: #fff !important;		
 	}
@@ -354,7 +363,25 @@ table{
 		}
 	}	
 }
-.view-mood{
+.view-mode{
+	.panel-warning{
+		&.panel-heading{
+			border-width: 2px;
+			padding: 5px;
+			background-color: $highlight-color;
+		}
+	}
+	.panel-heading{
+		padding: 0;
+		border-width: 0px;
+		.alerts{
+			margin: 0;
+			.alert{
+				border-radius: 0;
+			}
+		}
+	}
+	border: none;
 	position: fixed;
 	top: 70px;
 	z-index: 20;
@@ -363,97 +390,23 @@ table{
 	color: $state-warning-text;
 	margin: 0;
 	border-radius: 0;
-	.panel-heading{
-		padding: 5px;
-		background-color: $highlight-color;
-	}
-	& + main {
-		margin-top: 30px;
-		.container-fluid{
-			
-			.filters{
-				padding-top: 130px;
-			}
-			.content{
-				padding-top: 100px;
-			}
-			.foldback-button{
-				top: $indent-foldback-button-hd + 30px;
-			}
-			.questionnaire{
-		    	.unit-title.is_stuck{
-			        top: 100px !important;
-			    }
-		    }
-		}
-	}
-	& + .web-interview-for-supervisor.fullscreen-hidden-filters.fullscreen-hidden-content .content .foldback-button{
-	 	top: 155px;
-	}
 }
 .extra-margin-bottom{
 	margin-bottom: 30px;
 }
 @media (max-width: $screen-md-min){
 	.wide-navbar{
-		.view-mood{
+		.view-mode{
 			top: 60px;
-			& + main {
-				.container-fluid{
-					.content{
-						padding-top: 90px;
-					}
-				}
-			}
 		}
 	}
-	.view-mood{
+	.view-mode{
 		top: 70px;
-		& + main {
-			.container-fluid{
-				margin-top: 30px;
-				.filters{
-					padding-top: 125px;
-				}
-				.content{
-					padding-top: 100px;
-				}
-				.foldback-button{
-					top: $indent-foldback-button + 30px;
-				}
-				.questionnaire{
-			    	.unit-title.is_stuck{
-				        top: 90px !important;
-				    }
-			    }
-			}
-		}
-		& + .web-interview-for-supervisor.fullscreen-hidden-filters.fullscreen-hidden-content .content .foldback-button,
-		& + .web-interview-for-supervisor.fullscreen-hidden-filters .filters .foldback-button,
-		& + .web-interview-for-supervisor.fullscreen-hidden-content .filters .foldback-button{
-		 	top: $indent-foldback-button + 30px;
-		}
 	}
 }
 @media (max-width: $screen-sm-min){
-	.view-mood{
+	.view-mode{
 		top: 60px;
-		& + main {
-			.container-fluid{
-				.content{
-					padding-top: 90px;
-					.foldback-button{
-						top: 145px;
-					}
-					.humburger-foldback-button{
-						top: $indent-foldback-button + 30px;
-					}
-				}
-			}
-		}
-		& + .web-interview.fullscreen-hidden-content .content .foldback-button{
-			top: $indent-foldback-button + 30px;
-		}
 	}
 }
 .position-relative{

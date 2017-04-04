@@ -8340,11 +8340,11 @@ span.image-zoom-box, span.image-option {
       .panel-table .panel-body .btn:last-of-type {
         margin-bottom: 0; } }
 .filters {
-  -webkit-transition: width 0.3s linear 0s;
-  -moz-transition: width 0.3s linear 0s;
-  -ms-transition: width 0.3s linear 0s;
-  -o-transition: width 0.3s linear 0s;
-  transition: width 0.3s linear 0s; }
+  -webkit-transition: width 0.5s linear 0s;
+  -moz-transition: width 0.5s linear 0s;
+  -ms-transition: width 0.5s linear 0s;
+  -o-transition: width 0.5s linear 0s;
+  transition: width 0.5s linear 0s; }
 
 .filters {
   width: 360px;
@@ -9134,6 +9134,8 @@ h5, .preset-filters-container a, .preset-filters-container .export-queue {
         border-top-color: #e4b9c0; }
       .alerts .alert.alert-danger .alert-link {
         color: #c33615; }
+    .alerts .alert.alert-dismissible {
+      padding-right: 35px; }
 
 .error-text {
   color: #e74924 !important; }
@@ -9172,15 +9174,23 @@ table tr th .census-icon, table tr td .census-icon {
   color: #fff; }
 
 .census-icon {
-  text-transform: capitalize;
   display: inline-block;
-  padding: 3px 5px 3px 4px;
+  width: 20px;
+  height: 20px;
   border-radius: 100%;
   background-color: #2a81cb;
-  color: #fff !important;
-  font: 13px/13px Arial, sans-serif;
-  font-style: italic;
-  font-weight: bold; }
+  position: relative;
+  bottom: -2px; }
+  .census-icon:after {
+    content: "C";
+    display: block;
+    font: 12px/12px Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    color: #fff !important; }
   .census-icon:hover, .census-icon:focus, .census-icon:active {
     color: #fff !important; }
 
@@ -9219,7 +9229,8 @@ table tr th .census-icon, table tr td .census-icon {
     .flag.flagged:hover:before, .question.with-flag .question-editor .flag:hover:before, .flag.flagged:focus:before, .question.with-flag .question-editor .flag:focus:before {
       background-position: -18px 0; }
 
-.view-mood {
+.view-mode {
+  border: none;
   position: fixed;
   top: 70px;
   z-index: 20;
@@ -9228,56 +9239,30 @@ table tr th .census-icon, table tr td .census-icon {
   color: #8a6d3b;
   margin: 0;
   border-radius: 0; }
-  .view-mood .panel-heading {
+  .view-mode .panel-warning.panel-heading {
+    border-width: 2px;
     padding: 5px;
     background-color: #ff8; }
-  .view-mood + main {
-    margin-top: 30px; }
-    .view-mood + main .container-fluid .filters {
-      padding-top: 130px; }
-    .view-mood + main .container-fluid .content {
-      padding-top: 100px; }
-    .view-mood + main .container-fluid .foldback-button {
-      top: 105px; }
-    .view-mood + main .container-fluid .questionnaire .unit-title.is_stuck {
-      top: 100px !important; }
-  .view-mood + .web-interview-for-supervisor.fullscreen-hidden-filters.fullscreen-hidden-content .content .foldback-button {
-    top: 155px; }
+  .view-mode .panel-heading {
+    padding: 0;
+    border-width: 0px; }
+    .view-mode .panel-heading .alerts {
+      margin: 0; }
+      .view-mode .panel-heading .alerts .alert {
+        border-radius: 0; }
 
 .extra-margin-bottom {
   margin-bottom: 30px; }
 
 @media (max-width: 1210px) {
-  .wide-navbar .view-mood {
+  .wide-navbar .view-mode {
     top: 60px; }
-    .wide-navbar .view-mood + main .container-fluid .content {
-      padding-top: 90px; }
 
-  .view-mood {
-    top: 70px; }
-    .view-mood + main .container-fluid {
-      margin-top: 30px; }
-      .view-mood + main .container-fluid .filters {
-        padding-top: 125px; }
-      .view-mood + main .container-fluid .content {
-        padding-top: 100px; }
-      .view-mood + main .container-fluid .foldback-button {
-        top: 95px; }
-      .view-mood + main .container-fluid .questionnaire .unit-title.is_stuck {
-        top: 90px !important; }
-    .view-mood + .web-interview-for-supervisor.fullscreen-hidden-filters.fullscreen-hidden-content .content .foldback-button, .view-mood + .web-interview-for-supervisor.fullscreen-hidden-filters .filters .foldback-button, .view-mood + .web-interview-for-supervisor.fullscreen-hidden-content .filters .foldback-button {
-      top: 95px; } }
+  .view-mode {
+    top: 70px; } }
 @media (max-width: 880px) {
-  .view-mood {
-    top: 60px; }
-    .view-mood + main .container-fluid .content {
-      padding-top: 90px; }
-      .view-mood + main .container-fluid .content .foldback-button {
-        top: 145px; }
-      .view-mood + main .container-fluid .content .humburger-foldback-button {
-        top: 95px; }
-    .view-mood + .web-interview.fullscreen-hidden-content .content .foldback-button {
-      top: 95px; } }
+  .view-mode {
+    top: 60px; } }
 .position-relative {
   position: relative; }
 
@@ -10022,7 +10007,8 @@ main .flex-row {
 
 .selection-box a {
   display: block;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  cursor: pointer; }
 
 .btn-file input {
   display: none; }
