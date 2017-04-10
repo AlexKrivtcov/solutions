@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervisor-profile</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".navbar-toggle").click(function () {
+          $(".navbar-collapse").fadeToggle();
+          $(".navbar-collapse").animate({height: '100%'}, 0);
+          $(".top-menu").toggleClass("top-animate");
+          $(".mid-menu").toggleClass("mid-animate");
+          $(".bottom-menu").toggleClass("bottom-animate");
+          $("main").toggleClass("hidden");
+        });
+      });
+    </script> 
+    <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+        var $target = $( event.currentTarget );
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+    });
+    </script>
+    <script>
+        $(function() {
+            $.each($('.form-control'), function( index, value ) {
+                if ($(this).val().length > 0) {
+                    $(this).parent(".field").addClass("answered");
+                }
+                
+                $(this).change(function() {
+                    if ($(this).val().length > 0) {
+                        $(this).parent(".field").addClass("answered");
+                    }
+                     else{
+                        $(this).parent(".field").removeClass("answered");
+                    }
+                });
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().removeClass("answered");
+                    $(this).parent().find("input").val('');
+                });             
+            });
+
+        });
+    </script>
+</head>
+<body class="wide-navbar">
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <a class="navbar-brand  rotate-brand" href="#">
+                        <div class="brand-name" title="Headquarters">Headquarters</div>
+                    </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header> 
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="page-header">
+                    <ol class="breadcrumb">
+                        <li><a href="">Supervisor profile</a></li>
+                    </ol>
+                    <h1>
+                           Create supervisor profile
+                    </h1> 
+                </div>
+            </div>
+            <div class="row extra-margin-bottom">
+                <div class="col-sm-7">
+                    <p>This action will create individual user with supervisor rights, 
+                        <br/>to create several users you can use <a href="#" target="_blank">user batch creation</a>.
+                    </p>
+                    <p>Password must be at least eight characters including one uppercase letter, one special character and alphanumeric characters.</p>
+                </div>
+                <form class="profile">
+                    <div class="col-sm-12">
+                        <div class="block-filter">
+                            <h5>Supervisor:</h5>
+                            <div class="combo-box">
+                                <div class="btn-group btn-input clearfix">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                        <span data-bind="label" class="gray-text">Any</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><input type="text" placeholder="Any"></li>
+                                        <li><a href="#">Petia</a></li>
+                                        <li><a href="#">Vasya</a></li>
+                                        <li><a href="#">Grisha</a></li>
+                                        <li><a href="#">Klaudia Matveevna</a></li>
+                                    </ul>
+                                </div>
+                                <button type="button" class="btn btn-link btn-clear">
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <h5>User name:</h5>
+                            <div class="form-group">
+                            <div class="field">
+                                    <input type="text" class="form-control" placeholder="Tap to enter" value="Al222">
+                                    <button type="button" class="btn btn-link btn-clear">
+                                        <span></span>
+                                    </button>
+                                </div>
+                                <span class="help-block success-text">Available</span>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <h5>Password:</h5>
+                            <div class="form-group has-error">
+                            <div class="field">
+                                    <input type="password" class="form-control" placeholder="Tap to enter" value="222">
+                                    <button type="button" class="btn btn-link btn-clear">
+                                        <span></span>
+                                    </button>
+                                </div>
+                                <span class="help-block">Password must contain at least one number, one upper case character and one lower case character</span>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <h5>Confirm password:</h5>
+                            <div class="form-group">
+                            <div class="field">
+                                    <input type="password" class="form-control" placeholder="Tap to enter">
+                                    <button type="button" class="btn btn-link btn-clear">
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <div class="form-group">
+                                <input class="checkbox-filter single-checkbox" id="is-locked" type="checkbox">
+                                <label for="is-locked">
+                                    <span class="tick"></span>Is locked by Admin or HQ
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="separate-line"></div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h5 class="extra-margin-bottom">Publik information details (optional) <br/> will be visible to HQ users only</h5>
+                        <div class="block-filter">
+                            <h5>Full name:</h5>
+                            <div class="form-group">
+                            <div class="field">
+                                    <input type="text" class="form-control" placeholder="Tap to enter" value="William Gordon">
+                                    <button type="button" class="btn btn-link btn-clear">
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <h5>Email Address:</h5>
+                            <div class="form-group">
+                            <div class="field">
+                                    <input type="text" class="form-control" placeholder="Tap to enter" value="w.gordon@gmail.com">
+                                    <button type="button" class="btn btn-link btn-clear">
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <h5>Contact phone:</h5>
+                            <div class="form-group">
+                            <div class="field">
+                                    <input type="text" class="form-control" placeholder="Tap to enter">
+                                    <button type="button" class="btn btn-link btn-clear">
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <button type="submit" class="btn btn-success">create</button>
+                            <button type="submit" class="btn btn-lg btn-link">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+    <div class="container-fluid">
+      <div class="text-left">
+        &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+      </div>
+      <div class="text-left">
+        5.12.0 (build 13156) 
+        <span>|</span>
+        <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+       </div>
+    </div>
+    </footer>
+    <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+            var $target = $( event.currentTarget );
+            $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .removeClass("gray-text")
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+        });
+    </script>
+</body>
+</html>

@@ -123,7 +123,7 @@ h4{
 }
 h5{
 	@include font(14px, 16px);
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	font-weight: bold;
 } 
 .hold-transition *{
@@ -487,6 +487,11 @@ table{
 	font-weight: normal;
 	font-style: italic;
 }
+.separate-line{
+	border-top: 3px solid  $gray_form;
+	margin-left: -25px;
+	padding-bottom: 20px;
+}
 @media (max-width: $screen-sm-min){
 	.interviews-large-screen{
 		display: none;
@@ -599,4 +604,22 @@ table{
 			}
 		}
 	}
+}
+#interviewChart {
+	width: 100%;
+	height: 600px;
+	padding: 10px;
+}
+table.jqplot-table-legend {
+	width: 90%;
+	border: none;
+}
+td.jqplot-table-legend.jqplot-table-legend-swatch.jqplot-seriesToggle {
+	width: 20px;
+}
+div.jqplot-table-legend-swatch-outline {
+	border: none;
+}
+.jqplot-table-legend-swatch {
+	border-width: 10px;
 }
