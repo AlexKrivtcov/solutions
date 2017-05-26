@@ -41,11 +41,21 @@
             $("#hide-filters").click(function () {
                 $(".filters").toggleClass("hidden-filters");
                 $(this).parents('.row').toggleClass("fullscreen-hidden-filters");
-                $("footer").toggleClass("footer-adaptive");
+                //$("footer").toggleClass("footer-adaptive");
             });
             $("main").removeClass("hold-transition");
             $("footer").removeClass("hold-transition");
         });
+        // $(window).resize(function(){
+        //     if ($(window).width() > 1300)
+        //     {
+        //         $('.row').removeClass("fullscreen-hidden-filters");
+        //         if (!$("footer").hasClass("footer-adaptive"))
+        //         {
+        //             $("footer").addClass("footer-adaptive");
+        //         }
+        //     }
+        // });
     </script>
     <script>
        $(document).ready(function(){
@@ -65,7 +75,7 @@
                 });
             })
             .DataTable({
-                "pageLength": 50,
+                "pageLength": 3,
                 "lengthChange": false,
                 "searching": false,
                 "order": [1, 'desc'],
@@ -89,26 +99,34 @@
         });
     </script>
     <script type="text/javascript">
-    $(function () {
-        var headertext = [];
-        var headers = document.querySelectorAll("thead");
-        var tablebody = document.querySelectorAll("tbody");
+        $(function () {
+            var headertext = [];
+            var headers = document.querySelectorAll("thead");
+            var tablebody = document.querySelectorAll("tbody");
+            var footer = document.querySelectorAll("tfoot");
 
-        for (var i = 0; i < headers.length; i++) {
-            headertext[i]=[];
-            for (var j = 0, headrow; headrow = headers[i].rows[0].cells[j]; j++) {
-              var current = headrow;
-              headertext[i].push(current.textContent);
-              }
-        } 
+            for (var i = 0; i < headers.length; i++) {
+                headertext[i]=[];
+                for (var j = 0, headrow; headrow = headers[i].rows[0].cells[j]; j++) {
+                    var current = headrow;
+                    headertext[i].push(current.textContent);
+                }
+            } 
 
-        for (var h = 0, tbody; tbody = tablebody[h]; h++) {
-            for (var i = 0, row; row = tbody.rows[i]; i++) {
-              for (var j = 0, col; col = row.cells[j]; j++) {
-                col.setAttribute("data-th", headertext[h][j]);
-              } 
+            for (var h = 0, tbody; tbody = tablebody[h]; h++) {
+                for (var i = 0, row; row = tbody.rows[i]; i++) {
+                    for (var j = 0, col; col = row.cells[j]; j++) {
+                        col.setAttribute("data-th", headertext[h][j]);
+                    } 
+                }
             }
-        }
+            for (var q = 0, tfoot; tfoot = footer[q]; q++) {
+                for (var i = 0, row; row = tfoot.rows[i]; i++) {
+                    for (var j = 0, col; col = row.cells[j]; j++) {
+                        col.setAttribute("data-th", headertext[q][j]);
+                    } 
+                }
+            }
         });
     </script>
 </head>
@@ -217,154 +235,164 @@
                     </div>
                 </aside>
                 <div class="main-information reports">
-                <div id="alerts" class="alerts">
-                    <div class="alert alert-danger">
-                        <button class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            Information about <b>Observer52</b> successfully updated
+                    <div id="alerts" class="alerts">
+                        <div class="alert alert-danger">
+                            <button class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                Information about <b>Observer52</b> successfully updated
                         </div>
                     </div>
                     <div class="page-header clearfix">
                         <h1>Statuses of issued or conducted interviews</h1>
                         <p>44 interviews from 5 teams</p>
                     </div>
-                    <div class="table-with-scroll">
-                        <table class="table table-striped table-ordered table-bordered table-hover table-mobile-devices">
-                            <thead>
-                                <tr>
-                                    <th class="version">Template version</th>
-                                    <th class="without-break">Questionnaire template</th>
-                                    <th>Supervisor Assigned</th>
-                                    <th>Interviewer assigned</th>
-                                    <th>completed</th>
-                                    <th>rejected by supervisor</th>
-                                    <th>approved by supervisor</th>
-                                    <th>reject by HQ</th>
-                                    <th>approved by HQ</th>
-                                    <th>total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="version type-numeric"><a href="#">3</a></td>
-                                    <td class="without-break title-row"><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
-                                    <td class="type-numeric"><a href="#">3</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#"><span>0</span></a></td>
-                                    <td class="type-numeric"><a href="#">7</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">12</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="version type-numeric"><a href="#">3</a></td>
-                                    <td class="without-break title-row"><a href="#">Enable/Disable (YT) NOT HIDDEN (ver.2)</a></td>
-                                    <td class="type-numeric"><a href="#">3</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">7</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#"><span>0</span></a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">12</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="version type-numeric"><a href="#">3</a></td>
-                                    <td class="without-break title-row"><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
-                                    <td class="type-numeric"><a href="#">3</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#"><span>0</span></a></td>
-                                    <td class="type-numeric"><a href="#">7</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">12</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="version type-numeric"><a href="#">3</a></td>
-                                    <td class="without-break title-row"><a href="#">Enable/Disable (YT) NOT HIDDEN (ver.2)</a></td>
-                                    <td class="type-numeric"><a href="#">3</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">7</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#"><span>0</span></a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">12</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="version type-numeric"><a href="#">3</a></td>
-                                    <td class="without-break title-row"><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
-                                    <td class="type-numeric"><a href="#">3</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#"><span>0</span></a></td>
-                                    <td class="type-numeric"><a href="#">7</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">12</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="version type-numeric"><a href="#">3</a></td>
-                                    <td class="without-break title-row"><a href="#">Enable/Disable (YT) NOT HIDDEN (ver.2)</a></td>
-                                    <td class="type-numeric"><a href="#">3</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">7</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#"><span>0</span></a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">12</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="version type-numeric"><a href="#">3</a></td>                            
-                                    <td class="without-break title-row"><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
-                                    <td class="type-numeric"><a href="#">3</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#"><span>0</span></a></td>
-                                    <td class="type-numeric"><a href="#">7</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">12</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="version type-numeric"><a href="#">3</a></td>
-                                    <td class="without-break title-row"><a href="#">Enable/Disable (YT) NOT HIDDEN (ver.2)</a></td>
-                                    <td class="type-numeric"><a href="#">3</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">1</a></td>
-                                    <td class="type-numeric"><a href="#">7</a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#"><span>0</span></a></td>
-                                    <td class="type-numeric"><a href="#">4</a></td>
-                                    <td class="type-numeric"><a href="#">12</a></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <th></th>
-                                <th class="title-row">Total</th>
-                                <th class="type-numeric"><a href="#">24</a></th>
-                                <th class="type-numeric"><a href="#">8</a></th>
-                                <th class="type-numeric"><a href="#">4</a></th>
-                                <th class="type-numeric"><a href="#">56</a></th>
-                                <th class="type-numeric"><a href="#">32</a></th>
-                                <th class="type-numeric"><a href="#">4</a></th>
-                                <th class="type-numeric"><a href="#">32</a></th>
-                                <th class="type-numeric"><a href="#">96</a></th>
-                            </tfoot>
-                        </table>
-                    </div>
+                    <table class="table table-striped table-ordered table-bordered table-hover table-mobile-devices">
+                        <thead>
+                            <tr>
+                                <th class="version">Template version</th>
+                                <th class="without-break">Questionnaire template</th>
+                                <th>Supervisor Assigned</th>
+                                <th>Interviewer assigned</th>
+                                <th>completed</th>
+                                <th>rejected by supervisor</th>
+                                <th>approved by supervisor</th>
+                                <th>reject by HQ</th>
+                                <th>approved by HQ</th>
+                                <th>total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="total-row">
+                                <td></th>
+                                <td class="title-row">Total</td>
+                                <td class="type-numeric"><a href="#">24</a></td>
+                                <td class="type-numeric"><a href="#">8</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">56</a></td>
+                                <td class="type-numeric"><a href="#">32</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">32</a></td>
+                                <td class="type-numeric"><a href="#">96</a></td>
+                            </tr>
+                            <tr>
+                                <td class="version type-numeric"><a href="#">3</a></td>
+                                <td class="without-break title-row"><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
+                                <td class="type-numeric"><a href="#">3</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#"><span>0</span></a></td>
+                                <td class="type-numeric"><a href="#">7</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">12</a></td>
+                            </tr>
+                            <tr>
+                                <td class="version type-numeric"><a href="#">3</a></td>
+                                <td class="without-break title-row"><a href="#">Enable/Disable (YT) NOT HIDDEN (ver.2)</a></td>
+                                <td class="type-numeric"><a href="#">3</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">7</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#"><span>0</span></a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">12</a></td>
+                            </tr>
+                            <tr>
+                                <td class="version type-numeric"><a href="#">3</a></td>
+                                <td class="without-break title-row"><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
+                                <td class="type-numeric"><a href="#">3</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#"><span>0</span></a></td>
+                                <td class="type-numeric"><a href="#">7</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">12</a></td>
+                            </tr>
+                            <tr>
+                                <td class="version type-numeric"><a href="#">3</a></td>
+                                <td class="without-break title-row"><a href="#">Enable/Disable (YT) NOT HIDDEN (ver.2)</a></td>
+                                <td class="type-numeric"><a href="#">3</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">7</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#"><span>0</span></a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">12</a></td>
+                            </tr>
+                            <tr>
+                                <td class="version type-numeric"><a href="#">3</a></td>
+                                <td class="without-break title-row"><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
+                                <td class="type-numeric"><a href="#">3</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#"><span>0</span></a></td>
+                                <td class="type-numeric"><a href="#">7</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">12</a></td>
+                            </tr>
+                            <tr>
+                                <td class="version type-numeric"><a href="#">3</a></td>
+                                <td class="without-break title-row"><a href="#">Enable/Disable (YT) NOT HIDDEN (ver.2)</a></td>
+                                <td class="type-numeric"><a href="#">3</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">7</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#"><span>0</span></a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">12</a></td>
+                            </tr>
+                            <tr>
+                                <td class="version type-numeric"><a href="#">3</a></td>                            
+                                <td class="without-break title-row"><a href="#">Tanzania NPS 2012/2013 Household Questionnaire</a></td>
+                                <td class="type-numeric"><a href="#">3</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#"><span>0</span></a></td>
+                                <td class="type-numeric"><a href="#">7</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">12</a></td>
+                            </tr>
+                            <tr>
+                                <td class="version type-numeric"><a href="#">3</a></td>
+                                <td class="without-break title-row"><a href="#">Enable/Disable (YT) NOT HIDDEN (ver.2)</a></td>
+                                <td class="type-numeric"><a href="#">3</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">1</a></td>
+                                <td class="type-numeric"><a href="#">7</a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#"><span>0</span></a></td>
+                                <td class="type-numeric"><a href="#">4</a></td>
+                                <td class="type-numeric"><a href="#">12</a></td>
+                            </tr>
+                        </tbody>
+                        <!--<tfoot>
+                            <th></th>
+                            <th class="title-row">Total</th>
+                            <th class="type-numeric"><a href="#">24</a></th>
+                            <th class="type-numeric"><a href="#">8</a></th>
+                            <th class="type-numeric"><a href="#">4</a></th>
+                            <th class="type-numeric"><a href="#">56</a></th>
+                            <th class="type-numeric"><a href="#">32</a></th>
+                            <th class="type-numeric"><a href="#">4</a></th>
+                            <th class="type-numeric"><a href="#">32</a></th>
+                            <th class="type-numeric"><a href="#">96</a></th>
+                        </tfoot>-->
+                    </table>
                 </div>
             </div>
         </div>
     </main>
-    <footer class="footer footer-adaptive hold-transition">
+    <footer class="footer hold-transition">
         <div class="container-fluid">
-            <div class="text-left">
+            <div class="text-right">
             &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
             </div>
-            <div class="text-left">
+            <div class="text-right">
             5.12.0 (build 13156) 
                 <span>|</span>
                 <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>

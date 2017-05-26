@@ -53,6 +53,27 @@
         });
       });
     </script> 
+    <script>
+        var ajustNoticeHeight = function(){
+            var height = $(".view-mode").outerHeight();
+            $('.view-mode + main').css("margin-top", height+"px");
+            $('.wrapper-view-mode').css("padding-top", height); 
+            $('.wrapper-view-mode .foldback-button').css("margin-top", height); 
+            $('.wrapper-view-mode .humburger-foldback-button').css("margin-top", height); 
+        };
+        $(document).ready(function () { 
+            $( ".view-mode + main .container-fluid .filters" ).wrapInner( "<div class='wrapper-view-mode'></div>");
+            $( ".view-mode + main .container-fluid .content" ).wrapInner( "<div class='wrapper-view-mode'></div>");
+            ajustNoticeHeight();
+
+            $('.view-mode .alerts .alert').on('closed.bs.alert', function () {
+                ajustNoticeHeight();
+            })
+        });
+        $( window ).resize(function() {
+            ajustNoticeHeight();
+        });
+    </script>   
 </head>
 <body class="wide-navbar">
     <header>
@@ -113,6 +134,19 @@
             </div><!-- /.container-fluid -->
         </nav>  
     </header> 
+    <div class="panel view-mode">
+      <div class="panel-heading panel-warning">
+          This is the content that <b>28kBa0osVU0nQqn</b> sees. <a href="#">Click to return to your account.</a>
+      </div>
+      <div class="panel-heading">
+          <div class="alerts">
+              <div class="alert alert-info alert-dismissible text-center " role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+              </div>
+          </div>
+      </div>
+  </div>
   <main>
     <div class="container">
       <div class="row">
@@ -179,10 +213,10 @@
   </main> 
 	<footer class="footer">
     <div class="container-fluid">
-      <div class="text-left">
+      <div class="text-right">
         &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
       </div>
-      <div class="text-left">
+      <div class="text-right">
         5.12.0 (build 13156) 
         <span>|</span>
         <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HQ-questionnaires</title>
+    <title>Settings</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
                 <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
                 <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
@@ -15,11 +15,8 @@
                 <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
                 <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
     <link rel="stylesheet" type="text/css" href="css/markup.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="js/moment.js"></script>
-    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
     <script>
@@ -35,20 +32,6 @@
       });
     </script> 
     <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker6').datetimepicker();
-            $('#datetimepicker7').datetimepicker({
-                useCurrent: false //Important! See issue #1075
-            });
-            $("#datetimepicker6").on("dp.change", function (e) {
-                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-            });
-            $("#datetimepicker7").on("dp.change", function (e) {
-                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-            });
-        });
-    </script>
-    <script type="text/javascript">
         $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
         var $target = $( event.currentTarget );
         $target.closest( '.btn-group' )
@@ -57,6 +40,29 @@
             .children( '.dropdown-toggle' ).dropdown( 'toggle' );
         return false;
     });
+    </script>
+    <script>
+        $(function() {
+            $.each($('.form-control'), function( index, value ) {
+                if ($(this).val().length > 0) {
+                    $(this).parent(".field").addClass("answered");
+                }
+                
+                $(this).change(function() {
+                    if ($(this).val().length > 0) {
+                        $(this).parent(".field").addClass("answered");
+                    }
+                     else{
+                        $(this).parent(".field").removeClass("answered");
+                    }
+                });
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().removeClass("answered");
+                    $(this).parent().find("input").val('');
+                });             
+            });
+
+        });
     </script>
 </head>
 <body class="wide-navbar">
@@ -119,83 +125,86 @@
         </nav>  
     </header> 
     <main>
-        <div class="container">
+        <div class="container settings">
             <div class="row">
                 <div class="page-header">
                     <ol class="breadcrumb">
-                        <li><a href="">troubleshooting</a></li>
+                        <li><a href="">admin</a></li>
                     </ol>
                     <h1>
-                            Locating specific census inteview
+                           Settings
                     </h1> 
                 </div>
             </div>
-            <div class="row extra-margin-bottom">
-                <div class="col-sm-7">
-                    <p>It will be useful to know enumerator, interview template and timeline. <br/> We will show if there was any errors with synchronizations during selected period.</p>
+            <div class="row contain-input">
+                <div class="col-sm-7 ">
+                    <h2>Export Encryption</h2>
+                    <p>Check Enable encryption box to encrypt export data archives and protect them with the provided password. 
+                        Change password by pressing the circular error button. After encryption, only people who know the password could open the data archives.
+                    </p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="block-filter">
-                        <h5>Enumerator</h5>
-                        <select class="selectpicker">
-                            <option selected>Any enumerator
-                            </option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
-                        </select>
-                    </div>
-                    <div class="block-filter">
-                        <h5>Enumerator</h5>
-                        <div class="combo-box">
-                            <div class="btn-group btn-input clearfix">
-                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                                    <span data-bind="label" class="gray-text">Tap to enter text</span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><input type="text" placeholder="Tap to enter text"></li>
-                                    <li><a href="#">Kilogram</a></li>
-                                    <li><a href="#">50 kg bag</a></li>
-                                    <li><a href="#">Pail (small)</a></li>
-                                    <li><a href="#">Pail (large)</a></li>
-                                </ul>
-                            </div>
-                            <button type="submit" class="btn btn-link btn-clear">
-                                <span></span>
-                            </button>
+                        <div class="form-group">
+                            <input class="checkbox-filter single-checkbox" id="is-locked" type="checkbox">
+                            <label for="is-locked">
+                                <span class="tick"></span>Enable encryption
+                            </label>
                         </div>
                     </div>
                     <div class="block-filter">
-                        <h5>Survey template questionnaire version</h5>
-                        <select class="selectpicker">
-                            <option selected>[v.12] Livestock Field Officer questionnaire blablabla blab bal
-                            </option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
-                        </select>
-                    </div>
-                    <div class="block-filter">
-                        <h5>Time-period when this interview was conducted or synchronized with HQ server (local time)</h5>
-                        <div class="form-date">
-                            <div class='input-group date' id='datetimepicker6'>
-                                <label>From: </label>
-                                <input type='text' class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="form-date">
-                            <div class='input-group date' id='datetimepicker7'>
-                                <label>To: </label>
-                                <input type='text' class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="calendar"></span>
+                        <div class="form-group">
+                            <label>Password:</label>
+                            <div class="input-group">
+                                <input id="exportPassword" type="text" data-bind="textInput: password" readonly="readonly" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" data-bind="enable: isEnabled, click: regeneratePass" disabled=""><i class="glyphicon glyphicon-refresh"></i></button>
                                 </span>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row contain-input">
+                <div class="col-sm-7">
+                    <h2>Global note</h2>
+                    <p>Specify text in the Global Note field to be shown on the top of every screen on the server.</p>
+                </div>
+                <form class="col-sm-12">
                     <div class="block-filter">
-                        <button type="button" class="btn btn-primary btn-lg">Find interviews</button>
+                        <div class="form-group">
+                            <label>Global note:</label>
+                            <textarea class="form-control" id="notificationText" type="text" data-bind="value: message" maxlength="1000"></textarea>
+                        </div>
+                    </div>
+                    <div class="block-filter">
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </form> 
+            </div>
+            <div class="row contain-input">
+                <div class="col-sm-7">
+                    <h2>Company logo</h2>
+                    <p>Company logo shows a custom image on the server login page and on the login page of the interviewer app. Click Choose file button to upload an image on your computer to the server.</p>
+                </div>
+                <div class="col-sm-12">
+                    <div class="block-filter">
+                        <div class="form-group">
+                            <label>Company logo:</label>
+                            <input type="file" id="companyLogo" name="logo" accept="image/gif, image/jpeg, image/png">
+                        </div>
+                    </div>
+                    <div class="block-filter">
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                    <div class="block-filter">
+                        <figure class="logo-wrapper">
+                            <figcaption>Bumbumbumbum bum</figcaption>
+                            <img src="img-example/o-HAPPINESS-facebook.jpg" class="logo extra-margin-bottom" onerror="this.src = '/Dependencies/img/HQ-login-3_05.png';">
+                        </figure>
+                    </div>
+                    <div class="block-filter">
+                        <button type="submit" class="btn btn-danger">remove logo</button>
                     </div>
                 </div>
             </div>
@@ -203,10 +212,10 @@
     </main>
     <footer class="footer">
     <div class="container-fluid">
-      <div class="text-left">
+      <div class="text-right">
         &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
       </div>
-      <div class="text-left">
+      <div class="text-right">
         5.12.0 (build 13156) 
         <span>|</span>
         <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>

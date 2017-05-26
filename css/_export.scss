@@ -10,8 +10,7 @@
 		width: 100%;
 		margin-bottom: 30px;
 		p{
-			font-size: 14px;
-			line-height: 16px;
+			@include font(14px, 16px);
 			margin-bottom: 0;
 			span{
 				display: block;
@@ -100,14 +99,14 @@
 			.btn{
 				margin: 5px;
 			}
-			.not-generated{
+			.not-generated, .no-data-available{
 				@extend %uppercase-font;
 				color: $gray_light;
+			}
+			.not-generated{
 				padding: 0 20px; 
 			}
 			.no-data-available{
-				@extend %uppercase-font;
-				color: $gray_light;
 				display: none;
 				padding: 0 10px;
 			}
@@ -132,9 +131,6 @@
 }
 .footer{
 	@include transition(padding, 0.3s);
-	&.footer-adaptive{
-		padding-left: $filter-width - $margin-container + 12px +30px;
-	}
 }
 .fullscreen-hidden-filters .export-types{
 	padding: 50px 30px 0;
@@ -150,7 +146,7 @@
 	} 
   	.export-types{
   		padding: 50px 20px 0 30px;
-  		margin-left:  $filter-small-width - $margin-container-md-screen + 15px + 12px;
+  		margin-left:  $filter-width - $margin-container-md-screen + 15px + 12px;
   		.size, .last-generated{
   			display: none;
   		}
@@ -224,11 +220,6 @@
 	  		margin-bottom: 15px;
 	  	}
   	}
-  	.footer{
-		&.footer-adaptive{
-			padding-left: $filter-small-width - $margin-container-md-screen + 12px +30px;
-		}
-	}
 }
 @media (max-width: $screen-sm-min){
 	.export-types{
@@ -249,11 +240,6 @@
 			.progress-information{
 				width: 60%;
 			}
-		}
-	}
-	.footer{
-		&.footer-adaptive{
-			padding-left: 0;
 		}
 	}
 }
