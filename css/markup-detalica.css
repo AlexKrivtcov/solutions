@@ -8629,7 +8629,8 @@ body > .ui-pnotify {
   min-width: 40px !important;
   width: 40px !important;
   text-align: center;
-  padding: 0; }
+  padding: 0;
+  outline: none; }
 .table-with-checkboxes thead tr th.checkbox-cell, .table-with-checkboxes tbody tr th.checkbox-cell {
   padding-top: 12px;
   padding-right: 0 !important; }
@@ -10410,7 +10411,7 @@ label.inactive {
     margin: 10px 0; }
   .web-interview .first-last-chapter .value-is-absent {
     font-weight: bold; }
-  .web-interview .first-last-chapter .field-to-fill {
+  .web-interview .first-last-chapter textarea.field-to-fill {
     display: block;
     border: 1px solid #dbdfe2;
     resize: none;
