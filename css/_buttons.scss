@@ -337,3 +337,35 @@ a.disabled{
 	    border-color: darken($gray_light, 10%);
 	}
 }
+.get-interviewer-app{
+	@include transition(all, 0.2s);
+    width: 248px;
+    background:  url("#{$assetsPath}/img/HQ-login-mobile-get-button-logo.png") no-repeat;
+    background-size: 55px;
+    margin-bottom: 25px;
+    @extend %uppercase-font;
+    text-decoration: none;
+    color: $gray_text;
+    background-position: 15px 13px;
+    text-decoration: none;
+    padding: 10px 27px 10px 85px;
+    text-align: left;
+    border-radius: 10px;
+	border: 2px solid $gray_form;
+    display: block;
+    &:hover, &:focus{
+        text-decoration: none;
+		border-color: $gray_light;
+		color: #000;
+    }   
+    span{
+        display: block;
+		letter-spacing: 0.05em;
+        &.version{
+            text-transform: none;
+			font-style: italic;
+            margin-top: 5px;
+            color: $gray_text;
+        }
+    }
+}

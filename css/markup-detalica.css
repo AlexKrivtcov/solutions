@@ -5826,7 +5826,7 @@ button.close {
   color: #3f3f3f;
   margin-bottom: 22px; }
 
-.cancelable-progress .wrapper-progress > span, .table thead, .dataTables_paginate {
+.get-interviewer-app, .cancelable-progress .wrapper-progress > span, .table thead, .dataTables_paginate {
   font: 12px/14px "TrebuchetMSBold";
   text-transform: uppercase;
   letter-spacing: 0.13em; }
@@ -6448,6 +6448,38 @@ a.disabled {
   .btn-history:hover, .btn-history:focus, .btn-history:active {
     background-color: #e6e6e6;
     border-color: #8c8f90; }
+
+.get-interviewer-app {
+  -webkit-transition: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -ms-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+  width: 248px;
+  background: url("../img/HQ-login-mobile-get-button-logo.png") no-repeat;
+  background-size: 55px;
+  margin-bottom: 25px;
+  text-decoration: none;
+  color: #3f3f3f;
+  background-position: 15px 13px;
+  text-decoration: none;
+  padding: 10px 27px 10px 85px;
+  text-align: left;
+  border-radius: 10px;
+  border: 2px solid #dbdfe2;
+  display: block; }
+  .get-interviewer-app:hover, .get-interviewer-app:focus {
+    text-decoration: none;
+    border-color: #a6a8a9;
+    color: #000; }
+  .get-interviewer-app span {
+    display: block;
+    letter-spacing: 0.05em; }
+    .get-interviewer-app span.version {
+      text-transform: none;
+      font-style: italic;
+      margin-top: 5px;
+      color: #3f3f3f; }
 
 .navbar {
   min-width: 360px;
@@ -7179,6 +7211,10 @@ input.double-checkbox-white {
         top: 5px; }
       .input-group .input-group-btn .btn span:hover:before, .input-group .input-group-btn .btn span:hover:after, .input-group .input-group-btn .btn span:focus:before, .input-group .input-group-btn .btn span:focus:after, .input-group .input-group-btn .btn span:active:before, .input-group .input-group-btn .btn span:active:after {
         background-color: #595c5d; }
+      .input-group .input-group-btn .btn span:before {
+        top: 6px; }
+      .input-group .input-group-btn .btn span:after {
+        top: 4px; }
 
 .bootstrap-select.btn-group {
   width: 295px !important; }
@@ -7474,7 +7510,7 @@ ul.dropdown-menu li, ul.dropdown-menu li * {
 
 @media (max-width: 1210px) {
   .profile .separate-line {
-    margin-left: 0 !important; } }
+    margin-left: -10px !important; } }
 @media (max-width: 780px) {
   .profile .block-filter .form-group .field {
     float: none;
@@ -9801,6 +9837,7 @@ label.inactive {
     border-color: #dbdfe2; }
 
 .question-editor .options-group {
+  position: relative;
   padding: 10px;
   border-radius: 7px;
   margin-bottom: 0px;
@@ -10014,6 +10051,23 @@ label.inactive {
     .container-info dl dd a {
       color: #3f3f3f; }
 
+.lock {
+  display: none;
+  background: url("../img/lock.png") no-repeat;
+  position: absolute;
+  top: calc(50% -  13.5px);
+  left: -34px;
+  width: 24px;
+  height: 27px; }
+
+.readonly .lock {
+  display: block; }
+.readonly input[type="text"]:disabled,
+.readonly label,
+.readonly .field {
+  background: rgba(248, 248, 248, 0.8);
+  border-radius: 5px; }
+
 @media only screen and (max-width: 1525px) {
   .web-interview-for-supervisor .filters {
     padding-top: 105px; }
@@ -10047,7 +10101,13 @@ label.inactive {
   .web-interview-for-supervisor.fullscreen-hidden-content .content,
   .web-interview-for-supervisor.fullscreen-hidden-filters .content,
   .web-interview-for-supervisor.fullscreen-hidden-content.fullscreen-hidden-filters .content {
-    box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2); } }
+    box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2); }
+  .web-interview-for-supervisor .details-interview.questionnaire,
+  .web-interview-for-supervisor.fullscreen-hidden-content .details-interview.questionnaire,
+  .web-interview-for-supervisor.fullscreen-hidden-filters .details-interview.questionnaire,
+  .web-interview-for-supervisor.fullscreen-hidden-content.fullscreen-hidden-filters .details-interview.questionnaire {
+    margin-left: 600px;
+    width: calc(100% - 600px); } }
 @media only screen and (max-width: 1300px) {
   .web-interview-for-supervisor .details-interview.questionnaire {
     margin-left: 600px;
@@ -10361,7 +10421,9 @@ label.inactive {
   .web-interview .action-container, .web-interview .wrapper-info {
     padding-left: 50px; }
     .web-interview .action-container a, .web-interview .wrapper-info a {
-      max-width: 265px; } }
+      max-width: 265px; }
+  .web-interview .lock {
+    left: -15px; } }
 @media (max-width: 481px) {
   .web-interview .action-container, .web-interview .wrapper-info, .web-interview .wrapper-info {
     padding-left: 25px; }
@@ -10599,3 +10661,5 @@ label.inactive {
   content: '*';
   color: #DA4F49;
   padding-right: 5px; }
+
+/*# sourceMappingURL=markup-detalica.css.map */

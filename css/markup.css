@@ -5843,7 +5843,7 @@ button.close {
   color: #3f3f3f;
   margin-bottom: 22px; }
 
-.table thead, .dataTables_paginate, .cancelable-progress .wrapper-progress > span, .signed-name span, .selection-box .btn, .interviewer-app .get-interviewer-app, .selection-box a, .export-types .data .table-data .not-generated, .export-types .data .table-data .no-data-available {
+.table thead, .dataTables_paginate, .get-interviewer-app, .cancelable-progress .wrapper-progress > span, .signed-name span, .selection-box .btn, .selection-box a, .export-types .data .table-data .not-generated, .export-types .data .table-data .no-data-available {
   font: 12px/14px "TrebuchetMSBold";
   text-transform: uppercase;
   letter-spacing: 0.13em; }
@@ -6969,6 +6969,38 @@ a.disabled {
     background-color: #e6e6e6;
     border-color: #8c8f90; }
 
+.get-interviewer-app {
+  -webkit-transition: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -ms-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+  width: 248px;
+  background: url("../img/HQ-login-mobile-get-button-logo.png") no-repeat;
+  background-size: 55px;
+  margin-bottom: 25px;
+  text-decoration: none;
+  color: #3f3f3f;
+  background-position: 15px 13px;
+  text-decoration: none;
+  padding: 10px 27px 10px 85px;
+  text-align: left;
+  border-radius: 10px;
+  border: 2px solid #dbdfe2;
+  display: block; }
+  .get-interviewer-app:hover, .get-interviewer-app:focus {
+    text-decoration: none;
+    border-color: #a6a8a9;
+    color: #000; }
+  .get-interviewer-app span {
+    display: block;
+    letter-spacing: 0.05em; }
+    .get-interviewer-app span.version {
+      text-transform: none;
+      font-style: italic;
+      margin-top: 5px;
+      color: #3f3f3f; }
+
 .navbar {
   min-width: 360px;
   min-height: 70px;
@@ -7699,6 +7731,10 @@ input.double-checkbox-white {
         top: 5px; }
       .input-group .input-group-btn .btn span:hover:before, .input-group .input-group-btn .btn span:hover:after, .input-group .input-group-btn .btn span:focus:before, .input-group .input-group-btn .btn span:focus:after, .input-group .input-group-btn .btn span:active:before, .input-group .input-group-btn .btn span:active:after {
         background-color: #595c5d; }
+      .input-group .input-group-btn .btn span:before {
+        top: 6px; }
+      .input-group .input-group-btn .btn span:after {
+        top: 4px; }
 
 .bootstrap-select.btn-group {
   width: 295px !important; }
@@ -7994,7 +8030,7 @@ ul.dropdown-menu li, ul.dropdown-menu li * {
 
 @media (max-width: 1210px) {
   .profile .separate-line {
-    margin-left: 0 !important; } }
+    margin-left: -10px !important; } }
 @media (max-width: 780px) {
   .profile .block-filter .form-group .field {
     float: none;
@@ -9708,6 +9744,8 @@ figcaption {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
+  .two-columns-form label {
+    font-weight: normal; }
   .two-columns-form .left-column {
     padding: 10px 40px 10px 0px;
     text-align: center; }
@@ -9736,8 +9774,8 @@ figcaption {
       font-size: 13px;
       line-height: 15px;
       font-family: inherit;
-      font-weight: normal;
-      padding-top: 6px; }
+      padding-top: 6px;
+      font-weight: normal; }
       .two-columns-form .log-in .form-group label span {
         color: #2a81cb;
         font-family: "ufonts_com_lucidaconsole"; }
@@ -9794,6 +9832,17 @@ figcaption {
   .login main {
     height: 100%; }
 
+.hq-apps-wrapper, .interviewer-app {
+  font-size: 14px;
+  line-height: 16px;
+  color: #6b6b6b; }
+
+.additional-info-block a {
+  color: #6b6b6b;
+  text-decoration: underline; }
+  .additional-info-block a:hover, .additional-info-block a:focus {
+    text-decoration: none; }
+
 @media (max-width: 800px) {
   .two-columns-form {
     margin-top: 30px;
@@ -9806,7 +9855,7 @@ figcaption {
     -o-transform: translate(0, 0);
     transform: translate(0, 0); } }
 @media (max-width: 880px) {
-  .log-in, main .two-columns-form .left-column p {
+  .log-in, main .two-columns-form .left-column p, .hq-apps-wrapper, .interviewer-app {
     text-align: left;
     max-width: 350px;
     margin: 0 auto; } }
@@ -9850,6 +9899,8 @@ main .flex-row {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
+  .two-columns-form label {
+    font-weight: normal; }
   .two-columns-form .left-column {
     padding: 10px 40px 10px 0px;
     text-align: center; }
@@ -9878,8 +9929,8 @@ main .flex-row {
       font-size: 13px;
       line-height: 15px;
       font-family: inherit;
-      font-weight: normal;
-      padding-top: 6px; }
+      padding-top: 6px;
+      font-weight: normal; }
       .two-columns-form .log-in .form-group label span {
         color: #2a81cb;
         font-family: "ufonts_com_lucidaconsole"; }
@@ -9936,6 +9987,17 @@ main .flex-row {
   .login main {
     height: 100%; }
 
+.hq-apps-wrapper, .interviewer-app {
+  font-size: 14px;
+  line-height: 16px;
+  color: #6b6b6b; }
+
+.additional-info-block a {
+  color: #6b6b6b;
+  text-decoration: underline; }
+  .additional-info-block a:hover, .additional-info-block a:focus {
+    text-decoration: none; }
+
 @media (max-width: 800px) {
   .two-columns-form {
     margin-top: 30px;
@@ -9948,7 +10010,7 @@ main .flex-row {
     -o-transform: translate(0, 0);
     transform: translate(0, 0); } }
 @media (max-width: 880px) {
-  .log-in, main .two-columns-form .left-column p {
+  .log-in, main .two-columns-form .left-column p, .hq-apps-wrapper, .interviewer-app {
     text-align: left;
     max-width: 350px;
     margin: 0 auto; } }
@@ -10019,39 +10081,11 @@ img#placeholder {
       background-size: 100% 100%; } }
 
 .interviewer-app {
-  margin: 45px 0 -30px;
   display: none;
   border-top: 3px solid #ececec;
-  padding-top: 30px;
-  text-align: center; }
-  .interviewer-app a {
-    display: block;
-    margin: 0 auto;
-    color: #a6a8a9;
-    font-size: 12px;
-    line-height: 16px;
-    font-family: inherit;
-    text-decoration: underline; }
-    .interviewer-app a:hover {
-      text-decoration: none; }
-  .interviewer-app .get-interviewer-app {
-    width: 248px;
-    background: #000 url("../img/HQ-login-mobile-get-button-logo.png") no-repeat;
-    background-size: 55px;
-    margin-bottom: 25px;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
-    background-position: 15px 10px;
-    text-decoration: none;
-    padding: 10px 27px 10px 85px;
-    text-align: left;
-    border-radius: 10px; }
-    .interviewer-app .get-interviewer-app span {
-      display: block; }
-      .interviewer-app .get-interviewer-app span.version {
-        text-transform: none;
-        margin-top: 5px;
-        color: rgba(255, 255, 255, 0.5); }
+  padding-top: 30px; }
+  .interviewer-app label {
+    font-weight: normal; }
 
 @media (max-width: 880px) {
   img#placeholder, .no-logo .default-logo {

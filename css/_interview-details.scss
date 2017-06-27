@@ -388,6 +388,7 @@ label.inactive{
 }
 .question-editor{
 	.options-group{
+		position: relative;
 		padding: 10px;
 		border-radius: 7px;
 		margin-bottom: 0px;
@@ -676,6 +677,26 @@ label.inactive{
 		} 
 	}
 }
+.lock{
+	display: none;
+	background: url("#{$assetsPath}/img/lock.png") no-repeat;
+	position: absolute;
+	top: calc(50% -  13.5px);
+	left: -34px;
+	width: 24px;
+	height: 27px;
+}
+.readonly {
+	.lock{
+		display: block;
+	}
+	input[type="text"]:disabled,
+	label,
+	.field{
+		background: rgba(248, 248, 248, 0.8);
+		border-radius: 5px;
+	}
+}
 @media only screen and (max-width: 1525px){
 	.web-interview-for-supervisor{
 		@include tight-filters-aside();
@@ -715,6 +736,11 @@ label.inactive{
 	.web-interview-for-supervisor.fullscreen-hidden-content.fullscreen-hidden-filters {
 		.content{
 			box-shadow: 20px 0px 40px 0px rgba(0, 0, 0, 0.2);
+		}
+		.details-interview{
+			&.questionnaire{
+				@include width-questionnaire(($filter-width + $content-width-small));
+			}
 		}
 	}
 }
@@ -1051,6 +1077,9 @@ label.inactive{
 			a{
 				max-width: 265px;
 			}
+		}
+		.lock{
+			left: -15px;
 		}
 	}
 }
