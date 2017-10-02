@@ -25,13 +25,30 @@
     <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script>
         $(document).ready(function () {
+            $(window).on('resize', function() {
+                if($(window).width() > 880) {
+                    if ($(".navbar-collapse.collapse.in").length > 0) {
+                      $("main").addClass("display-block");
+                    }
+                }else{
+                        $("main").removeClass("display-block");
+                    }
+            });
             $(".navbar-toggle").click(function () {
-            $(".navbar-collapse").fadeToggle();
-            $(".navbar-collapse").animate({height: '100%'}, 0);
-            $(".top-menu").toggleClass("top-animate");
-            $(".mid-menu").toggleClass("mid-animate");
-            $(".bottom-menu").toggleClass("bottom-animate");
-            $("main").toggleClass("hidden");
+                $(".navbar-collapse").fadeToggle();
+                $(".navbar-collapse").animate({height: '100%'}, 0);
+                $(".top-menu").toggleClass("top-animate");
+                $(".mid-menu").toggleClass("mid-animate");
+                $(".bottom-menu").toggleClass("bottom-animate");
+                if($(window).width() < 880) {
+                    if ($(".navbar-collapse.collapse.in").length > 0) {
+                        $("main").removeClass("display-block");
+                        $("main").removeClass("hidden");
+                    }else{
+                        
+                        $("main").addClass("hidden");
+                    }
+                }
             });
         });
     </script> 
@@ -51,11 +68,11 @@
             $(".navbar-text").outerWidth(navbar_text);
         };
     </script>
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $(".unit-title").stick_in_parent({recalc_every: 200 });
         });
-    </script> 
+    </script>  -->
     <script>
         $(document).ready(function () 
         {
@@ -162,6 +179,20 @@
             ajustNoticeHeight();
         });
     </script>  
+    <script>
+        $(function() {
+            $.each($(".comment .form-control"), function(value) {
+                $(this).keyup(function() {
+                    if ($(this).val().length > 0) {
+                        $(this).parents(".comment").find(".btn-post-comment").addClass("comment-added");
+                    }
+                    else{
+                        $(this).parents(".comment").find(".btn-post-comment").removeClass("comment-added");
+                    }
+                });
+            });
+        });
+    </script>  
 </head>
 <body class="gray-background">
     <header>
@@ -169,25 +200,25 @@
            <div class="container-fluid ">
               <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="#" class="active-page">Web interview #23-44-32-12</a>
+                    <a href="#" class="interview-ID">23-44-32-12</a>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar top-menu"></span>
                         <span class="icon-bar mid-menu"></span>
                         <span class="icon-bar bottom-menu"></span>
                     </button>
-                    <a class="navbar-brand  rotate-brand" href="#">
-                    </a>
+                    <div class="navbar-brand">
+                        <a class="logo" href="#"></a>
+                    </div>
                 </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#" title="Web interview #23-44-32-12">Web interview #23-44-32-12</a></li>
+                    <!-- <ul class="nav navbar-nav">
                         <li><a href="#" title="Restart">Restart</a></li>
-                    </ul>
+                    </ul> -->
                     <p class="navbar-text">During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeksDuring the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</p>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
+                        <li class="dropdown language">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="ENG">ENG<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">RUS</a></li>
@@ -438,6 +469,303 @@
                                         <li><a href="#">asdf</a></li>
                                     </ul>
                                 </div>
+                                <div class="question-editor audio-question">
+                                    <div class="modal fade" tabindex="-1" role="dialog" id="record">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                    <h4 class="modal-title">Audio recording</h4>
+                                                    <h5 v-dateTimeFormatting v-html="$me.title">Do you submit your monthly veterenary reports to <i>Extension Officer</i>?</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <canvas class="analyser" width="100" height="100" style="border: 2px solid red; border-radius: 100%;"></canvas>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="recordign-time">00:01:55</div>
+                                                    <button type="button" v-on:click="stopRecording" class="btn btn-primary" v-if="isRecording" >Done</button>
+                                                    <button type="button" v-on:click="cancelRecording" class="btn btn-link" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <h5> 
+                                        Do you submit your monthly veterenary reports to <i>Extension Officer</i>?
+                                    </h5>
+                                    <div class="information-block instruction"></div>
+                                    <div class="question-unit">
+                                        <div class="options-group">
+                                        <div class="field">
+                                                <div class="block-with-data"></div>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                          <div class="action-btn-holder time-question">
+                                                <button type="button" class="btn btn-default btn-lg btn-action-questionnaire" data-toggle="modal" data-target="#record">Tap to record audio</button>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="information-block text-danger">
+                                    </div>
+                                    <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
+                                        <div class="comment active">
+                                            
+                                            <form class="form-inline">
+                                                <label>Your comment</label>
+                                                <div class="form-group">
+                                                    <div class="input-group comment-field">
+                                                        <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question">
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                        <span></span>
+                                    </button>
+                                    <ul class="dropdown-menu" >
+                                        <li><a href="#">sdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                    </ul>
+                                </div>
+                                <div class="question-editor audio-question">
+                                    
+                                    <h5> 
+                                        Record respondent's answer
+                                    </h5>
+                                    <div class="information-block instruction"></div>
+                                    <div class="question-unit">
+                                        <div class="options-group">
+                                        <div class="field recording answered">
+                                            <div class="record-data">
+                                                <span class="volume-signal">
+                                                    <span class="red-dot" style="width: 11px; height: 11px;"></span>
+                                                </span>
+                                                <span class="recordign-time">00:00:13</span>
+                                                <span class="volume-message"></span>
+                                                <button type="submit" class="btn btn-link btn-recording-done">
+                                                    Done
+                                                </button>
+                                            </div>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="information-block text-danger">
+                                    </div>
+                                    <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
+                                        <div class="comment active">
+                                            
+                                            <form class="form-inline">
+                                                <label>Your comment</label>
+                                                <div class="form-group">
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question">
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                        <span></span>
+                                    </button>
+                                    <ul class="dropdown-menu" >
+                                        <li><a href="#">sdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                    </ul>
+                                </div>
+                                <div class="question-editor audio-question">
+                                    
+                                    <h5> 
+                                        Record respondent's answer
+                                    </h5>
+                                    <div class="information-block instruction"></div>
+                                    <div class="question-unit">
+                                        <div class="options-group">
+                                        <div class="field recording answered">
+                                            <div class="record-data">
+                                                <span class="volume-signal">
+                                                    <span class="red-dot" style="width: 5px; height: 5px;"></span>
+                                                </span>
+                                                <span class="recordign-time">00:01:25</span>
+                                                <span class="volume-message">volume is too quiet</span>
+                                                <button type="submit" class="btn btn-link btn-recording-done">
+                                                    Done
+                                                </button>
+                                            </div>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="information-block text-danger">
+                                    </div>
+                                    <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
+                                        <div class="comment">
+                                            
+                                            <form class="form-inline">
+                                                <label>Your comment</label>
+                                                <div class="form-group">
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question">
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                        <span></span>
+                                    </button>
+                                    <ul class="dropdown-menu" >
+                                        <li><a href="#">sdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                    </ul>
+                                </div>
+                                <div class="question-editor audio-question">
+                                    
+                                    <h5> 
+                                        Record respondent's answer
+                                    </h5>
+                                    <div class="information-block instruction"></div>
+                                    <div class="question-unit">
+                                        <div class="options-group">
+                                        <div class="field recording answered">
+                                            <div class="record-data">
+                                                <span class="volume-signal">
+                                                    <span class="red-dot" style="width: 22px; height: 22px;"></span>
+                                                </span>
+                                                <span class="recordign-time">00:01:25</span>
+                                                <span class="volume-message error-text">volume is too loud</span>
+                                                <button type="submit" class="btn btn-link btn-recording-done">
+                                                    Done
+                                                </button>
+                                            </div>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="information-block text-danger">
+                                    </div>
+                                    <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
+                                        <div class="comment">
+                                            
+                                            <form class="form-inline">
+                                                <label>Your comment</label>
+                                                <div class="form-group">
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question">
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                        <span></span>
+                                    </button>
+                                    <ul class="dropdown-menu" >
+                                        <li><a href="#">sdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                    </ul>
+                                </div>
+                                <div class="question-editor audio-question answered">
+                                    
+                                    <h5> 
+                                        Record respondent's answer
+                                    </h5>
+                                    <div class="information-block instruction"></div>
+                                    <div class="question-unit">
+                                        <div class="options-group">
+                                            <div class="field answered">
+                                                <ul class="block-with-data list-unstyled">
+                                                    <li>10 minutes of audio recording</li>
+                                                    <li>Recorded at: 09:42 AM</li>
+                                                    <li>Noise level: 76db</li>                                                    
+                                                </ul>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                          <div class="action-btn-holder time-question">
+                                                <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Record new</button>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="information-block text-danger">
+                                    </div>
+                                    <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
+                                        <div class="comment">
+                                            
+                                            <form class="form-inline">
+                                                <label>Your comment</label>
+                                                <div class="form-group">
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question">
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                        <span></span>
+                                    </button>
+                                    <ul class="dropdown-menu" >
+                                        <li><a href="#">sdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                    </ul>
+                                </div>
                                 <div class="question-editor single-select-question">
                                     <h5> 
                                         Do you smoke?
@@ -479,18 +807,29 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
-                                        <div class="comment">
+                                        <div class=enumerators-comment>
+                                            <h6>Enumerator's comment <span class="publication-date">(dec 12)</span></h6>
+                                            <p>For this household quantity was measured in tens of hundreds but i could not find such option. What should I do?</p>
+                                        </div>
+                                        <h6>Your comment <span class="publication-date">(6 days ago)</span></h6>
+                                        <p>Value of quantity is correct</p>
+                                        <div class=enumerators-comment>
+                                            <h6>Enumerator's comment <span class="publication-date">(1 min ago)</span></h6>
+                                            <p>Please ask about quantity in total for household</p>
+                                         </div>
+                                        <div class="comment active">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -539,18 +878,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -604,21 +945,23 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators">
-                                        <h6>Enumerator's comment:</h6>
-                                        <p>For this household quantity was measured in tens of hundreds but i could not find such option. What should I do?</p>
-                                    </div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment>
+                                            <h6>Enumerator's comment <span class="publication-date">(1 hour ago)</span></h6>
+                                            <p>For this household quantity was measured in tens of hundreds but i could not find such option. What should I do?</p>
+                                        </div>
                                         <div class="comment active">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -667,18 +1010,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -726,18 +1071,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -785,18 +1132,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -848,18 +1197,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -911,18 +1262,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -978,18 +1331,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1086,18 +1441,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
-                                                <label>Your comment</label>
+                                                <label>Your comment <span class="publication-date">(10 min ago)</span></label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1194,18 +1551,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1306,18 +1665,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1357,18 +1718,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1423,18 +1786,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1473,22 +1838,24 @@
                                         <h6>Answer is invalid</h6>
                                         <p>Value of quantity of household consumption must be grater than 10 (and less than 99)</p>
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
-                                        <h6>Your comment</h6>
+                                        <div class=enumerators-comment></div>
+                                        <h6>Your comment <span class="publication-date">(1 month ago)</span></h6>
                                         <p>Value of quantity is correct</p>
-                                        <h6>Admin comment</h6>
+                                        <h6>Admin comment <span class="publication-date">(1 month ago)</span></h6>
                                         <p>Please ask about quantity in total for household</p>
                                         <div class="comment active">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1527,18 +1894,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1579,18 +1948,20 @@
                                         <h6>Answer is invalid</h6>
                                         <p>Some error code</p>
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1630,18 +2001,20 @@
                                     </div>
                                     <div class="information-block text-danger">
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1679,18 +2052,20 @@
                                     </div>
                                     <div class="information-block text-danger">
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1732,18 +2107,20 @@
                                     </div>
                                     <div class="information-block text-danger">
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1775,18 +2152,20 @@
                                     </div>
                                     <div class="information-block text-danger">
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1831,18 +2210,20 @@
                                     </div>
                                     <div class="information-block text-danger">
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1880,18 +2261,20 @@
                                     </div>
                                     <div class="information-block text-danger">
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1913,11 +2296,13 @@
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1955,18 +2340,20 @@
                                     </div>
                                     <div class="information-block text-danger">
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2007,18 +2394,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2069,18 +2458,20 @@
                                     <h6>Answer is invalid</h6>
                                     <p>Date can't be earlier than 2015 year</p>
                                     </div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2130,18 +2521,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2191,18 +2584,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2250,18 +2645,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2313,18 +2710,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2343,11 +2742,13 @@
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2403,18 +2804,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2433,11 +2836,13 @@
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2476,18 +2881,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                     <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2584,18 +2991,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment active">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2623,11 +3032,13 @@
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2773,18 +3184,20 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
                                             
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -2840,18 +3253,19 @@
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>
-                                    <div class="information-block enumerators"></div>
                                     <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
                                         <div class="comment">
-                                            
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

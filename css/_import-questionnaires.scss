@@ -15,11 +15,6 @@
                 }
             }
         }
-        .questionnaire-content li{
-        float: left;
-        margin-right: 10px;
-        margin-bottom: 0;
-        }
     }
 }
 .import-questionnaire-form{
@@ -168,7 +163,7 @@
         }
     }
 }
-@media (max-width: 1450px){
+@media only screen and (max-width: 1450px){
     .import-wrapper {
       .dataTables_wrapper .dataTables_filter{
             top: -15px;

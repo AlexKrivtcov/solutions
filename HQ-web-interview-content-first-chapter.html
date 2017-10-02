@@ -49,20 +49,20 @@
            <div class="container-fluid ">
               <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="#" class="active-page">Web interview #23-44-32-12</a>
+                    <a href="#" class="interview-ID">23-44-32-12</a>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar top-menu"></span>
                         <span class="icon-bar mid-menu"></span>
                         <span class="icon-bar bottom-menu"></span>
                     </button>
-                    <a class="navbar-brand  rotate-brand" href="#">
-                    </a>
+                    <div class="navbar-brand">
+                        <a class="logo" href="#"></a>
+                    </div>
                 </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#" title="Web interview #23-44-32-12">Web interview #23-44-32-12</a></li>
                         <li><a href="#" title="Restart">Restart</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -358,11 +358,13 @@
                                             <form class="form-inline">
                                                 <label>Your comment</label>
                                                 <div class="form-group">
-                                                    <div class="input-group">
-                                                      <input type="text" class="form-control" placeholder="Tap to enter your comment" />
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
                                                     </div>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default  btn-gray">Post</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

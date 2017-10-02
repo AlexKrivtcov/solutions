@@ -68,7 +68,7 @@
                 "lengthChange": false,
                 "searching": false,
                 "pagingType": "simple_numbers", 
-                "sDom": 'f<"table-with-scroll"t>ip'
+                "sDom": 'f<"table-with-scroll"t>ip'           
             });
         });
     </script>
@@ -145,9 +145,10 @@
                         <i class="glyphicon glyphicon-cloud-upload"></i>
                         <span class="sync-queue-size">16287</span>
                     </a>
-                    <a class="navbar-brand  rotate-brand" href="#">
-                        <div class="brand-name" title="Headquarters">Headquarters</div>
-                    </a>
+                    <div class="navbar-brand">
+                        <a class="logo" href="#"></a>
+                        <a class="brand-name" title="Headquarters" href="#">Headquarters</a>
+                    </div>
                 </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar">
@@ -788,10 +789,10 @@
         </div>
     </main>
     <!-- Button trigger modal -->
-<a href="" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#statuses" style="position: absolute; bottom: 0; left: 0; z-index: 500; ">
+<a href="" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#statusHistoryModal" style="position: absolute; bottom: 0; left: 0; z-index: 500; ">
   Launch demo modal
 </a>
-    <div class="modal fade statuses" id="statuses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade statuses" id="statusHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -805,48 +806,31 @@
                 <h3>History of status changes</h3>
                 <div class="table-with-scroll">
                     <table class="table table-striped history">
+                    <thead>
                         <tr>
-                            <td class="date">Feb 09, 23:55</td>
-                            <td>Issued by HQ3, assigned to <a href="#" class="supervisor">suprv5</a></td>
+                            <td>status</td>
+                            <td>changed on</td>
+                            <td>by</td>
+                            <td>assigned to</td>
+                            <td>comment</td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:statusHistory">
+                        <tr>
+                            <td data-bind="text: StatusHumanized">Supervisor assigned</td>
+                            <td class="date" data-bind="text: DateHumanized">Aug 10, 2017 16:57</td>
+                            <td><span data-bind="text: Responsible, attr: { 'class' : ResponsibleRole }" class="interviewer">inter</span></td>
+                            <td><span data-bind="text: Assignee, attr: { 'class' : AssigneeRole }"></span></td>
+                            <td data-bind="text: Comment">sdkjvaksdvj aknvk asfnvkla snfvkl anfvjkn asevfn aklfsv</td>
                         </tr>
                         <tr>
-                            <td class="date">Feb 11, 19:52</td>
-                            <td>Reasigned to <a href="#" class="supervisor">suprv7 (you)</a></td>
+                            <td data-bind="text: StatusHumanized">Interviewer assigned</td>
+                            <td class="date" data-bind="text: DateHumanized">Aug 10, 2017 16:57</td>
+                            <td><span data-bind="text: Responsible, attr: { 'class' : ResponsibleRole }" class="interviewer">inter</span></td>
+                            <td><span data-bind="text: Assignee, attr: { 'class' : AssigneeRole }" class="interviewer">inter</span></td>
+                            <td data-bind="text: Comment">sdkjvaksdvj aknvk asfnvkla snfvkl anfvjkn asevfn aklfsv</td>
                         </tr>
-                        <tr>
-                            <td class="date">Feb 12, 12:52</td>
-                            <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 15, 14:42</td>
-                            <td>Downloaded to device</td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 16, 14:52</td>
-                            <td>Uploaded from device</td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 16, 18:12</td>
-                            <td>
-                                <span class="error-text">Rejected</span> by <a href="#" class="supervisor">suprv7 (you)</a>
-                                <div class="comment">
-                                    <h4 class="gray-uppercase">Rejection comment (feb 13, 13:58):</h4>
-                                    <p><b><i>Household consumption data is not valid, please re-check cereals and flours quantities (you can do it by phone)</i></b></p>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 17, 16:06</td>
-                            <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 19, 12:52</td>
-                            <td>Downloaded to device</td>
-                        </tr>
-                        <tr>
-                            <td class="date">Feb 20, 22:22</td>
-                            <td>Uploaded from device</td>
-                        </tr>
+                    </tbody>
                     </table>
                 </div>    
             </div>
@@ -917,7 +901,7 @@
         <li><a href="#" tabindex="-1">View all comments (12)</a>
             <span>No comments</span>
         </li>
-        <li><a href="#" tabindex="-1"  data-toggle="modal" data-target="#statuses" >Interview status history</a></li>       
+        <li><a href="#" tabindex="-1"  data-toggle="modal" data-target="#statusHistoryModal" >Interview status history</a></li>       
         <li class="divider"></li>
         <li><a href="#" tabindex="-1" class="success-text"><b>Accept</b></a></li>
         <li><a href="#" tabindex="-1" class="error-text"><b>Reject</b></a></li>

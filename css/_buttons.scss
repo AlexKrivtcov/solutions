@@ -115,14 +115,54 @@ a.disabled{
 		}
 	}
 }
-.btn-default.btn-gray{
-	color: $white;
-	padding: 12px;
-	background-color: $gray_light;
-	border: none;
-	&:hover, &:focus{
+.btn-default{
+	&.btn-gray{
+		color: $white;
+		padding: 12px;
+		background-color: $gray_light;
 		border: none;
-		background-color: darken($gray_light, 10%);
+		&:hover, &:focus{
+			border: none;
+			background-color: darken($gray_light, 10%);
+		}
+	}
+	&.btn-post-comment{
+		@include transition(all, 0.2s);
+		padding: 12px;
+		color: $gray_form;
+		border-color: $gray_form;
+		border-radius: 5px;
+		&:hover, &:focus, &:active, &.comment-added{
+			color: $blue;
+			border-color: $blue;
+			background-color: transparent;
+		}
+		&:active{
+			background-color: #dfeaf4;
+			box-shadow: none;
+		}
+	}
+}
+.comment .input-group .input-group-btn{
+	padding-left: 5px;
+}
+.input-group .input-group-btn {
+	.btn.btn-post-comment{
+		@include transition(all, 0.2s);
+		padding: 12px;
+		color: $gray_form;
+		border-color: $gray_form;
+		border-radius: 5px;
+		border-left: 1px solid;
+		&:hover, &:focus, &:active, &.comment-added{
+			color: $blue;
+			border-color: $blue;
+			background-color: transparent;
+		}
+		&:active{
+			background-color: #dfeaf4;
+			box-shadow: none;
+		}
 	}
 }
 .back-link{
@@ -136,6 +176,8 @@ a.disabled{
 }
 .cancel{
 	border: none;
+	$cross-height: 24px;
+	@include cancel($cross-height);
 }
 .button-flag{
 	display: inline-block;
@@ -145,6 +187,7 @@ a.disabled{
     background-size: 75px 22px;
     background-position: -38px 0;  
 	border: none;
+	outline: none;
 	&:hover, &:focus{
 		background-position: -57px 0;
 	}
@@ -236,10 +279,9 @@ a.disabled{
 	background-color: transparent;
 	border-width: 3px;
 	border-radius: 4px;
-	font: 17px/19px Arial;
-    font-weight: bold;
-    text-transform: none; 
-    letter-spacing: normal; 
+	font: 14px/16px "TrebuchetMSBold";
+	letter-spacing: 0.05em;
+    text-transform: uppercase;  
 	&.btn-success{
 		@include btn-back-questionnaire ($green, "back-to-parrent-1-no-animation-2.png");	
 	}

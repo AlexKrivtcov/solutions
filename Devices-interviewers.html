@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+              $(".navbar-collapse").fadeToggle();
+              $(".navbar-collapse").animate({height: '100%'}, 0);
+              $(".top-menu").toggleClass("top-animate");
+              $(".mid-menu").toggleClass("mid-animate");
+              $(".bottom-menu").toggleClass("bottom-animate");
+              $("main").toggleClass("hidden");
+            });
+        });
+    </script> 
+    <script>
+       $(document).ready(function(){
+        $('.table-ordered')
+            .on( 'init.dt', function () {
+                $('#DataTables_Table_0_filter label').on('click', function(e) {
+                    if (e.target !== this)
+                        return;
+                      if ($(this).hasClass("active"))
+                    {
+                        $(this).removeClass("active");
+                    }
+                    else{
+                        $(this).addClass("active");
+                    }
+                    $(".column-questionnaire-title").toggleClass("padding-left-slide");
+                });
+            })
+            .DataTable({
+                "pageLength": 50,
+                "lengthChange": false,
+                // "searching": false,
+                "order": [1, 'desc'],
+                "pagingType": "simple_numbers", 
+                "sDom": 'f<"table-with-scroll"t>i<"download-report">p'           
+            });
+            $('table th .search').click(function() {
+                return false;
+            })
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $(".btn-search").click(function () {
+                $(this).parents("th").toggleClass("active-search");
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().find("input").val('');
+                }); 
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () 
+        {
+            $( ".download-report" ).append( "<p>Download report as <a href='#' target='_blank' >XLSX</a>, or <a href='#' target='_blank'>CSV</a>, or <a href='#' target='_blank'>TAB</a></p>");
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    </script>
+</head>
+<body class="wide-navbar">
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <div class="navbar-brand">
+                        <a class="logo" href="#"></a>
+                        <a class="brand-name" title="Headquarters" href="#">Headquarters</a>
+                    </div>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header> 
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main-information-no-filter">
+                    <div class="page-header clearfix">
+                        <div class="neighbor-block-to-search">
+                            <h1>Devices/interviewers</h1>
+                            <p>Download report as <a href='#' target='_blank' >XLSX</a>, or <a href='#' target='_blank'>CSV</a>, or <a href='#' target='_blank'>TAB</a></p>
+                        </div>                     
+                    </div>
+                    <table class="table table-striped table-ordered table-bordered table-hover dataTable ">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc"  >Teams</th>
+                                    <th class="type-numeric sorting" >Never connected</th>
+                                    <th class="type-numeric sorting" >No assignments received</th>
+                                    <th class="type-numeric sorting">Never uploaded</th>
+                                    <th class="type-numeric sorting" >Tablet reassigned</th>
+                                    <th class="type-numeric sorting" >Old version</th>
+                                    <th class="type-numeric sorting" >Androin 4.4 or lower</th>
+                                    <th class="type-numeric sorting" >Wrong time on tablet</th>
+                                    <th class="type-numeric sorting">Less than 100MB free space</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <tr class="total-row odd" role="row">
+                                <td class="sorting_1" tabindex="0"><span>Total</span></td>
+                                <td class=" type-numeric"><a href="/Interviewers?Facet=NeverSynchonized">946</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?Facet=NoAssignmentsReceived">1072</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?Facet=NeverUploaded">1167</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?Facet=TabletReassigned">20</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?Facet=OutdatedApp">238</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?Facet=OldAndroid">113</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?Facet=WrongTime">183</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?Facet=LowStorage">104</a></td>
+                            </tr>
+                            <tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=03IQVMUTcOPgQiR">03IQVMUTcOPgQiR</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=03IQVMUTcOPgQiR&amp;Facet=NeverSynchonized">1</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=03IQVMUTcOPgQiR&amp;Facet=NoAssignmentsReceived">1</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=03IQVMUTcOPgQiR&amp;Facet=NeverUploaded">1</a></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                            </tr>
+                            <tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=03RMl9MX39r6Imd">03RMl9MX39r6Imd</a></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=03RMl9MX39r6Imd&amp;Facet=NoAssignmentsReceived">1</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=03RMl9MX39r6Imd&amp;Facet=NeverUploaded">1</a></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                            </tr>
+                            <tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=08I4tPN5nqWeL7P">08I4tPN5nqWeL7P</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=08I4tPN5nqWeL7P&amp;Facet=NeverSynchonized">1</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=08I4tPN5nqWeL7P&amp;Facet=NoAssignmentsReceived">1</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=08I4tPN5nqWeL7P&amp;Facet=NeverUploaded">1</a></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                            </tr>
+                            <tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0AFUUyL3hxccfIM">0AFUUyL3hxccfIM</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0AFUUyL3hxccfIM&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0AFUUyL3hxccfIM&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0AFUUyL3hxccfIM&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0cfuNLslWCTfHSU">0cfuNLslWCTfHSU</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0cfuNLslWCTfHSU&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0cfuNLslWCTfHSU&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0cfuNLslWCTfHSU&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0gJMksxqAEn1o2H">0gJMksxqAEn1o2H</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0gJMksxqAEn1o2H&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0gJMksxqAEn1o2H&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0gJMksxqAEn1o2H&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0IhA1JZ9yKR2yQL">0IhA1JZ9yKR2yQL</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0IhA1JZ9yKR2yQL&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0IhA1JZ9yKR2yQL&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0IhA1JZ9yKR2yQL&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0LfHtHrSHSGlefS">0LfHtHrSHSGlefS</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0LfHtHrSHSGlefS&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0LfHtHrSHSGlefS&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0LfHtHrSHSGlefS&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0N15JFygcxmrq4I">0N15JFygcxmrq4I</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0N15JFygcxmrq4I&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0N15JFygcxmrq4I&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0N15JFygcxmrq4I&amp;Facet=NeverUploaded">2</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0N15JFygcxmrq4I&amp;Facet=OutdatedApp">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0N15JFygcxmrq4I&amp;Facet=WrongTime">1</a></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0Pj6OcUL4gVKceh">0Pj6OcUL4gVKceh</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0Pj6OcUL4gVKceh&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0Pj6OcUL4gVKceh&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0Pj6OcUL4gVKceh&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0q3DivN6C3JDpae">0q3DivN6C3JDpae</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0q3DivN6C3JDpae&amp;Facet=NeverSynchonized">2</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0q3DivN6C3JDpae&amp;Facet=NoAssignmentsReceived">2</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0q3DivN6C3JDpae&amp;Facet=NeverUploaded">2</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=0QizRjSQb63g3tN">0QizRjSQb63g3tN</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0QizRjSQb63g3tN&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0QizRjSQb63g3tN&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=0QizRjSQb63g3tN&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=1At0PJQneHqnwGd">1At0PJQneHqnwGd</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1At0PJQneHqnwGd&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1At0PJQneHqnwGd&amp;Facet=OutdatedApp">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1At0PJQneHqnwGd&amp;Facet=WrongTime">1</a></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=1HcAYyWzdadjjUK">1HcAYyWzdadjjUK</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1HcAYyWzdadjjUK&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1HcAYyWzdadjjUK&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1HcAYyWzdadjjUK&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=1oTI6psJXw81Z4m">1oTI6psJXw81Z4m</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1oTI6psJXw81Z4m&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1oTI6psJXw81Z4m&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1oTI6psJXw81Z4m&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=1ovUV3r13NCCeFK">1ovUV3r13NCCeFK</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1ovUV3r13NCCeFK&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1ovUV3r13NCCeFK&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1ovUV3r13NCCeFK&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=1Uik4odLO7DAVRm">1Uik4odLO7DAVRm</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1Uik4odLO7DAVRm&amp;Facet=NeverSynchonized">4</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1Uik4odLO7DAVRm&amp;Facet=NoAssignmentsReceived">6</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1Uik4odLO7DAVRm&amp;Facet=NeverUploaded">6</a></td><td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1Uik4odLO7DAVRm&amp;Facet=OutdatedApp">2</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1Uik4odLO7DAVRm&amp;Facet=OldAndroid">2</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1Uik4odLO7DAVRm&amp;Facet=WrongTime">2</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1Uik4odLO7DAVRm&amp;Facet=LowStorage">2</a></td>
+                            </tr>
+                            <tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=1vWLPq6VvcQiGg2">1vWLPq6VvcQiGg2</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1vWLPq6VvcQiGg2&amp;Facet=NeverSynchonized">4</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1vWLPq6VvcQiGg2&amp;Facet=NoAssignmentsReceived">6</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1vWLPq6VvcQiGg2&amp;Facet=NeverUploaded">6</a></td>
+                                <td class=" type-numeric"><span>0</span></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1vWLPq6VvcQiGg2&amp;Facet=OutdatedApp">2</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1vWLPq6VvcQiGg2&amp;Facet=OldAndroid">2</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1vWLPq6VvcQiGg2&amp;Facet=WrongTime">2</a></td>
+                                <td class=" type-numeric"><a href="/Interviewers?supervisor=1vWLPq6VvcQiGg2&amp;Facet=LowStorage">2</a></td>
+                            </tr>
+                            <tr role="row" class="even"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=1vXZdM0uyNqRAWY">1vXZdM0uyNqRAWY</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1vXZdM0uyNqRAWY&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1vXZdM0uyNqRAWY&amp;Facet=OutdatedApp">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1vXZdM0uyNqRAWY&amp;Facet=WrongTime">1</a></td><td class=" type-numeric"><span>0</span></td></tr><tr role="row" class="odd"><td class="sorting_1" tabindex="0"><a href="/Interviewers?supervisor=1XpHfIgl6TQ4OZc">1XpHfIgl6TQ4OZc</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1XpHfIgl6TQ4OZc&amp;Facet=NeverSynchonized">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1XpHfIgl6TQ4OZc&amp;Facet=NoAssignmentsReceived">1</a></td><td class=" type-numeric"><a href="/Interviewers?supervisor=1XpHfIgl6TQ4OZc&amp;Facet=NeverUploaded">1</a></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td><td class=" type-numeric"><span>0</span></td></tr>
+                            </tbody>
+                    </table>
+                    <div class="download-report-as">Download report as <a href='#' target='_blank' >XLSX</a>, or <a href='#' target='_blank'>CSV</a>, or <a href='#' target='_blank'>TAB</a></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer hold-transition">
+        <div class="container-fluid">
+            <div class="text-right">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-right">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+    </footer>
+        <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+        var $target = $( event.currentTarget );
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+    });
+    </script>
+</body>
+</html>
