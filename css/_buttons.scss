@@ -5,19 +5,27 @@
     @include transition(background, 0.2s);
     word-break: break-word;
 	&:disabled, &.disabled{
-		border-color: transparent !important;	
-		color: #fff !important;
+		border-color: #d7d7d7 !important;	
+		color: $gray_light !important;
 		cursor: not-allowed;
-		@include stripe-gradient(#d7d7d7, $gray_light);
+		@include stripe-gradient(#d7d7d7, #fff);
+		&.btn-clear{
+			background: none;
+			border-color: transparent !important;
+		}
 		&:hover, &:focus{
-			border-color: $gray-super-light;
+			border-color: #d7d7d7;
 			outline: none;
+			box-shadow: none !important;
 		}
 	}
 }
 a.disabled{
 	pointer-events: none;
 	cursor: not-allowed;
+	&.btn{
+		background-color: $gray-highlighting;
+	}
 }
 .btn-link{
 	@extend %gray-uppercase;
@@ -31,10 +39,10 @@ a.disabled{
 	display: none;
 	@include size($width-foldback-button, $height-foldback-button);
 	cursor: pointer;
-	@include absolute(75px, 0, null, null);
+	@include absolute(5px, 0, null, null);
 	border-radius: 4px;
 	z-index: 3;
-	@include transition(all, 0.2s);
+	@extend .add-transition;
 	&:hover, &:focus{
 	    span.arrow{
 	    	background-color: rgba(0, 0, 0, 1);
@@ -71,7 +79,7 @@ a.disabled{
 	z-index: 3;
 	top: calc(50% - 18px);
 	display: block;
-	@include transition(all, 0.2s);
+	@extend .add-transition;
 	&:before, &:after{
 		content: "";
 		display: block;
@@ -127,9 +135,10 @@ a.disabled{
 		}
 	}
 	&.btn-post-comment{
-		@include transition(all, 0.2s);
+		@extend .add-transition;
 		padding: 12px;
-		color: $gray_form;
+		background-color: #fff;
+		color: $gray_light;
 		border-color: $gray_form;
 		border-radius: 5px;
 		&:hover, &:focus, &:active, &.comment-added{
@@ -148,20 +157,24 @@ a.disabled{
 }
 .input-group .input-group-btn {
 	.btn.btn-post-comment{
-		@include transition(all, 0.2s);
+		@extend .add-transition;
 		padding: 12px;
-		color: $gray_form;
+		color: $gray_light;
+		background-color: #fff;
 		border-color: $gray_form;
 		border-radius: 5px;
-		border-left: 1px solid;
+		border-left: 1px solid $gray_form;
 		&:hover, &:focus, &:active, &.comment-added{
 			color: $blue;
 			border-color: $blue;
-			background-color: transparent;
+			background-color: #fff;
 		}
 		&:active{
 			background-color: #dfeaf4;
 			box-shadow: none;
+		}
+		&:disabled{
+			@include stripe-gradient($gray_form, #fff);
 		}
 	}
 }
@@ -190,12 +203,6 @@ a.disabled{
 	outline: none;
 	&:hover, &:focus{
 		background-position: -57px 0;
-	}
-	&.flagged, &:active{
-    	background-position: 0 0;
-    	&:hover, &:focus{
-    		background-position: -19px 0;
-    	}
 	}
 }
 .reject{
@@ -239,7 +246,7 @@ a.disabled{
 	@include cancel(14px);
 	@include opacity(1);
 		&:before, &:after{
-			@include transition(all, 0.2s);
+			@extend .add-transition;
 	        @include rotate(0deg);
 	        top: 0;
 	    }
@@ -254,8 +261,7 @@ a.disabled{
 }
 .btn-roster-section{
 	letter-spacing: normal;
-	font: 14px/16px Arial, sans-serif;
-	font-weight: bold;
+	font: 14px/16px "RobotoBold";
 	width: 100%;
 	text-transform: none;
 	padding: 11px 15px;
@@ -290,6 +296,13 @@ a.disabled{
 	}
 	&.btn-primary{
 		@include btn-back-questionnaire ($blue, "back-to-parrent-1-no-animation-1.png");
+	}
+	&.btn-success,
+	&.btn-primary,
+	&.btn-danger{
+		&.disabled{
+			@include btn-back-questionnaire (transparent, "back-to-parrent-1-no-animation-4.png");
+		}
 	}
 }
 .section-blocker{
@@ -342,7 +355,7 @@ a.disabled{
 	}
 	span, &:before, &:after{
 		@include opacity(0.5);
-		@include transition(all, 0.2s);
+		@extend .add-transition;
 	}
 	&:hover, &:focus, &:active{
 		span, &:before, &:after{
@@ -380,7 +393,7 @@ a.disabled{
 	}
 }
 .get-interviewer-app{
-	@include transition(all, 0.2s);
+	@extend .add-transition;
     width: 248px;
     background:  url("#{$assetsPath}/img/HQ-login-mobile-get-button-logo.png") no-repeat;
     background-size: 55px;

@@ -14,7 +14,8 @@
                 <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
                 <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
                 <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
-    <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
+                <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-web-interview.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
@@ -68,11 +69,6 @@
             $(".navbar-text").outerWidth(navbar_text);
         };
     </script>
-    <!-- <script>
-        $(document).ready(function () {
-            $(".unit-title").stick_in_parent({recalc_every: 200 });
-        });
-    </script>  -->
     <script>
         $(document).ready(function () 
         {
@@ -161,14 +157,11 @@
     <script>
         var ajustNoticeHeight = function(){
             var height = $(".view-mode").outerHeight();
-            $('.view-mode + main').css("margin-top", height+"px");
-            $('.wrapper-view-mode').css("padding-top", height); 
-            $('.wrapper-view-mode .foldback-button').css("margin-top", height); 
-            $('.wrapper-view-mode .humburger-foldback-button').css("margin-top", height); 
+            $('.content').css("top", height+"px"); 
+            $('.filters').css("top", height+"px"); 
+            $('main').css("margin-top", height+"px");
         };
         $(document).ready(function () { 
-            $( ".view-mode + main .container-fluid .filters" ).wrapInner( "<div class='wrapper-view-mode'></div>");
-            $( ".view-mode + main .container-fluid .content" ).wrapInner( "<div class='wrapper-view-mode'></div>");
             ajustNoticeHeight();
 
             $('.view-mode .alerts .alert').on('closed.bs.alert', function () {
@@ -504,7 +497,7 @@
                                                 </button>
                                             </div>
                                           <div class="action-btn-holder time-question">
-                                                <button type="button" class="btn btn-default btn-lg btn-action-questionnaire" data-toggle="modal" data-target="#record">Tap to record audio</button>
+                                                <button type="button" class="btn btn-default btn-lg btn-action-questionnaire" data-toggle="modal" data-target="#record" ><span></span>Tap to record audio</button>
                                           </div>
                                         </div>
                                     </div>
@@ -730,7 +723,7 @@
                                                 </button>
                                             </div>
                                           <div class="action-btn-holder time-question">
-                                                <button type="button" class="btn btn-default btn-lg btn-action-questionnaire">Record new</button>
+                                                <button type="button" class="btn btn-default btn-lg btn-action-questionnaire"><span></span>Record new</button>
                                           </div>
                                         </div>
                                     </div>
@@ -1052,7 +1045,7 @@
 
                                                 <div class="field">
                                                     <div class="btn-group btn-input clearfix">
-                                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" disabled>
                                                           <span data-bind="label" class="gray-text">Tap to enter text</span>
                                                         </button>
                                                         <ul class="dropdown-menu" role="menu">
@@ -1101,7 +1094,7 @@
                                         <li><a href="#">asdf</a></li>
                                     </ul>
                                 </div>
-                                <div class="question-editor cascading-question  answered">
+                                <div class="question-editor cascading-question answered readonly">
                                     
                                     <h5> 
                                         Units
@@ -1112,7 +1105,7 @@
                                             <div class="form-group">
                                                 <div class="field answered">
                                                     <div class="btn-group btn-input clearfix">
-                                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" disabled>
                                                           <span data-bind="label" class="">Kilogram</span>
                                                         </button>
                                                         <ul class="dropdown-menu" role="menu">
@@ -1129,6 +1122,7 @@
                                                 </div>
                                                 
                                             </div>
+                                            <span class="lock"></span>
                                         </div>
                                     </div>
                                     <div class="information-block text-danger"></div>

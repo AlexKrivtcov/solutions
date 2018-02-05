@@ -97,9 +97,8 @@ h4{
 	margin-bottom: 20px;
 }
 h5{
-	@include font(14px, 16px);
 	margin-bottom: 10px;
-	font-weight: bold;
+	font: 14px/16px "RobotoBold";
 } 
 .hold-transition *{
  -webkit-transition: none !important;
@@ -201,6 +200,8 @@ h5{
 		border-radius: 5px;
 		border: 1px solid $gray_form;
 		background-color: #f8f8f8;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 		.close{
 			color: inherit;
 			&:hover, &:focus, &:active{
@@ -231,7 +232,7 @@ h5{
 	color: $red_error !important;
 }
 .success-text{
-	color: $green_btn !important;
+	color: $green !important;
 }
 .default-text{
 	color: $gray_form !important;
@@ -512,6 +513,9 @@ main.hidden.display-block{
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
+.add-transition{
+	@include transition(all, 0.2s);
+}
 @media (max-width: $screen-md-min){
 	html body {
 		padding-top: 70px;
@@ -676,4 +680,56 @@ main.hidden.display-block{
 	.main-information-no-filter{
 		padding: 0 5px;
 	}	
+}
+.reset-margin{
+	margin: 0 !important;
+}
+dl{
+	dt{
+		font-weight: normal;
+		font-family: "RobotoBold";
+		float: left;
+		margin-right: 5px;
+	}
+	dd{
+		&:after{
+			display: block;
+			clear: both;
+			content: "";
+		}
+	}
+}
+.warning-message{
+	font-family: "RobotoBold";
+}
+.underlined-link{
+	text-decoration: underline;
+	&:hover, &:focus, &:active{
+		text-decoration: none;
+	}
+}
+.gray-text-row{
+	font-style: normal;
+	text-transform: uppercase;
+	font: 14px/16px "TrebuchetMS";
+	letter-spacing: 1px;
+	color: $gray_light;
+}
+.gray-action-unit{
+	color: $gray_light;
+	&:hover, &:focus, &:active{
+		color: $gray-highlight-font !important;
+	}
+}
+.green-action-unit{
+	color: $green;
+	&:hover, &:focus, &:active{
+		color: darken($green, 10%);
+	}
+}
+.action-block{
+	margin-top: 30px;
+}
+.always-visible-scroll{
+	overflow-y: scroll;
 }

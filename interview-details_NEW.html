@@ -14,11 +14,13 @@
                 <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
                 <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
                 <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
-    <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-specific.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-web-interview.css">
+    
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
@@ -26,24 +28,27 @@
     <script>
         var ajustNoticeHeight = function(){
             var height = $(".view-mode").outerHeight();
-            $('.view-mode + main').css("margin-top", height+"px");
-            $('.wrapper-view-mode').css("padding-top", height); 
-            $('.wrapper-view-mode .foldback-button').css("margin-top", height); 
-            $('.wrapper-view-mode .close-btn').css("margin-top", height); 
-            $('.wrapper-view-mode .humburger-foldback-button').css("margin-top", height); 
+            $( ".view-mode + main .container-fluid .panel-details" ).css("padding-top", height);
         };
+        var ajustDetailsPanelHeight  = function(){
+            var height = $(".panel-details").outerHeight();
+            $('.filters').css("top", height+"px");
+            $('.filters-results').css("top", height+"px");
+            $('.content').css("top", height+"px");
+            $('main').css("margin-top", height+"px");
+        }
         $(document).ready(function () { 
-            $( ".view-mode + main .container-fluid .filters" ).wrapInner( "<div class='wrapper-view-mode'></div>");
-            $( ".view-mode + main .container-fluid .content" ).wrapInner( "<div class='wrapper-view-mode'></div>");
-            $( ".view-mode + main .container-fluid .filters-results" ).wrapInner( "<div class='wrapper-view-mode'></div>");
             ajustNoticeHeight();
+            ajustDetailsPanelHeight();
 
             $('.view-mode .alerts .alert').on('closed.bs.alert', function () {
                 ajustNoticeHeight();
+                ajustDetailsPanelHeight();
             })
         });
         $( window ).resize(function() {
             ajustNoticeHeight();
+            ajustDetailsPanelHeight();
         });
     </script>  
     <script>
@@ -178,10 +183,13 @@
             $(".reset-filters").click(function() {  
                 $(".filters-container .checkbox-filter").attr('checked', false);
                 $(".filters-container .checkbox-filter").prop('checked', false);
-                $(".filters-results").addClass("active");
-                $("main").addClass("filters-results-are-shown");
-                $('main').removeClass("show-content"); 
-                $('main').removeClass("show-filters");
+                $(".filters-results").removeClass("active");
+                $("main").removeClass("fullscreen-hidden-filters");
+                $("main").removeClass("filters-results-are-shown"); 
+                // $(".filters-results").addClass("active");
+                // $("main").addClass("filters-results-are-shown");
+                // $('main').removeClass("show-content"); 
+                // $('main').removeClass("show-filters");
             });
             $(".close-btn").click(function() {  
                 $(".filters-results").removeClass("active");
@@ -203,7 +211,7 @@
         });
     </script>
 </head>
-<body class="gray-background wide-navbar">
+<body class="gray-background wide-navbar always-visible-scroll">
     <header>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
            <div class="container-fluid ">
@@ -279,25 +287,51 @@
     <main class="web-interview web-interview-for-supervisor hold-transition">
         <div class="container-fluid">
             <div class="row">
+                    <div class="panel panel-details">
+                        <div class="panel-body clearfix">
+                            <div class="about-questionnaire clearfix">
+                                <div class="about-questionnaire-details">
+                                    <ul class="main-info-column list-unstyled pull-left">
+                                        <li>Interview #00-52-49-03 (assignment N888888),</li>
+                                        <li class="questionnaire-title">World Bank MTF Energy Survey - Household Questionnaire Medium Version (56 English)</li>
+                                    </ul>
+                                    <ul class="list-unstyled pull-left">
+                                        <li><span class="data-label">Responsible: </span> <span class="data"><a href="#" target="_blank" class="interviewer">enum234</a></span></li>
+                                        <li><span class="data-label">Supervisor: </span> <span class="data"><a href="#" target="_blank" class="supervisor">super</a></span></li>
+                                    </ul>
+                                    <ul class="list-unstyled pull-left">
+                                        <li><span class="data-label">Status:</span> <span class="data">Completed</span></li>
+                                        <li><span class="data-label">Updated: </span> <span  class="data">Mar 23, 23:23</span><button type="button" class="btn btn-link gray-action-unit" data-toggle="modal" data-target="#statuses">History</button></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                            <div class="questionnaire-details-actions clearfix">
+                                <div class="btn-group bootstrap-select"><button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" role="button" title="Original"><span class="filter-option pull-left">Original</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Original</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Translation 0801</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="" tabindex="-98"><option value="">Original</option> <option>Translation 0801</option></select></div>
+                                <div class="buttons-container">
+                                    <button type="button" class="btn btn-success">Approve</button>
+                                    <button type="button" class="btn btn-default btn-lg reject">Reject</button>
+                                    <div class="dropdown aside-menu">
+                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                            <span></span>
+                                        </button>
+                                        <ul class="dropdown-menu" >
+                                            <li><a href="#">sdf</a></li>
+                                            <li><a href="#">asdf</a></li>
+                                            <li><a href="#">asdf</a></li>
+                                        </ul>
+                                    </div>   
+                                </div>       
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
                 <aside class="filters">
                     <div class="foldback-button" id="hide-filters">
                         <span class="arrow"></span>
                         <span class="arrow"></span>
                         <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-                    </div>
-                    <div class="filters-container">
-                            <h2>#00-52-49-03</h2>
-                            <ul class="list-unstyled about-questionnaire">
-                                <li><b>Assignment #356, interview 3</b></li>
-                                <li><b>conducted on <span>Mar 23, 23:23 GMT+3</span></b></li>
-                                <li><b>by <a href="#" target="_blank" class="interviewer">enumer52</a></b></li>
-                            </ul>
-                            <div class="filter-actions-block">
-                                <button type="button" class="btn btn-success">Approve</button>
-                                <button type="button" class="btn btn-default btn-lg reject">Reject</button>
-                                
-                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#statuses">History</button>
-                            </div>
                     </div>
                     <div class="filters-container">
                         <h4>Filter Questions</h4> 
@@ -331,7 +365,7 @@
                         </div>
                         <div class="block-filter separate-filters-group">
                             <div class="form-group">
-                                <input class="checkbox-filter" id="answered" type="checkbox" checked="" />
+                                <input class="checkbox-filter" id="answered" type="checkbox" />
                                 <label for="answered">
                                     <span class="tick"></span>Answered 
                                 </label>
@@ -360,7 +394,7 @@
                     </div>
                     <div class="preset-filters-container">
                         <div class="block-filter">
-                            <button  type="button" class="btn btn-link btn-looks-like-link reset-filters">View all (reset all filters)</a>
+                            <button  type="button" class="btn btn-link btn-looks-like-link reset-filters">Reset all filters</a>
                         </div>
                     </div> 
                 </aside>
@@ -688,8 +722,9 @@
                                                 <div class="badge">67</div>
                                             </div>
                                         </div>
+                                        <span class="lock"></span>
                                     </div>
-                                    <span class="lock"></span>
+                                    
                                 </div>
                                 <div class="information-block text-danger"></div>
                                 <div class="information-block comments-block">
@@ -711,6 +746,261 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="question">
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                        <span></span>
+                                    </button>
+                                    <ul class="dropdown-menu" >
+                                        <li><a href="#">sdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                    </ul>
+                                </div>
+                                <div class="question-editor single-select-question answered readonly ">
+                                    <button type="button" class="btn-link button-flag"></button>
+                                    <h5 id="45678"> 
+                                        Do you smoke?
+                                    </h5>
+                                    <div class="information-block instruction"></div>
+                                    <div class="question-unit">
+                                        <div class="options-group">
+                                            <div class="radio">
+                                                <div class="field">
+                                                    <input class="wb-radio" type="radio" name="smoke" id="Yes-smoke234"  checked  disabled/>
+                                                    <label for="Yes-smoke234">
+                                                        <span class="tick"></span>Yes
+                                                    </label>
+                                                    <button type="submit" class="btn btn-link btn-clear">
+                                                        <span></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="radio">
+                                                <div class="field">
+                                                    <input class="wb-radio" type="radio" name="smoke" id="no-smoke234" value="current-version" disabled/>
+                                                    <label for="no-smoke234">
+                                                        <span class="tick"></span>No
+                                                    </label>
+                                                    <button type="submit" class="btn btn-link btn-clear">
+                                                        <span></span>
+                                                    </button>
+                                                </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="information-block text-danger"></div>
+                                    <div class="information-block comments-block">
+                                        <div class=enumerators-comment></div>
+                                        <div class="comment">
+                                            
+                                            <form class="form-inline">
+                                                <label>Your comment</label>
+                                                <div class="form-group">
+                                                    <div class="input-group comment-field">
+                                                      <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div id="loc_e7382ddd5797674b2f0c2e90229f7427" class="question"><!----> 
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button> 
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)">
+                                        Add comment
+                                    </a></li> 
+                                </ul>
+                            </div> 
+                            <div class="question-editor answered readonly area-question">
+                                <button type="button" title="Not flagged" class="btn-link button-flag"></button> 
+                                <h5>area 2</h5> 
+                                <div class="instructions-wrapper">
+                                    <button type="button" class="btn btn-link">Show instruction</button>
+                                </div> 
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="field answered">
+                                            <div class="block-with-data">
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        Area: 4090415717361.53 square meters
+                                                    </li> 
+                                                    <li>
+                                                        <button type="button" class="btn btn-link">Show coordinates</button>
+                                                    </li>
+                                                </ul>
+                                            </div> 
+                                            <iframe width="100%" height="250px" frameborder="0" src="/Interview/InterviewAreaFrame/affe3b28a66e44dbbf37261f20796893?questionId=e7382ddd5797674b2f0c2e90229f7427"></iframe>
+                                        </div> 
+                                        <span class="lock"></span>
+                                    </div>
+                                </div> <!----> 
+                                <div class="information-block comments-block"> <!----></div>
+                            </div> <!---->
+                        </div>
+                        <div class="question">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor qr-question answered readonly">
+                                <button type="button" class="btn-link button-flag"></button>
+                                <h5> 
+                                    Barcode
+                                </h5>
+                                <div class="information-block instruction"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="field answered">
+                                            <div class="block-with-data">http://www.worldbank.org/capi</div>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
+                                        </div>
+                                        <div class="action-btn-holder barcode-question">
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire" disabled>Tap to take barcode</button>
+                                        </div>
+                                        <span class="lock"></span>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger">
+                                </div>
+                                <div class="information-block comments-block">
+                                    <div class=enumerators-comment></div>
+                                    <div class="comment active">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group comment-field">
+                                                  <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor multimedia-question answered readonly">
+                                <button type="button" class="btn-link button-flag"></button>
+                                <h5> 
+                                    Tap to take a photo
+                                </h5>
+                                <div class="information-block instruction"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="field answered">
+                                            <div class="image-zoom-box image-wrapper">
+                                                <img src="img-example/o-HAPPINESS-facebook.jpg" alt="custom photo" class="zoomImg" />
+                                                <div class="modal-img">
+                                                  <span class="close-zoomming-img">&times;</span>
+                                                  <img class="modal-img-content" src=""  alt="" />
+                                                  <span class="caption"></span>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
+                                        </div>
+                                      <div class="action-btn-holder photo-question">
+                                            <button type="button" class="btn btn-default btn-lg btn-action-questionnaire" disabled>Tap to take a photo</button>
+                                      </div>
+                                    </div>
+                                    <span class="lock"></span>
+                                </div>
+                                <div class="information-block text-danger">
+                                </div>
+                                <div class="information-block comments-block">
+                                    <div class=enumerators-comment></div>
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group comment-field">
+                                                  <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="loc_e93ac7021c71a8b77cff2b9279776da4" class="question">
+							<div class="dropdown aside-menu"><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link"><span></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="javascript:void(0)">Add comment</a></li>
+									<li><a href="http://www.noiseaddicts.com/samples_1w72b820/142.mp3">Download</a></li>
+								</ul>
+							</div>
+							<div class="question-editor answered readonly  audio-question"><button type="button" title="Not flagged" class="btn-link button-flag"></button>
+								<h5>Audio # Apollo 13: Houston, We Have A Problem</h5>
+								<div class="question-unit">
+									<div class="options-group">
+										<div class="field answered">
+											<ul class="block-with-data list-unstyled">
+												<li>a few seconds (00:02) of audio recording</li>
+											</ul>
+										</div>
+										<div class="action-btn-holder time-question">
+											<div>
+                                                <audio controls="controls" preload="auto" src="http://www.noiseaddicts.com/samples_1w72b820/142.mp3" style="width: 300px;"></audio>
+                                            </div> 
+                                            <button disabled="disabled" type="button" class="btn btn-default btn-lg btn-action-questionnaire"><span></span>Record new</button>
+                                        </div>
+										<span class="lock"></span></div>
+								</div>
+								<div tabindex="-1" role="dialog" class="modal fade">
+									<div role="document" class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"></span></button>
+												<h4 class="modal-title">Audio recording</h4>
+												<h5>Audio # Apollo 13: Houston, We Have A Problem</h5>
+											</div>
+											<div class="modal-body"><canvas width="100" height="100" class="analyser"></canvas></div>
+											<div class="modal-footer">
+												<div class="recordign-time">00:00:00</div>
+												<button type="button" data-dismiss="modal" class="btn btn-link ">Cancel</button></div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-backdrop in" style="display: none;"></div>
+								<div class="information-block comments-block">
+								</div>
+							</div>
+						</div>
                         <div class="question">
                             <div class="dropdown aside-menu">
                                 <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
@@ -856,7 +1146,7 @@
                                     <li><a href="#">asdf</a></li>
                                 </ul>
                             </div>
-                            <div class="question-editor text-question readonly">
+                            <div class="question-editor text-question for-supervisor">
                                 <button type="button" class="btn-link button-flag"></button>
                                 <h5 id="34567"> 
                                     Do you submit your monthly veterenary reports to District Veterinary Officer?
@@ -865,7 +1155,7 @@
                                     <div class="options-group">
                                       <div class="form-group">
                                         <div class="field">
-                                            <input type="text" class="field-to-fill" placeholder="Tap to enter"/ disabled>
+                                            <input type="text" class="field-to-fill" placeholder="Tap to enter"/>
                                             <button type="submit" class="btn btn-link btn-clear">
                                                 <span></span>
                                             </button>
@@ -905,7 +1195,56 @@
                                     <li><a href="#">asdf</a></li>
                                 </ul>
                             </div>
-                            <div class="question-editor single-select-question">
+                            <div class="question-editor text-question readonly for-supervisor">
+                                <button type="button" class="btn-link button-flag"></button>
+                                <h5 id=""> 
+                                    Do you submit your tax form?
+                                </h5>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                      <div class="form-group">
+                                        <div class="field">
+                                            <input type="text" class="field-to-fill" placeholder="Tap to enter" disabled/>
+                                            <button type="submit" class="btn btn-link btn-clear">
+                                                <span></span>
+                                            </button>
+                                        </div>
+                                      </div>
+                                      <span class="lock"></span>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block comments-block">
+                                    <div class=enumerators-comment></div>
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group comment-field">
+                                                  <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor single-select-question for-supervisor">
                                 <button type="button" class="btn-link button-flag"></button>
                                 <h5 id="45678"> 
                                     Do you smoke?
@@ -957,6 +1296,182 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="question with-flag">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor yes-no-question ordered answered readonly  for-supervisor">
+                                <button type="button" class="btn-link button-flag"></button>
+                                <h5> 
+                                    What languages do you most often use in your presentations?
+                                </h5>
+                                <div class="information-block instruction"></div>
+                                <div class="question-unit">
+                                    <div class="yes-no-mark">Yes <b>/</b> No</div>
+                                    <div class="options-group">
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="English1q" id="English-yes1" checked  disabled/>
+                                                <label for="English-yes1">
+                                                    <span class="tick"></span>
+                                                </label>
+                                                <b>/</b>
+                                                <input class="wb-radio" type="radio" name="English1q" id="English-no1" disabled/>
+                                                <label for="English-no1">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                                <span>English</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="badge">199</div>
+                                            </div>
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="ukrainian1q" id="ukrainian-yes1" disabled/>
+                                                <label for="ukrainian-yes1">
+                                                    <span class="tick"></span>
+                                                </label>
+                                                <b>/</b>
+                                                <input class="wb-radio" type="radio" name="ukrainian1q" id="ukrainian-no1" disabled/>
+                                                <label for="ukrainian-no1">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                                <span>ukrainian</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="badge">10</div>
+                                            </div>
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="russian1q" id="russian-yes1" disabled/>
+                                                <label for="russian-yes1">
+                                                    <span class="tick"></span>
+                                                </label>
+                                                <b>/</b>
+                                                <input class="wb-radio" type="radio" name="russian1q" id="russian-no1" checked disabled/>
+                                                <label for="russian-no1">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                                <span>russian</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="badge">59</div>
+                                            </div>
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="french1q" id="french-yes1" disabled/>
+                                                <label for="french-yes1">
+                                                    <span class="tick"></span>
+                                                </label>
+                                                <b>/</b>
+                                                <input class="wb-radio" type="radio" name="french1q" id="french-no1" checked  disabled/>
+                                                <label for="french-no1">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                                <span>french</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <div class="badge">67</div>
+                                            </div>
+                                        </div>
+                                        <span class="lock"></span>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block comments-block">
+                                    <div class=enumerators-comment></div>
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group comment-field">
+                                                 <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor cascading-question for-supervisor">
+                                <button type="button" class="btn-link button-flag"></button>
+                                <h5 id=""> 
+                                    Units
+                                </h5>
+                                <div class="information-block instructions"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="form-group">
+
+                                            <div class="field">
+                                                <div class="btn-group btn-input clearfix">
+                                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                      <span data-bind="label" class="gray-text">Tap to enter text</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#">Tap to enter text</a></li>
+                                                        <li><a href="#">Kilogram</a></li>
+                                                        <li><a href="#">50 kg bag</a></li>
+                                                        <li><a href="#">Pail (small)</a></li>
+                                                        <li><a href="#">Pail (large)</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block comments-block">
+                                    <div class=enumerators-comment></div>
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group comment-field">
+                                                  <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="question">
                             <div class="dropdown aside-menu">
                                 <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
@@ -978,7 +1493,7 @@
                                     <div class="options-group"> 
                                         <div class="radio">
                                             <div class="field">
-                                                <input class="wb-radio" type="radio" name="relations" id="son" checked />
+                                                <input class="wb-radio" type="radio" name="relationsq" id="son" checked />
                                                 <label for="son">
                                                   <span class="tick"></span>Son
                                                 </label>
@@ -989,7 +1504,7 @@
                                         </div>
                                         <div class="radio">
                                             <div class="field">
-                                                <input class="wb-radio" type="radio" name="relations" id="brother" value="current-version" />
+                                                <input class="wb-radio" type="radio" name="relationsq" id="brother" value="current-version" />
                                                 <label for="brother">
                                                   <span class="tick"></span>Brother
                                                 </label>
@@ -1023,6 +1538,249 @@
                               <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
                                 <span class="sr-only">60% Complete</span>
                               </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor yes-no-question for-supervisor">
+                                <button type="button" class="btn-link button-flag"></button>
+                                <h5> 
+                                    Do you have any of ?
+                                </h5>
+                                <div class="information-block instruction"></div>
+                                <div class="question-unit">
+                                    <div class="yes-no-mark">Yes <b>/</b> No</div>
+                                    <div class="options-group">
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="TV" id="TV-yes"/>
+                                                <label for="TV-yes">
+                                                    <span class="tick"></span>
+                                                </label>
+                                                <b>/</b>
+                                                <input class="wb-radio" type="radio" name="TV" id="TV-no"/>
+                                                <label for="TV-no">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                                <span>TV</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="CD" id="CD-yes"/>
+                                                <label for="CD-yes">
+                                                    <span class="tick"></span>
+                                                </label>
+                                                <b>/</b>
+                                                <input class="wb-radio" type="radio" name="CD" id="CD-no"/>
+                                                <label for="CD-no">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                                <span>CD</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="DVD" id="DVD-yes"/>
+                                                <label for="DVD-yes">
+                                                    <span class="tick"></span>
+                                                </label>
+                                                <b>/</b>
+                                                <input class="wb-radio" type="radio" name="DVD" id="DVD-no"/>
+                                                <label for="DVD-no">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                                <span>DVD</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="Blu-rayk" id="Blu-ray-yes"/>
+                                                <label for="Blu-ray-yes">
+                                                    <span class="tick"></span>
+                                                </label>
+                                                <b>/</b>
+                                                <input class="wb-radio" type="radio" name="Blu-ray" id="Blu-ray-no"/>
+                                                <label for="Blu-ray-no">
+                                                    <span class="tick"></span>
+                                                </label> 
+                                                <span>Blu-ray</span>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block comments-block">
+                                    <div class=enumerators-comment></div>
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group comment-field">
+                                                  <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor single-select-question answered for-supervisor">
+                                <button type="button" class="btn-link button-flag"></button>
+                                <h5 id="56789"> 
+                                    At what tipe of dwelling do you live?
+                                </h5>
+                                <div class="information-block instruction"></div>
+                                <div class="question-unit">
+                                    <div class="options-group"> 
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="dwelling" id="appartment"/>
+                                                <label for="appartment">
+                                                  <span class="tick"></span>Appartment
+                                                </label>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div> 
+                                        </div>
+                                        <div class="radio">
+                                            <div class="field">
+                                                <input class="wb-radio" type="radio" name="dwelling" id="house" value="current-version" checked />
+                                                <label for="house">
+                                                  <span class="tick"></span>House
+                                                </label>
+                                                <button type="submit" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block comments-block">
+                                    <div class=enumerators-comment></div>
+                                    <div class="comment">
+                                        
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group comment-field">
+                                                  <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress question-progress">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu" >
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="question-editor multiselect-question answered for-supervisor readonly">
+                                <button type="button" class="btn-link button-flag"></button>
+                                <h5 id=""> 
+                                    What farm inputs and/or implements did your or any member of the household buy in the last 12 months?
+                                </h5>
+                                <div class="information-block instruction"></div>
+                                <div class="question-unit">
+                                    <div class="options-group">
+                                        <div class="form-group">
+                                            <input class="wb-checkbox" id="Seeds" type="checkbox" checked  disabled/>
+                                            <label for="Seeds">
+                                                <span class="tick"></span>Seeds
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="wb-checkbox" id="Poultry" type="checkbox" disabled/>
+                                            <label for="Poultry">
+                                                <span class="tick"></span>Poultry/ animal feed or fodder
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="wb-checkbox" id="Veterinary" type="checkbox" disabled/>
+                                            <label for="Veterinary">
+                                                <span class="tick"></span>Veterinary costs
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="wb-checkbox" id="supers" type="checkbox" checked  disabled/>
+                                            <label for="supers">
+                                                <span class="tick"></span>Double supers
+                                            </label>
+                                        </div>
+                                        <span class="lock"></span>
+                                    </div>
+                                </div>
+                                <div class="information-block text-danger"></div>
+                                <div class="information-block comments-block">
+                                    <div class=enumerators-comment></div>
+                                    <div class="comment">
+                                        <form class="form-inline">
+                                            <label>Your comment</label>
+                                            <div class="form-group">
+                                                <div class="input-group comment-field">
+                                                  <input type="text" class="form-control" aria-label="..." placeholder="Tap to enter your comment"/>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default  btn-post-comment">Post</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="question with-flag">
@@ -3459,8 +4217,8 @@
                                     <div class="options-group"> 
                                         <div class="radio">
                                             <div class="field">
-                                                <input class="wb-radio" type="radio" name="relations1" id="son1" checked />
-                                                <label for="son1">
+                                                <input class="wb-radio" type="radio" name="1qaz" id="son1q" checked />
+                                                <label for="son1q">
                                                   <span class="tick"></span>Son
                                                 </label>
                                                 <button type="submit" class="btn btn-link btn-clear">
@@ -3470,8 +4228,8 @@
                                         </div>
                                         <div class="radio">
                                             <div class="field">
-                                                <input class="wb-radio" type="radio" name="relations1" id="brother1" value="current-version" />
-                                                <label for="brother1">
+                                                <input class="wb-radio" type="radio" name="1qaz" id="brother1q" value="current-version" />
+                                                <label for="brother1q">
                                                   <span class="tick"></span>Brother
                                                 </label>
                                                 <button type="submit" class="btn btn-link btn-clear">
@@ -3883,13 +4641,13 @@
                                     <div class="options-group">
                                         <div class="radio">
                                             <div class="field">
-                                                <input class="wb-radio" type="radio" name="Kitchen1" id="Kitchen-yes1" checked />
-                                                <label for="Kitchen-yes1">
+                                                <input class="wb-radio" type="radio" name="Kitchen1q" id="Kitchen-yes1q" checked />
+                                                <label for="Kitchen-yes1q">
                                                     <span class="tick"></span>
                                                 </label>
                                                 <b>/</b>
-                                                <input class="wb-radio" type="radio" name="Kitchen1" id="Kitchen-no1"/>
-                                                <label for="Kitchen-no1">
+                                                <input class="wb-radio" type="radio" name="Kitchen1q" id="Kitchen-no1q"/>
+                                                <label for="Kitchen-no1q">
                                                     <span class="tick"></span>
                                                 </label> 
                                                 <span>Kitchen</span>

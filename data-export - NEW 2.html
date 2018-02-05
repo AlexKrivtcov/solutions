@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-questionnaires</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-specific.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+            })
+      }); 
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+              $(".navbar-collapse").fadeToggle();
+              $(".navbar-collapse").animate({height: '100%'}, 0);
+              $(".top-menu").toggleClass("top-animate");
+              $(".mid-menu").toggleClass("mid-animate");
+              $(".bottom-menu").toggleClass("bottom-animate");
+              $("main").toggleClass("hidden");
+            });
+        });
+    </script> 
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    </script>
+</head>
+<body class="wide-navbar">
+    <header class="">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <div class="navbar-brand">
+                        <a class="logo" href="#"></a>
+                        <a class="brand-name" title="Headquarters" href="#">Headquarters</a>
+                    </div>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header> 
+    <main class="export hold-transition">
+        <div class="container">
+            <div class="export">
+                <div class="page-header clearfix">
+                    <h1>Generate new export set</h1>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p>Data export set will be generated based on selected version of questionaire, timeline and statuses and can contain additional data (DDI structure, paradata, collected binary data)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Range</h3>
+                            <div class="structure-block">
+                                <h5>Survey template (questionnaire version)</h5>
+                                <select class="selectpicker">
+                                    <option>All interviews of version 12 of "Livestock Field Officer Questionnaire" 
+                                    changed from 23:33, Mar 13, 2017 to 23:33, Mar 15, 2017 
+                                    with all interview statuses
+                                    </option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
+                            </div>
+                            <div class="structure-block checkbox-block">
+                                <h5>Status of exported interviews</h5>
+                                <div class="form-group">
+                                    <input class="checkbox-filter" id="assigned-to-enumerator" type="checkbox" checked/>
+                                    <label for="assigned-to-enumerator">
+                                        <span class="tick"></span>Assigned to enumerator
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <input class="checkbox-filter" id="completed-by-enumerator" type="checkbox" checked/>
+                                    <label for="completed-by-enumerator">
+                                        <span class="tick"></span>Completed by enumerator
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <input class="checkbox-filter" id="accepted-by-supervisor" type="checkbox" checked/>
+                                    <label for="accepted-by-supervisor">
+                                        <span class="tick"></span>Accepted by supervisor
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <input class="checkbox-filter" id="accepted-by-hq" type="checkbox" checked/>
+                                    <label for="accepted-by-hq">
+                                        <span class="tick"></span>Accepted by HQ
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="structure-block clearfix">
+                                <h5>Timline of exported interviews <br/>(when selected statuses have changed)</h5>
+                                <div class="form-date">
+                                    <div class='input-group date' id='datetimepicker6'>
+                                        <label>From: </label>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-date">
+                                    <div class='input-group date' id='datetimepicker7'>
+                                        <label>To: </label>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3>Data format</h3>
+                            <div class="structure-block">
+                                <div class="data-type-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="Stata" >
+                                    <label for="Stata" class="">
+                                        <span class="tick"></span>
+                                        <span class="format-data stata">Stata 10 format (no Unicode)</span>
+                                        
+                                    </label>
+                                </div>
+                                <div class="data-type-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="spss" >
+                                    <label for="spss">
+                                        <span class="tick"></span>
+                                        <span class="format-data spss">IBM SPSS format</span>
+                                        
+                                    </label>
+                                </div>
+                                <div class="data-type-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="separated" >
+                                    <label for="separated">
+                                        <span class="tick"></span>
+                                        <span class="format-data separated-data">Tab separated data</span>
+                                    </label>
+                                </div>
+                                <div class="data-type-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="zip" >
+                                    <label for="zip">
+                                        <span class="tick"></span>
+                                        <span class="format-data zip">Export only additional data (no answers will be exported)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <h3>Additional data</h3>
+                                <div class="structure-block checkbox-block">
+                                    <div class="form-group">
+                                        <input class="checkbox-filter" id="binary" type="checkbox" checked/>
+                                        <label for="binary">
+                                            <span class="tick"></span>Include collected binary data (e.g., pictures, audio)
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="checkbox-filter" id="DDI" type="checkbox" checked/>
+                                        <label for="DDI">
+                                            <span class="tick"></span>Include DDI Metadata XML
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="checkbox-filter" id="Paradata" type="checkbox" />
+                                        <label for="Paradata">
+                                            <span class="tick"></span>Paradata (Metadata on the interview process: all events and timing)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="structure-block">
+                                    <div class="selected-data-range">Selected range contains<br>
+                                        2`324 interviews by 122 teams (430 enumerators):
+                                    </div>
+                                </div>
+                                <div class="structure-block">
+                                    <button type="submit" class="btn btn-success">add to queue</button>
+                                    <button type="submit" class="btn btn-lg btn-link">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer hold-transition">
+        <div class="container-fluid">
+            <div class="text-right">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-right">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+    </footer>
+        <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+        var $target = $( event.currentTarget );
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+    });
+    </script>
+</body>
+</html>

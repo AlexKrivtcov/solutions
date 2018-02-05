@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
+    <title>HQ-questionnaires</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
                 <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
                 <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
@@ -16,23 +16,49 @@
                 <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
     <link rel="stylesheet" type="text/css" href="css/markup.css">
     <link rel="stylesheet" type="text/css" href="css/markup-specific.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script>
       $(document).ready(function () {
-        $(".navbar-toggle").click(function () {
-          $(".navbar-collapse").fadeToggle();
-          $(".navbar-collapse").animate({height: '100%'}, 0);
-          $(".top-menu").toggleClass("top-animate");
-          $(".mid-menu").toggleClass("mid-animate");
-          $(".bottom-menu").toggleClass("bottom-animate");
-          $("main").toggleClass("hidden");
+        $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+            })
+      }); 
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+              $(".navbar-collapse").fadeToggle();
+              $(".navbar-collapse").animate({height: '100%'}, 0);
+              $(".top-menu").toggleClass("top-animate");
+              $(".mid-menu").toggleClass("mid-animate");
+              $(".bottom-menu").toggleClass("bottom-animate");
+              $("main").toggleClass("hidden");
+            });
         });
-      });
     </script> 
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    </script>
 </head>
 <body class="wide-navbar">
-    <header>
+    <header class="">
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
            <div class="container-fluid ">
               <!-- Brand and toggle get grouped for better mobile display -->
@@ -91,39 +117,60 @@
             </div><!-- /.container-fluid -->
         </nav>  
     </header> 
-    <main>
-        <div class="red-line"></div>
+    <main class="export hold-transition">
         <div class="container">
-            <div class="row">
-                <div class="page-header">
-                  <h1>
-                    Error 404: Page not found
-                  </h1> 
+            <div class="export">
+                <div class="page-header clearfix">
+                    <h1>Data export</h1>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p>Data export set will be generated based on selected version of questionaire, timeline and statuses and can contain additional data (DDI structure, paradata, collected binary data)</p>
+                            <div class="button-wrapper">
+                                <a href="#" class="btn btn-success ">Generate new export set</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="export-sets">
+                            <div class="no-sets">No generated sets yet</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Data export API</h3>
+                        <p>You can setup automatic export of collected interview data using our API toolset for more information 
+                            and inctruction use <a href="#" target="_blank" class="underlined-link">Data Export API reference</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-          <div class="row">
-            <div class="col-sm-6 extra-margin-bottom">
-              <p>The page you are looking for doesn't exist. <br/> Please check URL to ensure that path is correct. <br/> Contact system administrator if this problev presists.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <a href="#" class="back-link">back</a>
-            </div>
-          </div>
         </div>
     </main>
-    <footer class="footer">
-    <div class="container-fluid">
-      <div class="text-right">
-        &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
-      </div>
-      <div class="text-right">
-        5.12.0 (build 13156) 
-        <span>|</span>
-        <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
-       </div>
-    </div>
+    <footer class="footer hold-transition">
+        <div class="container-fluid">
+            <div class="text-right">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-right">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
     </footer>
+        <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+        var $target = $( event.currentTarget );
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+    });
+    </script>
 </body>
 </html>

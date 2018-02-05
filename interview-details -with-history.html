@@ -14,7 +14,9 @@
                 <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
                 <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
                 <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
-    <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-web-interview.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-specific.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
@@ -113,26 +115,29 @@
     <script>
         var ajustNoticeHeight = function(){
             var height = $(".view-mode").outerHeight();
-            $('.view-mode + main').css("margin-top", height+"px");
-            $('.wrapper-view-mode').css("padding-top", height); 
-            $('.wrapper-view-mode .foldback-button').css("margin-top", height); 
-            $('.wrapper-view-mode .close-btn').css("margin-top", height); 
-            $('.wrapper-view-mode .humburger-foldback-button').css("margin-top", height); 
+            $( ".view-mode + main .container-fluid .panel-details" ).css("padding-top", height);
         };
+        var ajustDetailsPanelHeight  = function(){
+            var height = $(".panel-details").outerHeight();
+            $('.filters').css("top", height+"px");
+            $('.filters-results').css("top", height+"px");
+            $('.content').css("top", height+"px");
+            $('main').css("margin-top", height+"px");
+        }
         $(document).ready(function () { 
-            $( ".view-mode + main .container-fluid .filters" ).wrapInner( "<div class='wrapper-view-mode'></div>");
-            $( ".view-mode + main .container-fluid .content" ).wrapInner( "<div class='wrapper-view-mode'></div>");
-            $( ".view-mode + main .container-fluid .filters-results" ).wrapInner( "<div class='wrapper-view-mode'></div>");
             ajustNoticeHeight();
+            ajustDetailsPanelHeight();
 
             $('.view-mode .alerts .alert').on('closed.bs.alert', function () {
                 ajustNoticeHeight();
+                ajustDetailsPanelHeight();
             })
         });
         $( window ).resize(function() {
             ajustNoticeHeight();
+            ajustDetailsPanelHeight();
         });
-    </script>  
+    </script> 
     <script>
     $(document).ready(function () 
     {
@@ -283,25 +288,47 @@
     <main class="web-interview web-interview-for-supervisor hold-transition">
         <div class="container-fluid">
             <div class="row">
+                    <div class="panel panel-details">
+                        <div class="panel-body clearfix">
+                            <div class="about-questionnaire clearfix">
+                                <div class="about-questionnaire-details">
+                                    <ul class="main-info-column list-unstyled pull-left">
+                                        <li>Interview #00-52-49-03 (assignment N888888),</li>
+                                        <li class="questionnaire-title">World Bank MTF Energy Survey - Household Questionnaire Medium Version (56 English)</li>
+                                    </ul>
+                                    <ul class="list-unstyled pull-left">
+                                        <li><span class="data-label">Responsible: </span> <span class="data"><a href="#" target="_blank" class="interviewer">enum234</a></span></li>
+                                        <li><span class="data-label">Supervisor: </span> <span class="data"><a href="#" target="_blank" class="supervisor">super</a></span></li>
+                                    </ul>
+                                    <ul class="list-unstyled pull-left">
+                                        <li><span class="data-label">Status:</span> <span class="data">Completed</span></li>
+                                        <li><span class="data-label">Updated: </span> <span  class="data">Mar 23, 23:23</span><button type="button" class="btn btn-link gray-action-unit" data-toggle="modal" data-target="#statuses">History</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="questionnaire-details-actions clearfix">
+                                <button type="button" class="btn btn-success">Approve</button>
+                                <button type="button" class="btn btn-default btn-lg reject">Reject</button>
+                                <div class="dropdown aside-menu">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                        <span></span>
+                                    </button>
+                                    <ul class="dropdown-menu" >
+                                        <li><a href="#">sdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                        <li><a href="#">asdf</a></li>
+                                    </ul>
+                                </div>          
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
                 <aside class="filters">
                         <div class="foldback-button" id="hide-filters">
                             <span class="arrow"></span>
                             <span class="arrow"></span>
                             <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-                        </div>
-                        <div class="filters-container">
-                                <h2>#00-52-49-03</h2>
-                                <ul class="list-unstyled about-questionnaire">
-                                    <li><b>Assignment #356, interview 3</b></li>
-                                    <li><b>conducted on <span>Mar 23, 23:23 GMT+3</span></b></li>
-                                    <li><b>by <a href="#" target="_blank" class="interviewer">enumer52</a></b></li>
-                                </ul>
-                                <div class="filter-actions-block">
-                                    <button type="button" class="btn btn-success">Approve</button>
-                                    <button type="button" class="btn btn-default btn-lg reject">Reject</button>
-                                    
-                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#statuses">History</button>
-                                </div>
                         </div>
                         <div class="filters-container">
                             <h4>Filter Questions</h4> 

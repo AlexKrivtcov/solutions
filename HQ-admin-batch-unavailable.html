@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
+    <title>HQ-questionnaires batch upload</title>
     <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
                 <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
                 <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
@@ -30,6 +30,21 @@
         });
       });
     </script> 
+        <script>
+        $(function() {
+            $(".list-required-prefilled-data").click(function() {  
+                $(this).hide();
+                $(this).parents(".row").find(".hide-list-of-required-prefilled-data").css( "display", "block")
+                $(this).parents(".row").find(".prefilled-data").css( "display", "block")
+            });
+            $(".hide-list-of-required-prefilled-data").click(function() {  
+                $(this).hide();
+                $(this).parents(".row").find(".list-required-prefilled-data").css( "display", "block")
+                $(this).parents(".row").find(".prefilled-data").hide();
+                
+            });
+        });
+    </script>
 </head>
 <body class="wide-navbar">
     <header>
@@ -92,23 +107,63 @@
         </nav>  
     </header> 
     <main>
-        <div class="red-line"></div>
         <div class="container">
             <div class="row">
                 <div class="page-header">
+                  <ol class="breadcrumb">
+                    <li><a href="">Questionnaire</a></li>
+                  </ol>
                   <h1>
-                    Error 404: Page not found
+                    Creating multiple interviews by batch upload
                   </h1> 
                 </div>
             </div>
           <div class="row">
-            <div class="col-sm-6 extra-margin-bottom">
-              <p>The page you are looking for doesn't exist. <br/> Please check URL to ensure that path is correct. <br/> Contact system administrator if this problev presists.</p>
+            <div class="col-sm-7 col-xs-10 prefilled-data-info info-block">
+              <p>Create set of usets by uploading file with all necessary information.<br/>
+                Set can contain both supervisors and enumerators, alternatively, <br/>
+                you can <a href="#">create user profiles manualy</a>.</p>  
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6">
-              <a href="#" class="back-link">back</a>
+            <div class="col-sm-7 col-xs-10 prefilled-data-info info-block">
+                <h3>Data required for creating enumerators and supervisors</h3>
+                <dl class="required-data">
+                    <dt>Username</dt>
+                    <dd> (Used as login, should be between 3 and 15 characters and contain only letters, digits and underscore symbol.)
+                    </dd>
+                    <dt>Password</dt>
+                    <dd> (Password must contain at least one number, one upper case character and one lower case character.)</dd>
+                    <dt>Role</dt>
+                    <dd> ('supervisor' or 'enumerator')</dd>
+                    <dt>Assigned to</dt>
+                    <dd> (Required for enumerators, contains username of supervisor to whom this person will be assigned.)</dd>
+                </dl>
+                  
+            </div>
+          </div>
+          <div class="row">
+                <div class="col-sm-7 col-xs-10 prefilled-data-info info-block">
+                    <h3>Optional personal information</h3>
+                    <ul class="list-unstyled prefilled-data">
+                        <li>Full name</li>
+                        <li>Email</li>
+                        <li>Contact phone</li>
+                    </ul>
+                    <a href="#" class="btn btn-link">Download .tab template for user upload</a>                   
+                </div>
+              </div>
+          <div class="row">
+            <div class="col-sm-7 col-xs-10 ">
+              <div class="progress-wrapper-block">
+                  <p class="warning-message">Warning: Another Batch Upload by "username" is in progress. <br/>You will be available to start yours when curren one is completed.</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="11" style="width: 55%">
+                            <span class="sr-only">55% Complete</span>
+                        </div>
+                    </div>
+                    <span>Approx 23 min left</span>
+              </div>
             </div>
           </div>
         </div>

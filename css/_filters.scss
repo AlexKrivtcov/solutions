@@ -6,8 +6,8 @@
 	@extend %aside;
 	width: $filter-width;
 	border-right: 3px solid $gray-super-light;
-	padding: 100px 5px 50px 5px;
-	margin-left: 12px;
+	padding: 30px 5px 50px 5px;
+	border-left: 12px solid $gray_form;
 	.input-group.date{
 		margin-left: 0 !important;
 	}
@@ -46,22 +46,9 @@
 	h2{
 		margin-bottom: 10px;
 	}
-	.about-questionnaire{
-		font-size: 14px;
-		line-height: 16px;
-		li{
-			padding-bottom: 3px;
-			b a{
-				font-weight: bold;
-			}
-		}
-	}
 	color: $gray_text;
 	padding: 0 15px 20px 15px; 
 	@extend %filter-indent;
-}
-.filter-actions-block{
-	margin-bottom: 10px;
 }
 .block-filter{
 	h5{
@@ -89,28 +76,21 @@
 			margin-bottom: 0;
 		}
 	}
-	.form-date{
-		margin-bottom: 15px;
-		max-width: 275px;
-		.input-group.date{
-			width: 100%;
-			label{
-				display: table-cell;
-				vertical-align: middle;
-				@include font(14px, 16px);
-				width: 50px;
-				font-weight: normal;
-			}
-			.form-control{
-				border-right: none;
-				border-color: $gray_form;
-				border-bottom-left-radius: 4px;
-				border-top-left-radius: 4px;
-			}
-		}
-	}
+
 }
 .form-date{
+	margin-bottom: 15px;
+	max-width: 275px;
+	.input-group.date{
+		width: 100%;
+		label{
+			display: table-cell;
+			vertical-align: middle;
+			@include font(14px, 16px);
+			width: 50px;
+			font-weight: normal;
+		}
+	}
 	&.input-group{
 		max-width: none;
 	}
@@ -149,7 +129,7 @@
 	}
 	.fullscreen-hidden-filters{
 		.filters{
-			left: - $filter-width - 12px;
+			left: - $filter-width;
 			overflow: visible;
 			@include hidden-foldback-button();
 			.foldback-button{
@@ -163,17 +143,17 @@
 }
 @media (max-width: $screen-sm-min){
 	.filters{
-		left: ((-$filter-width)-12px);
+		left: ((-$filter-width));
 		@include hidden-foldback-button();
 		overflow: visible;
 	}
 	.fullscreen-hidden-filters{
 		.filters{
-			border: none;
-			margin: 0;
+			margin-left: 0;
 			@include absolute(0px, 0, 0, 0);
 			width: 100%;
 			overflow: auto;
+			height: auto;
 		   	@include visible-foldback-button();
 		   	.foldback-button{
 		   		right: 10px;

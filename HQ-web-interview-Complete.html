@@ -14,7 +14,8 @@
                 <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
                 <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
                 <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
-    <link rel="stylesheet" type="text/css" href="css/markup-detalica.css">
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-web-interview.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
@@ -114,14 +115,11 @@
     <script>
         var ajustNoticeHeight = function(){
             var height = $(".view-mode").outerHeight();
-            $('.view-mode + main').css("margin-top", height+"px");
-            $('.wrapper-view-mode').css("padding-top", height); 
-            $('.wrapper-view-mode .foldback-button').css("margin-top", height); 
-            $('.wrapper-view-mode .humburger-foldback-button').css("margin-top", height); 
+            $('.content').css("top", height+"px"); 
+            $('.filters').css("top", height+"px"); 
+            $('main').css("margin-top", height+"px");
         };
         $(document).ready(function () { 
-            $( ".view-mode + main .container-fluid .filters" ).wrapInner( "<div class='wrapper-view-mode'></div>");
-            $( ".view-mode + main .container-fluid .content" ).wrapInner( "<div class='wrapper-view-mode'></div>");
             ajustNoticeHeight();
 
             $('.view-mode .alerts .alert').on('closed.bs.alert', function () {
@@ -131,7 +129,7 @@
         $( window ).resize(function() {
             ajustNoticeHeight();
         });
-    </script>   
+    </script> 
 </head>
 <body class="gray-background">
     <header>
