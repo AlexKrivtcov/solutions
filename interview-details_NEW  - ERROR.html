@@ -15,21 +15,42 @@
                 <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
                 <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
     <link rel="stylesheet" type="text/css" href="css/markup.css">
-    <link rel="stylesheet" type="text/css" href="css/markup-web-interview.css">
     <link rel="stylesheet" type="text/css" href="css/markup-specific.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-web-interview.css">
+    
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
             <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script>
-        $(document).ready(function () {
-            $(".unit-title").stick_in_parent({recalc_every: 200 });
+        var ajustNoticeHeight = function(){
+            var height = $(".view-mode").outerHeight();
+            $( ".view-mode + main .container-fluid .panel-details" ).css("padding-top", height);
+        };
+        var ajustDetailsPanelHeight  = function(){
+            var height = $(".panel-details").outerHeight();
+            $('.filters').css("top", height+"px");
+            $('.filters-results').css("top", height+"px");
+            $('.content').css("top", height+"px");
+            $('main').css("margin-top", height+"px");
+        }
+        $(document).ready(function () { 
+            ajustNoticeHeight();
+            ajustDetailsPanelHeight();
+
+            $('.view-mode .alerts .alert').on('closed.bs.alert', function () {
+                ajustNoticeHeight();
+                ajustDetailsPanelHeight();
+            })
         });
-    </script> 
+        $( window ).resize(function() {
+            ajustNoticeHeight();
+            ajustDetailsPanelHeight();
+        });
+    </script>  
     <script>
         $(document).ready(function () {
             $(".navbar-toggle").click(function () {
@@ -42,6 +63,7 @@
             });
         });
     </script> 
+
     <script>
         $(function() {
             $(".button-flag").click(function() {  
@@ -113,106 +135,83 @@
         });
     </script>
     <script>
-        var ajustNoticeHeight = function(){
-            var height = $(".view-mode").outerHeight();
-            $( ".view-mode + main .container-fluid .panel-details" ).css("padding-top", height);
-        };
-        var ajustDetailsPanelHeight  = function(){
-            var height = $(".panel-details").outerHeight();
-            $('.filters').css("top", height+"px");
-            $('.filters-results').css("top", height+"px");
-            $('.content').css("top", height+"px");
-            $('main').css("margin-top", height+"px");
-        }
-        $(document).ready(function () { 
-            ajustNoticeHeight();
-            ajustDetailsPanelHeight();
-
-            $('.view-mode .alerts .alert').on('closed.bs.alert', function () {
-                ajustNoticeHeight();
-                ajustDetailsPanelHeight();
-            })
+        $(document).ready(function () 
+        {
+            $("#hide-filters").click(function () {
+                $(document.body).trigger("sticky_kit:recalc");
+                if (getScreenSize() == 'large')
+                {
+                    $('main').toggleClass("fullscreen-hidden-filters");
+                }
+                else{
+                    $('main').removeClass("fullscreen-hidden-filters");
+                    $('main').removeClass("show-content");
+                    $('main').toggleClass("show-filters");
+                }
+            });
+            $("#hide-content").click(function () {
+                $(document.body).trigger("sticky_kit:recalc");
+                if (getScreenSize() == 'large')
+                {
+                    $('main').toggleClass("fullscreen-hidden-content");
+                }
+                else{
+                    $('main').removeClass("fullscreen-hidden-content");
+                    $('main').removeClass("show-filters");
+                    $('main').toggleClass("show-content");                    
+                }
+            });
+            var getScreenSize = function(){
+                var witdth = $(window).outerWidth();
+                if (witdth > 1210) 
+                    return 'large';
+                return 'small';                
+            };
+            $("main").removeClass("hold-transition");
+            $("footer").removeClass("hold-transition");
         });
-        $( window ).resize(function() {
-            ajustNoticeHeight();
-            ajustDetailsPanelHeight();
-        });
-    </script> 
+    </script>
     <script>
-    $(document).ready(function () 
-    {
-        $("#hide-filters").click(function () {
-            $(document.body).trigger("sticky_kit:recalc");
-            if (getScreenSize() == 'large')
-            {
-                $('main').toggleClass("fullscreen-hidden-filters");
-            }
-            else{
-                $('main').removeClass("fullscreen-hidden-filters");
-                $('main').removeClass("show-content");
-                $('main').toggleClass("show-filters");
-            }
-        });
-        $("#hide-content").click(function () {
-            $(document.body).trigger("sticky_kit:recalc");
-            if (getScreenSize() == 'large')
-            {
-                $('main').toggleClass("fullscreen-hidden-content");
-            }
-            else{
-                $('main').removeClass("fullscreen-hidden-content");
+        $(document).ready(function () { 
+            var $checkboxes = $('.filters-container .checkbox-filter');
+            $checkboxes.change(function(){
+                $(".filters-results").addClass("active");
+                $("main").addClass("filters-results-are-shown");
+                $('main').removeClass("show-content"); 
                 $('main').removeClass("show-filters");
-                $('main').toggleClass("show-content");                    
-            }
+            });
+            $(".reset-filters").click(function() {  
+                $(".filters-container .checkbox-filter").attr('checked', false);
+                $(".filters-container .checkbox-filter").prop('checked', false);
+                $(".filters-results").removeClass("active");
+                $("main").removeClass("fullscreen-hidden-filters");
+                $("main").removeClass("filters-results-are-shown"); 
+                // $(".filters-results").addClass("active");
+                // $("main").addClass("filters-results-are-shown");
+                // $('main').removeClass("show-content"); 
+                // $('main').removeClass("show-filters");
+            });
+            $(".close-btn").click(function() {  
+                $(".filters-results").removeClass("active");
+                $("main").removeClass("fullscreen-hidden-filters");
+                $("main").removeClass("filters-results-are-shown");                
+            });
         });
-        var getScreenSize = function(){
-            var witdth = $(window).outerWidth();
-            if (witdth > 1210) 
-                return 'large';
-            return 'small';                
-        };
-        $("main").removeClass("hold-transition");
-        $("footer").removeClass("hold-transition");
-    });
-</script>
-<script>
-    $(document).ready(function () { 
-        var $checkboxes = $('.filters-container .checkbox-filter');
-        $checkboxes.change(function(){
-            $(".filters-results").addClass("active");
-            $("main").addClass("filters-results-are-shown");
-            $('main').removeClass("show-content"); 
-            $('main').removeClass("show-filters");
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".filters-results .question").click(function() {
+              var elementClick = $(this).attr("href")
+              var destination = $(elementClick).offset().top - 200;
+              jQuery("html:not(:animated),body:not(:animated)").animate({
+                scrollTop: destination
+              }, 800);
+              return false;
+            });
         });
-        $(".reset-filters").click(function() {  
-            $(".filters-container .checkbox-filter").attr('checked', false);
-            $(".filters-container .checkbox-filter").prop('checked', false);
-            $(".filters-results").addClass("active");
-            $("main").addClass("filters-results-are-shown");
-            $('main').removeClass("show-content"); 
-            $('main').removeClass("show-filters");
-        });
-        $(".close-btn").click(function() {  
-            $(".filters-results").removeClass("active");
-            $("main").removeClass("fullscreen-hidden-filters");
-            $("main").removeClass("filters-results-are-shown");                
-        });
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $(".filters-results .question").click(function() {
-            var elementClick = $(this).attr("href")
-            var destination = $(elementClick).offset().top - 200;
-            jQuery("html:not(:animated),body:not(:animated)").animate({
-            scrollTop: destination
-            }, 800);
-            return false;
-        });
-    });
-</script>
+    </script>
 </head>
-<body class="gray-background wide-navbar">
+<body class="gray-background wide-navbar always-visible-scroll">
     <header>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
            <div class="container-fluid ">
@@ -284,148 +283,149 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
     <main class="web-interview web-interview-for-supervisor hold-transition">
         <div class="container-fluid">
-            <div class="panel panel-details">
-                <div class="panel-body clearfix">
-                    <div class="about-questionnaire clearfix">
-                        <div class="about-questionnaire-details">
-                            <ul class="main-info-column list-unstyled pull-left">
-                                <li>Interview #00-52-49-03 (assignment N888888),</li>
-                                <li class="questionnaire-title">World Bank MTF Energy Survey - Household Questionnaire Medium Version (56 English)</li>
-                            </ul>
-                            <ul class="list-unstyled pull-left">
-                                <li><span class="data-label">Responsible: </span> <span class="data"><a href="#" target="_blank" class="interviewer">enum234</a></span></li>
-                                <li><span class="data-label">Supervisor: </span> <span class="data"><a href="#" target="_blank" class="supervisor">super</a></span></li>
-                            </ul>
-                            <ul class="list-unstyled pull-left">
-                                <li><span class="data-label">Status:</span> <span class="data">Completed</span></li>
-                                <li><span class="data-label">Updated: </span> <span  class="data">Mar 23, 23:23</span><button type="button" class="btn btn-link gray-action-unit" data-toggle="modal" data-target="#statuses">History</button></li>
-                            </ul>
-                            
+            <div class="row">
+                    <div class="panel panel-details">
+                        <div class="panel-body clearfix">
+                            <div class="about-questionnaire clearfix">
+                                <div class="about-questionnaire-details">
+                                    <ul class="main-info-column list-unstyled pull-left">
+                                        <li>Interview #00-52-49-03 (assignment N888888),</li>
+                                        <li class="questionnaire-title">World Bank MTF Energy Survey - Household Questionnaire Medium Version (56 English)</li>
+                                    </ul>
+                                    <ul class="list-unstyled pull-left">
+                                        <li><span class="data-label">Responsible: </span> <span class="data"><a href="#" target="_blank" class="interviewer">enum234</a></span></li>
+                                        <li><span class="data-label">Supervisor: </span> <span class="data"><a href="#" target="_blank" class="supervisor">super</a></span></li>
+                                    </ul>
+                                    <ul class="list-unstyled pull-left">
+                                        <li><span class="data-label">Status:</span> <span class="data">Completed</span></li>
+                                        <li><span class="data-label">Updated: </span> <span  class="data">Mar 23, 23:23</span><button type="button" class="btn btn-link gray-action-unit" data-toggle="modal" data-target="#statuses">History</button></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                            <div class="questionnaire-details-actions clearfix">
+                                <div class="btn-group bootstrap-select"><button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" role="button" title="Original"><span class="filter-option pull-left">Original</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Original</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Translation 0801</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="" tabindex="-98"><option value="">Original</option> <option>Translation 0801</option></select></div>
+                                <div class="buttons-container">
+                                    <button type="button" class="btn btn-success">Approve</button>
+                                    <button type="button" class="btn btn-default btn-lg reject">Reject</button>
+                                    <div class="dropdown aside-menu">
+                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                            <span></span>
+                                        </button>
+                                        <ul class="dropdown-menu" >
+                                            <li><a href="#">sdf</a></li>
+                                            <li><a href="#">asdf</a></li>
+                                            <li><a href="#">asdf</a></li>
+                                        </ul>
+                                    </div>   
+                                </div>       
+                            </div>
                         </div>
                     </div>
-                    <div class="questionnaire-details-actions clearfix">
-                        <div class="btn-group bootstrap-select"><button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" role="button" title="Original"><span class="filter-option pull-left">Original</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Original</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Translation 0801</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="" tabindex="-98"><option value="">Original</option> <option>Translation 0801</option></select></div>
-                        <div class="buttons-container">
-                            <button type="button" class="btn btn-success">Approve</button>
-                            <button type="button" class="btn btn-default btn-lg reject">Reject</button>
-                            <div class="dropdown aside-menu">
-                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
-                                    <span></span>
-                                </button>
-                                <ul class="dropdown-menu" >
-                                    <li><a href="#">sdf</a></li>
-                                    <li><a href="#">asdf</a></li>
-                                    <li><a href="#">asdf</a></li>
-                                </ul>
-                            </div>   
-                        </div>       
-                    </div>
-                </div>
             </div>
-        </div>
             <div class="row">
                 <aside class="filters">
-                        <div class="foldback-button" id="hide-filters">
-                            <span class="arrow"></span>
-                            <span class="arrow"></span>
-                            <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+                    <div class="foldback-button" id="hide-filters">
+                        <span class="arrow"></span>
+                        <span class="arrow"></span>
+                        <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+                    </div>
+                    <div class="filters-container">
+                        <h4>Filter Questions</h4> 
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="flagged" type="checkbox"/>
+                                <label for="flagged">
+                                    <span class="tick"></span>Flagged
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="with-comments" type="checkbox"/>
+                                <label for="with-comments">
+                                    <span class="tick"></span>With comments 
+                                </label>
+                            </div>
                         </div>
-                        <div class="filters-container">
-                            <h4>Filter Questions</h4> 
-                            <div class="block-filter separate-filters-group">
-                                <div class="form-group">
-                                    <input class="checkbox-filter" id="flagged" type="checkbox"/>
-                                    <label for="flagged">
-                                        <span class="tick"></span>Flagged
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <input class="checkbox-filter" id="with-comments" type="checkbox"/>
-                                    <label for="with-comments">
-                                        <span class="tick"></span>With comments 
-                                    </label>
-                                </div>
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="Invalid" type="checkbox"/>
+                                <label for="Invalid">
+                                    <span class="tick"></span>Invalid 
+                                </label>
                             </div>
-                            <div class="block-filter separate-filters-group">
-                                <div class="form-group">
-                                    <input class="checkbox-filter" id="Invalid" type="checkbox"/>
-                                    <label for="Invalid">
-                                        <span class="tick"></span>Invalid 
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <input class="checkbox-filter" id="valid" type="checkbox"/>
-                                    <label for="valid">
-                                        <span class="tick"></span>Valid 
-                                    </label>
-                                </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="valid" type="checkbox"/>
+                                <label for="valid">
+                                    <span class="tick"></span>Valid 
+                                </label>
                             </div>
-                            <div class="block-filter separate-filters-group">
-                                <div class="form-group">
-                                    <input class="checkbox-filter" id="answered" type="checkbox" checked="" />
-                                    <label for="answered">
-                                        <span class="tick"></span>Answered 
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <input class="checkbox-filter" id="unanswered" type="checkbox"/>
-                                    <label for="unanswered">
-                                        <span class="tick"></span>Unanswered
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="block-filter">
-                                <div class="form-group">
-                                    <input class="checkbox-filter" id="for-supervisor" type="checkbox"/>
-                                    <label for="for-supervisor">
-                                        <span class="tick"></span>For supervisor
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <input class="checkbox-filter" id="for-interviewer" type="checkbox"/>
-                                    <label for="for-interviewer">
-                                        <span class="tick"></span>For interviewer
-                                    </label>
-                                </div>
-                            </div> 
                         </div>
-                        <div class="preset-filters-container">
-                            <div class="block-filter">
-                                <button  type="button" class="btn btn-link btn-looks-like-link reset-filters">View all (reset all filters)</a>
+                        <div class="block-filter separate-filters-group">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="answered" type="checkbox" />
+                                <label for="answered">
+                                    <span class="tick"></span>Answered 
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="unanswered" type="checkbox"/>
+                                <label for="unanswered">
+                                    <span class="tick"></span>Unanswered
+                                </label>
+                            </div>
+                        </div>
+                        <div class="block-filter">
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="for-supervisor" type="checkbox"/>
+                                <label for="for-supervisor">
+                                    <span class="tick"></span>For supervisor
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input class="checkbox-filter" id="for-interviewer" type="checkbox"/>
+                                <label for="for-interviewer">
+                                    <span class="tick"></span>For interviewer
+                                </label>
                             </div>
                         </div> 
-                    </aside>
-                    <aside class="filters-results">
-                        <button class="btn btn-link close-btn" type="button"><span class="cancel"></span></button>
-                        <h2>235 questions found:</h2>
-                        <div class="unit-section">
-                            <ol class="breadcrumb">
-                                <li><a href="">Section C: Consumption of food over past week</a></li>
-                                <li><a href="">cereals and cereals products</a></li>
-                                <li><a href="">rice (paddy)</a></li>
-                            </ol>
-                            <a class="question short-row" href="#12345">What is your relations status to the household head</a>
-                            <a class="question short-row" href="#23456">What farm inputs and/or implements did your or any member of the household buy in the last 12 months?</a>
-                            <a class="question short-row active" href="#34567">Do you submit your monthly veterenary reports to District Veterinary Officer?</a>
-                            <a class="question short-row" href="#45678">Do you smoke?</a>
-                            <a class="question short-row" href="#56789">What is your relations status to the household head</a>
-                            <a class="question short-row" href="#67890">Specify units</a>
-                            <a class="question short-row" href="#7890">Units</a>
+                    </div>
+                    <div class="preset-filters-container">
+                        <div class="block-filter">
+                            <button  type="button" class="btn btn-link btn-looks-like-link reset-filters">Reset all filters</a>
                         </div>
-                        <div class="unit-section">
-                            <ol class="breadcrumb">
-                                <li><a href="">Section C: Consumption of food over past week</a></li>
-                                <li><a href="">cereals and cereals products</a></li>
-                                <li><a href="">rice (paddy)</a></li>
-                            </ol>
-                            <a class="question short-row"href="#">What type of heat source do you use to heat your house?</a>
-                            <a class="question short-row"href="#">What crops were planted on your parcel during last year?</a>
-                            <a class="question short-row"href="#">Do you have any of the following housing utilities and communication means?</a>
-                        </div>
-                    </aside>
+                    </div> 
+                </aside>
+                <aside class="filters-results">
+                    <button class="btn btn-link close-btn" type="button"><span class="cancel"></span></button>
+                    <h2>235 questions found:</h2>
+                    <div class="unit-section">
+                        <ol class="breadcrumb">
+                            <li><a href="">Section C: Consumption of food over past week</a></li>
+                            <li><a href="">cereals and cereals products</a></li>
+                            <li><a href="">rice (paddy)</a></li>
+                        </ol>
+                        <a class="question short-row" href="#12345">What is your relations status to the household head</a>
+                        <a class="question short-row" href="#23456">What farm inputs and/or implements did your or any member of the household buy in the last 12 months?</a>
+                        <a class="question short-row active" href="#34567">Do you submit your monthly veterenary reports to District Veterinary Officer?</a>
+                        <a class="question short-row" href="#45678">Do you smoke?</a>
+                        <a class="question short-row" href="#56789">What is your relations status to the household head</a>
+                        <a class="question short-row" href="#67890">Specify units</a>
+                        <a class="question short-row" href="#7890">Units</a>
+                    </div>
+                    <div class="unit-section">
+                        <ol class="breadcrumb">
+                            <li><a href="">Section C: Consumption of food over past week</a></li>
+                            <li><a href="">cereals and cereals products</a></li>
+                            <li><a href="">rice (paddy)</a></li>
+                        </ol>
+                        <a class="question short-row"href="#">What type of heat source do you use to heat your house?</a>
+                        <a class="question short-row"href="#">What crops were planted on your parcel during last year?</a>
+                        <a class="question short-row"href="#">Do you have any of the following housing utilities and communication means?</a>
+                    </div>
+                </aside>
                 <aside class="content">
                     <div class="foldback-button" id="hide-content">
                         <span class="arrow"></span>
@@ -621,79 +621,27 @@
                     </div>
                 </aside>
                 <section class="questionnaire details-interview">
-                    <div class="unit-section complete-section first-last-chapter">
-                        <div class="unit-title">
-                            <h3>Cover page, status history, interview info</h3>
-                        </div>
-                        <div class="wrapper-info">
-                            <div class="container-info">
-                                <h2>Copy of Copy of Bosnia and Herzogowina <br/> Water and Sanitation Survey 2017 (Friday draft)<br/> Interview 23-44-13-46</h2>
+                        <div class="unit-section section-with-error">
+                            <div class="unit-title">
+                                <h3>Cover</h3>
+                            </div>
+                            <div class="wrapper-info error">
+                                <div class="container-info">
+                                    <h4 class="error-text">Error: This interview is corrupted</h3>
+                                    <p class="error-text"><i>Attention! this interview has corrupted data, <br />
+                                        only previous version of interview is available, <br />
+                                    contact HQ support get assistance.</i></p>
+                                </div>
+                                <div class="container-info">
+                                    <h2>Numeric roster (ver. 1)</h2>
+                                </div>
+                            </div>
+                            <div class="wrapper-info">
+                                <div class="container-info">
+                                    <a href="#" class="btn btn-lg btn-primary">next section</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="wrapper-info">
-                            <div class="container-info">
-                                <h3>Timeline of interview status changes:</h3>
-                                <table class="table history">
-                                    <tr>
-                                        <td class="date">Feb 20, 22:22</td>
-                                        <td><span class="primary-text">Current status:</span> Uploaded from device</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="date">Feb 19, 12:52</td>
-                                        <td>Downloaded to device</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="date">Feb 17, 16:06</td>
-                                        <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="date">Feb 16, 18:12</td>
-                                        <td>
-                                            <span class="error-text">Rejected</span> by <a href="#" class="supervisor">suprv7 (you)</a>
-                                            <div class="comment">
-                                                <h4 class="gray-uppercase">Rejection comment (feb 13, 13:58):</h4>
-                                                <p><b><i>Household consumption data is not valid, please re-check cereals and flours quantities (you can do it by phone)</i></b></p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="date">Feb 16, 14:52</td>
-                                        <td>Uploaded from device</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="date">Feb 15, 14:42</td>
-                                        <td>Downloaded to device</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="date">Feb 12, 12:52</td>
-                                        <td>Assigned to  <a href="#" class="interviewer">interviewer-191</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="date">Feb 11, 19:52</td>
-                                        <td>Reasigned to <a href="#" class="supervisor">suprv7 (you)</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="date">Feb 09, 23:55</td>
-                                        <td>Issued by HQ3, assigned to <a href="#" class="supervisor">suprv5</a></td>
-                                    </tr>  
-                                </table>
-                            </div>
-                        </div>
-                        <div class="wrapper-info">
-                            <div class="container-info">
-                                <h3>Prefield data</h3>
-                                <dl>
-                                    <dt>Enumeration area code</dt>
-                                    <dd>East 12</dd>
-                                    <dt>Interviewee ID</dt>
-                                    <dd><a href="mailto:liam.radison@yahoo.com">liam.radison@yahoo.com</a></dd>
-                                    <dt>Interviewee occupation industry</dt>
-                                    <dd>Healthcare</dd>
-                                </dl>
-                                <a href="#" class="btn btn-lg btn-success">next chapter</a>
-                            </div>
-                        </div>
-                    </div>
                 </section>
             </div>
         </div>

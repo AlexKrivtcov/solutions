@@ -1773,6 +1773,17 @@ header > .red-line {
 .readonly input.wb-radio:checked:disabled + label:hover .tick, .readonly input.wb-radio:checked:disabled + label:focus .tick {
   background-position: -777px 2px; }
 
+.error h4, .error .import-progress {
+  font-family: "RobotoRegular";
+  margin-top: 20px;
+  margin-bottom: 10px; }
+.error p {
+  font-family: "RobotoBold"; }
+  .error p:only-of-type {
+    margin-bottom: 30px !important; }
+.error h2 {
+  margin-bottom: 30px; }
+
 @media only screen and (max-width: 1525px) {
   .web-interview-for-supervisor .filters {
     width: 282px; }
