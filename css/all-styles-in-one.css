@@ -11352,6 +11352,10 @@ header > .red-line {
       margin-left: 10px; }
   .panel-details .about-questionnaire-details ul .btn-link {
     padding: 0; }
+  .panel-details .about-questionnaire-details ul:last-of-type {
+    margin-right: 0; }
+    .panel-details .about-questionnaire-details ul:last-of-type li span:last-of-type {
+      padding-left: 5px; }
 .panel-details .main-info-column {
   max-width: 375px;
   font-family: "RobotoBold"; }
@@ -11360,9 +11364,16 @@ header > .red-line {
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: "RobotoRegular"; }
+.panel-details .table-info {
+  display: table; }
+  .panel-details .table-info li {
+    display: table-row; }
+    .panel-details .table-info li span {
+      display: table-cell; }
+    .panel-details .table-info li:nth-of-type(2n) span {
+      padding-top: 5px; }
 .panel-details .data-label {
   display: inline-block;
-  width: 110px;
   text-align: right;
   color: #a6a8a9; }
 .panel-details .data {
@@ -11698,6 +11709,8 @@ header > .red-line {
   .web-interview-for-supervisor .questionnaire-details-actions .buttons-container {
     display: block;
     margin-top: 15px; }
+    .web-interview-for-supervisor .questionnaire-details-actions .buttons-container:only-child {
+      margin-top: 0; }
 
   .panel-details .about-questionnaire {
     width: calc(100% - 240px); } }
@@ -11731,11 +11744,11 @@ header > .red-line {
       margin: 0 auto; }
 
   .web-interview-for-supervisor .structured-content > .panel-default:first-of-type > .panel-heading h3 > a {
-    margin-right: 0; }
-  .web-interview-for-supervisor .questionnaire-details-actions .buttons-container {
-    display: inline-block;
-    margin-top: 0; }
-
+    margin-right: 0; } }
+@media screen and (max-width: 840px) {
+  .panel-details .main-info-column {
+    width: 100%;
+    max-width: 100%; }
   .panel-details p {
     line-height: 20px; }
   .panel-details .about-questionnaire {
@@ -11752,7 +11765,11 @@ header > .red-line {
     margin-right: 0; }
   .panel-details .aside-menu .dropdown-menu {
     left: 35px;
-    right: auto; } }
+    right: auto; }
+
+  .web-interview-for-supervisor .questionnaire-details-actions .buttons-container {
+    display: inline-block;
+    margin-top: 0; } }
 @media (max-width: 481px) {
   .web-interview.web-interview-for-supervisor .aside-menu {
     right: 0;
