@@ -1685,7 +1685,6 @@ header > .red-line {
     .panel-details .table-info li:nth-of-type(2n) span {
       padding-top: 5px; }
 .panel-details .data-label {
-  display: inline-block;
   text-align: right;
   color: #a6a8a9; }
 .panel-details .data {
