@@ -228,7 +228,7 @@
 		}
 	}
 }
-.for-supervisor{
+.question-editor.for-supervisor{
 	.options-group{
 		background-color: #bbd5ec;
 		input{
@@ -253,15 +253,40 @@
 	.btn-default.btn-action-questionnaire{
 		color: lighten($blue, 10%) !important;
 	}
-	&.answered.question-editor{
-		.radio,
-		.question-unit .form-group{
-			border-color: lighten($blue, 10%);
+	&.answered{
+		.question-unit{
+			.radio,
+			.form-group,
+			.options-group{
+				border-color: lighten($blue, 10%);
+			}
+			.btn-default.btn-action-questionnaire{
+				border-color: $blue !important;
+			}
+		}
+		&.has-error .question-unit{
+			.radio, .form-group{
+				border-color: #f6d6d0;
+			}
 		}
 	} 
-	&.answered{
-		.btn-default.btn-action-questionnaire{
-			border-color: $blue !important;
+	
+	&.has-error {
+		.question-unit .options-group{
+			background-color: $red-super-light;
+			.form-group{
+				border-color: $red-super-light;
+			}
+		}
+		.form-control:focus{
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+		}
+		.field-to-fill{
+			box-shadow: none;
+			&:hover, &:focus, &:active, &:active:focus {
+				border-color: transparent;
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f19580; 
+			}
 		}
 	}
 	.radio input.wb-radio:checked + label,

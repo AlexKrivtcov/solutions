@@ -232,28 +232,69 @@
                         </div>
                     </div>
                     <div class="row">
-                            <div class="col-md-12">
-                                <h3>Additional data</h3>
-                                <div class="structure-block checkbox-block">
-                                    <div class="form-group">
-                                        <input class="checkbox-filter" id="binary" type="checkbox" checked/>
-                                        <label for="binary">
-                                            <span class="tick"></span>Include collected binary data (e.g., pictures, audio)
+                        <div class="col-md-12">
+                            <h3>Additional data</h3>
+                            <div class="structure-block checkbox-block">
+                                <div class="form-group">
+                                    <input class="checkbox-filter" id="binary" type="checkbox" checked/>
+                                    <label for="binary">
+                                        <span class="tick"></span>Include collected binary data (e.g., pictures, audio)
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <input class="checkbox-filter" id="DDI" type="checkbox" checked/>
+                                    <label for="DDI">
+                                        <span class="tick"></span>Include DDI Metadata XML
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <input class="checkbox-filter" id="Paradata" type="checkbox" />
+                                    <label for="Paradata">
+                                        <span class="tick"></span>Paradata (Metadata on the interview process: all events and timing)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-10">
+                                <h3>Export file destination</h3>
+                                <div class="structure-block">
+                                    <div class="export-row">
+                                        <input class="radio-row" type="radio" name="relations1" id="download" >
+                                        <label for="download" class="">
+                                            <span class="tick"></span>
+                                            <span class="format-data download-icon">Download</span>
+                                            
                                         </label>
                                     </div>
-                                    <div class="form-group">
-                                        <input class="checkbox-filter" id="DDI" type="checkbox" checked/>
-                                        <label for="DDI">
-                                            <span class="tick"></span>Include DDI Metadata XML
+                                    <div class="export-row">
+                                        <input class="radio-row" type="radio" name="relations1" id="onedrive" >
+                                        <label for="onedrive">
+                                            <span class="tick"></span>
+                                            <span class="format-data onedrive-icon">Upload to OneDrive</span>
+                                            
                                         </label>
                                     </div>
-                                    <div class="form-group">
-                                        <input class="checkbox-filter" id="Paradata" type="checkbox" />
-                                        <label for="Paradata">
-                                            <span class="tick"></span>Paradata (Metadata on the interview process: all events and timing)
+                                    <div class="export-row">
+                                        <input class="radio-row" type="radio" name="relations1" id="dropbox" >
+                                        <label for="dropbox">
+                                            <span class="tick"></span>
+                                            <span class="format-data dropbox-icon">Upload to Dropbox</span>
+                                        </label>
+                                    </div>
+                                    <div class="export-row">
+                                        <input class="radio-row" type="radio" name="relations1" id="ftp" >
+                                        <label for="ftp">
+                                            <span class="tick"></span>
+                                            <span class="format-data ftp-icon">Upload to custom FTP</span>
                                         </label>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-12">
                                 <div class="structure-block">
                                     <div class="selected-data-range">Selected range contains<br>
                                         2`324 interviews by 122 teams (430 enumerators):
