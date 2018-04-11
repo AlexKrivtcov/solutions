@@ -256,14 +256,15 @@
         &.sorting_asc{
             color: $blue;
             &:after{
-                border-top-color: $blue;
+                border-top: none;
+                border-bottom: 10px solid $blue;
             }
         }
         &.sorting_desc{
             color: $blue;
             &:after{
-                border-top: none;
-                border-bottom: 10px solid $blue;
+                border-top-color: $blue;
+                
             }
         }
     }

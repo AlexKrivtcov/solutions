@@ -18,16 +18,33 @@
     <link rel="stylesheet" type="text/css" href="css/markup-web-interview.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
+  
     <script>
         $(document).ready(function () {
+            $(window).on('resize', function() {
+                if($(window).width() > 880) {
+                    if ($(".navbar-collapse.collapse.in").length > 0) {
+                        $("main").addClass("display-block");
+                    }
+                }else{
+                        $("main").removeClass("display-block");
+                    }
+            });
             $(".navbar-toggle").click(function () {
-            $(".navbar-collapse").fadeToggle();
-            $(".navbar-collapse").animate({height: '100%'}, 0);
-            $(".top-menu").toggleClass("top-animate");
-            $(".mid-menu").toggleClass("mid-animate");
-            $(".bottom-menu").toggleClass("bottom-animate");
-            $("main").toggleClass("hidden");
+                $(".navbar-collapse").fadeToggle();
+                $(".navbar-collapse").animate({height: '100%'}, 0);
+                $(".top-menu").toggleClass("top-animate");
+                $(".mid-menu").toggleClass("mid-animate");
+                $(".bottom-menu").toggleClass("bottom-animate");
+                if($(window).width() < 880) {
+                    if ($(".navbar-collapse.collapse.in").length > 0) {
+                        $("main").removeClass("display-block");
+                        $("main").removeClass("hidden");
+                    }else{
+                        
+                        $("main").addClass("hidden");
+                    }
+                }
             });
         });
     </script> 
@@ -96,22 +113,27 @@
             $("footer").removeClass("hold-transition");
         });
     </script>
-    <script>
+    <!-- <script>
         $(document).ready(function () {
-           calcWidth();
+            calcWidth();
         });
         $( window ).resize(function() {
-          calcWidth();
+            calcWidth();
         });
         var calcWidth = function(){
-           var navbar = $(".navbar .container-fluid").width(); 
-           var brand = $(".navbar-brand").outerWidth(); 
-           var left_nav = $(".navbar-nav").first().outerWidth(); 
-           var right_nav = $(".navbar-right").outerWidth(); 
-           var navbar_text = navbar - brand - left_nav - right_nav - 20;
+            var navbar = $(".navbar .container-fluid").width(); 
+            var brand = $(".navbar-header").outerWidth(); 
+            var right_side_nav = $(".navbar-right").outerWidth(); 
+            var left_side_nav = $(".navbar-nav:not(.navbar-right)")
+            var left_side_nav_width = 0;
+            if (left_side_nav.length > 0) 
+            {
+                left_side_nav_width = left_side_nav.outerWidth(); 
+                }
+            var navbar_text = navbar - brand - right_side_nav - left_side_nav_width - 30;
             $(".navbar-text").outerWidth(navbar_text);
         };
-    </script>
+    </script> -->
     <script>
         var ajustNoticeHeight = function(){
             var height = $(".view-mode").outerHeight();
@@ -132,45 +154,46 @@
     </script> 
 </head>
 <body class="gray-background">
-    <header>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-           <div class="container-fluid ">
-              <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <a href="#" class="active-page">Web interview #23-44-32-12</a>
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar top-menu"></span>
-                        <span class="icon-bar mid-menu"></span>
-                        <span class="icon-bar bottom-menu"></span>
-                    </button>
-                    <div class="navbar-brand">
-                        <a class="logo" href="#"></a>
+        <header>
+            <nav class="navbar navbar-inverse navbar-fixed-top navbar-web-interview" role="navigation">
+                <div class="container-fluid ">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a href="#" class="interview-ID">23-44-32-12</a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar top-menu"></span>
+                            <span class="icon-bar mid-menu"></span>
+                            <span class="icon-bar bottom-menu"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <a class="logo" href="#"></a>
+                        </div>
+                        <button type="button" class="btn btn-default btn-link btn-icon"><span class="glyphicon glyphicon-sort"></span></button>
                     </div>
-                </div>
-                  <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#" title="Web interview #23-44-32-12">Web interview #23-44-32-12</a></li>
-                        <li><a href="#" title="Restart">Restart</a></li>
-                    </ul>
-                    <p class="navbar-text">Title of current auestionnaire... During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeksDuring the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</p>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="ENG">ENG<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">RUS</a></li>
-                                <li><a href="#">UA</a></li>
-                                <li><a href="#">Chinese</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" title="Help">Help</a></li>
-                        
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>  
-    </header>  
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="#" class="interview-ID">23-44-32-12</a></li>
+                        </ul>
+                        <p class="navbar-text pull-left">During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeksDuring the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</p>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#" title="Help">Help</a></li> 
+                            <li class="dropdown language">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Long long Long long long really long language name">Long long Long long long really long language name<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Long long Long long long really long language name</a></li>
+                                    <li><a href="#">UA</a></li>
+                                    <li><a href="#">LonglongLonglonglongrealllonglanguagnameLonglongLonglonglongrealllonglanguagnameLonglongLonglonglongrealllonglanguagname</a></li>
+                                </ul>
+                            </li>
+                            <li> <button type="button" class="btn btn-default btn-link btn-icon"><span class="glyphicon glyphicon-sort"></span></button></li>
+                                
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>  
+        </header>  
     <div class="panel view-mode">
         <div class="panel-heading panel-warning">
             This is the content that <b>28kBa0osVU0nQqn</b> sees. <a href="#">Click to return to your account.</a>

@@ -19,11 +19,11 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
     <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="js/jquery.elastic.source.js"></script>
     <script>
         $(document).ready(function () {
             $(window).on('resize', function() {
@@ -53,22 +53,27 @@
             });
         });
     </script> 
-     <script>
+    <!-- <script>
         $(document).ready(function () {
-           calcWidth();
+            calcWidth();
         });
         $( window ).resize(function() {
-          calcWidth();
+            calcWidth();
         });
         var calcWidth = function(){
-           var navbar = $(".navbar .container-fluid").width(); 
-           var brand = $(".navbar-brand").outerWidth(); 
-           var left_nav = $(".navbar-nav").first().outerWidth(); 
-           var right_nav = $(".navbar-right").outerWidth(); 
-           var navbar_text = navbar - brand - left_nav - right_nav - 20;
+            var navbar = $(".navbar .container-fluid").width(); 
+            var brand = $(".navbar-header").outerWidth(); 
+            var right_side_nav = $(".navbar-right").outerWidth(); 
+            var left_side_nav = $(".navbar-nav:not(.navbar-right)")
+            var left_side_nav_width = 0;
+            if (left_side_nav.length > 0) 
+            {
+                left_side_nav_width = left_side_nav.outerWidth(); 
+                }
+            var navbar_text = navbar - brand - right_side_nav - left_side_nav_width - 30;
             $(".navbar-text").outerWidth(navbar_text);
         };
-    </script>
+    </script> -->
     <script>
         $(document).ready(function () 
         {
@@ -85,6 +90,10 @@
         $(function() {
             $(".btn-clear").click(function() {  
                 $(this).parent().find("input").prop('checked', false);
+            });
+            $(".btn-clear").click(function() {  
+                $(this).parent().find("textarea").val('');
+                $(this).parent().find("textarea").height('20px');
             });
         });
     </script>
@@ -189,7 +198,7 @@
 </head>
 <body class="gray-background">
     <header>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-web-interview" role="navigation">
            <div class="container-fluid ">
               <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -207,21 +216,22 @@
                 </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar">
-                    <!-- <ul class="nav navbar-nav">
-                        <li><a href="#" title="Restart">Restart</a></li>
-                    </ul> -->
-                    <p class="navbar-text">During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeksDuring the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</p>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="#" class="interview-ID">23-44-32-12</a></li>
+                    </ul>
+                    <p class="navbar-text pull-left">During the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeksDuring the last 12 months, did you or any members of your household receive any of the following Sources? Consumption of foods past two weeks</p>
                     <ul class="nav navbar-nav navbar-right">
-                        <li> <button type="button" class="btn btn-default btn-link btn-icon"><span class="glyphicon glyphicon-sort"></span></button></li>
+                        <li class="help-link"><a href="#" title="HelpHelpHelpHelpHelpHelp" >HelpHelpHelpHelpHelpHelp</a></li> 
                         <li class="dropdown language">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="ENG">ENG<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Long long Long long long really long language name">Long long Long long long really long language name<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">RUS</a></li>
+                                <li><a href="#">Long long Long long long really long language name</a></li>
                                 <li><a href="#">UA</a></li>
-                                <li><a href="#">Chinese</a></li>
+                                <li><a href="#">LonglongLonglonglongrealllonglanguagnameLonglongLonglonglongrealllonglanguagnameLonglongLonglonglongrealllonglanguagname</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" title="Help">Help</a></li>     
+                        <li> <button type="button" class="btn btn-default btn-link btn-icon"><span class="glyphicon glyphicon-sort"></span></button></li>
+                            
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -2868,7 +2878,7 @@
                                         <div class="options-group">
                                           <div class="form-group">
                                             <div class="field">
-                                                <input type="text" class="field-to-fill" placeholder="Tap to enter number" value="Selling groceries" />
+                                                <textarea class="field-to-fill js-elasticArea" placeholder="Tap to enter number" value="Selling groceries">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit iaculis justo iaculis molestie. Sed condimentum, massa vitae viverra accumsan, massa libero sollicitudin lacus, facilisis dignissim ante ante id lacus. Pellentesque non ipsum at augue egestas congue ut a nisi. Sed varius quis elit vitae dignissim. Nunc ornare, metus id ultricies semper, ipsum lectus interdum ex, nec cursus eros nisi in dolor. Proin fringilla neque est, eu luctus leo viverra non. Etiam eu vulputate turpis, non hendrerit massa. Nulla sed odio ex. Sed eu tellus ac mauris tincidunt convallis vel quis odio. Praesent congue odio ante, nec ornare libero congue ac. Morbi volutpat ex et ultrices porttitor. Vivamus bibendum suscipit malesuada.</textarea>
                                                 <button type="submit" class="btn btn-link btn-clear">
                                                     <span></span>
                                                 </button>
@@ -3315,5 +3325,33 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFtRD8SCHuzfNmn1RvKCjQum3e19C1J10&callback=initMap">
     </script>
+        <script>(function() {
+
+            'use strict';
+            
+            function elasticArea() {
+                $('.js-elasticArea').each(function(index, element) {
+                    var elasticElement = element,
+                    $elasticElement = $(element),
+                    initialHeight = initialHeight || $elasticElement.height(),
+                    delta = parseInt( $elasticElement.css('paddingBottom') ) + parseInt( $elasticElement.css('paddingTop') ) || 0,
+                    resize = function() {
+                        $elasticElement.height(initialHeight);
+                        $elasticElement.height( elasticElement.scrollHeight - delta );
+                    };
+                
+                $elasticElement.on('input change keyup', resize);
+                resize();
+                });
+                
+            };
+            
+                //Init function in the view
+                elasticArea();
+                
+            
+            })();
+            //# sourceURL=pen.js
+        </script>
 </body>
 </html>

@@ -679,3 +679,9 @@ ul.dropdown-menu li, ul.dropdown-menu li *{
 		font-size: 20px;
 	}
 }
+textarea.field-to-fill{
+	resize: none;
+	max-height: 500px;
+	display: block;
+	height: 40px;
+}
