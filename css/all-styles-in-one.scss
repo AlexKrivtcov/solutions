@@ -27,9 +27,7 @@ $icon-font-path: '../vendor/bootstrap-sass/assets/fonts/bootstrap/';
 @import "main-information";
 @import "interviews";
 @import "enumerator";
-@import "troubleshooting";
 @import "error-page";
-@import "interview-details";
 @import "variables";
 
 
@@ -39,3 +37,5 @@ $icon-font-path: '../vendor/bootstrap-sass/assets/fonts/bootstrap/';
 @import "web-interview";
 @import "web-interview-start";
 @import "web-interview-first-last-chapter";
+
+@import "interview-details";
