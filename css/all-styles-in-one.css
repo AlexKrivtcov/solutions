@@ -6596,6 +6596,13 @@ a.disabled {
     left: 8px;
     top: -5px; }
 
+.gray-link-underline {
+  color: #a6a8a9;
+  text-decoration: underline; }
+  .gray-link-underline:hover, .gray-link-underline:focus, .gray-link-underline:active {
+    text-decoration: none;
+    color: #a6a8a9; }
+
 .navbar {
   min-width: 360px;
   min-height: 70px;
@@ -9111,6 +9118,9 @@ h5, .preset-filters-container a, .preset-filters-container .export-queue {
 .default-text {
   color: #dbdfe2 !important; }
 
+.gray-font {
+  color: #a6a8a9; }
+
 .primary-text {
   color: #2a81cb !important; }
 
@@ -9541,6 +9551,9 @@ dl dd:after {
 
 .always-visible-scroll {
   overflow-y: scroll; }
+
+.padding-left-100 {
+  padding-left: 100px; }
 
 .left-column #log-in {
   text-align: left; }
@@ -11146,6 +11159,14 @@ header > .red-line {
     margin: 0 auto; }
     html body main .servers-error .centered-box-table {
       text-align: left; } }
+.under-construction .page-header {
+  background: url("../img/logo_under_constraction.jpg") 0 100px no-repeat;
+  padding-left: 100px;
+  padding-top: 100px; }
+  .under-construction .page-header p {
+    font-size: 12px;
+    line-height: 14px; }
+
 /* Colors */
 /* Changed default value */
 /* Indent for filters */
