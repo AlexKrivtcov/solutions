@@ -22,16 +22,16 @@
     <link rel="stylesheet" type="text/css" href="css/markup-interview-details.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script>
+    <!-- <script type="text/javascript" src="js/page-detalica/sticky-kit.js"></script> -->
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
             <script type="text/javascript" src="js/bootstrap-select.js"></script>
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $(".unit-title").stick_in_parent({recalc_every: 200 });
         });
-    </script> 
+    </script>  -->
     <script>
         $(document).ready(function () {
             $(".navbar-toggle").click(function () {
@@ -304,8 +304,8 @@
                                             <li><span class="data-label">Supervisor: </span> <span class="data"><a href="#" target="_blank" class="supervisor">super</a></span></li>
                                         </ul>
                                         <ul class="list-unstyled pull-left table-info">
-                                            <li><span class="data-label">Status:</span> <span class="data">Completed</span></li>
-                                            <li><span class="data-label">Updated: </span> <span  class="data">Mar 23, 23:23</span><button type="button" class="btn btn-link gray-action-unit" data-toggle="modal" data-target="#statuses">History</button></li>
+                                            <li><span class="data-label">Status:</span> <span class="data">Completed</span><button type="button" class="btn btn-link gray-action-unit" data-toggle="modal" data-target="#statuses">History</button></li>
+                                            <li><span class="data-label">Updated: </span> <span  class="data">Mar 23, 23:23</span><button type="button" class="btn btn-link gray-action-unit" data-toggle="modal" data-target="#overview">Overview</button></li>
                                         </ul>
                                         
                                     </div>
@@ -755,6 +755,238 @@
             </div>
         </div>
     </div>
+    <div class="modal fade overview" id="overview" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                    <h3>Interview overview</h3>
+                </div>
+                <div class="modal-body">
+                        <div class="overview-item section">
+                            <div class="item-content">
+                                <h4>Multi questions</h4>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date">18:35</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item clearfix">
+                            <div class="date">18:36</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>1</p>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date"></div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date">
+                                <div>Feb 17</div>
+                                <div>16:06</div>
+                            </div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item invalid clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>Regional hospital</p>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item hasComment clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>Regional hospital</p>
+                            </div>
+                        </div>
+                        <div class="overview-item section">
+                            <div class="item-content">
+                                <h4>Single-select questions</h4>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered hasComment clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item group">
+                            <div class="item-content">
+                                <h4>Sub-section</h4>
+                            </div>
+                        </div>
+                        <div class="overview-item invalid hasComment clearfix">
+                            <div class="date">
+                                <div>Feb 17</div>
+                                <div>16:06</div>
+                            </div>
+                            <div class="item-content">
+                                <h4>What type </h4>
+                                <p>Regional hospital</p>
+                            </div>
+                            
+                            <div class="custom-popover overview-additional-information">
+                                <div class="popover-header">
+                                    <button type="button" class="close close-popover"><span></span></button>
+                                    <h5>Additional question information</h5>
+                                </div>
+                                <div class="popover-content">
+                                    <div class="information-block text-danger">
+                                        <h6>Data error</h6>
+                                        <p>Value of quantity of household consumption must be grater than 10 (and less than 99)</p>
+                                        <p>Value of quantity of household consumption must be grater than 10 (and less than 99)</p>
+                                    </div>
+                                    <hr />
+                                    <div class="information-block comments-block">
+                                        <div class="enumerators-comment">
+                                            <h6>ENUMERATOR'S comment <span>(dec 12)</span></h6>
+                                            <p>Please ask about quantity in total for household</p>
+                                        </div>
+                                        <h6>Your comment <span>(dec 12)</span></h6>
+                                        <p>Value of quantity is correct</p>
+                                        <div class="enumerators-comment">
+                                            <h6>ENUMERATOR'S comment <span>(dec 12)</span></h6>
+                                            <p>Please ask about quantity in total for household</p>
+                                        </div>
+                                        <h6>Your comment <span>(23 hours ago)</span></h6>
+                                        <p>Ok</p>
+                                        <div class="comment">
+                                            <form class="form-inline">
+                                                <label>Enter Your comment</label>
+                                                <div class="form-group">
+                                                    <div class="input-group comment-field">
+                                                        <textarea class="form-control js-elasticArea" placeholder="Tap to enter your comment" autocomplete="off" title=""></textarea>
+                                                        <div class="input-group-btn">
+                                                            <button type="button" class="btn btn-default  btn-post-comment">Post</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popover-footer clearftix">
+                                    
+                                    <button type="button" class="btn btn-link gray-action-unit pull-left add-comment">Add comment</button>
+                                    <button type="button" class="btn btn-link gray-action-unit pull-right close-popover">close</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overview-item  clearfix">
+                            <div class="date">
+                                <div>Feb 17</div>
+                                <div>16:06</div>
+                            </div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>35</p>
+                            </div>
+                            <div class="custom-popover overview-additional-information">
+                                    <div class="popover-header">
+                                        <button type="button" class="close close-popover" ><span></span></button>
+                                        <h5>Additional question information</h5>
+                                    </div>
+                                    <div class="popover-content">
+                                        <div class="information-block text-danger">
+                                            <h6>Data error</h6>
+                                            <p>Value of quantity of household consumption must be grater than 10 (and less than 99)</p>
+                                        </div>
+                                        <hr />
+                                        <div class="information-block comments-block">
+                                            <div class="enumerators-comment">
+                                                <h6>ENUMERATOR'S comment <span>(dec 12)</span></h6>
+                                                <p>Please ask about quantity in total for household</p>
+                                            </div>
+                                            <h6>Your comment <span>(dec 12)</span></h6>
+                                            <p>Value of quantity is correct</p>
+                                            <div class="comment">
+                                                <form class="form-inline">
+                                                    <label>Enter Your comment</label>
+                                                    <div class="form-group">
+                                                        <div class="input-group comment-field">
+                                                                <textarea class="form-control js-elasticArea" placeholder="Tap to enter your comment" autocomplete="off" title=""></textarea>
+                                                            <div class="input-group-btn">
+                                                                <button type="button" class="btn btn-default  btn-post-comment">Post</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="popover-footer clearftix">
+                                        
+                                        <button type="button" class="btn btn-link gray-action-unit pull-left add-comment">Add comment</button>
+                                        <button type="button" class="btn btn-link gray-action-unit pull-right close-popover">close</button>
+                                        
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>
+                        <div class="overview-item unanswered clearfix">
+                            <div class="date">18:37</div>
+                            <div class="item-content">
+                                <h4>What type of health provider did he visit? First in order of importance</h4>
+                                <p>not answered</p>
+                            </div>
+                        </div>        
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="footer hold-transition">
         <div class="container-fluid">
             <div class="text-right">
@@ -790,6 +1022,53 @@
           map: map
         });
       }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".add-comment").click(function () {
+                $(this).parents(".custom-popover").find(".comment").show();
+                $(this).hide();
+            });
+            $(".btn-post-comment").click(function () {
+                $(this).parents(".custom-popover").find(".comment").hide();
+                $(this).parents(".custom-popover").find(".add-comment").show();
+            });
+            $(".item-content").click(function(){
+                $(this).parent().find(".custom-popover").addClass("visible");
+            });
+            $(".custom-popover .close-popover").click(function(){
+                $(this).parents(".custom-popover").removeClass("visible");
+            });
+        });
+    </script>
+    <script>
+        (function() {
+
+            'use strict';
+          
+            function elasticArea() {
+              $('.js-elasticArea').each(function(index, element) {
+                 var elasticElement = element,
+                    $elasticElement = $(element),
+                    initialHeight = initialHeight || $elasticElement.height(),
+                    delta = parseInt( $elasticElement.css('paddingBottom') ) + parseInt( $elasticElement.css('paddingTop') ) || 0,
+                    resize = function() {
+                      $elasticElement.height(initialHeight);
+                      $elasticElement.height( elasticElement.scrollHeight - delta );
+                  };
+                
+                $elasticElement.on('input change keyup', resize);
+                resize();
+              });
+              
+            };
+          
+            //Init function in the view
+            elasticArea();
+            
+          
+          })();
+          //# sourceURL=pen.js
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFtRD8SCHuzfNmn1RvKCjQum3e19C1J10&callback=initMap">

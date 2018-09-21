@@ -30,7 +30,7 @@ a.disabled{
 .btn-link{
 	@extend %gray-uppercase;
 	color: $blue;
-	&:hover, &:focus{
+	&::hover, &::focus{
 		text-decoration: none;
 		color: darken($blue, 15%);
 	}

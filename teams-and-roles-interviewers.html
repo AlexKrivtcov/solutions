@@ -66,20 +66,20 @@
     <script>
        $(document).ready(function(){
         $('.table-ordered')
-            .on( 'init.dt', function () {
-                $('#DataTables_Table_0_filter label').on('click', function(e) {
-                    if (e.target !== this)
-                        return;
-                      if ($(this).hasClass("active"))
-                    {
-                        $(this).removeClass("active");
-                    }
-                    else{
-                        $(this).addClass("active");
-                    }
-                    $(".column-questionnaire-title").toggleClass("padding-left-slide");
-                });
-            })
+            // .on( 'init.dt', function () {
+            //     $('#DataTables_Table_0_filter label').on('click', function(e) {
+            //         if (e.target !== this)
+            //             return;
+            //           if ($(this).hasClass("active"))
+            //         {
+            //             $(this).removeClass("active");
+            //         }
+            //         else{
+            //             $(this).addClass("active");
+            //         }
+            //         $(".column-questionnaire-title").toggleClass("padding-left-slide");
+            //     });
+            // })
             .DataTable({
                 "pageLength": 50,
                 "lengthChange": false,
