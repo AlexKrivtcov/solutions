@@ -163,19 +163,27 @@
   float: right; }
   .panel-details .questionnaire-details-actions .reject {
     margin-right: 15px; }
+  .panel-details .questionnaire-details-actions .btn-group {
+    margin-right: 5px; }
   .panel-details .questionnaire-details-actions .buttons-container {
     padding-top: 17px;
     display: inline-block; }
+    .panel-details .questionnaire-details-actions .buttons-container:empty {
+      padding: 0; }
     .panel-details .questionnaire-details-actions .buttons-container .btn {
       max-width: 145px;
       text-overflow: ellipsis;
       overflow: hidden;
-      white-space: nowrap; }
-.panel-details .bootstrap-select.btn-group {
+      white-space: nowrap;
+      margin-right: 5px; }
+.panel-details .bootstrap-select.btn-group,
+.panel-details .dropdown.bootstrap-select {
   width: 180px !important; }
-  .panel-details .bootstrap-select.btn-group:only-child {
+  .panel-details .bootstrap-select.btn-group:only-child,
+  .panel-details .dropdown.bootstrap-select:only-child {
     padding-top: 17px; }
-  .panel-details .bootstrap-select.btn-group .dropdown-toggle {
+  .panel-details .bootstrap-select.btn-group .dropdown-toggle,
+  .panel-details .dropdown.bootstrap-select .dropdown-toggle {
     height: 36px;
     line-height: 16px; }
 
@@ -215,18 +223,18 @@
 
 .question-editor.for-supervisor .options-group {
   background-color: #bbd5ec; }
-  .question-editor.for-supervisor .options-group input {
+  .question-editor.for-supervisor .options-group input, .question-editor.for-supervisor .options-group textarea {
     color: #2a81cb; }
-    .question-editor.for-supervisor .options-group input::-webkit-input-placeholder {
+    .question-editor.for-supervisor .options-group input::-webkit-input-placeholder, .question-editor.for-supervisor .options-group textarea::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
       color: #4e9ada !important; }
-    .question-editor.for-supervisor .options-group input::-moz-placeholder {
+    .question-editor.for-supervisor .options-group input::-moz-placeholder, .question-editor.for-supervisor .options-group textarea::-moz-placeholder {
       /* Firefox 19+ */
       color: #4e9ada !important; }
-    .question-editor.for-supervisor .options-group input:-ms-input-placeholder {
+    .question-editor.for-supervisor .options-group input:-ms-input-placeholder, .question-editor.for-supervisor .options-group textarea:-ms-input-placeholder {
       /* IE 10+ */
       color: #4e9ada !important; }
-    .question-editor.for-supervisor .options-group input:-moz-placeholder {
+    .question-editor.for-supervisor .options-group input:-moz-placeholder, .question-editor.for-supervisor .options-group textarea:-moz-placeholder {
       /* Firefox 18- */
       color: #4e9ada !important; }
 .question-editor.for-supervisor h5 {

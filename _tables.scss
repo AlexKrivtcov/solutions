@@ -211,23 +211,23 @@
         }
     }
 }
-.table-bordered{
-    border: none;
-    & > thead, 
-    & > tbody, 
-    & > tfoot{
-        & > tr{
-            & > td, & > th{
-                border-bottom: none;
-                border-right: none;
-                border-left: 1px solid #f8f9f9;
-                &:first-child{
-                    border-left: none;
-                }
-            }
-        }
-    }
-}
+// .table-bordered{
+//     border: none;
+//     & > thead, 
+//     & > tbody, 
+//     & > tfoot{
+//         & > tr{
+//             & > td, & > th{
+//                 border-bottom: none;
+//                 border-right: none;
+//                 border-left: 1.5px solid #f8f9f9;
+//                 &:first-child{
+//                     border-left: none;
+//                 }
+//             }
+//         }
+//     }
+// }
 .table-ordered{
     thead tr th{
         padding-right: 25px !important;
@@ -326,9 +326,10 @@
     thead tr, tbody tr{
         td, th{
             &.checkbox-cell{
-                text-align: center;
-                padding: 15px 3px 15px 10px;
-                outline: none;
+                max-width: 40px;
+                //text-align: center;
+                //padding: 15px 3px 15px 10px;
+                //outline: none;
             }
         }
         th{

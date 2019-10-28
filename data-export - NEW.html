@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ-questionnaires</title>
+    <link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+                <link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+                <link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+                <link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+                <link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+                <link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+                <link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+                <link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+                <link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+    <link rel="stylesheet" type="text/css" href="css/markup.css">
+    <link rel="stylesheet" type="text/css" href="css/markup-specific.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/export-new-part2.css"> -->
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+            })
+      }); 
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+              $(".navbar-collapse").fadeToggle();
+              $(".navbar-collapse").animate({height: '100%'}, 0);
+              $(".top-menu").toggleClass("top-animate");
+              $(".mid-menu").toggleClass("mid-animate");
+              $(".bottom-menu").toggleClass("bottom-animate");
+              $("main").toggleClass("hidden");
+            });
+        });
+    </script> 
+</head>
+<body class="wide-navbar">
+    <header class="">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <div class="navbar-brand">
+                        <a class="logo" href="#"></a>
+                        <a class="brand-name" title="Headquarters" href="#">Headquarters</a>
+                    </div>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header> 
+    <main class="hold-transition">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="page-header">
+                    <ol class="breadcrumb">
+                        <li><a href="">Data export/</a></li>
+                    </ol>
+                    <h1>Generate new export set</h1> 
+                    <div class="">
+                        <p>Data export set will be generated based on selected version of questionaire, <br />timeline and statuses and can contain additional data (DDI structure, paradata, collected binary data)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="export d-flex">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="mb-30">
+                                <h3>Filters</h3>
+                                <div class="d-flex mb-20 filter-wrapper">
+                                    <div class="filter-column">
+                                        <div class="form-group">            
+                                            <h5>Survey template (questionnaire version)</h5>
+                                            <select class="selectpicker form-control">
+                                                <option>All interviews of version 12 of "Livestock Field Officer Questionnaire" 
+                                                changed from 23:33, Mar 13, 2017 to 23:33, Mar 15, 2017 
+                                                with all interview statuses
+                                                </option>
+                                                <option>Ketchup</option>
+                                                <option>Relish</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="selectpicker">
+                                                <option>Ver. 1</option>
+                                                <option>Ver. 2</option>
+                                                <option>Ver. 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="filter-column">
+                                        <div class="form-group">
+                                            <h5>Status of exported interviews</h5>
+                                            <select class="selectpicker form-control">
+                                                <option>All interviews of version 12 of "Livestock Field Officer Questionnaire" 
+                                                changed from 23:33, Mar 13, 2017 to 23:33, Mar 15, 2017 
+                                                with all interview statuses
+                                                </option>
+                                                <option>Ketchup</option>
+                                                <option>Relish</option>
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-30">
+                                <h3>Data type</h3>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="STATABinary" >
+                                    <label for="STATABinary" class="">
+                                        <span class="tick"></span>
+                                        <span class="format-data Binary">ZIP</span>   
+                                    </label>
+                                </div>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="Binary" >
+                                    <label for="Binary">
+                                        <span class="tick"></span>
+                                        <span class="format-data Binary">Binary Data. Archive with binary data (e.g., pictures, audio)</span>
+                                        
+                                    </label>
+                                </div>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="separated" >
+                                    <label for="separated">
+                                        <span class="tick"></span>
+                                        <span class="format-data">DDI. Data Documentation Initiative XML data</span>
+                                    </label>
+                                </div>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="Tabular" >
+                                    <label for="Tabular">
+                                        <span class="tick"></span>
+                                        <span class="format-data Tabular">Paradata. Metadata on the interview process (events and timing)</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-30">
+                                <h3>Data format</h3>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="separated1" >
+                                    <label for="separated1" class="">
+                                        <span class="tick"></span>
+                                        <span class="format-data Tabular">Tab separated data</span>   
+                                    </label>
+                                </div>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="STATA1" >
+                                    <label for="STATA1">
+                                        <span class="tick"></span>
+                                        <span class="format-data STATA">STATA 10 format (no Unicode)</span>
+                                        
+                                    </label>
+                                </div>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="SPSS" >
+                                    <label for="SPSS">
+                                        <span class="tick"></span>
+                                        <span class="format-data SPSS">SPSS format</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-30">
+                                <h3>Export file destination</h3>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="download" >
+                                    <label for="download" class="">
+                                        <span class="tick"></span>
+                                        <span class="export-destination ">Download</span>   
+                                    </label>
+                                </div>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="OneDrive" >
+                                    <label for="OneDrive">
+                                        <span class="tick"></span>
+                                        <span class="export-destination OneDrive">Upload to OneDrive</span>
+                                    </label>
+                                </div>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="Dropbox" >
+                                    <label for="Dropbox">
+                                        <span class="tick"></span>
+                                        <span class="export-destination Dropbox">Upload to Dropbox</span>
+                                    </label>
+                                </div>
+                                <div class="radio-btn-row">
+                                    <input class="radio-row" type="radio" name="relations1" id="googleDrive" >
+                                    <label for="googleDrive">
+                                        <span class="tick"></span>
+                                        <span class="export-destination GoogleDrive">Upload to Google Drive</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-success">add to queue</button>
+                                <button type="submit" class="btn btn-lg btn-link">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-12">
+
+                        <h3 class="mb-20">Previously generated export sets</h3>
+                        <p class="mb-30">
+                            Every set is a zip archive with all collected interview data and DDI XML <br />structure you an download previously generated reports
+                        </p>
+                        <div class="export-card">
+                            
+                            <div class="top-row">
+                                <div class="format-data SPSS">
+                                    <div class="gray-text-row mb-05"><b>#1120</b> Queued on May 22, 2019 17:27</div>
+                                    <div class=" h3 mb-05">all type of questions with translations (ver. 2)</div>
+                                    <p class="mb-0 font-regular"><u class="font-bold">TABULAR</u> format. Interviews in <u class="font-bold">ALLSTATUSES</u>.</p>
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-row is-successful">
+                                <div class="export-destination ">
+                                    <p>Destination: Zip archive for download</p>
+                                    <div class="d-flex ai-center">
+                                        <a href="/api/DataExportApi/DownloadData?id=1120" class="btn btn-primary btn-lg ">Download</a>
+                                        
+                                        <div class="file-info">Last updated on May 22, 2019 17:27<br>File size: 0.1 MB </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="export-card">
+                            <div class="top-row">
+                                <div class="format-data">
+                                    <div class="gray-text-row mb-05"><b>#1120</b> Queued on May 22, 2019 17:27</div>
+                                    <div class=" h3 mb-05">all type of questions with translations (ver. 2)</div>
+                                    <p class="mb-0 font-regular"><u class="font-bold">TABULAR</u> format. Interviews in <u class="font-bold">ALLSTATUSES</u>.</p>
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-row">
+                                <div class="export-destination">
+                                    <p>Destination: Zip archive for download</p>
+                                    <div class="d-flex ai-center">
+                                        <span class="success-text status">Compressing</span>
+                                        <button type="submit" class="btn btn-sm btn-link">Cancel</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="export-card">
+                            <div class="top-row">
+                                <div class="format-data Tabular">
+                                    <div class="gray-text-row mb-05"><b>#1120</b> Queued on May 22, 2019 17:27</div>
+                                    <div class=" h3 mb-05">all type of questions with translations (ver. 2)</div>
+                                    <p class="mb-0 font-regular"><u class="font-bold">TABULAR</u> format. Interviews in <u class="font-bold">ALLSTATUSES</u>.</p>
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-row">
+                                <div class="export-destination Dropbox">
+                                    <p>Destination: Zip archive for download</p>
+                                    <div class="d-flex ai-center">
+                                                                                
+                                        <div class="file-info">File was regenerated</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="export-card">
+                            <div class="top-row">
+                                <div class="format-data Tabular">
+                                    <div class="gray-text-row mb-05"><b>#1120</b> Queued on May 22, 2019 17:27</div>
+                                    <div class=" h3 mb-05">all type of questions with translations (ver. 2)</div>
+                                    <p class="mb-0 font-regular"><u class="font-bold">TABULAR</u> format. Interviews in <u class="font-bold">ALLSTATUSES</u>.</p>
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-row">
+                                <div class="export-destination Dropbox">
+                                    <p>Destination: Zip archive for download</p>
+                                    <div class="d-flex ai-center">
+                                                                                
+                                        <div class="file-info">File was regenerated</div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="card-loading" style="display: block;">
+                                <div class="top-row-loading">
+                                    <div class="animated-background">
+                                        <div class="background-masker mask-top-left"></div>
+                                        <div class="background-masker mask-top-right"></div>
+                                        <div class="background-masker mask-left"></div>
+                                        <div class="background-masker submask-top"></div>
+                                        <div class="background-masker submask-top-right"></div>
+                                        <div class="background-masker submask-bottom-right"></div>
+                                        <div class="background-masker submask-bottom"></div>
+                                        <div class="background-masker mask-bottom-left"></div>
+                                            
+                                    </div>
+                                </div>
+                                <div class="bottom-row-loading">
+                                    <div class="animated-background">
+                                        <div class="background-masker mask-top-left"></div>
+                                        <div class="background-masker mask-left"></div>
+                                        <div class="background-masker mask-top-right"></div>
+                                        <div class="background-masker mask-bottom-left"></div>
+                                        <div class="background-masker submask-top"></div>
+                                        <div class="background-masker submask-left"></div>
+                                        <div class="background-masker submask-top-right"></div>
+                                        <div class="background-masker submask-bottom"></div>
+                                        <div class="background-masker submask-bottom-right"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="export-card">
+                            <div class="top-row">
+                                <div class="format-data Tabular">
+                                    <div class="gray-text-row mb-05"><b>#1120</b> Queued on May 22, 2019 17:27</div>
+                                    <div class=" h3 mb-05">all type of questions with translations (ver. 2)</div>
+                                    <p class="mb-0 font-regular"><u class="font-bold">TABULAR</u> format. Interviews in <u class="font-bold">ALLSTATUSES</u>.</p>
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-row is-failed">
+                                <div class="export-destination Dropbox">
+                                    <p>Destination: Zip archive for download</p>
+                                    <div class="d-flex ai-center">              
+                                        <div class="text-danger">
+                                            <p class="mb-0">Error, unable to uploaded archive, </p>
+                                            <p class="mb-0">not enough free space (file size: 4245Mb)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="export-card">
+                            <div class="top-row">
+                                <div class="format-data">
+                                    <div class="gray-text-row mb-05"><b>#1120</b> Queued on May 22, 2019 17:27</div>
+                                    <div class=" h3 mb-05">all type of questions with translations (ver. 2)</div>
+                                    <p class="mb-0 font-regular"><u class="font-bold">TABULAR</u> format. Interviews in <u class="font-bold">ALLSTATUSES</u>.</p>
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-row">
+                                <div class="export-destination">
+                                    <p>Destination: Zip archive for download</p>
+                                    <div class="d-flex ai-center">
+                                        <span class="success-text status">Uploading</span>
+                                        <div class="cancelable-progress">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                                    <span class="sr-only">60% Complete</span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <button class="btn btn-link" type="button">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown aside-menu">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+                                    <span></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">sdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                    <li><a href="#">asdf</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </main>
+    <footer class="footer hold-transition">
+        <div class="container-fluid">
+            <div class="text-right">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-right">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+    </footer>
+        <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+        var $target = $( event.currentTarget );
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+    });
+    </script>
+    <script>
+        
+    </script>
+</body>
+</html>

@@ -18,10 +18,17 @@
     <link rel="stylesheet" type="text/css" href="css/markup-web-interview.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
     <script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+   
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+
+   
     <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script type="text/javascript" src="js/jquery.elastic.source.js"></script>
     <script>
@@ -53,27 +60,7 @@
             });
         });
     </script> 
-    <!-- <script>
-        $(document).ready(function () {
-            calcWidth();
-        });
-        $( window ).resize(function() {
-            calcWidth();
-        });
-        var calcWidth = function(){
-            var navbar = $(".navbar .container-fluid").width(); 
-            var brand = $(".navbar-header").outerWidth(); 
-            var right_side_nav = $(".navbar-right").outerWidth(); 
-            var left_side_nav = $(".navbar-nav:not(.navbar-right)")
-            var left_side_nav_width = 0;
-            if (left_side_nav.length > 0) 
-            {
-                left_side_nav_width = left_side_nav.outerWidth(); 
-                }
-            var navbar_text = navbar - brand - right_side_nav - left_side_nav_width - 30;
-            $(".navbar-text").outerWidth(navbar_text);
-        };
-    </script> -->
+
     <script>
         $(document).ready(function () 
         {
@@ -195,8 +182,9 @@
             });
         });
     </script>  
+
 </head>
-<body class="gray-background wide-navbar">
+<body class="gray-background">
     <header>
         <nav class="navbar navbar-inverse navbar-fixed-top navbar-web-interview" role="navigation">
            <div class="container-fluid ">
@@ -231,9 +219,7 @@
                             </ul>
                         </li>
                         <li> <button type="button" class="btn btn-default btn-link btn-icon"><span class="glyphicon glyphicon-sort"></span></button></li>
-                        <li><a href="#" title="Отправить ссылку для продолжения">
-                            Отправить ссылку для продолжения
-                        </a></li>
+                            
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -592,6 +578,15 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="question table-view scroller" id="question">
+
+
+
+                                <div id="myGrid" class="ag-theme-customStyles"></div>
+
+                                
+
                             </div>
                             <div class="question">
                                 <div class="dropdown aside-menu">
@@ -3355,5 +3350,245 @@
             })();
             //# sourceURL=pen.js
         </script>
+
+    <script>
+        function getDatePicker() {
+                // function to act as a class
+                function Datepicker() {}
+
+                // gets called once before the renderer is used
+                Datepicker.prototype.init = function(params) {
+                    // create the cell
+                    this.eInput = document.createElement('input');
+                    this.eInput.value = params.value;
+
+                    // https://jqueryui.com/datepicker/
+                    $(this.eInput).datepicker({
+                        dateFormat: 'dd/mm/yy'
+                    });
+                };
+
+                // gets called once when grid ready to insert the element
+                Datepicker.prototype.getGui = function() {
+                    return this.eInput;
+                };
+
+                // focus and select can be done after the gui is attached
+                Datepicker.prototype.afterGuiAttached = function() {
+                    this.eInput.focus();
+                    this.eInput.select();
+                };
+
+                // returns the new value after editing
+                Datepicker.prototype.getValue = function() {
+                    return this.eInput.value;
+                };
+
+                // any cleanup we need to be done here
+                Datepicker.prototype.destroy = function() {
+                    // but this example is simple, no cleanup, we could
+                    // even leave this method out as it's optional
+                };
+
+                // if true, then this editor will appear in a popup
+                Datepicker.prototype.isPopup = function() {
+                    // and we could leave this method out also, false is the default
+                    return false;
+                };
+
+                return Datepicker;
+            }
+
+            // set autoHeader height + row height
+
+            const MIN_HEIGHT = 16;
+
+            function autosizeHeaders(event) {
+                if (event.finished !== false) {
+                    event.api.setHeaderHeight(MIN_HEIGHT);
+                    const headerCells = document.querySelectorAll('#myGrid .ag-header-cell-label');
+                    let minHeight = MIN_HEIGHT;
+                    headerCells.forEach(cell => {
+                        minHeight = Math.max(minHeight, cell.scrollHeight);
+                    });
+
+                    // set header height to calculated height + padding (top: 8px, bottom: 8px)
+                    event.api.setHeaderHeight(minHeight);
+
+                    // set all rows height to auto
+                    gridOptions.api.resetRowHeights();
+
+                }
+            }
+            // specify the columns
+            var columnDefs = [
+                {headerName: "Flip", 
+                    field: "rosterTitle",  
+                    pinned: true, 
+                    editable: false,
+                    autoHeight: true
+                },
+                {headerName: "In which month of [...] did this enterprise begin operations?", 
+                    field: "month", 
+					cellRendererSelector:function (params) {
+						var answerRenderer = {
+							component: 'answerRenderer'
+						};
+						return answerRenderer;
+					},
+				    cellClass: function(params) { return (params.value==='04 - April' || params.value =='' ? '' :'has-warnings'); },
+                    autoHeight: true,
+                    headerClass: 'has-instruction'
+                },
+                {headerName: "Which country/countrise operate in (i.e. have sales in)?", 
+                    field: 'country',
+                    cellEditor: 'agSelectCellEditor',
+                    cellEditorParams: {
+                        values: ['Ukraine', 'Latvia', 'Macedonia', 'Romania', '(other)']
+                    },
+                    cellRendererSelector:function (params) {
+                        var answerRenderer = {
+                            component: 'answerRenderer'
+                        };
+
+                        return answerRenderer;
+                    },
+                    cellClass: function(params) { return (params.value==='Romania' ? 'disabled-question' :''); },
+                    autoHeight: true
+                },
+                {headerName: "In which country/countries does this enterprise have registered entities?", 
+                    field: "registration", 
+                    cellRendererSelector:function (params) {
+                        var answerRenderer = {
+                            component: 'answerRenderer'
+                        };
+                        return answerRenderer;
+                    },
+                    cellClass: function(params) { return (params.value==='Latvia' || params.value =='' ? '' :'has-error'); },
+                    autoHeight: true
+                },
+                {headerName: "Is one or more of the enterprise founders from the region in which you operate?", field: "enterprise", 
+                    cellRendererSelector:function (params) {
+                        var answerRenderer = {
+                            component: 'answerRenderer'
+                        };
+                        return answerRenderer;
+                    },
+                    cellClass: function(params) { return (this.value == null ? 'not-applicable' :''); },
+                    autoHeight: true
+                },
+                {headerName: "When your enterprise became an NGO?", 
+                    field: "NGO", 
+                    editable: true, 
+                    cellRendererSelector:function (params) {
+                        var answerRenderer = {
+                            component: 'answerRenderer'
+                        };
+
+                        return answerRenderer;
+                    },
+                    cellEditor: 'datePicker',
+                    autoHeight: true
+                }
+            ];
+
+
+            // specify the data
+
+                var rowData = [
+                    {rosterTitle: 'Banchee', month: "04 - April", country: "Ukraine", registration: "Latvia", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "", country: "Ukraine", registration: "Latvia", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "04 - April", country: "Ukraine", registration: "Latvia", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "04 - April", country: "Romania", registration: "Latvia", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "04 - April", country: "Ukraine", registration: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "06 - April", country: "Ukraine", registration: "Latvia", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "04 - April", country: "Ukraine", registration: "Macedonia", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "04 - April", country: "Ukraine", registration: "Latvia", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "04 - April", country: "", registration: "Latvia", enterprise: "Yes", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "04 - April", country: 'Ukraine', registration: "Latvia", enterprise: "maybe", NGO: "24/08/2008"},
+                    {rosterTitle: 'Banchee', month: "04 - April", country: "Ukraine", registration: "Latvia", enterprise: "Yes", NGO: "24/08/2008"}
+
+                ];
+            var defaultColDef = {
+                // set every column width
+                width: 220,
+                height: 38,
+                resizable: true,
+                // make every column editable
+                editable: true
+                
+            };
+            // let the grid know which columns and what data to use
+            var gridOptions = {
+
+                columnDefs: columnDefs,
+                defaultColDef: defaultColDef,
+                rowHeight: 275,
+                rowData: rowData,
+                domLayout:'autoHeight',
+                headerHeight: 50,
+                onColumnResized: autosizeHeaders,
+				components:{
+                    datePicker: getDatePicker(),
+					answerRenderer: AnswerRenderer
+				},
+                onGridReady: autosizeHeaders
+            };
+            
+			function AnswerRenderer() {}	
+			AnswerRenderer.prototype.init = function (params) {
+				this.eGui = document.createElement('div');
+                var className;
+                switch(params.value){
+                    case '06 - April':
+                        className = "has-error";
+                        break;
+                    case 'Romania':
+                        className = 'has-warnings';
+                        break;
+                    case 'maybe':
+                        className = 'disabled-question';
+                        break;
+                    case '':
+                        className = 'not-applicable';
+                        break;
+                    case 'Macedonia':
+                        className = 'syncing';
+                        break;
+                    default: 
+                        className = ''; 
+                }
+                
+				this.eGui.className = 'cell-unit ' + className;
+				this.eGui.innerHTML = '<a class="cell-content has-tooltip" template="" tabindex="0"  role="button" data-placement="auto top" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here\'s some amazing content. It\'s very engaging. Right?" style="display-block"> ' + params.value + ' </a><div class=""></div><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><span class="sr-only">60% Complete</span></div></div>';
+
+
+			};
+
+			AnswerRenderer.prototype.getGui = function () {
+				return this.eGui;
+			};
+
+            
+    // setup the grid after the page has finished loading
+        document.addEventListener('DOMContentLoaded', function () {
+            var gridDiv = document.querySelector('#myGrid');
+            new agGrid.Grid(gridDiv, gridOptions);
+            
+        });
+     </script>
+<script>
+    //new PerfectScrollbar('.ag-theme-customStyles');
+
+    </script>
+    <script>
+        $(document).ready(function(){
+          $('.has-tooltip').popover({
+            trigger: "outside-click",
+            container: 'body',
+            template: '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-content instruction-tooltip"><h6>Error</h6><template><span></span></template></div></div>'
+          });  
+        });
+    </script>
 </body>
 </html>

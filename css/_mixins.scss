@@ -336,6 +336,7 @@
     & ~ label .tick {
         display: inline-block;
         @include square(18px);
+        min-width: 18px;
         background: transparent url("#{$assetsPath}/img/questionnaire-sprite.png") no-repeat;
         vertical-align: middle;
         background-size: 793px 18px;
@@ -555,7 +556,10 @@
 		& > *{
 			margin-left: 10px;
 		}
-		.btn-group.bootstrap-select, .combo-box, .input-group, .field{
+        .btn-group.bootstrap-select, 
+	    .dropdown.bootstrap-select, 
+        .combo-box, 
+        .input-group, .field{
 			margin-left: 0 !important;
 		}
 	}
@@ -566,4 +570,24 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+}
+%logo-icon{
+    .logo-icon{
+        img{
+            display: block;
+            max-height: 120px;
+            width: auto;
+        }
+        .default-icon{
+            display: none;
+        }
+        &.no-logo{
+            img{
+                display: none;
+            }
+            .default-icon{
+                display: block;
+            }
+        }
+    }	
 }

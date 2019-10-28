@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HQ-questionnaires</title>
+	<link rel='icon' sizes='192x192' href='img/identity/favicon-hq-192x192.png' > 
+				<link rel='apple-touch-icon' sizes='180x180' href='img/identity/favicon-hq-180x180.png'>
+				<link rel='apple-touch-icon' sizes='152x152' href='img/identity/favicon-hq-152x152.png'>
+				<link rel='apple-touch-icon' sizes='144x144' href='img/identity/favicon-hq-144x144.png'>
+				<link rel='apple-touch-icon' sizes='120x120' href='img/identity/favicon-hq-120x120.png'>
+				<link rel='apple-touch-icon' sizes='114x114' href='img/identity/favicon-hq-114x114.png'>
+				<link rel='apple-touch-icon' sizes='76x76' href='img/identity/favicon-hq-76x76.png'>
+				<link rel='apple-touch-icon' sizes='72x72' href='img/identity/favicon-hq-72x72.png'>
+				<link rel='apple-touch-icon' href='img/identity/favicon-hq.png'>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+	<link rel="stylesheet" type="text/css" href="css/markup.css">
+	<link rel="stylesheet" type="text/css" href="css/markup-specific.css">
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap-sass/assets/javascript/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggle").click(function () {
+              $(".navbar-collapse").fadeToggle();
+              $(".navbar-collapse").animate({height: '100%'}, 0);
+              $(".top-menu").toggleClass("top-animate");
+              $(".mid-menu").toggleClass("mid-animate");
+              $(".bottom-menu").toggleClass("bottom-animate");
+              $("main").toggleClass("hidden");
+            });
+        });
+    </script> 
+</head>
+<body class="wide-navbar">
+    <header class="">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="active-page">Questionnaires</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-menu"></span>
+                        <span class="icon-bar mid-menu"></span>
+                        <span class="icon-bar bottom-menu"></span>
+                    </button>
+                    <a href="#" class="badge badge_nav">42</a>
+                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet" class="number-of-synchronized-interviews">
+                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                        <span class="sync-queue-size">16287</span>
+                    </a>
+                    <div class="navbar-brand">
+                        <a class="logo" href="#"></a>
+                        <a class="brand-name" title="Headquarters" href="#">Headquarters</a>
+                    </div>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" title="Teams" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Interviews">Interviews</a></li>
+                        <li class="active"><a href="#" title="Questionnaires">Questionnaires</a></li>
+                        <li><a href="#" title="Data Export">Data Export</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="glow-animate"  id="IncomingPackagesQueueIndicator">
+                                    <a href="javascript:void( 0 );" title="Number of synchronized interviews, but unprocessed yet">
+                                        <i class="glyphicon glyphicon-cloud-upload"></i>
+                                        <span class="sync-queue-size">16287</span>
+                                    </a>
+                                </li>
+                        <li><a href="#" title="Notifactions" class="notifications"><span class="badge badge_nav">42</span>Notifactions</a></li>
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Supervisorr-3">Supervisorr-3<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Manage account</a></li>
+                                <li><a href="#">Logoff</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>  
+    </header> 
+    <main class="">
+        <div class="container">
+            <div class="row">
+                <div class="page-header">
+                    <ol class="breadcrumb">
+                        <li><a href="">Survey setup/</a></li>
+                    </ol>
+                    <h1>
+                        Mass Mailing Setup
+                    </h1> 
+                    <div class="">
+                        <p>You can set up mail provider for bulk mailings, <br /> used for web interview invitations mail list</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-default btn-lg btn-turn-off mb-30">turn off</button>
+                </div>
+            </div>
+            <div class="row mb-30">
+                <div class="col-md-12">
+                    <form class="form-container">
+                        <h2>Appearance</h2>
+                        <div class="form-inline">
+                            <div class="form-group has-error">
+                                <label for="exampleInputEmail2" class="h5">Sender Email</label>
+                                <div class="field">
+                                    <input type="email" value="asdf" class="form-control with-clear-btn" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+                                    <button type="button" class="btn btn-link btn-clear">
+                                        <span></span>
+                                    </button>
+                                    <span class="help-block">Name of the sender that will appear in the FROM field of the incoming messages.
+                                    The sender name field is required.</span>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName22" class="h5">Reply-To email address</label>
+                                    <div class="field">
+                                        <input type="text" class="form-control with-clear-btn" id="exampleInputName22" placeholder="">
+                                        <button type="button" class="btn btn-link btn-clear">
+                                            <span></span>
+                                        </button>
+                                        <span class="gray-text help-block">The email address to which replies will be sent. By default, replies are sent to the original sender's email address</span> 
+                                    </div>
+                                    
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputName2" class="h5">Sender Organization Name</label>
+                            <div class="field">
+                                <input type="text" class="form-control with-clear-btn" id="exampleInputName2" placeholder="">
+                                <button type="button" class="btn btn-link btn-clear">
+                                    <span></span>
+                                </button>
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="form-group mb-30 has-error">
+                            <label for="exampleInputName2s2" class="h5">Address</label>
+                            <div class="field answered">
+                                <input type="text" class="form-control with-clear-btn" id="exampleInputName2s2" placeholder="" value="asldkfja;sdflkj">
+                                <button type="button" class="btn btn-link btn-clear">
+                                    <span></span>
+                                </button>
+                            </div>
+                            <span class="help-block text-danger">The sender name field is required.</span>
+                        </div>
+                        <h2>Select email sending service provider</h2>
+                        <div class="radio-accordion mb-30">
+                            <div class="radio mb-1">
+                                <input class="wb-radio" type="radio" name="example" id="1q1q">
+                                <label for="1q1q">
+                                    <span class="tick"></span>Amazon Simple Email Service (Amazon SES)
+                                </label>
+                                <div class="extended-block">
+                                    <div class="wrapper">
+                                        <div class="form-group">
+                                            <label for="exampleInputNames2" class="h5">AWS Account ID</label>
+                                            <div class="field">
+                                                <input type="text" class="form-control with-clear-btn" id="exampleInputNames2" placeholder="">
+                                                <button type="button" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <span class="gray-text help-block">You can find the AWS account ID from AWS Managment Console</span> 
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputNames2a" class="h5">AWS Secret Access Key</label>
+                                            <div class="field">
+                                                <input type="text" class="form-control with-clear-btn" id="exampleInputNames2a" placeholder="">
+                                                <button type="button" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <span class="gray-text help-block">Found in Security Credentials at AWS Management Console</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="radio">
+                                <input class="wb-radio" type="radio" name="example" id="2w">
+                                <label for="2w">
+                                    <span class="tick"></span>Sendgrid by Twilio
+                                </label>
+                                <div class="extended-block">
+                                    <div class="wrapper">
+                                        <div class="form-group">
+                                            <label for="exampleInputNames2as" class="h5">AWS Account ID</label>
+                                            <div class="field">
+                                                <input type="text" class="form-control with-clear-btn" id="exampleInputNames2as" placeholder="">
+                                                <button type="button" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <span class="gray-text help-block">You can find the AWS account ID from AWS Managment Console</span> 
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputNames2aas" class="h5">AWS Secret Access Key</label>
+                                            <div class="field">
+                                                <input type="text" class="form-control with-clear-btn" id="exampleInputNames2aas" placeholder="">
+                                                <button type="button" class="btn btn-link btn-clear">
+                                                    <span></span>
+                                                </button>
+                                                <span class="gray-text help-block">Found in Security Credentials at AWS Management Console</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-success btn-lg">Save</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 test-email-block">
+                    <p class="text-success">Mailing system is succeessfully configured and on</p>
+                    <p class="mb-30">Test email was sent and received on April 12, at 20:21</p>
+                    <button type="button" class="btn btn-default">Send test e-mail</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer hold-transition">
+        <div class="container-fluid">
+            <div class="text-right">
+            &copy; 2016 <a href="http://www.worldbankgroup.org">The World Bank Group</a>, All Rights Reserved. <a href="http://go.worldbank.org/OS6V7NIUD0">Legal</a>.
+            </div>
+            <div class="text-right">
+            5.12.0 (build 13156) 
+                <span>|</span>
+                <a href="/api/InterviewerSync/GetLatestVersion">Get Interviewer App</a>
+            </div>
+        </div>
+    </footer>
+        <script type="text/javascript">
+        $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+        var $target = $( event.currentTarget );
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+        return false;
+    });
+    </script>
+    <script>
+        $(function() {
+            $.each($('.form-control'), function( index, value ) {
+                if ($(this).val().length > 0) {
+                    $(this).parent(".field").addClass("answered");
+                }
+                
+                $(this).change(function() {
+                    if ($(this).val().length > 0) {
+                        $(this).parent(".field").addClass("answered");
+                    }
+                        else{
+                        $(this).parent(".field").removeClass("answered");
+                    }
+                });
+                $(this).parent().children(".btn-clear").click(function() {  
+                    $(this).parent().removeClass("answered");
+                    $(this).parent().find("input").val('');
+                });             
+            });
+
+        });
+    </script>
+</body>
+</html>
